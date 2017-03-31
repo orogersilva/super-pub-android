@@ -11,11 +11,13 @@ ext {
     espressoVersion = '2.2.2'
     junitVersion = '4.12'
     kotlinVersion = '1.0.6'
+    realmVersion = '3.0.0'
 
     // CLASSPATH's
 
     androidBuildTools = "com.android.tools.build:gradle:$androidGradleBuildToolsVersion"
     kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    realmPlugin = "io.realm:realm-gradle-plugin:$realmVersion"
 
     // LIBS
 
@@ -50,6 +52,7 @@ ext {
 
     appPlugins = [
             'com.android.application',
-            'kotlin-android'
+            'kotlin-android',
+            'realm-android'
     ]
 }
