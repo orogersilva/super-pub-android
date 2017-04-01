@@ -53,9 +53,11 @@ android {
 
         debug {
 
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     rootProject.file('tools/proguard/rules-proguard-debug.pro')
+
+            testProguardFile rootProject.file('tools/proguard/test-rules-proguard-debug.pro')
 
             signingConfig signingConfigs.debug
         }

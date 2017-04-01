@@ -3,15 +3,16 @@ ext {
     // VERSIONS
 
     // Libs
-    androidGradleBuildToolsVersion = '2.4.0-alpha3'
+    androidGradleBuildToolsVersion = '2.3.0'
     androidSDKVersion = '25.3.1'
-    
 
     constraintLayoutVersion = '1.0.1'
     espressoVersion = '2.2.2'
     junitVersion = '4.12'
     kotlinVersion = '1.0.6'
     realmVersion = '3.0.0'
+    retrofitVersion = '2.2.0'
+    rxjava2Version = '2.0.8'
 
     // CLASSPATH's
 
@@ -27,7 +28,9 @@ ext {
     ]
 
     def libs = [
-            kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion]
+            kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
+            retrofit: [group: 'com.squareup.retrofit2', name: 'retrofit', version: retrofitVersion],
+            rxjava2: [group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version]
     ]
 
     def testLibs = [
@@ -42,6 +45,8 @@ ext {
             [configuration: 'compile', dependency: androidLibs.constraintLayout],
 
             [configuration: 'compile', dependency: libs.kotlin],
+            [configuration: 'compile', dependency: libs.retrofit],
+            [configuration: 'compile', dependency: libs.rxjava2],
 
             [configuration: 'androidTestCompile', dependency: testLibs.espresso,
              options: { exclude group: 'com.android.support', module: 'support-annotations' }],
