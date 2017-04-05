@@ -11,6 +11,7 @@ ext {
     gsonVersion = '2.8.0'
     junitVersion = '4.12'
     kotlinVersion = '1.0.7'
+    leakCanaryVersion = '1.5'
     realmVersion = '3.0.0'
     retrofitVersion = '2.2.0'
     rxjava2Version = '2.0.8'
@@ -32,6 +33,7 @@ ext {
     def libs = [
             gson: [group: 'com.google.code.gson', name: 'gson', version: gsonVersion],
             kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
+            leakCanary: [group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: leakCanaryVersion],
             retrofit: [group: 'com.squareup.retrofit2', name: 'retrofit', version: retrofitVersion],
             rxjava2: [group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version],
             stetho: [group: 'com.facebook.stetho', name: 'stetho', version: stethoVersion]
@@ -50,6 +52,7 @@ ext {
 
             [configuration: 'compile', dependency: libs.gson],
             [configuration: 'compile', dependency: libs.kotlin],
+            [configuration: 'debugCompile', dependency: libs.leakCanary],
             [configuration: 'compile', dependency: libs.retrofit],
             [configuration: 'compile', dependency: libs.rxjava2],
             [configuration: 'compile', dependency: libs.stetho],
