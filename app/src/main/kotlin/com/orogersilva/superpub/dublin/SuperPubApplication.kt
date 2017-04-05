@@ -2,6 +2,7 @@ package com.orogersilva.superpub.dublin
 
 import android.app.Application
 import android.os.StrictMode
+import com.facebook.stetho.Stetho
 
 /**
  * Created by orogersilva on 3/31/2017.
@@ -27,6 +28,8 @@ class SuperPubApplication : Application() {
                     .penaltyLog()
                     .build()
             )
+
+            Stetho.initializeWithDefaults(this);
         }
     }
 

@@ -40,5 +40,10 @@ object PubLocalDataSource : PubDataSource {
     override fun getPubs(): Observable<List<Pub>> =
             Observable.just(realm?.copyFromRealm(realm?.where(Pub::class.java)?.findAll()))
 
+    override fun deletePubs() {
+
+        realm?.executeTransaction { realm?.deleteAll() }
+    }
+
     // endregion
 }

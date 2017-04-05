@@ -1,29 +1,57 @@
 package com.orogersilva.superpub.dublin.model
 
+import com.google.gson.annotations.SerializedName
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
 /**
  * Created by orogersilva on 3/31/2017.
  */
-open class Pub(@PrimaryKey var id: Long = 0,
-               var name: String = "",
-               var phone: String? = null,
-               var rating: Double = 0.0,
-               var ratingCount: Int = 0,
-               var checkins: Int = 0,
-               var likes: Int = 0,
-               var coverImageUrl: String? = null,
-               var pictureImageUrl: String? = null,
-               var latitude: Double = 0.0,
-               var longitude: Double = 0.0,
-               var street: String? = null,
-               var hasMinimumRequirement: Boolean = false) : RealmObject(), Comparable<Pub> {
+open class Pub(@PrimaryKey @SerializedName("id") var id: Long = 0,
+               @SerializedName("name") var name: String = "",
+               @SerializedName("phone") var phone: String? = null,
+               @SerializedName("rating") var rating: Double = 0.0,
+               @SerializedName("ratingCount") var ratingCount: Int = 0,
+               @SerializedName("checkins") var checkins: Int = 0,
+               @SerializedName("likes") var likes: Int = 0,
+               @SerializedName("coverImageUrl") var coverImageUrl: String? = null,
+               @SerializedName("pictureImageUrl") var pictureImageUrl: String? = null,
+               @SerializedName("latitude") var latitude: Double = 0.0,
+               @SerializedName("longitude") var longitude: Double = 0.0,
+               @SerializedName("street") var street: String? = null,
+               @SerializedName("hasMinimumRequirement") var hasMinimumRequirement: Boolean = false) : RealmObject(), Comparable<Pub> {
+
+    // region PROPERTIES
+
+    // var superPubRating: Double = 0.0
+
+    // endregion
 
     // region OVERRIDED METHODS
 
-    override fun compareTo(other: Pub): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    // override fun compareTo(other: Pub) = other.superPubRating.compareTo(superPubRating)
+    override fun compareTo(other: Pub) = 0
+
+    override fun equals(other: Any?): Boolean {
+
+        if (this === other) return true
+        if (other == null || javaClass != other.javaClass) return false
+
+        val pub = other as Pub
+
+        return id == pub.id &&
+                name.equals(pub.name) &&
+                phone == pub.phone &&
+                Math.abs(rating - pub.rating) < 0.01 &&
+                ratingCount == pub.ratingCount &&
+                checkins == pub.checkins &&
+                likes == pub.likes &&
+                coverImageUrl == pub.coverImageUrl &&
+                pictureImageUrl == pub.pictureImageUrl &&
+                Math.abs(latitude - pub.latitude) < 0.0000001 &&
+                Math.abs(longitude - pub.longitude) < 0.0000001 &&
+                street == pub.street &&
+                hasMinimumRequirement == pub.hasMinimumRequirement
     }
 
     // endregion
