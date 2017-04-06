@@ -31,7 +31,7 @@ class PubLocalDataSourceTest {
     companion object {
 
         private lateinit var context: Context
-        private var pubLocalDataSource: PubDataSource? = null
+        private var pubLocalDataSource: PubLocalDataSource? = null
 
         @BeforeClass @JvmStatic fun setupClass() {
 
@@ -45,12 +45,12 @@ class PubLocalDataSourceTest {
 
             val realm = Realm.getInstance(realmConfiguration)
 
-            pubLocalDataSource = PubLocalDataSource.getInstance(realm)
+            pubLocalDataSource = PubLocalDataSource(realm)
         }
 
         @AfterClass @JvmStatic fun teardownClass() {
 
-            PubLocalDataSource.destroyInstance()
+            pubLocalDataSource?.destroyInstance()
             pubLocalDataSource = null
         }
     }

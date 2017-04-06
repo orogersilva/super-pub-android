@@ -7,8 +7,10 @@ ext {
     androidSDKVersion = '25.3.1'
 
     constraintLayoutVersion = '1.0.1'
+    daggerVersion = '2.9'
     espressoVersion = '2.2.2'
     gsonVersion = '2.8.0'
+    javaxAnnotationVersion = '1.0'
     junitVersion = '4.12'
     kotlinVersion = '1.0.7'
     leakCanaryVersion = '1.5'
@@ -31,7 +33,10 @@ ext {
     ]
 
     def libs = [
+            dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
+            daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],
             gson: [group: 'com.google.code.gson', name: 'gson', version: gsonVersion],
+            javaxAnnotation: [group: 'javax.annotation', name: 'jsr250-api', version: javaxAnnotationVersion],
             kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
             leakCanary: [group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: leakCanaryVersion],
             retrofit: [group: 'com.squareup.retrofit2', name: 'retrofit', version: retrofitVersion],
@@ -50,7 +55,10 @@ ext {
             [configuration: 'compile', dependency: androidLibs.appCompat],
             [configuration: 'compile', dependency: androidLibs.constraintLayout],
 
+            [configuration: 'compile', dependency: libs.dagger],
+            [configuration: 'kapt', dependency: libs.daggerCompiler],
             [configuration: 'compile', dependency: libs.gson],
+            [configuration: 'provided', dependency: libs.javaxAnnotation],
             [configuration: 'compile', dependency: libs.kotlin],
             [configuration: 'debugCompile', dependency: libs.leakCanary],
             [configuration: 'compile', dependency: libs.retrofit],
@@ -67,6 +75,7 @@ ext {
     appPlugins = [
             'com.android.application',
             'kotlin-android',
+            'kotlin-kapt',
             'realm-android'
     ]
 }
