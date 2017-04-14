@@ -15,11 +15,11 @@ import javax.inject.Singleton
  * Created by orogersilva on 4/5/2017.
  */
 @Module
-class PubRepositoryModule @Inject constructor(private val context: Context) {
+class PubRepositoryModule(private val context: Context) {
 
     // region PROVIDERS
 
-    @Provides fun provideRealm(context: Context): Realm {
+    @Provides fun provideRealm(): Realm? {
 
         Realm.init(context)
 

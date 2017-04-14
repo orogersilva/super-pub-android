@@ -5,13 +5,14 @@ import android.content.Intent
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import javax.inject.Inject
 
 /**
  * Created by orogersilva on 4/13/2017.
  */
-class LoginPresenter(private val loginView: LoginContract.View,
-                     private val loginManager: LoginManager,
-                     private val callbackManager: CallbackManager) : LoginContract.Presenter {
+class LoginPresenter @Inject constructor(private val loginView: LoginContract.View,
+                                         private val loginManager: LoginManager,
+                                         private val callbackManager: CallbackManager) : LoginContract.Presenter {
 
     // region INITIALIZER BLOCK
 

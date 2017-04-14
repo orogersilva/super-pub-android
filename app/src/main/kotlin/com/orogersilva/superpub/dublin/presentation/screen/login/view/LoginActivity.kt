@@ -6,11 +6,15 @@ import android.support.v7.app.AppCompatActivity
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.orogersilva.superpub.dublin.R
+import com.orogersilva.superpub.dublin.di.components.DaggerLoginComponent
+import com.orogersilva.superpub.dublin.di.modules.FacebookSdkModule
+import com.orogersilva.superpub.dublin.di.modules.LoginPresenterModule
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginPresenter
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.view.PubsActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.toolbar_main.*
+import javax.inject.Inject
 
 /**
  * Created by orogersilva on 4/8/2017.
@@ -19,7 +23,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     // region PROPERTIES
 
-    private lateinit var loginPresenter: LoginContract.Presenter
+    @Inject lateinit var loginPresenter: LoginContract.Presenter
 
     // endregion
 
@@ -34,7 +38,10 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
         setSupportActionBar(toolbar)
 
-        loginPresenter = LoginPresenter(this, LoginManager.getInstance(), CallbackManager.Factory.create())
+        DaggerLoginComponent.builder()
+                .loginPresenterModule(LoginPresenterModule(this))
+                .facebookSdkModule(FacebookSdkModule()).build()
+                .inject(this)
 
         loginRippleView.setOnRippleCompleteListener { loginPresenter.login() }
     }
