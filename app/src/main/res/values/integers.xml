@@ -3,4 +3,6 @@
 
     <integer name="ripple_effect_time">200</integer>
 
+    <integer name="login_screen_gradient_angle">135</integer>
+
 </resources>

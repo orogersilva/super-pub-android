@@ -2,6 +2,7 @@ package com.orogersilva.superpub.dublin
 
 import android.app.Application
 import android.os.StrictMode
+import com.facebook.FacebookSdk
 import com.facebook.stetho.Stetho
 import com.squareup.leakcanary.LeakCanary
 

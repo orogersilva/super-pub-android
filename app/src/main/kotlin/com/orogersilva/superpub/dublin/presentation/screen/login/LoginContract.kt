@@ -1,5 +1,6 @@
 package com.orogersilva.superpub.dublin.presentation.screen.login
 
+import android.content.Intent
 import com.orogersilva.superpub.dublin.presentation.screen.BasePresenter
 import com.orogersilva.superpub.dublin.presentation.screen.BaseView
 
@@ -14,7 +15,7 @@ interface LoginContract {
 
         // region METHODS
 
-
+        fun goToPubsScreen()
 
         // endregion
     }
@@ -23,7 +24,9 @@ interface LoginContract {
 
         // region METHODS
 
-
+        fun login()
+        fun isLogged(): Boolean
+        fun onScreenResult(requestCode: Int, resultCode: Int, data: Intent?)
 
         // endregion
     }

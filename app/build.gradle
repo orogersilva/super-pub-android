@@ -11,6 +11,8 @@ android {
         applicationId "com.orogersilva.superpub.dublin"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
     }
 
     signingConfigs {

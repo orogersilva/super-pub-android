@@ -5,7 +5,7 @@
     <gradient
         android:startColor="@color/black_232526"
         android:endColor="@color/black_414345"
-        android:angle="135"
+        android:angle="@integer/login_screen_gradient_angle"
         />
 
 </shape>
