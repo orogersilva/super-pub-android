@@ -2,6 +2,7 @@ package com.orogersilva.superpub.dublin.presentation.screen.login
 
 import android.app.Activity
 import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
@@ -50,7 +51,7 @@ class LoginPresenter @Inject constructor(private val loginView: LoginContract.Vi
 
     override fun login() {
 
-        loginManager.logInWithReadPermissions(loginView as Activity, listOf("public_profile"))
+        loginManager.logInWithReadPermissions(loginView as AppCompatActivity, listOf("public_profile"))
     }
 
     override fun isLogged(): Boolean = AccessToken.getCurrentAccessToken() != null

@@ -14,9 +14,9 @@ class FacebookSdkModule {
 
     // region PROVIDERS
 
-    @Singleton @Provides fun provideLoginManager(): LoginManager = LoginManager.getInstance()
+    @Singleton @Provides open fun provideLoginManager(): LoginManager = LoginManager.getInstance()
 
-    @Singleton @Provides fun provideCallbackManager(): CallbackManager = CallbackManager.Factory.create()
+    @Singleton @Provides open fun provideCallbackManager(): CallbackManager = CallbackManager.Factory.create()
 
     // endregion
 }

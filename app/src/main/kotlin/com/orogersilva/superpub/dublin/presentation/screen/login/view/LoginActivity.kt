@@ -12,6 +12,7 @@ import com.orogersilva.superpub.dublin.di.modules.LoginPresenterModule
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginPresenter
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.view.PubsActivity
+import com.orogersilva.superpub.dublin.shared.intentFor
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 import javax.inject.Inject
@@ -64,9 +65,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     override fun goToPubsScreen() {
 
-        val pubsIntent = Intent(this, PubsActivity::class.java)
-
-        startActivity(pubsIntent)
+        startActivity(intentFor(PubsActivity::class.java))
 
         finish()
     }

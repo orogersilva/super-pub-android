@@ -30,10 +30,7 @@ class PubRepositoryModule(private val context: Context) {
         return Realm.getInstance(realmConfiguration)
     }
 
-    @Singleton @Provides @Local fun providePubLocalDataSource(realm: Realm?): PubDataSource {
-
-        return PubLocalDataSource(realm)
-    }
+    @Singleton @Provides @Local fun providePubLocalDataSource(realm: Realm?): PubDataSource = PubLocalDataSource(realm)
 
     // endregion
 }

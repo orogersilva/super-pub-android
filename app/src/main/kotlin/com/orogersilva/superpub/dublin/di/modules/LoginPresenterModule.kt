@@ -15,9 +15,9 @@ class LoginPresenterModule(private val loginView: LoginContract.View) {
 
     // region PROVIDERS
 
-    @Provides fun provideLoginPresenter(loginManager: LoginManager,
-                                        callbackManager: CallbackManager):
-            LoginContract.Presenter = LoginPresenter(loginView, loginManager, callbackManager)
+    @Provides open fun provideLoginPresenter(loginManager: LoginManager,
+                                        callbackManager: CallbackManager): LoginContract.Presenter =
+            LoginPresenter(loginView, loginManager, callbackManager)
 
     // endregion
 }
