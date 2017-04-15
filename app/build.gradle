@@ -67,6 +67,7 @@ android {
         release {
 
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     rootProject.file('tools/proguard/rules-proguard.pro')
 
