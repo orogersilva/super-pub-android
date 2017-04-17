@@ -4,12 +4,20 @@ import android.app.Application
 import android.os.StrictMode
 import com.facebook.FacebookSdk
 import com.facebook.stetho.Stetho
+import com.orogersilva.superpub.dublin.di.components.ApplicationComponent
+import com.orogersilva.superpub.dublin.di.components.DaggerApplicationComponent
 import com.squareup.leakcanary.LeakCanary
 
 /**
  * Created by orogersilva on 3/31/2017.
  */
 class SuperPubApplication : Application() {
+
+    // region PROPERTIES
+
+    lateinit var applicationComponent: ApplicationComponent
+
+    // endregion
 
     // region APPLICATION LIFECYCLE METHODS
 
@@ -37,6 +45,9 @@ class SuperPubApplication : Application() {
 
             Stetho.initializeWithDefaults(this)
         }
+
+        applicationComponent = DaggerApplicationComponent.builder()
+                .build()
     }
 
     // endregion

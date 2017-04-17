@@ -6,12 +6,12 @@ import android.support.v7.app.AppCompatActivity
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.orogersilva.superpub.dublin.R
-import com.orogersilva.superpub.dublin.di.components.DaggerLoginComponent
 import com.orogersilva.superpub.dublin.di.modules.FacebookSdkModule
 import com.orogersilva.superpub.dublin.di.modules.LoginPresenterModule
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginPresenter
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.view.PubsActivity
+import com.orogersilva.superpub.dublin.shared.app
 import com.orogersilva.superpub.dublin.shared.intentFor
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.toolbar_main.*
@@ -26,6 +26,12 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     @Inject lateinit var loginPresenter: LoginContract.Presenter
 
+    private val loginComponent by lazy {
+        app().applicationComponent.newLoginComponent(
+                LoginPresenterModule(this), FacebookSdkModule()
+        )
+    }
+
     // endregion
 
     // region ACTIVITY LIFECYCLE METHODS
@@ -39,10 +45,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
         setSupportActionBar(toolbar)
 
-        DaggerLoginComponent.builder()
-                .loginPresenterModule(LoginPresenterModule(this))
-                .facebookSdkModule(FacebookSdkModule()).build()
-                .inject(this)
+        loginComponent.inject(this)
 
         loginRippleView.setOnRippleCompleteListener { loginPresenter.login() }
     }

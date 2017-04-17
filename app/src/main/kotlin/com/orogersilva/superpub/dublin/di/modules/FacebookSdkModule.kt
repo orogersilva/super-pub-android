@@ -2,6 +2,7 @@ package com.orogersilva.superpub.dublin.di.modules
 
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
+import com.orogersilva.superpub.dublin.di.scopes.LoginScope
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -14,9 +15,9 @@ class FacebookSdkModule {
 
     // region PROVIDERS
 
-    @Singleton @Provides open fun provideLoginManager(): LoginManager = LoginManager.getInstance()
+    @Provides @LoginScope open fun provideLoginManager(): LoginManager = LoginManager.getInstance()
 
-    @Singleton @Provides open fun provideCallbackManager(): CallbackManager = CallbackManager.Factory.create()
+    @Provides @LoginScope open fun provideCallbackManager(): CallbackManager = CallbackManager.Factory.create()
 
     // endregion
 }
