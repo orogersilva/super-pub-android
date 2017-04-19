@@ -15,7 +15,7 @@ import javax.inject.Singleton
  * Created by orogersilva on 4/5/2017.
  */
 @Module
-class PubRepositoryModule(private val context: Context) {
+open class PubRepositoryModule(private val context: Context) {
 
     // region PROVIDERS
 

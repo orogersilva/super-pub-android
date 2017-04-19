@@ -11,7 +11,7 @@ import javax.inject.Singleton
  * Created by orogersilva on 4/14/2017.
  */
 @Module
-class FacebookSdkModule {
+open class FacebookSdkModule {
 
     // region PROVIDERS
 
