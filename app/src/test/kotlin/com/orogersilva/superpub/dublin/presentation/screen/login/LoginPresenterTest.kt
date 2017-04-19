@@ -1,5 +1,6 @@
 package com.orogersilva.superpub.dublin.presentation.screen.login
 
+import android.hardware.camera2.params.Face
 import android.support.v7.app.AppCompatActivity
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
@@ -7,6 +8,7 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
+import com.orogersilva.superpub.dublin.di.components.ApplicationComponent
 import com.orogersilva.superpub.dublin.di.components.LoginComponent
 import com.orogersilva.superpub.dublin.di.modules.FacebookSdkModule
 import com.orogersilva.superpub.dublin.di.modules.LoginPresenterModule
@@ -24,12 +26,12 @@ class LoginPresenterTest {
 
     // region PROPERTIES
 
-    private val loginView: LoginActivity = mock()
+    @Rule @JvmField val daggerMockRule: DaggerMockRule<ApplicationComponent> =
+            DaggerMockRule(ApplicationComponent::class.java)
+
+    private val loginView: LoginContract.View = mock()
     private val loginManager: LoginManager = mock()
     private val callbackManager: CallbackManager = mock()
-
-    @Rule @JvmField val daggerMockRule: DaggerMockRule<LoginComponent> =
-            DaggerMockRule(LoginComponent::class.java, LoginPresenterModule(loginView), FacebookSdkModule())
 
     @InjectFromComponent(LoginActivity::class) lateinit var loginPresenter: LoginContract.Presenter
 

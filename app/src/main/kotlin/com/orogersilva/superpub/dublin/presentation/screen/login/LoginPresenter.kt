@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import javax.inject.Inject
 
 /**

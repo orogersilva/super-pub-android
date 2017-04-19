@@ -27,9 +27,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     @Inject lateinit var loginPresenter: LoginContract.Presenter
 
     private val loginComponent by lazy {
-        app().applicationComponent.newLoginComponent(
-                LoginPresenterModule(this), FacebookSdkModule()
-        )
+        app().applicationComponent.newLoginComponent(LoginPresenterModule(this), FacebookSdkModule())
     }
 
     // endregion
