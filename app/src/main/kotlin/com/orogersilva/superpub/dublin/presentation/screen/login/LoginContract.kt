@@ -1,6 +1,7 @@
 package com.orogersilva.superpub.dublin.presentation.screen.login
 
 import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import com.orogersilva.superpub.dublin.presentation.screen.BasePresenter
 import com.orogersilva.superpub.dublin.presentation.screen.BaseView
 
@@ -26,7 +27,7 @@ interface LoginContract {
 
         fun login()
         fun isLogged(): Boolean
-        fun onScreenResult(requestCode: Int, resultCode: Int, data: Intent?)
+        fun onResultFromFacebookApi(requestCode: Int, resultCode: Int, data: Intent?)
 
         // endregion
     }

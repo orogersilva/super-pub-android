@@ -1,5 +1,6 @@
 package com.orogersilva.superpub.dublin.di.modules
 
+import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.orogersilva.superpub.dublin.di.scopes.LoginScope
@@ -13,7 +14,7 @@ import dagger.Provides
  * Created by orogersilva on 4/14/2017.
  */
 @Module
-open class LoginPresenterModule(private val loginView: LoginContract.View) {
+open class LoginPresenterModule(private val loginView: LoginActivity) {
 
     // region PROVIDERS
 

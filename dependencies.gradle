@@ -7,7 +7,7 @@ ext {
     androidSDKVersion = '25.3.1'
 
     constraintLayoutVersion = '1.0.2'
-    daggerMockVersion = '0.6.4'
+    daggerMockVersion = '-SNAPSHOT'
     daggerVersion = '2.9'
     espressoVersion = '2.2.2'
     facebookSdkVersion = '4.21.1'

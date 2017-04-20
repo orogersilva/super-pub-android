@@ -75,7 +75,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
         super.onActivityResult(requestCode, resultCode, data)
 
-        loginPresenter.onScreenResult(requestCode, resultCode, data)
+        loginPresenter.onResultFromFacebookApi(requestCode, resultCode, data)
     }
 
     // endregion

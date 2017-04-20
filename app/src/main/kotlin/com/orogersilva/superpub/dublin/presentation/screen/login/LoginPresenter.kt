@@ -12,7 +12,7 @@ import javax.inject.Inject
 /**
  * Created by orogersilva on 4/13/2017.
  */
-class LoginPresenter @Inject constructor(private val loginView: LoginContract.View,
+class LoginPresenter @Inject constructor(private val loginView: LoginActivity,
                                          private val loginManager: LoginManager,
                                          private val callbackManager: CallbackManager) : LoginContract.Presenter {
 
@@ -52,12 +52,12 @@ class LoginPresenter @Inject constructor(private val loginView: LoginContract.Vi
 
     override fun login() {
 
-        loginManager.logInWithReadPermissions(loginView as AppCompatActivity, listOf("public_profile"))
+        loginManager.logInWithReadPermissions(loginView, listOf("public_profile"))
     }
 
     override fun isLogged(): Boolean = AccessToken.getCurrentAccessToken() != null
 
-    override fun onScreenResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onResultFromFacebookApi(requestCode: Int, resultCode: Int, data: Intent?) {
 
         callbackManager.onActivityResult(requestCode, resultCode, data)
     }
