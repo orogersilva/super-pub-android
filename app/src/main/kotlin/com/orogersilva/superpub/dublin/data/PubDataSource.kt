@@ -11,6 +11,7 @@ interface PubDataSource {
     // region CRUD
 
     fun getPubs(): Observable<List<Pub>>
+    fun savePubs(pubs: List<Pub>)
     fun deletePubs()
 
     // endregion

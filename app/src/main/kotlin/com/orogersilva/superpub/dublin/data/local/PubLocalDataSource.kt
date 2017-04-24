@@ -28,6 +28,10 @@ class PubLocalDataSource @Inject constructor(private var realm: Realm?) : PubDat
     override fun getPubs(): Observable<List<Pub>> =
             Observable.just(realm?.copyFromRealm(realm?.where(Pub::class.java)?.findAll()))
 
+    override fun savePubs(pubs: List<Pub>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun deletePubs() {
 
         realm?.executeTransaction { realm?.deleteAll() }

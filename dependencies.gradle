@@ -7,6 +7,7 @@ ext {
     androidSDKVersion = '25.3.1'
 
     avLoadingIndicatorViewVersion = '2.1.3'
+    circleImageViewVersion = '2.1.0'
     constraintLayoutVersion = '1.0.2'
     daggerMockVersion = '-SNAPSHOT'
     daggerVersion = '2.9'
@@ -18,8 +19,8 @@ ext {
     kotlinVersion = '1.0.7'
     leakCanaryVersion = '1.5'
     mockitoKotlinVersion = '1.4.0'
+    mockWebServerVersion = '3.6.0'
     realmVersion = '3.0.0'
-    recyclerviewVersion = '21.0.+'
     retrofitVersion = '2.2.0'
     rippleEffectVersion = '1.3.1'
     rxjava2Version = '2.0.8'
@@ -35,12 +36,15 @@ ext {
 
     def androidLibs = [
             appCompat: [group: 'com.android.support', name: 'appcompat-v7', version: androidSDKVersion],
+            cardview: [group: 'com.android.support', name: 'cardview-v7', version: androidSDKVersion],
             constraintLayout: [group: 'com.android.support.constraint', name: 'constraint-layout', version: constraintLayoutVersion],
-            recyclerview: [group: 'com.android.support', name: 'recyclerview-v7', version: recyclerviewVersion]
+            recyclerview: [group: 'com.android.support', name: 'recyclerview-v7', version: androidSDKVersion]
     ]
 
     def libs = [
             avLoadingIndicatorView: [group: 'com.wang.avi', name: 'library', version: avLoadingIndicatorViewVersion],
+            circleImageView: [group: 'de.hdodenhof', name: 'circleimageview', version: circleImageViewVersion],
+            converterGson: [group: 'com.squareup.retrofit2', name: 'converter-gson', version: retrofitVersion],
             dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
             daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],
             facebookSdk: [group: 'com.facebook.android', name: 'facebook-android-sdk', version: facebookSdkVersion],
@@ -49,6 +53,7 @@ ext {
             kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
             leakCanary: [group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: leakCanaryVersion],
             retrofit: [group: 'com.squareup.retrofit2', name: 'retrofit', version: retrofitVersion],
+            retrofitRxJava2Adapter: [group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: retrofitVersion],
             rippleEffect: [group: 'com.patrickpissurno', name: 'ripple-effect', version: rippleEffectVersion],
             rxjava2: [group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version],
             stetho: [group: 'com.facebook.stetho', name: 'stetho', version: stethoVersion]
@@ -58,17 +63,21 @@ ext {
             daggerMock: [group: 'com.github.fabioCollini', name: 'DaggerMock', version: daggerMockVersion],
             espresso: [group: 'com.android.support.test.espresso', name: 'espresso-core', version: espressoVersion],
             junit: [group: 'junit', name: 'junit', version: junitVersion],
-            mockitoKotlin: [group: 'com.nhaarman', name: 'mockito-kotlin', version: mockitoKotlinVersion]
+            mockitoKotlin: [group: 'com.nhaarman', name: 'mockito-kotlin', version: mockitoKotlinVersion],
+            mockWebServer: [group: 'com.squareup.okhttp3', name: 'mockwebserver', version: mockWebServerVersion]
     ]
 
     // MODULES DEPENDENCIES
 
     appDependencies = [
             [configuration: 'compile', dependency: androidLibs.appCompat],
+            [configuration: 'compile', dependency: androidLibs.cardview],
             [configuration: 'compile', dependency: androidLibs.constraintLayout],
             [configuration: 'compile', dependency: androidLibs.recyclerview],
 
             [configuration: 'compile', dependency: libs.avLoadingIndicatorView],
+            [configuration: 'compile', dependency: libs.circleImageView],
+            [configuration: 'compile', dependency: libs.converterGson],
             [configuration: 'compile', dependency: libs.dagger],
             [configuration: 'kapt', dependency: libs.daggerCompiler],
             [configuration: 'compile', dependency: libs.facebookSdk],
@@ -77,15 +86,17 @@ ext {
             [configuration: 'compile', dependency: libs.kotlin],
             [configuration: 'compile', dependency: libs.leakCanary],
             [configuration: 'compile', dependency: libs.retrofit],
+            [configuration: 'compile', dependency: libs.retrofitRxJava2Adapter],
             [configuration: 'compile', dependency: libs.rippleEffect],
             [configuration: 'compile', dependency: libs.rxjava2],
             [configuration: 'compile', dependency: libs.stetho],
 
             [configuration: 'testCompile', dependency: testLibs.daggerMock],
-            [configuration: 'androidTestCompile', dependency: testLibs.espresso,
-             options: { exclude group: 'com.android.support', module: 'support-annotations' }],
+            [configuration: 'androidTestCompile', dependency: testLibs.espresso, options:
+                    { exclude group: 'com.android.support', module: 'support-annotations' }],
             [configuration: 'testCompile', dependency: testLibs.junit],
-            [configuration: 'testCompile', dependency: testLibs.mockitoKotlin]
+            [configuration: 'testCompile', dependency: testLibs.mockitoKotlin],
+            [configuration: 'testCompile', dependency: testLibs.mockWebServer]
     ]
 
     // PLUGINS

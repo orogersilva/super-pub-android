@@ -55,6 +55,9 @@ android {
 
         debug {
 
+            buildConfigField "String", "FACEBOOK_GRAPH_API",
+                "\"https://graph.facebook.com/\""
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     rootProject.file('tools/proguard/rules-proguard-debug.pro')
@@ -65,6 +68,9 @@ android {
         }
 
         release {
+
+            buildConfigField "String", "FACEBOOK_GRAPH_API",
+                "\"https://graph.facebook.com/\""
 
             minifyEnabled true
             shrinkResources true

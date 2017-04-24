@@ -1,0 +1,2682 @@
+{
+  "data": [
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.024341774674,
+        "longitude": -51.202726481583,
+        "state": "RS",
+        "street": "Rua Padre Chagas, 330 Moinhos de vento",
+        "zip": "90570-080"
+      },
+      "name": "THOMAS PUB",
+      "overall_star_rating": 4.2,
+      "rating_count": 6562,
+      "checkins": 229868,
+      "phone": "5130132020 e 51998625252",
+      "fan_count": 83870,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/17522656_1301485456603684_990595369300858920_n.jpg?oh=cb0565d452b27a437a7619a0881d4f85&oe=599939A3"
+        }
+      },
+      "cover": {
+        "cover_id": "1319077811511115",
+        "offset_x": 0,
+        "offset_y": 42,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/17903562_1319077811511115_2374063604385522639_n.jpg?oh=4ef0885deb7336130624b4dc5a3a918d&oe=597DCADE",
+        "id": "1319077811511115"
+      },
+      "id": "172435822841992"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.03722,
+        "longitude": -51.21974,
+        "state": "RS",
+        "street": "Av. João Pessoa, N°599"
+      },
+      "name": "Pub Universitario",
+      "overall_star_rating": 4.2,
+      "rating_count": 9,
+      "checkins": 858,
+      "fan_count": 5157,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14441029_658330484340293_708009842723551722_n.jpg?oh=a1cac821caadf78c0c3a2a590d018509&oe=5989C016"
+        }
+      },
+      "cover": {
+        "cover_id": "775009646005709",
+        "offset_x": 0,
+        "offset_y": 15,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/p720x720/18057696_775009646005709_7651450610686533209_n.jpg?oh=eddd4d51dfac0aa4cbe2669eae7e98cf&oe=59832A07",
+        "id": "775009646005709"
+      },
+      "id": "597286740444668"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0262117,
+        "longitude": -51.2051771,
+        "state": "RS",
+        "street": "Rua Fernando Gomes 80, esquina Padre Chagas",
+        "zip": "90510-010"
+      },
+      "name": "Dado Pub Moinhos",
+      "overall_star_rating": 4.4,
+      "rating_count": 760,
+      "checkins": 19288,
+      "phone": "(51) 3395.1468",
+      "fan_count": 10030,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10941510_375955862529247_3525977363817710741_n.png?oh=16f4d9972f27dff950c9a63a387750ee&oe=59922897"
+        }
+      },
+      "cover": {
+        "cover_id": "595043987287099",
+        "offset_x": 0,
+        "offset_y": 34,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/16112650_595043987287099_993685961636596782_o.jpg?oh=5147b32dd592f930e4c1529a32e1cd93&oe=597EAB4A",
+        "id": "595043987287099"
+      },
+      "id": "236203766504458"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02624,
+        "longitude": -51.2049,
+        "state": "RS",
+        "street": "Rua Padre Chagas",
+        "zip": "90570-080"
+      },
+      "name": "Mulligan Irish Pub",
+      "rating_count": 0,
+      "checkins": 18202,
+      "phone": "(51) 3029-3725",
+      "fan_count": 15175,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/11831685_939238179457620_7809172799871653647_n.png?oh=b800410cdd87728e54ab44241a7cf095&oe=594DCEE8"
+        }
+      },
+      "cover": {
+        "cover_id": "1249070588474376",
+        "offset_x": 0,
+        "offset_y": 61,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/15289268_1249070588474376_4787936840436507993_o.jpg?oh=89bae57a56f5a5d10f11c7ebb634a3b4&oe=599971F9",
+        "id": "1249070588474376"
+      },
+      "id": "185037008211078"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0381,
+        "longitude": -51.21252,
+        "state": "RS",
+        "street": "Rua Vieira de Castro, n. 32",
+        "zip": "90040-320"
+      },
+      "name": "Shamrock Irish Pub",
+      "overall_star_rating": 4.3,
+      "rating_count": 988,
+      "checkins": 13217,
+      "phone": "(51) 3407-5320",
+      "fan_count": 14389,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10356398_911805468845296_3812927240043856216_n.png?oh=23c49938b6b0fe7cc49b0d8024e2785d&oe=597981DD"
+        }
+      },
+      "cover": {
+        "cover_id": "935647183127791",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/10351465_935647183127791_217445564287965867_n.jpg?oh=cc495e66ae469cf1db631553b3859b19&oe=599081B1",
+        "id": "935647183127791"
+      },
+      "id": "386922314666950"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02419,
+        "longitude": -51.20263,
+        "state": "RS",
+        "street": "Rua Padre Chagas 342",
+        "zip": "90570080"
+      },
+      "name": "Dublin Irish Pub",
+      "rating_count": 0,
+      "checkins": 96377,
+      "phone": "(51) 3268-8835",
+      "fan_count": 60647,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/11149314_1106873576006125_2884422700156778755_n.jpg?oh=e94485c1262da734b126293a448f02b1&oe=598D5607"
+        }
+      },
+      "cover": {
+        "cover_id": "1712238748802935",
+        "offset_x": 0,
+        "offset_y": 33,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-0/p480x480/17436045_1712238748802935_9143103355694571437_o.jpg?oh=6115081ed220a6a4daf52321aa959427&oe=599443E2",
+        "id": "1712238748802935"
+      },
+      "id": "200743809952444"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.012077131938,
+        "longitude": -51.194046735764,
+        "state": "RS",
+        "street": "Av. Benjamin Constant 1173",
+        "zip": "90550-004"
+      },
+      "name": "WEISS BRITISH PUB",
+      "overall_star_rating": 4.7,
+      "rating_count": 316,
+      "checkins": 9122,
+      "phone": "5130841122",
+      "fan_count": 7590,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12991011_1753057318262963_3350780740670085608_n.jpg?oh=bf5aa58b7cd95eac85300b0d2973ee8a&oe=597B2484"
+        }
+      },
+      "cover": {
+        "cover_id": "1865734373661923",
+        "offset_x": 0,
+        "offset_y": 68,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/15392974_1865734373661923_3450345005087763015_o.jpg?oh=dca3ba11e51196b888650cde32fcf938&oe=59971F38",
+        "id": "1865734373661923"
+      },
+      "id": "1745445665690795"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.039537551151,
+        "longitude": -51.219842041097,
+        "state": "RS",
+        "street": "Rua General Lima e Silva, 795, Cidade Baixa",
+        "zip": "90050-101"
+      },
+      "name": "Charlie Pub",
+      "overall_star_rating": 4.6,
+      "rating_count": 76,
+      "checkins": 1761,
+      "fan_count": 1488,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/15203355_1503400119674789_7445829948326489980_n.jpg?oh=9c731c3ecea1c737c278011ca9cb42d3&oe=5994F4FD"
+        }
+      },
+      "id": "873859589417905"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -29.995896335362,
+        "longitude": -51.202070347453,
+        "state": "RS",
+        "street": "RUA FREDERICO MENTZ, 1561 - DC SHOPPING NAVEGANTES",
+        "zip": "90240-111"
+      },
+      "name": "Free Rider's Pub",
+      "overall_star_rating": 4.4,
+      "rating_count": 848,
+      "checkins": 16683,
+      "phone": "5130181602",
+      "fan_count": 10762,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c63.63.790.790/s50x50/577415_307963885944529_61438312_n.jpg?oh=488bfdcec9ce9a80ab27f0eab064a272&oe=59864F22"
+        }
+      },
+      "cover": {
+        "cover_id": "875689839171928",
+        "offset_x": 0,
+        "offset_y": 41,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/11692578_875689839171928_654376216725787095_n.jpg?oh=9512b5a5d11d1810258aa0fc4b23e3e5&oe=598F72EA",
+        "id": "875689839171928"
+      },
+      "id": "307942109280040"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.038281245689,
+        "longitude": -51.226052823721,
+        "state": "RS",
+        "street": "Travessa do Carmo, 76",
+        "zip": "90050-210"
+      },
+      "name": "Malvadeza Pub",
+      "overall_star_rating": 4.6,
+      "rating_count": 818,
+      "checkins": 21578,
+      "phone": "5132217833 ",
+      "fan_count": 16596,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13731483_1141660569213200_2737955139706638704_n.jpg?oh=0cdfac6a95a0e80e592b438832d4fcab&oe=5979791B"
+        }
+      },
+      "cover": {
+        "cover_id": "1141658762546714",
+        "offset_x": 0,
+        "offset_y": 47,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/13692777_1141658762546714_7012741949180476693_o.jpg?oh=ad5fc7d43c20f627b17f2a7c8f264ed4&oe=597F5F96",
+        "id": "1141658762546714"
+      },
+      "id": "237730772939522"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.025440752791,
+        "longitude": -51.212347485873,
+        "state": "RS",
+        "street": "Avenida Cristóvão Colombo, 545 - Shopping Total",
+        "zip": "90560-000"
+      },
+      "name": "El Toro Pub",
+      "overall_star_rating": 4.2,
+      "rating_count": 409,
+      "checkins": 27399,
+      "phone": "51-30188732",
+      "fan_count": 13906,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12920369_544687855710173_9173055504167666533_n.png?oh=bc347f7aca42f88335d1f4234d90a596&oe=59905CFC"
+        }
+      },
+      "cover": {
+        "cover_id": "618239615021663",
+        "offset_x": 0,
+        "offset_y": 17,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-0/p480x480/14484988_618239615021663_8930818786784558630_n.jpg?oh=5e5ae6e53c626e29f236c144b54bb55c&oe=5995C266",
+        "id": "618239615021663"
+      },
+      "id": "219788988200063"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.027607018684,
+        "longitude": -51.227703896102,
+        "state": "RS",
+        "street": "Mercado Público Central",
+        "zip": "90020-021"
+      },
+      "name": "Mercado Público De Porto Alegre",
+      "overall_star_rating": 4.4,
+      "rating_count": 5402,
+      "checkins": 93718,
+      "phone": "+55 51 3289-4801",
+      "fan_count": 23056,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c18.1.183.183/s50x50/562772_351223931661494_70761111_n.jpg?oh=278d73959b3cb58d68f80c704d5afbaf&oe=5992D410"
+        }
+      },
+      "cover": {
+        "cover_id": "500572216726664",
+        "offset_x": 0,
+        "offset_y": 29,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/1523540_500572216726664_105255814_o.jpg?oh=1b52b0fe9f35057fe1929a42fa63ef87&oe=59898C3E",
+        "id": "500572216726664"
+      },
+      "id": "206098372840718"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02218663194,
+        "longitude": -51.208918807475,
+        "state": "RS",
+        "street": "Rua Comendador Azevedo, 587",
+        "zip": "90220-150"
+      },
+      "name": "Pub Snooker Center",
+      "overall_star_rating": 4.5,
+      "rating_count": 15,
+      "checkins": 268,
+      "phone": "51 21032872",
+      "fan_count": 430,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c59.23.282.282/s50x50/227740_147288692091675_1221825325_n.png?oh=1e5902b1d5f1544905623dff1a4abf16&oe=59783F95"
+        }
+      },
+      "cover": {
+        "cover_id": "147301822090362",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/582388_147301822090362_515880814_n.jpg?oh=2a35eea1a5122eb9eb4d32c9d8851801&oe=597E53C4",
+        "id": "147301822090362"
+      },
+      "id": "147286098758601"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02505,
+        "longitude": -51.20344,
+        "state": "RS",
+        "street": "Padre Chagas",
+        "zip": "90570-080"
+      },
+      "name": "Tomaz Pub",
+      "overall_star_rating": 4.1,
+      "rating_count": 21,
+      "checkins": 711,
+      "fan_count": 125,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "263010733752146"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.01373,
+        "longitude": -51.20243,
+        "state": "RS",
+        "street": "Av Pernambuco 2384",
+        "zip": "90240002"
+      },
+      "name": "Boteco Babilônia",
+      "overall_star_rating": 4.3,
+      "rating_count": 227,
+      "checkins": 4689,
+      "phone": "51 - 33954619",
+      "fan_count": 2118,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c19.0.50.50/p50x50/11053423_684904318320179_9139305418664106505_n.jpg?oh=55100c693f3d8f619dd0578aeb3dd930&oe=5976DF93"
+        }
+      },
+      "cover": {
+        "cover_id": "816523148491628",
+        "offset_x": 0,
+        "offset_y": 51,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/12976946_816523148491628_3701283895964581516_o.png?oh=4a926156f5889624bc28f2c59a94fcb1&oe=5994526F",
+        "id": "816523148491628"
+      },
+      "id": "105183516292265"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0229321,
+        "longitude": -51.2157974,
+        "state": "RS",
+        "street": "R. Voluntários da Pátria, 1358",
+        "zip": "90030-010"
+      },
+      "name": "Secretaria da Segurança Pública - SSP/RS",
+      "rating_count": 0,
+      "checkins": 8333,
+      "phone": "(51) 3288-1994",
+      "fan_count": 14305,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10636083_1002615679760583_1036933845869353194_n.jpg?oh=87ad8de0de51628c34102bf8f4e1f85a&oe=5979FE34"
+        }
+      },
+      "cover": {
+        "cover_id": "1002615879760563",
+        "offset_x": 600,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/1923755_1002615879760563_7146510964681835530_n.jpg?oh=d5a152e47448aaf0ebd407007deb4ea3&oe=5977537B",
+        "id": "1002615879760563"
+      },
+      "id": "357322137623277"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.026432,
+        "longitude": -51.204934,
+        "state": "RS",
+        "street": "Fernando Gomes, 80, Moinhos de Ventos"
+      },
+      "name": "Dado Pub RH",
+      "rating_count": 0,
+      "checkins": 17,
+      "phone": "(051)3395-1468",
+      "fan_count": 6,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c13.0.50.50/p50x50/13095875_223004534741253_4225864724325254279_n.jpg?oh=b537ba7f894fc6f3fe4588d449daf742&oe=597F1188"
+        }
+      },
+      "id": "222996914742015"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.01241,
+        "longitude": -51.20573,
+        "state": "RS",
+        "street": "Rua Conde de Porto Alegre, 22",
+        "zip": "90220210"
+      },
+      "name": "Gravador Pub",
+      "overall_star_rating": 4.9,
+      "rating_count": 218,
+      "checkins": 3765,
+      "phone": "51 999755450",
+      "fan_count": 3470,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10401989_817805901696448_3418289406550808283_n.jpg?oh=a40e54e4099e937221fc9fecac33b6c0&oe=594DEC3F"
+        }
+      },
+      "cover": {
+        "cover_id": "831080963702275",
+        "offset_x": 0,
+        "offset_y": 65,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/12963721_831080963702275_1420691468618706386_n.jpg?oh=65429b519ac2656f9004e1fa8192da27&oe=598E240E",
+        "id": "831080963702275"
+      },
+      "id": "815550498588655"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02425,
+        "longitude": -51.18985,
+        "state": "RS",
+        "street": "Rua Eudoro Berlink,777",
+        "zip": "90450030"
+      },
+      "name": "THE WEISS PUB",
+      "overall_star_rating": 4.6,
+      "rating_count": 287,
+      "checkins": 7463,
+      "phone": "+55 51 3061-1122",
+      "fan_count": 8066,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c66.65.819.819/s50x50/936939_502496323143321_1616214595_n.jpg?oh=f6b625029ed9c3954878ade2fbbe8401&oe=598F59C3"
+        }
+      },
+      "cover": {
+        "cover_id": "1173147739411506",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/14567439_1173147739411506_4417572116477317777_o.jpg?oh=4eaa7d6f37a08d929f18d68f6cc55812&oe=598D6B68",
+        "id": "1173147739411506"
+      },
+      "id": "502450386481248"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.031389813258,
+        "longitude": -51.20965719223,
+        "state": "RS",
+        "street": "Felipe Camarão n. 224",
+        "zip": "90035140"
+      },
+      "name": "Nacho Libre Mex-Pub",
+      "overall_star_rating": 4.9,
+      "rating_count": 149,
+      "checkins": 2345,
+      "phone": "5135746249",
+      "fan_count": 3753,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14717107_331194827238795_2030210449288223614_n.jpg?oh=015208c5d07def956b3470d50f298eaf&oe=597C3A10"
+        }
+      },
+      "cover": {
+        "cover_id": "424256494599294",
+        "offset_x": 0,
+        "offset_y": 59,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/17798966_424256494599294_1545439699894423900_n.jpg?oh=c0c8567c802381f8650fbe1c19524a2a&oe=598534D2",
+        "id": "424256494599294"
+      },
+      "id": "202585956766350"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0277254,
+        "longitude": -51.1854648,
+        "state": "RS",
+        "street": "Rua Pedro Chaves Barcelos, 651",
+        "zip": "90450010"
+      },
+      "name": "The Public Market",
+      "overall_star_rating": 4.5,
+      "rating_count": 220,
+      "checkins": 2064,
+      "phone": "5130855111",
+      "fan_count": 5566,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10924724_480483892091941_8464122897713489004_n.jpg?oh=d012f132c5e957ab1e38e8a27b45df37&oe=5983FFBF"
+        }
+      },
+      "cover": {
+        "cover_id": "741727349300926",
+        "offset_x": 0,
+        "offset_y": 50,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/14938241_741727349300926_8361502310977846438_n.jpg?oh=27ceeaa0f14f7491f53e74a91ede0d3d&oe=59903566",
+        "id": "741727349300926"
+      },
+      "id": "204237426383257"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.025812670964,
+        "longitude": -51.201101022315,
+        "state": "RS",
+        "street": "Rua Comendador Caminha, 348 - Moinhos de Vento",
+        "zip": "90430-030"
+      },
+      "name": "Cult Pub",
+      "overall_star_rating": 4.1,
+      "rating_count": 469,
+      "checkins": 12399,
+      "phone": "51 3346-2257",
+      "fan_count": 5552,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/399707_421578997889902_1583521939_n.jpg?oh=20541e56892cb4460375b1c9e6caf56f&oe=599A6BCA"
+        }
+      },
+      "cover": {
+        "cover_id": "1165694323478362",
+        "offset_x": 0,
+        "offset_y": 52,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/15338774_1165694323478362_6130227940127623829_n.jpg?oh=52c98acc6586bfa6cd179a7e6848ab0a&oe=599A2BF3",
+        "id": "1165694323478362"
+      },
+      "id": "420396278008174"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.027293498236,
+        "longitude": -51.227992773056,
+        "state": "RS",
+        "street": "Mercado Público",
+        "zip": "90020-070"
+      },
+      "name": "Temakeria Japesca Mercado Público",
+      "rating_count": 0,
+      "checkins": 14143,
+      "phone": " (55 51) 3286-6628",
+      "fan_count": 1755,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/15726365_1859160900994824_6121384618838939477_n.png?oh=92c1c88fda12c76aa32a05c11fe15a20&oe=59978068"
+        }
+      },
+      "cover": {
+        "cover_id": "1859160834328164",
+        "offset_x": 0,
+        "offset_y": 71,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/15665458_1859160834328164_7343124683605833177_n.jpg?oh=e66eaaab47183d29cced26e93d8b87cb&oe=598FE311",
+        "id": "1859160834328164"
+      },
+      "id": "1577574685820115"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.05492,
+        "longitude": -51.2226799,
+        "state": "RS",
+        "street": "Avenida Getúlio Vargas, 1157",
+        "zip": "90150-005"
+      },
+      "name": "Heilige Brew Pub",
+      "overall_star_rating": 4.8,
+      "rating_count": 173,
+      "checkins": 3928,
+      "phone": "(51) 3178-4417",
+      "fan_count": 1697,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/17759717_1299889630079737_7025288347500668596_n.png?oh=12f2162c9a9ccba41dd33b600a818cf6&oe=5988BF91"
+        }
+      },
+      "cover": {
+        "cover_id": "1314753565247558",
+        "offset_x": 600,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/17358555_1314753565247558_6654738939994564584_o.jpg?oh=b4f56df7c993e947f11fef8b0b0fc7af&oe=597C6B6C",
+        "id": "1314753565247558"
+      },
+      "id": "1069989363069766"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.04162,
+        "longitude": -51.22041,
+        "state": "RS",
+        "street": "R. Joaquim Nabuco -187",
+        "zip": "90050-340"
+      },
+      "name": "Templários Pub Crawl",
+      "overall_star_rating": 4.8,
+      "rating_count": 172,
+      "checkins": 1808,
+      "phone": "5140613051",
+      "fan_count": 14315,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/17265235_1047608632006564_1918819570140416903_n.png?oh=c3b7bc76fe49ffcf0a9cdffa18d60b87&oe=5997AE2A"
+        }
+      },
+      "cover": {
+        "cover_id": "1073417922758968",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/17991068_1073417922758968_4432225887929247780_n.png?oh=d136250951e1b3c3c6ed25a81c9ab7f7&oe=597CC273",
+        "id": "1073417922758968"
+      },
+      "id": "906621426105286"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02857,
+        "longitude": -51.20305,
+        "state": "RS",
+        "zip": "90430001"
+      },
+      "name": "Amsterdam Pub",
+      "rating_count": 0,
+      "checkins": 14,
+      "fan_count": 2,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "206939229336308"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.04268,
+        "longitude": -51.22022,
+        "state": "RS",
+        "street": "Rua José do Patrocínio 964",
+        "zip": "90050-002"
+      },
+      "name": "London Pub & Bistro",
+      "overall_star_rating": 4.7,
+      "rating_count": 202,
+      "checkins": 7421,
+      "phone": "(51) 982337037",
+      "fan_count": 11229,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/16864818_1192168584241863_8929365863676454223_n.png?oh=5a0aa4e68eb7994ec3387c6a1f5a9718&oe=594E2EA3"
+        }
+      },
+      "cover": {
+        "cover_id": "1236242603167794",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/17879913_1236242603167794_7474473524382495219_o.png?oh=8a9ded5948afb187087256fcb958739d&oe=599A6AF2",
+        "id": "1236242603167794"
+      },
+      "id": "431704653621597"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02899,
+        "longitude": -51.217184,
+        "state": "RS",
+        "street": "Rua Dr Barros Cassal, 386",
+        "zip": "90035-030"
+      },
+      "name": "Tabu Pub",
+      "overall_star_rating": 4.4,
+      "rating_count": 52,
+      "checkins": 3368,
+      "fan_count": 409,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14729228_1070691666376811_8679789166407781137_n.jpg?oh=1944c4d1091934e392ab336192238e9c&oe=5997911E"
+        }
+      },
+      "id": "260498037623796"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0069942,
+        "longitude": -51.1886978,
+        "state": "RS",
+        "street": "Av; Benjamin Constant, 321",
+        "zip": "90550000"
+      },
+      "name": "Nexus Pub",
+      "overall_star_rating": 4.4,
+      "rating_count": 501,
+      "checkins": 7344,
+      "phone": "51-33913876",
+      "fan_count": 27904,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12986927_877559095686120_6056834895925572990_n.png?oh=b6d1dc79d5f684d270a3ab30768faac9&oe=5976EE66"
+        }
+      },
+      "cover": {
+        "cover_id": "997954180313277",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/14567493_997954180313277_6645341000146245184_o.jpg?oh=8c4a4e5604019c473175d868adeb4e11&oe=598D8AA6",
+        "id": "997954180313277"
+      },
+      "id": "574285466013486"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.02626,
+        "longitude": -51.22616,
+        "zip": "90030-131"
+      },
+      "name": "Cooperativa de Economia e Credito Mutuo dos Servidores Publi",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "5132842608",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "1067011603359996"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02262,
+        "longitude": -51.16205,
+        "state": "RS",
+        "street": "Av. Tulio de Rose,80",
+        "zip": "91340110"
+      },
+      "name": "Livraria Cultura",
+      "overall_star_rating": 4.7,
+      "rating_count": 46,
+      "checkins": 733,
+      "phone": "+555130284033",
+      "fan_count": 266,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14232638_1419737074719516_8406454010817015837_n.png?oh=2b4953016a08ccd9b39f175167a8c6b0&oe=5983EFA8"
+        }
+      },
+      "cover": {
+        "cover_id": "1419736378052919",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/14142073_1419736378052919_8904547870193804403_n.png?oh=f5960db7d315835e242a6f040b22d79f&oe=598C935D",
+        "id": "1419736378052919"
+      },
+      "id": "222423891532820"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02988,
+        "longitude": -51.20997,
+        "state": "RS",
+        "zip": "90035-141"
+      },
+      "name": "Publiweb Informatica",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/392333_10149999285997743_1364412321_n.png?oh=837d0eab3d013f44ac594053073d2f00&oe=59947158"
+        }
+      },
+      "id": "218735595143491"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.019358820472,
+        "longitude": -51.205770470907,
+        "state": "RS",
+        "street": "Rua Câncio Gomes, 775",
+        "zip": "90220060"
+      },
+      "name": "Cezar PUB",
+      "overall_star_rating": 4.6,
+      "rating_count": 114,
+      "checkins": 1096,
+      "phone": "51 3269-0613",
+      "fan_count": 941,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c248.37.465.465/s50x50/403258_331134250272731_1767023279_n.jpg?oh=363746fb5177f332d3127dfaab622f43&oe=598129D0"
+        }
+      },
+      "cover": {
+        "cover_id": "763996466986505",
+        "offset_x": 0,
+        "offset_y": 8,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/q81/s720x720/1546129_763996466986505_937884267185541370_n.jpg?oh=9e8b5d90fa4b36b8a63d8a8785589df6&oe=59913963",
+        "id": "763996466986505"
+      },
+      "id": "331133860272770"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02999,
+        "longitude": -51.20407,
+        "state": "RS",
+        "street": "Rua Mariante, 284",
+        "zip": "90430-181"
+      },
+      "name": "Prediletto Pub",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "1379752052303996"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.030330918116,
+        "longitude": -51.233625411987,
+        "state": "RS",
+        "street": "Rua Sete de Setembro, 666",
+        "zip": "90010190"
+      },
+      "name": "Defensoria Pública do Rio Grande do Sul",
+      "overall_star_rating": 5,
+      "rating_count": 110,
+      "checkins": 518,
+      "phone": "(51) 3211-2233",
+      "fan_count": 16896,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10632875_930556100294847_5188393313973363625_n.jpg?oh=c7d0ec8444a8919d908b9ee0cbc96c21&oe=594E5EC8"
+        }
+      },
+      "cover": {
+        "cover_id": "1610023852348065",
+        "offset_x": 600,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/17016781_1610023852348065_1517785142528376557_o.jpg?oh=ef0beebe739ce3632736a17d9902c71b&oe=59975FB4",
+        "id": "1610023852348065"
+      },
+      "id": "528343390516122"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.03147,
+        "longitude": -51.22642,
+        "state": "RS",
+        "street": "Riachuelo 1500",
+        "zip": "90010-230"
+      },
+      "name": "Paris pub bilhar",
+      "overall_star_rating": 4.6,
+      "rating_count": 32,
+      "checkins": 11251,
+      "fan_count": 1923,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/18033541_1880967072174377_5824525241951543404_n.jpg?oh=3a959334fcb3cc48041a012f63771f99&oe=594DC74E"
+        }
+      },
+      "cover": {
+        "cover_id": "1880967195507698",
+        "offset_x": 0,
+        "offset_y": 18,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/p720x720/18057964_1880967195507698_2475176981581747172_n.jpg?oh=32cf5c77fbe36d8cd5f034243a766fe5&oe=5994E6EF",
+        "id": "1880967195507698"
+      },
+      "id": "1385920525012370"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.039196773873,
+        "longitude": -51.219855476274,
+        "state": "RS",
+        "street": "Rua General Lima e Silva, 776 / Lojas 13 e 14",
+        "zip": "90050-100"
+      },
+      "name": "Pub & Fondue Olaria",
+      "overall_star_rating": 4.1,
+      "rating_count": 370,
+      "checkins": 6768,
+      "phone": "5132254010",
+      "fan_count": 2594,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/581296_10200824627971652_518437197_n.jpg?oh=f2b092623252876a8e5441ab1c02a0e5&oe=5977A56E"
+        }
+      },
+      "id": "156372564418619"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, Sul",
+        "latitude": -30.02941,
+        "longitude": -51.21508,
+        "zip": "90035-052"
+      },
+      "name": "Marley's Pub",
+      "overall_star_rating": 5,
+      "rating_count": 1,
+      "checkins": 31,
+      "fan_count": 20,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "1292230824125423"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.026229249353,
+        "longitude": -51.211041598989,
+        "state": "RS",
+        "street": "Rua Tiradentes,5",
+        "zip": "90560-030"
+      },
+      "name": "Sul Info Publicações",
+      "overall_star_rating": 4,
+      "rating_count": 4,
+      "checkins": 4,
+      "fan_count": 67,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c59.15.183.183/s50x50/561235_220436621399674_555536884_n.jpg?oh=31d3fa8cefd70c6806a55de9197009c6&oe=59886671"
+        }
+      },
+      "cover": {
+        "cover_id": "268664903243512",
+        "offset_x": 0,
+        "offset_y": 88,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/614685_268664903243512_1196324331_o.jpg?oh=167fcf64a5dad590762926808cd8009d&oe=5984898D",
+        "id": "268664903243512"
+      },
+      "id": "220436434733026"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.031494444444,
+        "longitude": -51.229763888889,
+        "state": "RS",
+        "street": "Rua Riachuelo, 1190",
+        "zip": "90010-271"
+      },
+      "name": "Biblioteca Pública do Estado",
+      "overall_star_rating": 4.5,
+      "rating_count": 44,
+      "checkins": 797,
+      "phone": "(51)3225-9426",
+      "fan_count": 305,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10906160_638463896263941_3425746890084678784_n.jpg?oh=2e645d449c039402cb12e1c8d8f697e9&oe=598A2041"
+        }
+      },
+      "id": "1432130397023498"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02425,
+        "longitude": -51.20524,
+        "state": "RS",
+        "zip": "90570-090"
+      },
+      "name": "Barao Pub",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "191208587923718"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.042192469096,
+        "longitude": -51.231718439453,
+        "state": "RS",
+        "street": "Av. Aureliano de Figueiredo Pinto, 80.",
+        "zip": "90050-190"
+      },
+      "name": "Ministério Público do Rio Grande do Sul",
+      "overall_star_rating": 4.3,
+      "rating_count": 201,
+      "checkins": 17435,
+      "phone": "51 3295 1100",
+      "fan_count": 21871,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/946009_564575653591289_139745118_n.jpg?oh=636d2412ad1f5a64c92c28ac88bc9d82&oe=598994E9"
+        }
+      },
+      "cover": {
+        "cover_id": "563773907004797",
+        "offset_x": 600,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/558653_563773907004797_833810956_n.jpg?oh=68952e906670eba73d79d407a85bf4d3&oe=59942B66",
+        "id": "563773907004797"
+      },
+      "id": "201501656565359"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.03795,
+        "longitude": -51.22192,
+        "state": "RS",
+        "street": "Rua General Lima E Silva",
+        "zip": "90050-340"
+      },
+      "name": "Signus Pub",
+      "overall_star_rating": 4.5,
+      "rating_count": 24,
+      "checkins": 1077,
+      "fan_count": 306,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "409955329112030"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.030277,
+        "longitude": -51.202974,
+        "state": "RS",
+        "street": "Rua Dr Florêncio Ygartua, 427",
+        "zip": "90430-010"
+      },
+      "name": "Fernando Em Pessoa",
+      "rating_count": 0,
+      "checkins": 1,
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "1746272635608315"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.03173,
+        "longitude": -51.23132,
+        "state": "RS",
+        "street": "Rua Riachuelo 1031",
+        "zip": "90010270"
+      },
+      "name": "Arquivo Público do Estado do Rio Grande do Sul",
+      "overall_star_rating": 4.8,
+      "rating_count": 44,
+      "checkins": 2767,
+      "phone": "51 32889100",
+      "fan_count": 5388,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c22.18.278.278/s50x50/229538_221117181232875_7371827_n.jpg?oh=ae5276e37eb2f5fe0619cb94394588cf&oe=5985DF1E"
+        }
+      },
+      "cover": {
+        "cover_id": "500549963289594",
+        "offset_x": 20,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/548103_500549963289594_919245760_n.jpg?oh=cf2fc34aa507a3c97e665776b78b1204&oe=597A52F8",
+        "id": "500549963289594"
+      },
+      "id": "197427013601892"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.024277,
+        "longitude": -51.210875
+      },
+      "name": "Little Pub Bar",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "(51) 3312-8866",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "1170692889621106"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02285,
+        "longitude": -51.20956,
+        "state": "RS",
+        "street": "944  Avenida Cristóvão Colombo",
+        "zip": "90560-001"
+      },
+      "name": "Point Pubs",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "979751138785293"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.042448816238,
+        "longitude": -51.222319686443,
+        "state": "RS",
+        "street": "Rua Joaquim Nabuco, 397",
+        "zip": "90050-340"
+      },
+      "name": "Venezianos Pub Café.",
+      "overall_star_rating": 4.8,
+      "rating_count": 399,
+      "checkins": 10674,
+      "phone": "5132219275",
+      "fan_count": 11846,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/16996093_1860508447572186_8396355679105218667_n.png?oh=c002383b7ba12cdd0b9ed14a001c7653&oe=597EC6AC"
+        }
+      },
+      "cover": {
+        "cover_id": "1601724193450614",
+        "offset_x": 0,
+        "offset_y": 78,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/11265514_1601724193450614_5769852329643385815_o.jpg?oh=3528638babc23ef4923aeb59b620f81a&oe=598FC590",
+        "id": "1601724193450614"
+      },
+      "id": "1464800053809696"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.027632076224,
+        "longitude": -51.227978459203,
+        "state": "RS",
+        "street": "Mercado Público",
+        "zip": "90020-070"
+      },
+      "name": "Essencial Banca 83 Mercado Público",
+      "overall_star_rating": 4.7,
+      "rating_count": 192,
+      "checkins": 5060,
+      "phone": "(51)32126990",
+      "fan_count": 4689,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c2.0.50.50/p50x50/537210_315311881939619_1848701957_n.png?oh=102a626dc531fe5e8ea71b6facf71aa9&oe=5991E4F0"
+        }
+      },
+      "cover": {
+        "cover_id": "986830981454369",
+        "offset_x": 0,
+        "offset_y": 50,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/17834001_986830981454369_8342004375684197267_o.jpg?oh=e05f651db8db8101239b2bf900ee0b51&oe=5981AD16",
+        "id": "986830981454369"
+      },
+      "id": "313567968780677"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0258598,
+        "longitude": -51.2013245,
+        "state": "RS",
+        "street": "Rua Comendador Caminha 312",
+        "zip": "90430030"
+      },
+      "name": "Duplex 312",
+      "overall_star_rating": 4.8,
+      "rating_count": 392,
+      "checkins": 16054,
+      "phone": "(51) 30266660",
+      "fan_count": 11028,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12234908_140850866272908_8943024144756473174_n.png?oh=d36ef7ef6ed504b0f9c382cb34bdc1e2&oe=59887D55"
+        }
+      },
+      "cover": {
+        "cover_id": "418146758543316",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/17951553_418146758543316_9033260748357700527_n.png?oh=6c2d00c0a5dbd285ac126967ca49bfdb&oe=594CCE26",
+        "id": "418146758543316"
+      },
+      "id": "138434256514569"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.052472474869,
+        "longitude": -51.217639446259,
+        "state": "RS",
+        "street": "Avenida Getúlio Vargas, 989"
+      },
+      "name": "Taco Pub - Pizza & Bilhar",
+      "overall_star_rating": 4.3,
+      "rating_count": 321,
+      "checkins": 5108,
+      "phone": "(51) 3061.3035",
+      "fan_count": 3379,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12009830_942932119104680_8218965005720407068_n.png?oh=6e9d5f06c5ba1825a615359d46318b56&oe=5998D220"
+        }
+      },
+      "cover": {
+        "cover_id": "1182436038487619",
+        "offset_x": 600,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/14610982_1182436038487619_7057869059573629195_n.png?oh=85b3adebb6c8e3f9030d2d5ab4a05c2e&oe=5981F12C",
+        "id": "1182436038487619"
+      },
+      "id": "193932170671349"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.03353,
+        "longitude": -51.21079,
+        "state": "RS",
+        "street": "Rua Fernandes Vieira, 466"
+      },
+      "name": "Hooroo - Australian Pub",
+      "overall_star_rating": 4.8,
+      "rating_count": 202,
+      "checkins": 4286,
+      "phone": "51992708534",
+      "fan_count": 7852,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/17523114_877873722351442_4449851342994794307_n.jpg?oh=995b433da1fadbfe9ec0222f0c503aac&oe=5993E18D"
+        }
+      },
+      "cover": {
+        "cover_id": "876851182453696",
+        "offset_x": 0,
+        "offset_y": 49,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-0/p180x540/17546775_876851182453696_78715378376480753_o.jpg?oh=efb95e226e2bf8961370e484324d9583&oe=599AB442",
+        "id": "876851182453696"
+      },
+      "id": "570107346461416"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.026,
+        "longitude": -51.22226,
+        "state": "RS",
+        "street": "Rua Comendador Manoel Pereira, 24",
+        "zip": "90030-010"
+      },
+      "name": "Defensoria Pública da União no Rio Grande do Sul",
+      "overall_star_rating": 4.6,
+      "rating_count": 38,
+      "checkins": 1299,
+      "phone": "51 3216-6946  ",
+      "fan_count": 4246,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c0.2.50.50/p50x50/1779780_520766024708553_1913072089_n.png?oh=74025bf3071edb7d31b8801d5d62c552&oe=59862FB9"
+        }
+      },
+      "cover": {
+        "cover_id": "991970590921425",
+        "offset_x": 600,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/13613685_991970590921425_7981376709281233314_o.jpg?oh=a3b5b6051b00769fb8ef94c8dece3231&oe=598B8D19",
+        "id": "991970590921425"
+      },
+      "id": "198340600284432"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.026085,
+        "longitude": -51.209557
+      },
+      "name": "Comunic Publicidade & Marketing Ltda",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "(51) 3311-9429",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/392333_10149999285997743_1364412321_n.png?oh=837d0eab3d013f44ac594053073d2f00&oe=59947158"
+        }
+      },
+      "id": "1160750033936108"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "latitude": -30.0241458,
+        "longitude": -51.2064302
+      },
+      "name": "Maco Publicacoes",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/392333_10149999285997743_1364412321_n.png?oh=837d0eab3d013f44ac594053073d2f00&oe=59947158"
+        }
+      },
+      "id": "1581276028861964"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02746,
+        "longitude": -51.21575,
+        "state": "RS",
+        "street": "Cristóvão Colombo, 168",
+        "zip": "90030-141"
+      },
+      "name": "Grogan Pub",
+      "overall_star_rating": 3.9,
+      "rating_count": 16,
+      "checkins": 128,
+      "phone": "(51)3093-0986",
+      "fan_count": 50,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "549157605116445"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.023266,
+        "longitude": -51.201937,
+        "state": "RS"
+      },
+      "name": "Indiada Publicidade e Comunicacao de Aventuras Ltda",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "137897299940312"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.01722,
+        "longitude": -51.20876,
+        "state": "RS",
+        "street": "786  Rua Câncio Gomes",
+        "zip": "90220-060"
+      },
+      "name": "Biblioteca Pública Lígia Meurer",
+      "overall_star_rating": 5,
+      "rating_count": 1,
+      "checkins": 2,
+      "phone": "51-32224219",
+      "fan_count": 3,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "1489385534618654"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.037018486998,
+        "longitude": -51.223690509796,
+        "state": "RS",
+        "street": "Rua Sarmento Leite, 925",
+        "zip": "90050-170"
+      },
+      "name": "Pub das Nações",
+      "overall_star_rating": 5,
+      "rating_count": 44,
+      "checkins": 789,
+      "phone": "51  3508.1009",
+      "fan_count": 1477,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14089056_656555584500699_2849113624903555746_n.png?oh=c9bc7edec57aed3b305d84d1eb92d17e&oe=5994DAE5"
+        }
+      },
+      "cover": {
+        "cover_id": "657727524383505",
+        "offset_x": 600,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/14100341_657727524383505_9213712399951681465_n.png?oh=2ca5435b6caafa20c18eeca2d1d78325&oe=59889225",
+        "id": "657727524383505"
+      },
+      "id": "656542897835301"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0396685,
+        "longitude": -51.2198891,
+        "state": "RS",
+        "street": "Alberto Torres, 27",
+        "zip": "90050-080"
+      },
+      "name": "RoadHouse Pub",
+      "overall_star_rating": 4.8,
+      "rating_count": 73,
+      "checkins": 1049,
+      "phone": "+555139079017",
+      "fan_count": 1806,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12715509_1559983520984886_8975565289285832312_n.png?oh=4b1765f9b4e13b831b4203263e41f567&oe=598F24B6"
+        }
+      },
+      "cover": {
+        "cover_id": "1657914037858500",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-0/p480x480/14103014_1657914037858500_3529625331101547375_o.jpg?oh=6e729e5d6701e29520af70b842253a11&oe=598DA0DF",
+        "id": "1657914037858500"
+      },
+      "id": "1558514164465155"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.020227265317,
+        "longitude": -51.198247843801,
+        "state": "RS",
+        "street": "Rua Quintino Bocaiúva, 256 - Moinhos de Vento",
+        "zip": "90440-050"
+      },
+      "name": "Sgt Peppers",
+      "overall_star_rating": 4.5,
+      "rating_count": 891,
+      "checkins": 14419,
+      "phone": "(51) 3331.3258",
+      "fan_count": 17101,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c1.0.50.50/p50x50/11836897_719170568208765_753325478168735029_n.jpg?oh=59702f47388ee0f06ce4f2c00ed6b56f&oe=599778F3"
+        }
+      },
+      "cover": {
+        "cover_id": "958236837635469",
+        "offset_x": 0,
+        "offset_y": 55,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-0/p180x540/14495441_958236837635469_2951215451991024431_n.jpg?oh=f15743965344462eac3a52cde7f5152b&oe=5991674A",
+        "id": "958236837635469"
+      },
+      "id": "347679048691254"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0422,
+        "longitude": -51.22115,
+        "state": "RS",
+        "street": "Rua Joaquim Nabuco N° 272 Cidade Baixa.",
+        "zip": "90050 340"
+      },
+      "name": "Signos Pub Rock",
+      "overall_star_rating": 4.8,
+      "rating_count": 41,
+      "checkins": 939,
+      "phone": "051992789922",
+      "fan_count": 815,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/17498913_1347943465262950_3377424060168455505_n.jpg?oh=de1758b97be9e242bc6ab99594890994&oe=594E8258"
+        }
+      },
+      "cover": {
+        "cover_id": "1356443254412971",
+        "offset_x": 0,
+        "offset_y": 50,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-0/p180x540/17505187_1356443254412971_2043292695894230679_o.jpg?oh=63895ffefc85c1f5061e7f97a6dfe83c&oe=594DD942",
+        "id": "1356443254412971"
+      },
+      "id": "1101032216620744"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0179081,
+        "longitude": -51.2025337,
+        "state": "RS",
+        "street": "Rua Félix da Cunha, 515 - Floresta"
+      },
+      "name": "Técnico em Publicidade Irmão Pedro",
+      "overall_star_rating": 4.9,
+      "rating_count": 26,
+      "checkins": 166,
+      "phone": "051 3395-1001",
+      "fan_count": 563,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c0.0.50.50/p50x50/1780795_495390547278957_3039636992550829393_n.jpg?oh=9ef64688b42a604a70dca03b95bb98e5&oe=597B5647"
+        }
+      },
+      "cover": {
+        "cover_id": "790828617735147",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/16992419_790828617735147_4260334431266996757_o.jpg?oh=5619ba2882ee4f9544879f523640783e&oe=5990BB2E",
+        "id": "790828617735147"
+      },
+      "id": "487395794745099"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.028419,
+        "longitude": -51.207734
+      },
+      "name": "Cooperativa Eco Cred Mutuo Serv Publicos Municipai",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "(51) 3212-5089",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "1167981246606249"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.041191456257,
+        "longitude": -51.210228313207,
+        "state": "RS",
+        "street": "Rua Vieira De Castro, 435",
+        "zip": "90040-320"
+      },
+      "name": "Girasole pub",
+      "overall_star_rating": 4.5,
+      "rating_count": 302,
+      "checkins": 5089,
+      "phone": "051.3217.0155",
+      "fan_count": 3324,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1558453_939235626160763_8933888022368086136_n.jpg?oh=1abb0875f393882d842225fa811270a4&oe=594DCB9D"
+        }
+      },
+      "cover": {
+        "cover_id": "1314615591956096",
+        "offset_x": 650,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/18010513_1314615591956096_3837082083531910378_n.jpg?oh=9914992a3aa040ca512d32a815ca431e&oe=59832AE1",
+        "id": "1314615591956096"
+      },
+      "id": "129077240509943"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.038384737197,
+        "longitude": -51.221364193679,
+        "state": "RS",
+        "street": "Rua General Lima e Silva, 601 lj 3",
+        "zip": "90050-101"
+      },
+      "name": "IN Sano Pub",
+      "overall_star_rating": 4.3,
+      "rating_count": 568,
+      "checkins": 10365,
+      "phone": "51 32866940 ",
+      "fan_count": 21084,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10687056_845972695421819_4441457116205272202_n.jpg?oh=2af2d9d05f4805e6931669d7b1b36d3f&oe=5979DA73"
+        }
+      },
+      "cover": {
+        "cover_id": "559932737359151",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/11398_559932737359151_1544240743_n.jpg?oh=11eb58bee44f9e3a6a0c80b63e289c18&oe=5999A0B7",
+        "id": "559932737359151"
+      },
+      "id": "273093089376452"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.02579,
+        "longitude": -51.20373
+      },
+      "name": "R Andreuchetti Publicacoes",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "5130290071",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "195349054186028"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.020989146385,
+        "longitude": -51.213822133096,
+        "state": "RS",
+        "street": "Rua Ramiro Barcelos, 104, bairro Floresta",
+        "zip": "90035-000"
+      },
+      "name": "Ministério Público do Trabalho no Rio Grande do Sul",
+      "overall_star_rating": 4.6,
+      "rating_count": 22,
+      "checkins": 470,
+      "phone": "(51) 3284-3000",
+      "fan_count": 3731,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/17760101_898888950213710_5655414374000275070_n.png?oh=52cbadb7a384fb5ba8259a8e7ee371a1&oe=59956020"
+        }
+      },
+      "cover": {
+        "cover_id": "857227324379873",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/16427530_857227324379873_4970803775979397654_n.jpg?oh=89710a9c6de4dd948f1a90e0b33e8533&oe=5990EAA4",
+        "id": "857227324379873"
+      },
+      "id": "463013820467894"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.03062,
+        "longitude": -51.20566,
+        "state": "RS",
+        "street": "Rua Miguel Tostes, 290",
+        "zip": "90430-061"
+      },
+      "name": "Black Jack 21 - Gastro Pub",
+      "overall_star_rating": 4.8,
+      "rating_count": 75,
+      "checkins": 1289,
+      "phone": "5130626060",
+      "fan_count": 975,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14045625_287286038318614_8205346170498262732_n.jpg?oh=d51398b225b2591196bcdfce84642cf7&oe=59889809"
+        }
+      },
+      "cover": {
+        "cover_id": "287288198318398",
+        "offset_x": 0,
+        "offset_y": 20,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/14046017_287288198318398_2007364717724274449_n.jpg?oh=dbb9e17382e714fc9aa830b0935b95ea&oe=598A256D",
+        "id": "287288198318398"
+      },
+      "id": "287284141652137"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02975,
+        "longitude": -51.22555,
+        "state": "RS",
+        "street": "Rua dos Andradas, 1560 - 18º andar - Galeria Malcon",
+        "zip": "90.026-900"
+      },
+      "name": "IGAM - Instituto Gamma de Assessoria a Órgãos Públicos",
+      "overall_star_rating": 4.9,
+      "rating_count": 34,
+      "checkins": 2107,
+      "phone": "(51) 3211 1527 ",
+      "fan_count": 2471,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c9.0.50.50/p50x50/13435572_1161351050584133_6080297317349041976_n.png?oh=3056fa48d3a41a79610926f4b7344a72&oe=599826FE"
+        }
+      },
+      "cover": {
+        "cover_id": "1415956508456918",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/17425062_1415956508456918_4604561247215759366_n.png?oh=50effe7f6c45ce5dd199fb9b6ad2b288&oe=5997ABDF",
+        "id": "1415956508456918"
+      },
+      "id": "204150122970902"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02205,
+        "longitude": -51.20613,
+        "state": "RS",
+        "zip": "90570-110"
+      },
+      "name": "Fatto Publicidade",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "5132220187",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/392333_10149999285997743_1364412321_n.png?oh=837d0eab3d013f44ac594053073d2f00&oe=59947158"
+        }
+      },
+      "id": "1042834402445939"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02546,
+        "longitude": -51.20967,
+        "state": "RS",
+        "zip": "90035-001"
+      },
+      "name": "Boa Nova Comunicacao Publicitaria",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "5133326722",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/392333_10149999285997743_1364412321_n.png?oh=837d0eab3d013f44ac594053073d2f00&oe=59947158"
+        }
+      },
+      "id": "327963717327805"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.027685111265,
+        "longitude": -51.159357942426,
+        "state": "RS",
+        "street": "Avenida Túlio de Rose",
+        "zip": "91340-110"
+      },
+      "name": "Royal Black Pub",
+      "rating_count": 0,
+      "checkins": 346,
+      "fan_count": 18,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "810678642419273"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.04458,
+        "longitude": -51.22381,
+        "state": "RS",
+        "street": "Rua Barão do Gravatai 523",
+        "zip": "90050330"
+      },
+      "name": "M&M PUB CAFÉ",
+      "overall_star_rating": 5,
+      "rating_count": 5,
+      "checkins": 178,
+      "phone": "5192942025",
+      "fan_count": 28,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13729150_604573889703167_1374114296714072553_n.jpg?oh=b52656af06ac72892ff2d3ccbff3b0b2&oe=598092C2"
+        }
+      },
+      "cover": {
+        "cover_id": "614920562001833",
+        "offset_x": 0,
+        "offset_y": 84,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/13938515_614920562001833_1646277133196015257_n.jpg?oh=a943d4d01f8496be9a26e1fe73e7ad30&oe=598DE6D7",
+        "id": "614920562001833"
+      },
+      "id": "604561939704362"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0312556,
+        "longitude": -51.2254785,
+        "state": "RS"
+      },
+      "name": "Malibu - Pub Bar",
+      "rating_count": 0,
+      "checkins": 1,
+      "fan_count": 1,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10298901_535100499935205_5825788558085742671_n.jpg?oh=52b28b4aad24203c05838712df4ee168&oe=594F002B"
+        }
+      },
+      "id": "827857133899552"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.02432,
+        "longitude": -51.21319
+      },
+      "name": "Publibook Livros e Papéis",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "5130192324",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "349644128493379"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0237,
+        "longitude": -51.20764,
+        "state": "RS",
+        "zip": "90560-010"
+      },
+      "name": "Painel Agencia de Publicidade e Propaganda",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 1,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/392333_10149999285997743_1364412321_n.png?oh=837d0eab3d013f44ac594053073d2f00&oe=59947158"
+        }
+      },
+      "id": "229226427421446"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.025557,
+        "longitude": -51.202221
+      },
+      "name": "Escritório de Imagem Pública Comunicação - Moinhos de Vento",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "(51) 3395-2009",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "205013663203400"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0427246,
+        "longitude": -51.220459,
+        "state": "RS",
+        "street": "José do Patrocínio, 963",
+        "zip": "90050-003"
+      },
+      "name": "Panama Estudio Pub",
+      "overall_star_rating": 4.9,
+      "rating_count": 87,
+      "checkins": 2298,
+      "phone": "51-30300814",
+      "fan_count": 3168,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c10.0.50.50/p50x50/11406659_965405723510545_2764968830380547153_n.jpg?oh=2338f41abac77361fca7011aed94dea4&oe=59903E90"
+        }
+      },
+      "cover": {
+        "cover_id": "620267321357722",
+        "offset_x": 0,
+        "offset_y": 43,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/p720x720/1234221_620267321357722_625207182_n.png?oh=3b7b9961f0689f1a14f2a3a1840d92dd&oe=5980E9FC",
+        "id": "620267321357722"
+      },
+      "id": "620257501358704"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.02537,
+        "longitude": -51.204343,
+        "street": "Rua Hilário Ribeiro, 177 ap 801"
+      },
+      "name": "Markart-marketing e Publicidade e Promoções - Coronel Aparício Borges",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "(51) 3024-7282",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "182005052191631"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.037187793337,
+        "longitude": -51.22864614474,
+        "state": "RS",
+        "street": "Rua Cel. Genuíno, 421 - Centro Histórico",
+        "zip": "90030-150"
+      },
+      "name": "FMP - Fundação Escola Superior do Ministério Público RS - OFICIAL",
+      "overall_star_rating": 4.8,
+      "rating_count": 159,
+      "checkins": 9844,
+      "phone": "51 3027.6560",
+      "fan_count": 19017,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/17103722_1266592426758180_1739828769594374993_n.jpg?oh=d24b1c8d4862d5bea063cb44efcb6e43&oe=5981AC3D"
+        }
+      },
+      "cover": {
+        "cover_id": "1208447155906041",
+        "offset_x": 600,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/15781136_1208447155906041_1860387353539019081_n.png?oh=872e970340f23601f9a5a19889bcc0c1&oe=598BA451",
+        "id": "1208447155906041"
+      },
+      "id": "154569297960504"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02528,
+        "longitude": -51.22441,
+        "state": "RS",
+        "street": "Praça Rui Barbosa, 57",
+        "zip": "90030-100"
+      },
+      "name": "Ministério Público Federal no Rio Grande do Sul - Procuradoria da República",
+      "rating_count": 0,
+      "checkins": 737,
+      "phone": "+55 51 3284 7200",
+      "fan_count": 6150,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/15326540_1249874875071862_466617477568398328_n.jpg?oh=9cfcba7b3b04bd80b0bac5bd86a19d59&oe=594C8890"
+        }
+      },
+      "cover": {
+        "cover_id": "1374968859229129",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/17637216_1374968859229129_6089680268801105789_o.png?oh=8352738afa1149a3524ae77be00df9a6&oe=5997D4AE",
+        "id": "1374968859229129"
+      },
+      "id": "551121484947208"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02818,
+        "longitude": -51.20327,
+        "state": "RS",
+        "zip": "90430-010"
+      },
+      "name": "Smart. Brandesign Publicidade e Propaganda",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 1,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/392333_10149999285997743_1364412321_n.png?oh=837d0eab3d013f44ac594053073d2f00&oe=59947158"
+        }
+      },
+      "id": "1043294539043373"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.022499,
+        "longitude": -51.208965
+      },
+      "name": "Editora Fonte Publicacoes Juridicas Ltda",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "1156374981170684"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.046958946054,
+        "longitude": -51.217235547783,
+        "state": "RS",
+        "street": "Rua João Neves da Fontoura, 7",
+        "zip": "90050-030"
+      },
+      "name": "EPTC - Empresa Pública de Transporte e Circulação (oficial)",
+      "overall_star_rating": 1.9,
+      "rating_count": 898,
+      "checkins": 4120,
+      "phone": "118 ou 3289-0156 (para quem está fora de Porto Alegre)",
+      "fan_count": 32983,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c8.0.50.50/p50x50/11225353_1084530328230344_8894678939449771768_n.jpg?oh=5386200e7abbe893910f89d03edd0245&oe=59778EE5"
+        }
+      },
+      "cover": {
+        "cover_id": "1645199452163426",
+        "offset_x": 0,
+        "offset_y": 61,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/17796575_1645199452163426_3253595654786378627_n.jpg?oh=0919f233351c26804af76319f8772146&oe=599B284E",
+        "id": "1645199452163426"
+      },
+      "id": "261160507234001"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.02234,
+        "longitude": -51.20861
+      },
+      "name": "Clap Arte Objetivo Publicidade",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/392333_10149999285997743_1364412321_n.png?oh=837d0eab3d013f44ac594053073d2f00&oe=59947158"
+        }
+      },
+      "id": "1541162939547046"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre, RS",
+        "latitude": -30.0255477,
+        "longitude": -51.2124093
+      },
+      "name": "Markart - Marketing, Publicidade e Promocoes",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "5130863004",
+      "fan_count": 1,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/392333_10149999285997743_1364412321_n.png?oh=837d0eab3d013f44ac594053073d2f00&oe=59947158"
+        }
+      },
+      "id": "162602617457443"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.027607869683,
+        "longitude": -51.215616893214,
+        "state": "RS",
+        "street": "itapema",
+        "zip": "91320090"
+      },
+      "name": "Shivas Pub",
+      "overall_star_rating": 4.8,
+      "rating_count": 13,
+      "checkins": 63,
+      "phone": "05181692238",
+      "fan_count": 731,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10849882_322455024617473_3153636447839567510_n.jpg?oh=61dadaf7c7088e028bf21f5943ad9c79&oe=59830BE9"
+        }
+      },
+      "cover": {
+        "cover_id": "356104521252523",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/11080484_356104521252523_692613420341606406_o.jpg?oh=327ecccd22cdf9b14b7030d1fb7b7ec4&oe=5987ABEB",
+        "id": "356104521252523"
+      },
+      "id": "317742391755403"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.03095358862,
+        "longitude": -51.23329078833,
+        "state": "RS",
+        "street": "Rua dos Andradas, 846",
+        "zip": "90020-005"
+      },
+      "name": "Afpergs - Associação Dos Funcionários Públicos Do Rio Grande Do Sul",
+      "overall_star_rating": 3.8,
+      "rating_count": 41,
+      "checkins": 952,
+      "phone": "(51)3228-6939",
+      "fan_count": 281,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1620611_10202507197990539_655344252264825296_n.jpg?oh=184d410cc823faefe79d6ae4bffa9eb1&oe=59913802"
+        }
+      },
+      "id": "124768787693196"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02746,
+        "longitude": -51.21575,
+        "state": "RS",
+        "street": "Cristóvão colombo 168",
+        "zip": "90560-000"
+      },
+      "name": "Shivas pub",
+      "rating_count": 0,
+      "checkins": 3,
+      "phone": "51-8508-4003",
+      "fan_count": 35,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c43.0.50.50/p50x50/10408712_412966485532973_4210011007964220930_n.jpg?oh=52a0b17bcf042f97d05f0c550372843c&oe=597896D2"
+        }
+      },
+      "id": "412965902199698"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02959,
+        "longitude": -51.21222,
+        "state": "RS",
+        "street": "Av. Independência, 891"
+      },
+      "name": "Baker Street Pub",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "51 84071368",
+      "fan_count": 3,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "312496575582619"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.04233,
+        "longitude": -51.22231,
+        "state": "RS",
+        "street": "Rua Joaquim Nabuco, 381 Cidade Baixa",
+        "zip": "90050-340"
+      },
+      "name": "YUU Pub - Petiscos Japoneses Quentes",
+      "overall_star_rating": 4.8,
+      "rating_count": 124,
+      "checkins": 1618,
+      "phone": "5132376097",
+      "fan_count": 2110,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13906596_589306141250948_2025081879560889476_n.jpg?oh=2ec70e1ec9a8c281ffb22abeef261444&oe=594E3A01"
+        }
+      },
+      "cover": {
+        "cover_id": "666366443544917",
+        "offset_x": 0,
+        "offset_y": 30,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/16174884_666366443544917_6876473144589146450_n.jpg?oh=2b81e59eb7b6754230caf931cf396acf&oe=59800844",
+        "id": "666366443544917"
+      },
+      "id": "218401418341424"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02727,
+        "longitude": -51.2154,
+        "state": "RS",
+        "zip": "90560-000"
+      },
+      "name": "Rpm Relacoes Publicas e Marketing",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 1,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "1749006005354904"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0247,
+        "longitude": -51.2025,
+        "state": "RS"
+      },
+      "name": "Mooligang Irish Pub",
+      "rating_count": 0,
+      "checkins": 6,
+      "fan_count": 3,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "426782094040564"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.0388242,
+        "longitude": -51.1910621,
+        "state": "RS",
+        "street": "Rua Amélia Teles 384",
+        "zip": "90460070"
+      },
+      "name": "Barraco Chique Café & Pub Purpurina",
+      "overall_star_rating": 5,
+      "rating_count": 34,
+      "checkins": 777,
+      "phone": "5133818569",
+      "fan_count": 3742,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13178526_488846847982557_8696974484713365779_n.jpg?oh=d59b06858721add413052eee13ca6b6a&oe=59784E18"
+        }
+      },
+      "cover": {
+        "cover_id": "618356218364952",
+        "offset_x": 0,
+        "offset_y": 50,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/17309273_618356218364952_2829505529007852546_n.jpg?oh=af445d785f0abad8c1ee651a8d0bf169&oe=59792B11",
+        "id": "618356218364952"
+      },
+      "id": "488837051316870"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.01742,
+        "longitude": -51.20268,
+        "state": "RS",
+        "street": "R. Félix da Cunha, 515 - Floresta",
+        "zip": "90570-001"
+      },
+      "name": "Publicitários Go",
+      "overall_star_rating": 5,
+      "rating_count": 1,
+      "checkins": 1,
+      "fan_count": 118,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14222357_175158652893031_2819449158317563590_n.png?oh=9c6ad9a0bb349b7dd64fb9597939c72f&oe=598BF240"
+        }
+      },
+      "cover": {
+        "cover_id": "175160236226206",
+        "offset_x": 0,
+        "offset_y": 17,
+        "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/14089132_175160236226206_1399344704136749260_n.png?oh=c44461bedd5d2e8f412fd0a7e89d7a0b&oe=598508A7",
+        "id": "175160236226206"
+      },
+      "id": "175156746226555"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.037343646326,
+        "longitude": -51.221785465667,
+        "state": "RS",
+        "street": "República 163",
+        "zip": "90050"
+      },
+      "name": "Entreato",
+      "overall_star_rating": 4.2,
+      "rating_count": 1217,
+      "checkins": 22615,
+      "phone": "(55) 51-3019.3813 / 3019.1133",
+      "fan_count": 6803,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13164341_1064095780324068_2486167133216940736_n.png?oh=5a84e8dd223f9d60c6c78bcef702afe6&oe=59955F81"
+        }
+      },
+      "cover": {
+        "cover_id": "1284077758325868",
+        "offset_x": 0,
+        "offset_y": 29,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/16143769_1284077758325868_7094898420499748718_o.png?oh=d50404cc6eda9a1593d1ea9ef2c857af&oe=598FDA5A",
+        "id": "1284077758325868"
+      },
+      "id": "139264729473849"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.02922,
+        "longitude": -51.21326,
+        "state": "RS",
+        "zip": "90035-076"
+      },
+      "name": "Midia Center Publicidade e Marketing",
+      "rating_count": 0,
+      "checkins": 0,
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/392333_10149999285997743_1364412321_n.png?oh=837d0eab3d013f44ac594053073d2f00&oe=59947158"
+        }
+      },
+      "id": "446521962211617"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.01936,
+        "longitude": -51.20935,
+        "state": "RS",
+        "street": "Rua São Carlos, 826 - bairro Floresta",
+        "zip": "90220-121"
+      },
+      "name": "Luciana Brambilla Relações Públicas & Imprensa",
+      "overall_star_rating": 4.6,
+      "rating_count": 14,
+      "checkins": 3,
+      "phone": "(51)3023.8606",
+      "fan_count": 977,
+      "picture": {
+        "data": {
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14641942_1179635745412537_6385353482811931606_n.jpg?oh=978225991f7b10004fc23ee94f4ebcb6&oe=597724DC"
+        }
+      },
+      "cover": {
+        "cover_id": "362716870437766",
+        "offset_x": 0,
+        "offset_y": 49,
+        "source": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/474008_362716870437766_125678182_o.jpg?oh=1f5ade15249ca602de810530d022e466&oe=59791594",
+        "id": "362716870437766"
+      },
+      "id": "207177292658392"
+    },
+    {
+      "location": {
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "latitude": -30.022733,
+        "longitude": -51.215838,
+        "state": "RS",
+        "zip": "90030-010"
+      },
+      "name": "Estado do Rio Grande do Sul - Secretaria da Seguranca Public",
+      "rating_count": 0,
+      "checkins": 0,
+      "phone": "5134019900",
+      "fan_count": 0,
+      "picture": {
+        "data": {
+          "is_silhouette": true,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/418333_10149999285994467_1920585607_n.png?oh=8ee6f42aa790ae68a10ccf2baab5cb65&oe=5993BB04"
+        }
+      },
+      "id": "246211079105312"
+    }
+  ],
+  "paging": {
+    "cursors": {
+      "after": "OTkZD"
+    },
+    "next": "https://graph.facebook.com/v2.9/search?access_token=EAACEdEose0cBAFfVO2EfIEchE6BfZCZBV24tbqbWSTctIBpNxDbkdMfsACGts6eZAWXsSsaQdcZAE31M41XMGBIuy1D8vSoNvo0DrDqe5W9YuXGcISJoehrjZCcOhUm6EoBgdautEXRZCh28t7UOR6GCuE1Eer43mIvPZBdyDX72YdpZAUOLiMNsHDrZAgnMj2IIZD&pretty=0&fields=location%2Cname%2Coverall_star_rating%2Crating_count%2Ccheckins%2Cphone%2Cfan_count%2Cpicture%2Ccover&q=pub&type=place&center=-30.0262844%2C-51.2072853&distance=5000&limit=100&after=OTkZD"
+  }
+}

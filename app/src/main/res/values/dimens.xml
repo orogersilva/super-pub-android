@@ -3,4 +3,15 @@
 
     <dimen name="toolbar_main_text_size">20sp</dimen>
 
+    <dimen name="pub_cardview_elevation">5dp</dimen>
+    <dimen name="pub_cardview_height">60dp</dimen>
+    <dimen name="pub_cardview_margin">8dp</dimen>
+    <dimen name="pub_cardview_side_effect_width">10dp</dimen>
+
+    <dimen name="pub_circleimageview_height">30dp</dimen>
+
+    <dimen name="pub_name_text_size">17sp</dimen>
+
+    <dimen name="pub_rating_text_size">17sp</dimen>
+
 </resources>
