@@ -7,16 +7,19 @@ import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.nhaarman.mockito_kotlin.*
+import com.orogersilva.superpub.dublin.data.PubRepository
 import com.orogersilva.superpub.dublin.di.components.ApplicationComponent
 import com.orogersilva.superpub.dublin.di.components.LoginComponent
-import com.orogersilva.superpub.dublin.di.modules.FacebookSdkModule
-import com.orogersilva.superpub.dublin.di.modules.LoginPresenterModule
+import com.orogersilva.superpub.dublin.di.modules.*
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import it.cosenonjaviste.daggermock.DaggerMockRule
 import it.cosenonjaviste.daggermock.InjectFromComponent
+import org.junit.After
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mock
+import javax.inject.Inject
 
 /**
  * Created by orogersilva on 4/14/2017.
@@ -25,14 +28,24 @@ class LoginPresenterTest {
 
     // region PROPERTIES
 
-    @Rule @JvmField val daggerMockRule: DaggerMockRule<ApplicationComponent> =
-            DaggerMockRule(ApplicationComponent::class.java)
+    private lateinit var loginViewMock: LoginActivity
+    private lateinit var loginManagerMock: LoginManager
+    private lateinit var callbackManagerMock: CallbackManager
 
-    private val loginView: LoginActivity = mock()
-    private val loginManager: LoginManager = mock()
-    private val callbackManager: CallbackManager = mock()
+    private lateinit var loginPresenter: LoginPresenter
 
-    @InjectFromComponent(LoginActivity::class) lateinit var loginPresenter: LoginContract.Presenter
+    // endregion
+
+    // region SETUP METHODS
+
+    @Before fun setup() {
+
+        loginViewMock = mock()
+        loginManagerMock = mock()
+        callbackManagerMock = mock()
+
+        loginPresenter = LoginPresenter(loginViewMock, loginManagerMock, callbackManagerMock)
+    }
 
     // endregion
 
@@ -44,14 +57,13 @@ class LoginPresenterTest {
 
         val EXPECTED_PERMISSIONS = listOf("public_profile")
 
-
         // ACT
 
         loginPresenter.login()
 
         // ASSERT
 
-        verify(loginManager).logInWithReadPermissions(loginView, EXPECTED_PERMISSIONS)
+        verify(loginManagerMock).logInWithReadPermissions(loginViewMock, EXPECTED_PERMISSIONS)
     }
 
     @Test fun onResultFromFacebookApi_cancelledLogin() {
@@ -68,7 +80,7 @@ class LoginPresenterTest {
 
         // ASSERT
 
-        callbackManager.onActivityResult(REQUEST_CODE, RESULT_CODE, null)
+        callbackManagerMock.onActivityResult(REQUEST_CODE, RESULT_CODE, null)
     }
 
     @Test fun onResultFromFacebookApi_passedLogin() {
@@ -85,7 +97,7 @@ class LoginPresenterTest {
 
         // ASSERT
 
-        callbackManager.onActivityResult(REQUEST_CODE, RESULT_CODE, null)
+        callbackManagerMock.onActivityResult(REQUEST_CODE, RESULT_CODE, null)
     }
 
     // endregion

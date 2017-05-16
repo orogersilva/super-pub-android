@@ -13,6 +13,7 @@ buildscript {
     dependencies {
 
         classpath androidBuildTools
+        classpath frodoPlugin
         classpath kotlinGradlePlugin
         classpath realmPlugin
 

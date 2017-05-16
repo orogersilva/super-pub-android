@@ -1,8 +1,10 @@
 package com.orogersilva.superpub.dublin.data.local
 
+import com.fernandocejas.frodo.annotation.RxLogObservable
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.model.Pub
 import io.reactivex.Observable
+import io.reactivex.schedulers.Timed
 import io.realm.Realm
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -13,7 +15,7 @@ import javax.inject.Singleton
 @Singleton
 class PubLocalDataSource @Inject constructor(private var realm: Realm?) : PubDataSource {
 
-    // region PUBLIC METHODS
+    // region DESTRUCTOR
 
     fun destroyInstance() {
 
@@ -25,14 +27,21 @@ class PubLocalDataSource @Inject constructor(private var realm: Realm?) : PubDat
 
     // region OVERRIDED METHODS
 
-    override fun getPubs(): Observable<List<Pub>> =
+    @RxLogObservable
+    override fun getPubs(query: String, type: String, center: String, radius: Int, limit: Int,
+                         fields: String, displayedDataTimestamp: Long): Observable<Pub>? =
             Observable.just(realm?.copyFromRealm(realm?.where(Pub::class.java)?.findAll()))
+                .flatMap { Observable.fromIterable(it) }
 
-    override fun savePubs(pubs: List<Pub>) {
+    override fun savePubs(pubs: List<Pub>, deleteExistingPubs: Boolean) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun deletePubs() {
+    // endregion
+
+    // region UTILITY METHODS
+
+    fun deletePubs() {
 
         realm?.executeTransaction { realm?.deleteAll() }
     }

@@ -63,13 +63,20 @@ class PubLocalDataSourceTest {
 
         // ARRANGE
 
-        val EMITTED_EVENTS_COUNT = 1
+        val QUERY_VALUE = "pub"
+        val TYPE_VALUE = "place"
+        val CENTER_VALUE = "-30.0262844,-51.2072853"
+        val DISTANCE_VALUE = 5000
+        val LIMIT_VALUE = 200
+        val FIELDS_VALUE = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover"
 
-        val testObserver = TestObserver<List<Pub>>()
+        val EMITTED_EVENTS_COUNT = 0
+
+        val testObserver = TestObserver<Pub>()
 
         // ACT
 
-        pubLocalDataSource?.getPubs()
+        pubLocalDataSource?.getPubs(QUERY_VALUE, TYPE_VALUE, CENTER_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
                 ?.subscribe(testObserver)
 
         // ASSERT
@@ -78,14 +85,21 @@ class PubLocalDataSourceTest {
         testObserver.assertNoErrors()
         testObserver.assertValueCount(EMITTED_EVENTS_COUNT)
 
-        assertTrue(testObserver.values()[0].isEmpty())
+        assertTrue(testObserver.values().isEmpty())
     }
 
     @Test fun getPubs_whenThereArePubs_returnsPubs() {
 
         // ARRANGE
 
-        val EMITTED_EVENTS_COUNT = 1
+        val QUERY_VALUE = "pub"
+        val TYPE_VALUE = "place"
+        val CENTER_VALUE = "-30.0262844,-51.2072853"
+        val DISTANCE_VALUE = 5000
+        val LIMIT_VALUE = 200
+        val FIELDS_VALUE = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover"
+
+        val EMITTED_EVENTS_COUNT = 3
 
         val expectedPubs = createTestData()
 
@@ -105,11 +119,11 @@ class PubLocalDataSourceTest {
 
         realm.close()
 
-        val testObserver = TestObserver<List<Pub>>()
+        val testObserver = TestObserver<Pub>()
 
         // ACT
 
-        pubLocalDataSource?.getPubs()
+        pubLocalDataSource?.getPubs(QUERY_VALUE, TYPE_VALUE, CENTER_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
                 ?.subscribe(testObserver)
 
         // ASSERT
@@ -118,7 +132,7 @@ class PubLocalDataSourceTest {
         testObserver.assertNoErrors()
         testObserver.assertValueCount(EMITTED_EVENTS_COUNT)
 
-        val pubs = testObserver.values()[0]
+        val pubs = testObserver.values()
 
         assertEquals(expectedPubs, pubs)
     }
@@ -135,6 +149,15 @@ class PubLocalDataSourceTest {
     // endregion
 
     // region UTILITY METHODS
+
+    private fun createTestData(): List<Pub> {
+
+        val listType = object : TypeToken<List<Pub>>(){}.type
+
+        val pubs = Gson().fromJson<List<Pub>>(loadJsonFromAsset("pubs.json"), listType)
+
+        return pubs
+    }
 
     private fun loadJsonFromAsset(fileName: String): String? {
 
@@ -164,15 +187,6 @@ class PubLocalDataSourceTest {
         }
 
         return jsonStr
-    }
-
-    private fun createTestData(): List<Pub> {
-
-        val listType = object : TypeToken<List<Pub>>(){}.type
-
-        val pubs = Gson().fromJson<List<Pub>>(loadJsonFromAsset("pubs.json"), listType)
-
-        return pubs
     }
 
     // endregion

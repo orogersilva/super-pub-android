@@ -3,6 +3,7 @@ package com.orogersilva.superpub.dublin.di.components
 import com.orogersilva.superpub.dublin.di.modules.FacebookSdkModule
 import com.orogersilva.superpub.dublin.di.modules.LoginPresenterModule
 import com.orogersilva.superpub.dublin.di.scopes.LoginScope
+import com.orogersilva.superpub.dublin.presentation.screen.login.LoginPresenter
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import dagger.Component
 import dagger.Subcomponent

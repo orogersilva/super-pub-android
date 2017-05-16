@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.orogersilva.superpub.dublin.R
+import com.orogersilva.superpub.dublin.di.components.LoginComponent
 import com.orogersilva.superpub.dublin.di.modules.FacebookSdkModule
 import com.orogersilva.superpub.dublin.di.modules.LoginPresenterModule
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
@@ -53,6 +54,11 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         super.onResume()
 
         loginPresenter.resume()
+    }
+
+    override fun onDestroy() {
+
+        super.onDestroy()
     }
 
     // endregion

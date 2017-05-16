@@ -34,7 +34,7 @@ class SearchingApiClientTest : BaseApiClientTest() {
 
         val EXPECTED_PATH = "/search?q=$QUERY_VALUE&type=$TYPE_VALUE&center=$CENTER_VALUE&distance=$DISTANCE_VALUE&limit=$LIMIT_VALUE&fields=$FIELDS_VALUE"
 
-        server?.setDispatcher(HttpLocalResponseDispatcher(loadJsonFromAsset("pubs.json")))
+        server?.setDispatcher(HttpLocalResponseDispatcher(loadJsonFromAsset("pubsHttpResponse.json")))
         server?.start()
 
         val testObserver = TestObserver<PubHttpResponse>()

@@ -10,6 +10,7 @@ import javax.inject.Singleton
 /**
  * Created by orogersilva on 4/14/2017.
  */
+@LoginScope
 @Module
 open class FacebookSdkModule {
 

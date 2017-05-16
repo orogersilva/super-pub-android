@@ -13,6 +13,7 @@ import dagger.Provides
 /**
  * Created by orogersilva on 4/14/2017.
  */
+@LoginScope
 @Module
 open class LoginPresenterModule(private val loginView: LoginActivity) {
 

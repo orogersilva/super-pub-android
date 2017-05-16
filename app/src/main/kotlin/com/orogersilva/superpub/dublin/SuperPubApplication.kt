@@ -2,10 +2,12 @@ package com.orogersilva.superpub.dublin
 
 import android.app.Application
 import android.os.StrictMode
+import android.support.annotation.VisibleForTesting
 import com.facebook.FacebookSdk
 import com.facebook.stetho.Stetho
 import com.orogersilva.superpub.dublin.di.components.ApplicationComponent
 import com.orogersilva.superpub.dublin.di.components.DaggerApplicationComponent
+import com.orogersilva.superpub.dublin.di.modules.ApplicationModule
 import com.squareup.leakcanary.LeakCanary
 
 /**
@@ -47,7 +49,17 @@ class SuperPubApplication : Application() {
         }
 
         applicationComponent = DaggerApplicationComponent.builder()
+                .applicationModule(ApplicationModule(this))
                 .build()
+    }
+
+    // endregion
+
+    // region PUBLIC METHODS
+
+    @VisibleForTesting fun setTestComponent(applicationComponent: ApplicationComponent) {
+
+        this.applicationComponent = applicationComponent
     }
 
     // endregion

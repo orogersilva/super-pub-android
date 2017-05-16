@@ -18,7 +18,7 @@ object RestClient {
 
     // region PUBLIC METHODS
 
-    fun<T> getApiClient(serviceClass: Class<T>, baseEndpoint: String = BuildConfig.FACEBOOK_GRAPH_API): T {
+    fun<T> getApiClient(serviceClass: Class<T>, baseEndpoint: String): T {
 
         retrofit = Retrofit.Builder()
                 .baseUrl(baseEndpoint)
