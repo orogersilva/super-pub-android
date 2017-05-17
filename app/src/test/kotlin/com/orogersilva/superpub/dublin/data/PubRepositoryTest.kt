@@ -6,7 +6,6 @@ import com.nhaarman.mockito_kotlin.*
 import com.orogersilva.superpub.dublin.data.local.PubLocalDataSource
 import com.orogersilva.superpub.dublin.data.remote.PubRemoteDataSource
 import com.orogersilva.superpub.dublin.model.Pub
-import com.orogersilva.superpub.dublin.shared.toImmutableMap
 import io.reactivex.Observable
 import io.reactivex.observers.TestObserver
 import org.junit.*
@@ -48,15 +47,15 @@ class PubRepositoryTest {
         // ARRANGE
 
         val EMITTED_EVENTS_COUNT = 3
-        val CENTER_VALUE = "-30.0262844,-51.2072853"
+        val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
 
         val expectedPubsList = createTestData()
 
         val diskData = Observable.empty<Pub>()
         val networkData = Observable.fromIterable(expectedPubsList)
 
-        whenever(pubLocalDataSourceMock?.getPubs(center = CENTER_VALUE)).thenReturn(diskData)
-        whenever(pubRemoteDataSourceMock?.getPubs(center = CENTER_VALUE)).thenReturn(networkData)
+        whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
+        whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
         doNothing().whenever(pubLocalDataSourceMock)?.savePubs(expectedPubsList, true)
 
@@ -64,7 +63,7 @@ class PubRepositoryTest {
 
         // ACT
 
-        pubRepository?.getPubs(center = CENTER_VALUE)
+        pubRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE)
                 ?.subscribe(testObserver)
 
         // ASSERT
@@ -89,7 +88,7 @@ class PubRepositoryTest {
         // ARRANGE
 
         val EMITTED_EVENTS_COUNT = 3
-        val CENTER_VALUE = "-30.0262844,-51.2072853"
+        val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
 
         val expectedPubsList = createTestData()
 
@@ -98,14 +97,14 @@ class PubRepositoryTest {
         val diskData = Observable.fromIterable(expectedPubsList)
         val networkData = Observable.empty<Pub>()
 
-        whenever(pubLocalDataSourceMock?.getPubs(center = CENTER_VALUE)).thenReturn(diskData)
-        whenever(pubRemoteDataSourceMock?.getPubs(center = CENTER_VALUE)).thenReturn(networkData)
+        whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
+        whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
         val testObserver = TestObserver<Pub>()
 
         // ACT
 
-        pubRepository?.getPubs(center = CENTER_VALUE)
+        pubRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE)
                 ?.subscribe(testObserver)
 
         // ASSERT

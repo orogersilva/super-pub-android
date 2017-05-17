@@ -1,17 +1,12 @@
 package com.orogersilva.superpub.dublin.data
 
 import com.fernandocejas.frodo.annotation.RxLogObservable
-import com.orogersilva.superpub.dublin.data.local.PubLocalDataSource
 import com.orogersilva.superpub.dublin.di.scopes.PubInfoScope
 import com.orogersilva.superpub.dublin.model.Pub
-import com.orogersilva.superpub.dublin.presentation.screen.TimestampedView
 import com.orogersilva.superpub.dublin.shared.toImmutableMap
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
-import io.reactivex.schedulers.Timed
 import javax.inject.Inject
-import javax.inject.Named
-import javax.inject.Singleton
 
 /**
  * Created by orogersilva on 4/27/2017.
@@ -42,8 +37,8 @@ open class PubRepository @Inject constructor(private @Local var pubLocalDataSour
     // region OVERRIDED METHODS
 
     @RxLogObservable
-    override fun getPubs(query: String, type: String, center: String, radius: Int, limit: Int, fields: String, displayedDataTimestamp: Long): Observable<Pub>? =
-            getMergedPubs(query, type, center, radius, limit, fields)
+    override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int, fields: String, displayedDataTimestamp: Long): Observable<Pub>? =
+            getMergedPubs(query, type, fromLocation, radius, limit, fields)
                     ?.filter { it.timestamp > displayedDataTimestamp }
 
     override fun savePubs(pubs: List<Pub>, deleteExistingPubs: Boolean) {

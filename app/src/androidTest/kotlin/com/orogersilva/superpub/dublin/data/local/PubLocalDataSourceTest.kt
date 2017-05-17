@@ -65,7 +65,7 @@ class PubLocalDataSourceTest {
 
         val QUERY_VALUE = "pub"
         val TYPE_VALUE = "place"
-        val CENTER_VALUE = "-30.0262844,-51.2072853"
+        val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
         val DISTANCE_VALUE = 5000
         val LIMIT_VALUE = 200
         val FIELDS_VALUE = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover"
@@ -76,7 +76,7 @@ class PubLocalDataSourceTest {
 
         // ACT
 
-        pubLocalDataSource?.getPubs(QUERY_VALUE, TYPE_VALUE, CENTER_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
+        pubLocalDataSource?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
                 ?.subscribe(testObserver)
 
         // ASSERT
@@ -94,7 +94,7 @@ class PubLocalDataSourceTest {
 
         val QUERY_VALUE = "pub"
         val TYPE_VALUE = "place"
-        val CENTER_VALUE = "-30.0262844,-51.2072853"
+        val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
         val DISTANCE_VALUE = 5000
         val LIMIT_VALUE = 200
         val FIELDS_VALUE = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover"
@@ -123,7 +123,7 @@ class PubLocalDataSourceTest {
 
         // ACT
 
-        pubLocalDataSource?.getPubs(QUERY_VALUE, TYPE_VALUE, CENTER_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
+        pubLocalDataSource?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
                 ?.subscribe(testObserver)
 
         // ASSERT

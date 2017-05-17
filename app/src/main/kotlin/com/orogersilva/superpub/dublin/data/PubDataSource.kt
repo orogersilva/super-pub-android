@@ -13,7 +13,7 @@ interface PubDataSource {
 
     fun getPubs(query: String = "pub",
                 type: String = "place",
-                center: String,
+                fromLocation: String,
                 radius: Int = 5000,
                 limit: Int = 200,
                 fields: String = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover",

@@ -28,7 +28,7 @@ class PubLocalDataSource @Inject constructor(private var realm: Realm?) : PubDat
     // region OVERRIDED METHODS
 
     @RxLogObservable
-    override fun getPubs(query: String, type: String, center: String, radius: Int, limit: Int,
+    override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
                          fields: String, displayedDataTimestamp: Long): Observable<Pub>? =
             Observable.just(realm?.copyFromRealm(realm?.where(Pub::class.java)?.findAll()))
                 .flatMap { Observable.fromIterable(it) }
