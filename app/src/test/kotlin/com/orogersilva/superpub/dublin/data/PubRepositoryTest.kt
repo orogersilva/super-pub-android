@@ -3,6 +3,7 @@ package com.orogersilva.superpub.dublin.data
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.nhaarman.mockito_kotlin.*
+import com.orogersilva.superpub.dublin.BaseTestCase
 import com.orogersilva.superpub.dublin.data.local.PubLocalDataSource
 import com.orogersilva.superpub.dublin.data.remote.PubRemoteDataSource
 import com.orogersilva.superpub.dublin.model.Pub
@@ -17,7 +18,7 @@ import java.nio.charset.Charset
 /**
  * Created by orogersilva on 4/28/2017.
  */
-class PubRepositoryTest {
+class PubRepositoryTest : BaseTestCase() {
 
     // region PROPERTIES
 
@@ -167,49 +168,6 @@ class PubRepositoryTest {
 
         pubRepository?.destroyInstance()
         pubRepository = null
-    }
-
-    // endregion
-
-    // region UTILITY METHODS
-
-    private fun createTestData(): List<Pub> {
-
-        val listType = object : TypeToken<List<Pub>>(){}.type
-
-        val pubs = Gson().fromJson<List<Pub>>(loadJsonFromAsset("pubs.json"), listType)
-
-        return pubs
-    }
-
-    private fun loadJsonFromAsset(fileName: String): String? {
-
-        var jsonStr: String?
-        var inputStream: InputStream? = null
-
-        try {
-
-            inputStream = javaClass.classLoader.getResourceAsStream(fileName)
-
-            val size = inputStream.available()
-            val buffer = ByteArray(size)
-
-            inputStream.read(buffer)
-
-            jsonStr = String(buffer, Charset.forName("UTF-8"))
-
-        } catch (ex: IOException) {
-
-            ex.printStackTrace()
-
-            return null
-
-        } finally {
-
-            inputStream?.close()
-        }
-
-        return jsonStr
     }
 
     // endregion

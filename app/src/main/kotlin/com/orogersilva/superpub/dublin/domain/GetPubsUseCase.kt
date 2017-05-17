@@ -10,7 +10,7 @@ interface GetPubsUseCase {
 
     // region METHODS
 
-    fun getPubs(center: String): Observable<Pub>?
+    fun getPubs(latitude: Double, longitude: Double): Observable<Pub>?
 
     // endregion
 }
