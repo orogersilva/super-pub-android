@@ -1,7 +1,7 @@
 package com.orogersilva.superpub.dublin.di.modules
 
 import android.content.Context
-import com.orogersilva.superpub.dublin.data.Local
+import com.orogersilva.superpub.dublin.di.scopes.Local
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.local.PubLocalDataSource
 import com.orogersilva.superpub.dublin.di.scopes.PubInfoScope
@@ -9,7 +9,6 @@ import dagger.Module
 import dagger.Provides
 import io.realm.Realm
 import io.realm.RealmConfiguration
-import javax.inject.Singleton
 
 /**
  * Created by orogersilva on 5/1/2017.

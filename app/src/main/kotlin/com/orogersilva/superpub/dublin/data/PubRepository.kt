@@ -1,7 +1,9 @@
 package com.orogersilva.superpub.dublin.data
 
 import com.fernandocejas.frodo.annotation.RxLogObservable
+import com.orogersilva.superpub.dublin.di.scopes.Local
 import com.orogersilva.superpub.dublin.di.scopes.PubInfoScope
+import com.orogersilva.superpub.dublin.di.scopes.Remote
 import com.orogersilva.superpub.dublin.model.Pub
 import com.orogersilva.superpub.dublin.shared.toImmutableMap
 import io.reactivex.Observable

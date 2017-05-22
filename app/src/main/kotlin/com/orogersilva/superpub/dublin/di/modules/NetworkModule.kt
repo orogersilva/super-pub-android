@@ -4,12 +4,11 @@ import com.orogersilva.superpub.dublin.BuildConfig
 import com.orogersilva.superpub.dublin.api.RestClient
 import com.orogersilva.superpub.dublin.api.endpoint.SearchingApiClient
 import com.orogersilva.superpub.dublin.data.PubDataSource
-import com.orogersilva.superpub.dublin.data.Remote
+import com.orogersilva.superpub.dublin.di.scopes.Remote
 import com.orogersilva.superpub.dublin.data.remote.PubRemoteDataSource
 import com.orogersilva.superpub.dublin.di.scopes.PubInfoScope
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 /**
  * Created by orogersilva on 5/1/2017.
