@@ -67,54 +67,6 @@ open class PubRepository @Inject constructor(private @Local var pubLocalDataSour
                             }
                             ?.subscribeOn(Schedulers.io()))
 
-    /*@RxLogObservable
-    internal fun getMergedPubs(query: String, type: String, center: String, radius: Int, limit: Int, fields: String): Observable<Pub>? {
-
-        val o1 = Observable.fromIterable(cachedPubs?.toImmutableMap()?.values?.toList())
-                ?.doOnNext {
-                    var i = 1
-                    i++
-                }
-                ?.doOnError {
-                    var i = 1
-                    i++
-                }
-                ?.doOnComplete {
-                    var i = 1
-                    i++
-                }
-        val o2 = pubLocalDataSource?.getPubs(query, type, center, radius, limit, fields)
-                ?.doOnNext {
-                    cacheInMemory(it)
-                }
-                ?.doOnError {
-                    var i = 1
-                    i++
-                }
-                ?.doOnComplete {
-                    var i = 1
-                    i++
-                }
-                ?.subscribeOn(Schedulers.io())
-        val o3 = pubRemoteDataSource?.getPubs(query, type, center, radius, limit, fields)
-                ?.doOnNext {
-                    it.timestamp = System.currentTimeMillis()
-                    cacheInMemory(it)
-                }
-                ?.doOnError {
-                    var i = 1
-                    i++
-                }
-                ?.doOnComplete {
-                    saveToDisk(cachedPubs.toImmutableMap().values.toList())
-                }
-                ?.subscribeOn(Schedulers.io())
-
-        val o = Observable.mergeDelayError(o1, o2, o3)
-
-        return o
-    }*/
-
     internal fun cacheInMemory(pub: Pub) {
 
         if (cachedPubs == null) {

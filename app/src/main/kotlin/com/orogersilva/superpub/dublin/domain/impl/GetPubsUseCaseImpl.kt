@@ -1,5 +1,6 @@
 package com.orogersilva.superpub.dublin.domain.impl
 
+import com.fernandocejas.frodo.annotation.RxLogObservable
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.PubRepository
 import com.orogersilva.superpub.dublin.domain.GetPubsUseCase
@@ -14,6 +15,7 @@ class GetPubsUseCaseImpl @Inject constructor(private val pubRepository: PubDataS
 
     // region OVERRIDED METHODS
 
+    @RxLogObservable
     override fun getPubs(lat: Double, lng: Double): Observable<Pub>? {
 
         if (!isValidLocation(lat, lng)) return Observable.error(IllegalArgumentException())

@@ -81,8 +81,11 @@ class GetPubsUseCaseTest : BaseTestCase() {
         // ASSERT
 
         testObserver.assertComplete()
-        testObserver.assertNoErrors()
-        testObserver.assertValueCount(EMITTED_EVENTS_COUNT)
+                .assertNoErrors()
+                .assertValueCount(EMITTED_EVENTS_COUNT)
+                .assertOf { p1 ->
+                    pubsObservable.blockingForEach { p2 -> p2.equals(p1) }
+                }
     }
 
     // endregion

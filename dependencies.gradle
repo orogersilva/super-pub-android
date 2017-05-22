@@ -21,9 +21,10 @@ ext {
     leakCanaryVersion = '1.5'
     mockitoKotlinVersion = '1.4.0'
     mockWebServerVersion = '3.6.0'
-    realmVersion = '3.0.0'
+    realmVersion = '3.2.0'
     retrofitVersion = '2.2.0'
     rippleEffectVersion = '1.3.1'
+    rxAndroidVersion = '2.0.1'
     rxjava2Version = '2.0.8'
     stethoVersion = '1.4.2'
 
@@ -57,6 +58,7 @@ ext {
             retrofit: [group: 'com.squareup.retrofit2', name: 'retrofit', version: retrofitVersion],
             retrofitRxJava2Adapter: [group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: retrofitVersion],
             rippleEffect: [group: 'com.patrickpissurno', name: 'ripple-effect', version: rippleEffectVersion],
+            rxAndroid: [group: 'io.reactivex.rxjava2', name: 'rxandroid', version: rxAndroidVersion],
             rxjava2: [group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version],
             stetho: [group: 'com.facebook.stetho', name: 'stetho', version: stethoVersion]
     ]
@@ -90,6 +92,7 @@ ext {
             [configuration: 'compile', dependency: libs.retrofit],
             [configuration: 'compile', dependency: libs.retrofitRxJava2Adapter],
             [configuration: 'compile', dependency: libs.rippleEffect],
+            [configuration: 'compile', dependency: libs.rxAndroid],
             [configuration: 'compile', dependency: libs.rxjava2],
             [configuration: 'compile', dependency: libs.stetho],
 
