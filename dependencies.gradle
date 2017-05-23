@@ -14,6 +14,7 @@ ext {
     espressoVersion = '2.2.2'
     facebookSdkVersion = '4.21.1'
     frodoVersion = '0.8.3'
+    googlePlayServicesVersion = '10.2.6'
     gsonVersion = '2.8.0'
     javaxAnnotationVersion = '1.0'
     junitVersion = '4.12'
@@ -51,6 +52,8 @@ ext {
             dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
             daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],
             facebookSdk: [group: 'com.facebook.android', name: 'facebook-android-sdk', version: facebookSdkVersion],
+            googlePlayServicesLocation: [group: 'com.google.android.gms', name: 'play-services-location', version: googlePlayServicesVersion],
+            googlePlayServicesMaps: [group: 'com.google.android.gms', name: 'play-services-maps', version: googlePlayServicesVersion],
             gson: [group: 'com.google.code.gson', name: 'gson', version: gsonVersion],
             javaxAnnotation: [group: 'javax.annotation', name: 'jsr250-api', version: javaxAnnotationVersion],
             kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
@@ -85,6 +88,8 @@ ext {
             [configuration: 'compile', dependency: libs.dagger],
             [configuration: 'kapt', dependency: libs.daggerCompiler],
             [configuration: 'compile', dependency: libs.facebookSdk],
+            [configuration: "compile", dependency: libs.googlePlayServicesLocation],
+            [configuration: "compile", dependency: libs.googlePlayServicesMaps],
             [configuration: 'compile', dependency: libs.gson],
             [configuration: 'provided', dependency: libs.javaxAnnotation],
             [configuration: 'compile', dependency: libs.kotlin],
