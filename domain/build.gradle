@@ -1,0 +1,61 @@
+apply plugin: 'kotlin'
+
+sourceSets {
+
+    main.java.srcDirs += 'src/main/kotlin'
+    test.java.srcDirs += 'src/test/kotlin'
+    test.resources.srcDirs += 'src/test/resources'
+}
+
+// Necessary to load resource files from theirs test folders.
+task copyTestResources(type: Copy) {
+    from sourceSets.test.resources
+    into sourceSets.test.output.classesDir
+}
+
+processTestResources.dependsOn copyTestResources
+
+// Show test status in console.
+tasks.withType(Test) {
+
+    testLogging {
+        events "passed", "failed"
+    }
+}
+
+dependencies {
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    def libs = [
+            dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
+            daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],
+            gson: [group: 'com.google.code.gson', name: 'gson', version: gsonVersion],
+            kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
+            rxjava2: [group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version]
+    ]
+
+    def testLibs = [
+            junit: [group: 'junit', name: 'junit', version: junitVersion],
+            mockitoKotlin: [group: 'com.nhaarman', name: 'mockito-kotlin', version: mockitoKotlinVersion]
+    ]
+
+    def appDependencies = [
+            [configuration: 'compile', dependency: libs.dagger],
+            [configuration: 'kapt', dependency: libs.daggerCompiler],
+            [configuration: 'compile', dependency: libs.gson],
+            [configuration: 'compile', dependency: libs.kotlin],
+            [configuration: 'compile', dependency: libs.rxjava2],
+
+            [configuration: 'testCompile', dependency: testLibs.junit],
+            [configuration: 'testCompile', dependency: testLibs.mockitoKotlin, options:
+                    { exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib' }]
+    ]
+
+    appDependencies.each {
+        add(it.configuration, it.dependency, it.options)
+    }
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
