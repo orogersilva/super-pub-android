@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1724358228,
+    "name": "Thomas Pub",
+    "phone": "(51) 9692-6601",
+    "rating": 4.2,
+    "ratingCount": 6375,
+    "checkins": 201942,
+    "likes": 75701,
+    "coverImageUrl": "http://www.orogersilva.com/1",
+    "PictureImageUrl": "http://www.orogersilva.com/11",
+    "latitude": -30.024341774674,
+    "longitude": -51.202726481583,
+    "street": "Rua Padre Chagas, 510",
+    "hasMinimumRequirement": true
+  },
+  {
+    "id": 236203766,
+    "name": "Dado Pub Moinhos",
+    "phone": "(51) 9692-6602",
+    "rating": 4.4,
+    "ratingCount": 717,
+    "checkins": 16355,
+    "likes": 9112,
+    "coverImageUrl": "http://www.orogersilva.com/2",
+    "PictureImageUrl": "http://www.orogersilva.com/12",
+    "latitude": -30.024341778723,
+    "longitude": -51.202726489382,
+    "street": "Avenida Borges de Medeiros, 234",
+    "hasMinimumRequirement": true
+  },
+  {
+    "id": 386922314,
+    "name": "Shamrock Irish Pub",
+    "phone": "(51) 9692-6603",
+    "rating": 4.4,
+    "ratingCount": 995,
+    "checkins": 11917,
+    "likes": 13897,
+    "coverImageUrl": "http://www.orogersilva.com/3",
+    "PictureImageUrl": "http://www.orogersilva.com/13",
+    "latitude": -30.024341777367,
+    "longitude": -51.202726481988,
+    "street": "Rua Porto Rico, 973",
+    "hasMinimumRequirement": true
+  }
+]

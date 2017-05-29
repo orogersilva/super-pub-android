@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+
+    defaultConfig {
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+
+        release {
+
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    rootProject.file('tools/proguard/rules-proguard.pro')
+        }
+    }
+}
+
+dependencies {
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    def libs = [
+            dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
+            daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],
+            googlePlayServicesLocation: [group: 'com.google.android.gms', name: 'play-services-location', version: googlePlayServicesVersion],
+            javaxAnnotation: [group: 'javax.annotation', name: 'jsr250-api', version: javaxAnnotationVersion],
+            kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion]
+    ]
+
+    def appDependencies = [
+            [configuration: 'compile', dependency: libs.dagger],
+            [configuration: 'kapt', dependency: libs.daggerCompiler],
+            [configuration: "compile", dependency: libs.googlePlayServicesLocation],
+            [configuration: 'provided', dependency: libs.javaxAnnotation],
+            [configuration: 'compile', dependency: libs.kotlin]
+    ]
+
+    appDependencies.each {
+        add(it.configuration, it.dependency, it.options)
+    }
+}
+
+apply from: "${rootProject.getRootDir()}/android.gradle"

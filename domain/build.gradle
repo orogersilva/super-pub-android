@@ -30,6 +30,7 @@ dependencies {
     def libs = [
             dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
             daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],
+            javaxAnnotation: [group: 'javax.annotation', name: 'jsr250-api', version: javaxAnnotationVersion],
             gson: [group: 'com.google.code.gson', name: 'gson', version: gsonVersion],
             kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
             rxjava2: [group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version]
@@ -44,6 +45,7 @@ dependencies {
             [configuration: 'compile', dependency: libs.dagger],
             [configuration: 'kapt', dependency: libs.daggerCompiler],
             [configuration: 'compile', dependency: libs.gson],
+            [configuration: 'compileOnly', dependency: libs.javaxAnnotation],
             [configuration: 'compile', dependency: libs.kotlin],
             [configuration: 'compile', dependency: libs.rxjava2],
 

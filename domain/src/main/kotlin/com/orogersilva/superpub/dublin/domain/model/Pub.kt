@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by orogersilva on 5/26/2017.
  */
-class Pub(@SerializedName("id") var id: Long = 0,
+data class Pub(@SerializedName("id") var id: Long = 0,
           @SerializedName("name") var name: String = "",
           @SerializedName("phone") var phone: String? = null,
           @SerializedName("rating") var rating: Double = 0.0,
