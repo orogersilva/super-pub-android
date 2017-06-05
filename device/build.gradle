@@ -1,23 +1,31 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
 
     defaultConfig {
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        defaultPublishConfig 'release'
+        publishNonDefault true
 
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
 
         release {
 
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+            // shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     rootProject.file('tools/proguard/rules-proguard.pro')
         }
+    }
+
+    lintOptions {
+
+        abortOnError false
     }
 }
 
@@ -30,7 +38,12 @@ dependencies {
             daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],
             googlePlayServicesLocation: [group: 'com.google.android.gms', name: 'play-services-location', version: googlePlayServicesVersion],
             javaxAnnotation: [group: 'javax.annotation', name: 'jsr250-api', version: javaxAnnotationVersion],
-            kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion]
+            kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
+            kotlinReflect: [group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: kotlinVersion]
+    ]
+
+    def testLibs = [
+            kotlinUnitTest: [group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: kotlinVersion]
     ]
 
     def appDependencies = [
@@ -38,7 +51,10 @@ dependencies {
             [configuration: 'kapt', dependency: libs.daggerCompiler],
             [configuration: "compile", dependency: libs.googlePlayServicesLocation],
             [configuration: 'provided', dependency: libs.javaxAnnotation],
-            [configuration: 'compile', dependency: libs.kotlin]
+            [configuration: 'compile', dependency: libs.kotlin],
+            [configuration: 'compile', dependency: libs.kotlinReflect],
+
+            [configuration: 'testCompile', dependency: testLibs.kotlinUnitTest]
     ]
 
     appDependencies.each {

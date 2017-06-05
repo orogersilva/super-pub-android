@@ -1,16 +1,16 @@
-package com.orogersilva.superpub.dublin.di.scopes;
+package com.orogersilva.superpub.dublin.domain.di.scope;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import javax.inject.Qualifier;
+import javax.inject.Scope;
 
 /**
- * Created by orogersilva on 4/29/2017.
+ * Created by orogersilva on 5/2/2017.
  */
-@Qualifier
+@Scope
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Remote {
+public @interface PubInfoScope {
 }

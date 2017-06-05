@@ -15,8 +15,14 @@ interface ApplicationComponent {
 
     fun newLoginComponent(loginPresenterModule: LoginPresenterModule,
                           facebookSdkModule: FacebookSdkModule): LoginComponent
-    fun newPubRepositoryComponent(databaseModule: DatabaseModule,
-                                  networkModule: NetworkModule): PubRepositoryComponent
+    fun newPubRepositoryComponent(pubsPresenterModule: PubsPresenterModule,
+                                  getPubsUseCaseModule: GetPubsUseCaseModule,
+                                  schedulerProviderModule: SchedulerProviderModule,
+                                  pubRepositoryModule: PubRepositoryModule,
+                                  cacheModule: CacheModule,
+                                  databaseModule: DatabaseModule,
+                                  networkModule: NetworkModule,
+                                  clockModule: ClockModule): PubInfoComponent
 
     // endregion
 }

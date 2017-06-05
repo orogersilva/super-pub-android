@@ -1,10 +1,10 @@
 package com.orogersilva.superpub.dublin.di.modules
 
 import android.content.Context
-import com.orogersilva.superpub.dublin.di.scopes.Local
 import com.orogersilva.superpub.dublin.data.PubDataSource
+import com.orogersilva.superpub.dublin.data.di.scope.Local
 import com.orogersilva.superpub.dublin.data.local.PubLocalDataSource
-import com.orogersilva.superpub.dublin.di.scopes.PubInfoScope
+import com.orogersilva.superpub.dublin.domain.di.scope.PubInfoScope
 import dagger.Module
 import dagger.Provides
 import io.realm.Realm

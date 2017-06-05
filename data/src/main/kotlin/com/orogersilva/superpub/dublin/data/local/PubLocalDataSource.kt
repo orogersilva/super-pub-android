@@ -3,6 +3,7 @@ package com.orogersilva.superpub.dublin.data.local
 import com.fernandocejas.frodo.annotation.RxLogObservable
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
+import com.orogersilva.superpub.dublin.domain.di.scope.PubInfoScope
 import io.reactivex.Observable
 import io.realm.Realm
 import javax.inject.Inject
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 /**
  * Created by orogersilva on 5/28/2017.
  */
-@Singleton
+@PubInfoScope
 class PubLocalDataSource @Inject constructor(private var realm: Realm?) : PubDataSource {
 
     // region DESTRUCTOR

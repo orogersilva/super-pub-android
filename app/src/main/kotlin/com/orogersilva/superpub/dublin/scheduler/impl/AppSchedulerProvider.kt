@@ -12,6 +12,8 @@ class AppSchedulerProvider : SchedulerProvider {
 
     // region OVERRIDED METHODS
 
+    override fun newThread(): Scheduler = Schedulers.newThread()
+
     override fun ui(): Scheduler = AndroidSchedulers.mainThread()
 
     override fun io(): Scheduler = Schedulers.io()

@@ -20,6 +20,8 @@ class PubDataRepositoryTest : BaseTestCase() {
 
     // region PROPERTIES
 
+    private val RESOURCES_FILE_NAME = "pubs.json"
+
     private var pubCacheMock: PubCache? = null
     private var pubLocalDataSourceMock: PubDataSource? = null
     private var pubRemoteDataSourceMock: PubDataSource? = null
@@ -86,7 +88,7 @@ class PubDataRepositoryTest : BaseTestCase() {
 
         val expectedPubsList = mutableListOf<PubEntity>()
 
-        expectedPubsList.addAll(createTestData())
+        expectedPubsList.addAll(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
         expectedPubsList.forEach { it.timestamp = EXPECTED_CURRENT_TIME_MILLIS }
 
         val cachedData = expectedPubsList
@@ -128,7 +130,7 @@ class PubDataRepositoryTest : BaseTestCase() {
 
         val expectedPubsList = mutableListOf<PubEntity>()
 
-        expectedPubsList.addAll(createTestData())
+        expectedPubsList.addAll(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
         expectedPubsList.forEach { it.timestamp = EXPECTED_CURRENT_TIME_MILLIS }
 
         val cachedData = listOf<PubEntity>()
@@ -174,7 +176,7 @@ class PubDataRepositoryTest : BaseTestCase() {
 
         val expectedPubsList = mutableListOf<PubEntity>()
 
-        expectedPubsList.addAll(createTestData())
+        expectedPubsList.addAll(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
         expectedPubsList.forEach { it.timestamp = EXPECTED_CURRENT_TIME_MILLIS }
 
         val cachedData = listOf<PubEntity>()

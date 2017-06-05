@@ -21,7 +21,7 @@ class HttpLocalResponseDispatcher(val scenarioContent: String?) : Dispatcher() {
             try {
 
                 mockResponse.setBody(scenarioContent)
-                mockResponse.setResponseCode(BaseApiClientTest.OK_STATUS_CODE)
+                mockResponse.setResponseCode(BaseNetworkTestCase.OK_STATUS_CODE)
 
             } catch (e: IOException) {
 

@@ -1,15 +1,13 @@
 ext {
 
-    // VERSIONS
+    // LIBRARY VERSIONS
 
-    // Libs
     androidGradleBuildToolsVersion = '2.3.2'
     androidSDKVersion = '25.3.1'
 
     avLoadingIndicatorViewVersion = '2.1.3'
     circleImageViewVersion = '2.1.0'
     constraintLayoutVersion = '1.0.2'
-    daggerMockVersion = '-SNAPSHOT'
     daggerVersion = '2.9'
     espressoVersion = '2.2.2'
     facebookSdkVersion = '4.21.1'
@@ -22,7 +20,8 @@ ext {
     leakCanaryVersion = '1.5'
     mockitoKotlinVersion = '1.4.0'
     mockWebServerVersion = '3.6.0'
-    realmVersion = '3.2.0'
+    multidexVersion = '1.0.1'
+    realmVersion = '3.3.1'
     retrofitVersion = '2.2.0'
     rippleEffectVersion = '1.3.1'
     rxAndroidVersion = '2.0.1'
@@ -35,90 +34,4 @@ ext {
     frodoPlugin = "com.fernandocejas.frodo:frodo-plugin:$frodoVersion"
     kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     realmPlugin = "io.realm:realm-gradle-plugin:$realmVersion"
-
-    // LIBS
-
-    def androidLibs = [
-            appCompat: [group: 'com.android.support', name: 'appcompat-v7', version: androidSDKVersion],
-            cardview: [group: 'com.android.support', name: 'cardview-v7', version: androidSDKVersion],
-            constraintLayout: [group: 'com.android.support.constraint', name: 'constraint-layout', version: constraintLayoutVersion],
-            recyclerview: [group: 'com.android.support', name: 'recyclerview-v7', version: androidSDKVersion]
-    ]
-
-    def libs = [
-            avLoadingIndicatorView: [group: 'com.wang.avi', name: 'library', version: avLoadingIndicatorViewVersion],
-            circleImageView: [group: 'de.hdodenhof', name: 'circleimageview', version: circleImageViewVersion],
-            converterGson: [group: 'com.squareup.retrofit2', name: 'converter-gson', version: retrofitVersion],
-            dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
-            daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],
-            facebookSdk: [group: 'com.facebook.android', name: 'facebook-android-sdk', version: facebookSdkVersion],
-            googlePlayServicesLocation: [group: 'com.google.android.gms', name: 'play-services-location', version: googlePlayServicesVersion],
-            googlePlayServicesMaps: [group: 'com.google.android.gms', name: 'play-services-maps', version: googlePlayServicesVersion],
-            gson: [group: 'com.google.code.gson', name: 'gson', version: gsonVersion],
-            javaxAnnotation: [group: 'javax.annotation', name: 'jsr250-api', version: javaxAnnotationVersion],
-            kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
-            leakCanary: [group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: leakCanaryVersion],
-            retrofit: [group: 'com.squareup.retrofit2', name: 'retrofit', version: retrofitVersion],
-            retrofitRxJava2Adapter: [group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: retrofitVersion],
-            rippleEffect: [group: 'com.patrickpissurno', name: 'ripple-effect', version: rippleEffectVersion],
-            rxAndroid: [group: 'io.reactivex.rxjava2', name: 'rxandroid', version: rxAndroidVersion],
-            rxjava2: [group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version],
-            stetho: [group: 'com.facebook.stetho', name: 'stetho', version: stethoVersion]
-    ]
-
-    def testLibs = [
-            daggerMock: [group: 'com.github.fabioCollini', name: 'DaggerMock', version: daggerMockVersion],
-            espresso: [group: 'com.android.support.test.espresso', name: 'espresso-core', version: espressoVersion],
-            junit: [group: 'junit', name: 'junit', version: junitVersion],
-            mockitoKotlin: [group: 'com.nhaarman', name: 'mockito-kotlin', version: mockitoKotlinVersion],
-            mockWebServer: [group: 'com.squareup.okhttp3', name: 'mockwebserver', version: mockWebServerVersion]
-    ]
-
-    // MODULES DEPENDENCIES
-
-    appDependencies = [
-            [configuration: 'compile', dependency: androidLibs.appCompat],
-            [configuration: 'compile', dependency: androidLibs.cardview],
-            [configuration: 'compile', dependency: androidLibs.constraintLayout],
-            [configuration: 'compile', dependency: androidLibs.recyclerview],
-
-            [configuration: 'compile', dependency: libs.avLoadingIndicatorView],
-            [configuration: 'compile', dependency: libs.circleImageView],
-            [configuration: 'compile', dependency: libs.converterGson],
-            [configuration: 'compile', dependency: libs.dagger],
-            [configuration: 'kapt', dependency: libs.daggerCompiler],
-            [configuration: 'compile', dependency: libs.facebookSdk],
-            [configuration: "compile", dependency: libs.googlePlayServicesLocation],
-            [configuration: "compile", dependency: libs.googlePlayServicesMaps],
-            [configuration: 'compile', dependency: libs.gson],
-            [configuration: 'provided', dependency: libs.javaxAnnotation],
-            [configuration: 'compile', dependency: libs.kotlin],
-            [configuration: 'compile', dependency: libs.leakCanary],
-            [configuration: 'compile', dependency: libs.retrofit],
-            [configuration: 'compile', dependency: libs.retrofitRxJava2Adapter],
-            [configuration: 'compile', dependency: libs.rippleEffect],
-            [configuration: 'compile', dependency: libs.rxAndroid],
-            [configuration: 'compile', dependency: libs.rxjava2],
-            [configuration: 'compile', dependency: libs.stetho],
-
-            [configuration: 'kaptTest', dependency: libs.daggerCompiler],
-            [configuration: 'testCompile', dependency: testLibs.daggerMock],
-            [configuration: 'androidTestCompile', dependency: testLibs.espresso, options:
-                    { exclude group: 'com.android.support', module: 'support-annotations' }],
-            [configuration: 'testCompile', dependency: testLibs.junit],
-            [configuration: 'testCompile', dependency: testLibs.mockitoKotlin, options:
-                    { exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib' }],
-            [configuration: 'testCompile', dependency: testLibs.mockWebServer]
-    ]
-
-    // PLUGINS
-
-    appPlugins = [
-            'com.android.application',
-            'com.fernandocejas.frodo',
-            'kotlin-android',
-            'kotlin-android-extensions',
-            'kotlin-kapt',
-            'realm-android'
-    ]
 }

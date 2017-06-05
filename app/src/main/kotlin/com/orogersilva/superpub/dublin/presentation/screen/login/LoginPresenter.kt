@@ -12,7 +12,7 @@ import javax.inject.Inject
 /**
  * Created by orogersilva on 4/13/2017.
  */
-class LoginPresenter @Inject constructor(private val loginView: LoginActivity,
+class LoginPresenter @Inject constructor(private val loginView: LoginContract.View,
                                          private val loginManager: LoginManager,
                                          private val callbackManager: CallbackManager) : LoginContract.Presenter {
 
@@ -52,7 +52,7 @@ class LoginPresenter @Inject constructor(private val loginView: LoginActivity,
 
     override fun login() {
 
-        loginManager.logInWithReadPermissions(loginView, listOf("public_profile"))
+        loginManager.logInWithReadPermissions(loginView as LoginActivity, listOf("public_profile"))
     }
 
     override fun isLogged(): Boolean = AccessToken.getCurrentAccessToken() != null

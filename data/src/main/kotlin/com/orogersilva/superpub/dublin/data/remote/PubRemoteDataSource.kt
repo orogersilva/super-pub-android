@@ -4,6 +4,8 @@ import com.fernandocejas.frodo.annotation.RxLogObservable
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.api.endpoint.SearchApiClient
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
+import com.orogersilva.superpub.dublin.data.entity.mapper.PubMapper
+import com.orogersilva.superpub.dublin.domain.di.scope.PubInfoScope
 import io.reactivex.Observable
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -11,7 +13,7 @@ import javax.inject.Singleton
 /**
  * Created by orogersilva on 5/28/2017.
  */
-@Singleton
+@PubInfoScope
 class PubRemoteDataSource @Inject constructor(private var apiClient: SearchApiClient?) : PubDataSource {
 
     // region DESTRUCTOR
@@ -29,7 +31,7 @@ class PubRemoteDataSource @Inject constructor(private var apiClient: SearchApiCl
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
                          fields: String, displayedDataTimestamp: Long): Observable<PubEntity>? =
             apiClient?.getPubs(query, type, fromLocation, radius, limit, fields)
-                    ?.flatMap { pubHttpResponse -> Observable.fromIterable(pubHttpResponse.data) }
+                    ?.flatMap { pubHttpResponse -> Observable.fromIterable(PubMapper.transformPubsDataList(pubHttpResponse.data)) }
 
     override fun savePubs(pubs: List<PubEntity>?) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

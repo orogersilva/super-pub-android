@@ -15,7 +15,7 @@ import dagger.Provides
  */
 @LoginScope
 @Module
-open class LoginPresenterModule(private val loginView: LoginActivity) {
+open class LoginPresenterModule(private val loginView: LoginContract.View) {
 
     // region PROVIDERS
 

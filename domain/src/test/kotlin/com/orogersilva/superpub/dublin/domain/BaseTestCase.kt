@@ -14,11 +14,11 @@ open class BaseTestCase {
 
     // region PROTECTED METHODS
 
-    protected fun createTestData(): List<Pub> {
+    protected fun createTestData(jsonStr: String?): List<Pub> {
 
         val listType = object : TypeToken<List<Pub>>(){}.type
 
-        val pubs = Gson().fromJson<List<Pub>>(loadJsonFromAsset("pubs.json"), listType)
+        val pubs = Gson().fromJson<List<Pub>>(jsonStr, listType)
 
         return pubs
     }

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.orogersilva.superpub.dublin.R
-import com.orogersilva.superpub.dublin.model.Pub
+import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.presentation.screen.ItemView
 
 /**

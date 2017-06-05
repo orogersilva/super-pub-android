@@ -16,6 +16,8 @@ class PubCacheTest : BaseTestCase() {
 
     // region PROPERTIES
 
+    private val RESOURCES_FILE_NAME = "pubs.json"
+
     private lateinit var cacheCore: MutableMap<Long, PubEntity>
 
     private var pubCache: PubCache? = null
@@ -50,7 +52,7 @@ class PubCacheTest : BaseTestCase() {
 
         // ARRANGE
 
-        val expectedData = createTestData()
+        val expectedData = createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME))
 
         expectedData.forEach {
             cacheCore.put(it.id, it)
@@ -71,7 +73,7 @@ class PubCacheTest : BaseTestCase() {
 
         // ARRANGE
 
-        val data = createTestData()
+        val data = createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME))
 
         // ACT
 
@@ -86,7 +88,7 @@ class PubCacheTest : BaseTestCase() {
 
         // ARRANGE
 
-        val data = createTestData()
+        val data = createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME))
 
         val UPDATED_COVER_IMAGE_URL = "http://www.orogersilva.com/4"
         val UPDATED_PICTURE_IMAGE_URL = "http://www.orogersilva.com/14"
@@ -109,7 +111,7 @@ class PubCacheTest : BaseTestCase() {
 
         // ARRANGE
 
-        val data = createTestData()
+        val data = createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME))
 
         data.forEach {
             cacheCore.put(it.id, it)

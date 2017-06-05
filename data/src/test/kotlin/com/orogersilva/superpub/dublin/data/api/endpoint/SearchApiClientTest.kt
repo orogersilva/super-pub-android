@@ -1,6 +1,6 @@
 package com.orogersilva.superpub.dublin.data.api.endpoint
 
-import com.orogersilva.superpub.dublin.data.api.BaseApiClientTest
+import com.orogersilva.superpub.dublin.data.api.BaseNetworkTestCase
 import com.orogersilva.superpub.dublin.data.api.HttpLocalResponseDispatcher
 import com.orogersilva.superpub.dublin.data.api.RestClient
 import com.orogersilva.superpub.dublin.data.entity.PubHttpResponse
@@ -11,7 +11,7 @@ import org.junit.Test
 /**
  * Created by orogersilva on 5/28/2017.
  */
-class SearchApiClientTest : BaseApiClientTest() {
+class SearchApiClientTest : BaseNetworkTestCase() {
 
     // region TEST METHODS
 

@@ -1,6 +1,7 @@
-rootProject.appPlugins.each {
-    apply plugin: it
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 apply from: "${rootProject.getRootDir()}/tools/git/script-git-version.gradle"
 
@@ -9,6 +10,8 @@ android {
     defaultConfig {
 
         applicationId "com.orogersilva.superpub.dublin"
+
+        multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -28,15 +31,17 @@ android {
         release {
 
             storeFile rootProject.file('keystore/release.jks')
-            storePassword System.getenv("STORE_PASSWORD")
-            keyAlias System.getenv("KEY_ALIAS")
-            keyPassword System.getenv("KEY_PASSWORD")
+            storePassword 'jSD438aQ2x'
+            keyAlias 'SuperPubAlias'
+            keyPassword 'jSD438aQ2x'
         }
     }
 
     productFlavors {
 
         dev {
+
+            minSdkVersion 21
 
             versionCode gitVersionCodeTime
             versionName gitVersionName
@@ -72,8 +77,8 @@ android {
             buildConfigField "String", "FACEBOOK_GRAPH_API",
                 "\"https://graph.facebook.com/\""
 
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+            // shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     rootProject.file('tools/proguard/rules-proguard.pro')
 
@@ -81,8 +86,16 @@ android {
         }
     }
 
+    dexOptions {
+
+        preDexLibraries true
+        maxProcessCount 4       // Default value = 4
+        javaMaxHeapSize "4g"
+    }
+
     lintOptions {
 
+        abortOnError false
         checkReleaseBuilds false
     }
 }
@@ -99,7 +112,80 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    rootProject.appDependencies.each {
+    debugCompile project(path: ':data', configuration: "debug")
+    releaseCompile project(path: ':data', configuration: "release")
+    debugCompile project(path: ':device', configuration: "debug")
+    releaseCompile project(path: ':device', configuration: "release")
+
+    compile project(':domain')
+
+    def androidLibs = [
+            appCompat: [group: 'com.android.support', name: 'appcompat-v7', version: androidSDKVersion],
+            cardview: [group: 'com.android.support', name: 'cardview-v7', version: androidSDKVersion],
+            constraintLayout: [group: 'com.android.support.constraint', name: 'constraint-layout', version: constraintLayoutVersion],
+            multidex: [group: 'com.android.support', name: 'multidex', version: multidexVersion],
+            recyclerview: [group: 'com.android.support', name: 'recyclerview-v7', version: androidSDKVersion]
+    ]
+
+    def libs = [
+            avLoadingIndicatorView: [group: 'com.wang.avi', name: 'library', version: avLoadingIndicatorViewVersion],
+            circleImageView: [group: 'de.hdodenhof', name: 'circleimageview', version: circleImageViewVersion],
+            dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
+            daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],
+            facebookSdk: [group: 'com.facebook.android', name: 'facebook-android-sdk', version: facebookSdkVersion],
+            googlePlayServicesLocation: [group: 'com.google.android.gms', name: 'play-services-location', version: googlePlayServicesVersion],
+            googlePlayServicesMaps: [group: 'com.google.android.gms', name: 'play-services-maps', version: googlePlayServicesVersion],
+            javaxAnnotation: [group: 'javax.annotation', name: 'jsr250-api', version: javaxAnnotationVersion],
+            kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
+            kotlinReflect: [group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: kotlinVersion],
+            leakCanary: [group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: leakCanaryVersion],
+            rippleEffect: [group: 'com.patrickpissurno', name: 'ripple-effect', version: rippleEffectVersion],
+            rxAndroid: [group: 'io.reactivex.rxjava2', name: 'rxandroid', version: rxAndroidVersion],
+            rxjava2: [group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version],
+            stetho: [group: 'com.facebook.stetho', name: 'stetho', version: stethoVersion]
+    ]
+
+    def testLibs = [
+            espresso: [group: 'com.android.support.test.espresso', name: 'espresso-core', version: espressoVersion],
+            junit: [group: 'junit', name: 'junit', version: junitVersion],
+            kotlinUnitTest: [group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: kotlinVersion],
+            mockitoKotlin: [group: 'com.nhaarman', name: 'mockito-kotlin', version: mockitoKotlinVersion]
+    ]
+
+    def appDependencies = [
+            [configuration: 'compile', dependency: androidLibs.appCompat],
+            [configuration: 'compile', dependency: androidLibs.cardview],
+            [configuration: 'compile', dependency: androidLibs.constraintLayout],
+            [configuration: 'compile', dependency: androidLibs.multidex],
+            [configuration: 'compile', dependency: androidLibs.recyclerview],
+
+            [configuration: 'compile', dependency: libs.avLoadingIndicatorView],
+            [configuration: 'compile', dependency: libs.circleImageView],
+            [configuration: 'compile', dependency: libs.dagger],
+            [configuration: 'kapt', dependency: libs.daggerCompiler],
+            [configuration: 'compile', dependency: libs.facebookSdk],
+            [configuration: "compile", dependency: libs.googlePlayServicesLocation],
+            [configuration: "compile", dependency: libs.googlePlayServicesMaps],
+            [configuration: 'provided', dependency: libs.javaxAnnotation],
+            [configuration: 'compile', dependency: libs.kotlin],
+            [configuration: 'compile', dependency: libs.kotlinReflect],
+            [configuration: 'compile', dependency: libs.leakCanary],
+            [configuration: 'compile', dependency: libs.rippleEffect],
+            [configuration: 'compile', dependency: libs.rxAndroid],
+            [configuration: 'compile', dependency: libs.rxjava2],
+            [configuration: 'compile', dependency: libs.stetho],
+
+            [configuration: 'androidTestCompile', dependency: testLibs.espresso, options:
+                    { exclude group: 'com.android.support', module: 'support-annotations' }],
+            [configuration: 'testCompile', dependency: testLibs.junit],
+            [configuration: 'testCompile', dependency: testLibs.kotlinUnitTest],
+            [configuration: 'testCompile', dependency: testLibs.mockitoKotlin, options: {
+                exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+                exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'
+            }]
+    ]
+
+    appDependencies.each {
         add(it.configuration, it.dependency, it.options)
     }
 }

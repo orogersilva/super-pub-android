@@ -2,12 +2,13 @@ package com.orogersilva.superpub.dublin.presentation.screen.pubs.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import com.orogersilva.superpub.dublin.R
-import com.orogersilva.superpub.dublin.R.id.toolbar
-import com.orogersilva.superpub.dublin.model.Pub
+import com.orogersilva.superpub.dublin.di.modules.*
+import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.PubsContract
-import io.reactivex.Observable
-import kotlinx.android.synthetic.main.toolbar_main.*
+import com.orogersilva.superpub.dublin.shared.app
+import kotlinx.android.synthetic.main.activity_pubs.*
 import javax.inject.Inject
 
 /**
@@ -18,6 +19,12 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
     // region PROPERTIES
 
     @Inject lateinit var pubsPresenter: PubsContract.Presenter
+
+    private val pubInfoComponent by lazy {
+        app().applicationComponent.newPubRepositoryComponent(PubsPresenterModule(this),
+                GetPubsUseCaseModule(), SchedulerProviderModule(), PubRepositoryModule(),
+                CacheModule(), DatabaseModule(true), NetworkModule(), ClockModule())
+    }
 
     private val pubs = mutableListOf<Pub>()
 
@@ -30,9 +37,11 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pubs)
 
-        toolbar.title = ""
+        customToolbar.title = ""
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(customToolbar)
+
+        pubInfoComponent.inject(this)
     }
 
     override fun onResume() {
@@ -54,7 +63,8 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
     // region OVERRIDED METHODS
 
     override fun setPresenter(presenter: PubsContract.Presenter) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        pubsPresenter = presenter
     }
 
     override fun showLoadingIndicator(isActive: Boolean) {

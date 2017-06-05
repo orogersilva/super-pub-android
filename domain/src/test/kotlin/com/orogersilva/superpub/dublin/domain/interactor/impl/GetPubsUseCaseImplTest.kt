@@ -37,7 +37,7 @@ class GetPubsUseCaseImplTest : BaseTestCase() {
 
     // region TEST METHODS
 
-    @Test fun getPubs_whenLocationIsNotValid_throwsIllegalArgumentException() {
+    @Test fun `Get pubs, when location is not valid, then throws IllegalArgumentException`() {
 
         // ARRANGE
 
@@ -57,16 +57,18 @@ class GetPubsUseCaseImplTest : BaseTestCase() {
         testObserver.assertError(IllegalArgumentException::class.java)
     }
 
-    @Test fun getPubs_whenLocationIsValid_returnsPubs() {
+    @Test fun `Get pubs, when location is valid, then returns pubs`() {
 
         // ARRANGE
+
+        val RESOURCES_FILE_NAME = "pubs.json"
 
         val LAT = -90.0
         val LNG = 180.0
 
         val EMITTED_EVENTS_COUNT = 3
 
-        val pubsObservable = Observable.fromIterable(createTestData())
+        val pubsObservable = Observable.fromIterable(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
 
         whenever(pubRepositoryMock.getPubs(fromLocation = "$LAT,$LNG")).thenReturn(pubsObservable)
 

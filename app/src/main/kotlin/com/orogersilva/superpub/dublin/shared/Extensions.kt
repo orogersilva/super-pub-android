@@ -17,9 +17,3 @@ fun AppCompatActivity.app(): SuperPubApplication = application as SuperPubApplic
 fun <T> AppCompatActivity.intentFor(cls: Class<T>) = Intent(this, cls)
 
 // endregion
-
-// region MUTABLE MAP EXTENSION METHODS
-
-fun <K, V> MutableMap<K, V>?.toImmutableMap() = HashMap(this)
-
-// endregion

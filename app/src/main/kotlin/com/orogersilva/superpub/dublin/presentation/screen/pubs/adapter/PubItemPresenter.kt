@@ -1,6 +1,6 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs.adapter
 
-import com.orogersilva.superpub.dublin.model.Pub
+import com.orogersilva.superpub.dublin.domain.model.Pub
 
 /**
  * Created by orogersilva on 4/21/2017.

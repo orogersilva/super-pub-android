@@ -2,7 +2,7 @@ package com.orogersilva.superpub.dublin
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.orogersilva.superpub.dublin.model.Pub
+import com.orogersilva.superpub.dublin.domain.model.Pub
 import java.io.IOException
 import java.io.InputStream
 import java.nio.charset.Charset

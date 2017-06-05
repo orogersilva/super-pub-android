@@ -1,9 +1,9 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs
 
 import com.orogersilva.superpub.dublin.data.PubDataSource
-import com.orogersilva.superpub.dublin.di.scopes.PubInfoScope
-import com.orogersilva.superpub.dublin.domain.GetPubsUseCase
-import com.orogersilva.superpub.dublin.model.Pub
+import com.orogersilva.superpub.dublin.domain.di.scope.PubInfoScope
+import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
+import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.scheduler.SchedulerProvider
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -60,7 +60,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
     override fun refreshPubs(lat: Double, lng: Double) {
 
         getPubsUseCase.getPubs(lat, lng)
-                ?.subscribeOn(schedulerProvider.io())
+                ?.subscribeOn(schedulerProvider.newThread())
                 ?.observeOn(schedulerProvider.ui(), true)
                 ?.subscribe(object : Observer<Pub> {
 

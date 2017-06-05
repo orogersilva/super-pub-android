@@ -7,13 +7,10 @@ import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.nhaarman.mockito_kotlin.*
-import com.orogersilva.superpub.dublin.data.PubRepository
 import com.orogersilva.superpub.dublin.di.components.ApplicationComponent
 import com.orogersilva.superpub.dublin.di.components.LoginComponent
 import com.orogersilva.superpub.dublin.di.modules.*
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
-import it.cosenonjaviste.daggermock.DaggerMockRule
-import it.cosenonjaviste.daggermock.InjectFromComponent
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -51,7 +48,7 @@ class LoginPresenterTest {
 
     // region TEST METHODS
 
-    @Test fun login_withPublicProfileReadPermissions() {
+    @Test fun `Login with public profile read permissions`() {
 
         // ARRANGE
 
@@ -66,7 +63,7 @@ class LoginPresenterTest {
         verify(loginManagerMock).logInWithReadPermissions(loginViewMock, EXPECTED_PERMISSIONS)
     }
 
-    @Test fun onResultFromFacebookApi_cancelledLogin() {
+    @Test fun `OnResult from Facebook API cancelled login`() {
 
         // ARRANGE
 
@@ -83,7 +80,7 @@ class LoginPresenterTest {
         callbackManagerMock.onActivityResult(REQUEST_CODE, RESULT_CODE, null)
     }
 
-    @Test fun onResultFromFacebookApi_passedLogin() {
+    @Test fun `OnResult from Facebook API_passed login`() {
 
         // ARRANGE
 

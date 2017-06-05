@@ -6,7 +6,7 @@ import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import com.orogersilva.superpub.dublin.BaseTestCase
 import com.orogersilva.superpub.dublin.TestSchedulerProvider
-import com.orogersilva.superpub.dublin.domain.GetPubsUseCase
+import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.view.PubsActivity
 import com.orogersilva.superpub.dublin.scheduler.SchedulerProvider
 import io.reactivex.Observable
@@ -44,7 +44,7 @@ class PubsPresenterTest : BaseTestCase() {
 
     // region TEST METHODS
 
-    @Test fun refreshPubs_whenLocationIsNotValid_showErrorMessage() {
+    @Test fun `Refresh pubs, when location is not valid, then show error message`() {
 
         // ARRANGE
 
@@ -62,7 +62,7 @@ class PubsPresenterTest : BaseTestCase() {
         verify(pubsViewMock).showErrorMessage()
     }
 
-    @Test fun refreshPubs_whenPubsAreEmmitedWithErrors_showErrorMessage() {
+    @Test fun `Refresh pubs, when pubs are emmited with errors, then show error message`() {
 
         // ARRANGE
 
@@ -80,7 +80,7 @@ class PubsPresenterTest : BaseTestCase() {
         verify(pubsViewMock).showErrorMessage()
     }
 
-    @Test fun refreshPubs_whenPubsAreEmmitedWithSuccess_showPubs() {
+    @Test fun `Refresh pubs, when pubs are emmited with success, then show pubs`() {
 
         // ARRANGE
 

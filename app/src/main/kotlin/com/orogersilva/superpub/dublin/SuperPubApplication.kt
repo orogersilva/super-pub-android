@@ -1,8 +1,10 @@
 package com.orogersilva.superpub.dublin
 
 import android.app.Application
+import android.content.Context
 import android.os.StrictMode
 import android.support.annotation.VisibleForTesting
+import android.support.multidex.MultiDex
 import com.facebook.FacebookSdk
 import com.facebook.stetho.Stetho
 import com.orogersilva.superpub.dublin.di.components.ApplicationComponent
@@ -22,6 +24,13 @@ class SuperPubApplication : Application() {
     // endregion
 
     // region APPLICATION LIFECYCLE METHODS
+
+    override fun attachBaseContext(base: Context?) {
+
+        super.attachBaseContext(base)
+
+        MultiDex.install(this)
+    }
 
     override fun onCreate() {
 

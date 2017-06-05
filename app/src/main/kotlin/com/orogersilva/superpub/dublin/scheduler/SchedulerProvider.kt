@@ -9,6 +9,8 @@ interface SchedulerProvider {
 
     // region METHODS
 
+    fun newThread(): Scheduler
+
     fun ui(): Scheduler
 
     fun io(): Scheduler

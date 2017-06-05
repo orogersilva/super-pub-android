@@ -1,5 +1,6 @@
 package com.orogersilva.superpub.dublin.domain.interactor.impl
 
+import com.orogersilva.superpub.dublin.domain.di.scope.PubInfoScope
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
@@ -9,6 +10,7 @@ import javax.inject.Inject
 /**
  * Created by orogersilva on 5/26/2017.
  */
+@PubInfoScope
 class GetPubsUseCaseImpl @Inject constructor(private val pubRepository: PubRepository) : GetPubsUseCase {
 
     // region OVERRIDED METHODS

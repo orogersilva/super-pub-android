@@ -1,5 +1,9 @@
 package com.orogersilva.superpub.dublin.data.api
 
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.orogersilva.superpub.dublin.data.BaseTestCase
+import com.orogersilva.superpub.dublin.data.entity.PubHttpResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.AfterClass
@@ -11,7 +15,7 @@ import java.nio.charset.Charset
 /**
  * Created by orogersilva on 5/28/2017.
  */
-open class BaseApiClientTest {
+open class BaseNetworkTestCase : BaseTestCase() {
 
     // region SETUP / TEARDOWN CLASS METHODS
 
@@ -38,34 +42,13 @@ open class BaseApiClientTest {
 
     protected fun getBaseEndpoint() = server?.url("/").toString()
 
-    protected fun loadJsonFromAsset(fileName: String): String? {
+    protected fun createTestHttpData(jsonStr: String?): PubHttpResponse {
 
-        var jsonStr: String?
-        var inputStream: InputStream? = null
+        val listType = object : TypeToken<PubHttpResponse>(){}.type
 
-        try {
+        val pubs = Gson().fromJson<PubHttpResponse>(jsonStr, listType)
 
-            inputStream = javaClass.classLoader.getResourceAsStream(fileName)
-
-            val size = inputStream.available()
-            val buffer = ByteArray(size)
-
-            inputStream.read(buffer)
-
-            jsonStr = String(buffer, Charset.forName("UTF-8"))
-
-        } catch (ex: IOException) {
-
-            ex.printStackTrace()
-
-            return null
-
-        } finally {
-
-            inputStream?.close()
-        }
-
-        return jsonStr
+        return pubs
     }
 
     // endregion
