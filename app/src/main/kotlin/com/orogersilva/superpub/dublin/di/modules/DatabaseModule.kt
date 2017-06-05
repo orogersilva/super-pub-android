@@ -4,7 +4,7 @@ import android.content.Context
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.di.scope.Local
 import com.orogersilva.superpub.dublin.data.local.PubLocalDataSource
-import com.orogersilva.superpub.dublin.domain.di.scope.PubInfoScope
+import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import dagger.Module
 import dagger.Provides
 import io.realm.Realm
@@ -13,13 +13,13 @@ import io.realm.RealmConfiguration
 /**
  * Created by orogersilva on 5/1/2017.
  */
-@PubInfoScope
+@LoggedInScope
 @Module
 open class DatabaseModule(private val provideRealmInstance: Boolean) {
 
     // region PROVIDERS
 
-    @Provides @PubInfoScope open fun provideRealm(context: Context?): Realm? {
+    @Provides @LoggedInScope open fun provideRealm(context: Context?): Realm? {
 
         if (!provideRealmInstance) return null
 
@@ -31,8 +31,6 @@ open class DatabaseModule(private val provideRealmInstance: Boolean) {
 
         return Realm.getInstance(realmConfiguration)
     }
-
-    @Provides @PubInfoScope @Local open fun providePubLocalDataSource(realm: Realm?): PubDataSource? = PubLocalDataSource(realm)
 
     // endregion
 }

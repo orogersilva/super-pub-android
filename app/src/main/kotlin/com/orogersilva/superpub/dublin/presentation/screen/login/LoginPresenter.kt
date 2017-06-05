@@ -6,12 +6,14 @@ import android.support.v7.app.AppCompatActivity
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import com.orogersilva.superpub.dublin.di.scopes.ActivityScope
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import javax.inject.Inject
 
 /**
  * Created by orogersilva on 4/13/2017.
  */
+@ActivityScope
 class LoginPresenter @Inject constructor(private val loginView: LoginContract.View,
                                          private val loginManager: LoginManager,
                                          private val callbackManager: CallbackManager) : LoginContract.Presenter {

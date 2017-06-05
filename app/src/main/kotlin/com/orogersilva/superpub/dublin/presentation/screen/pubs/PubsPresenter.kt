@@ -1,7 +1,7 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs
 
 import com.orogersilva.superpub.dublin.data.PubDataSource
-import com.orogersilva.superpub.dublin.domain.di.scope.PubInfoScope
+import com.orogersilva.superpub.dublin.di.scopes.ActivityScope
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.scheduler.SchedulerProvider
@@ -16,7 +16,7 @@ import javax.inject.Inject
 /**
  * Created by orogersilva on 4/21/2017.
  */
-@PubInfoScope
+@ActivityScope
 class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
                                         private val getPubsUseCase: GetPubsUseCase,
                                         private val schedulerProvider: SchedulerProvider) : PubsContract.Presenter {
@@ -54,7 +54,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
     override fun resume() {
 
-        refreshPubs(30.0, 30.0)
+        refreshPubs(-30.0262844, -51.2072853)
     }
 
     override fun refreshPubs(lat: Double, lng: Double) {

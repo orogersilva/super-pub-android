@@ -2,7 +2,6 @@ package com.orogersilva.superpub.dublin.presentation.screen.pubs.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
 import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.di.modules.*
 import com.orogersilva.superpub.dublin.domain.model.Pub
@@ -20,10 +19,11 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
 
     @Inject lateinit var pubsPresenter: PubsContract.Presenter
 
-    private val pubInfoComponent by lazy {
-        app().applicationComponent.newPubRepositoryComponent(PubsPresenterModule(this),
-                GetPubsUseCaseModule(), SchedulerProviderModule(), PubRepositoryModule(),
-                CacheModule(), DatabaseModule(true), NetworkModule(), ClockModule())
+    private val pubsActivityComponent by lazy {
+
+        app().applicationComponent.newLoggedinComponent(SchedulerProviderModule(), CacheModule(),
+                DatabaseModule(true), NetworkModule(), ClockModule())
+                .newPubsActivityComponent(PubsPresenterModule(this))
     }
 
     private val pubs = mutableListOf<Pub>()
@@ -41,7 +41,7 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
 
         setSupportActionBar(customToolbar)
 
-        pubInfoComponent.inject(this)
+        pubsActivityComponent.inject(this)
     }
 
     override fun onResume() {

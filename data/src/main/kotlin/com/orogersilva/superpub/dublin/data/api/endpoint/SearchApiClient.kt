@@ -18,7 +18,8 @@ interface SearchApiClient {
                 @Query("center") locationStr: String,
                 @Query("distance") distance: Int,
                 @Query("limit") radius: Int,
-                @Query("fields") fields: String) : Observable<PubHttpResponse>
+                @Query("fields") fields: String,
+                @Query("access_token") accessToken: String) : Observable<PubHttpResponse>
 
     // endregion
 }

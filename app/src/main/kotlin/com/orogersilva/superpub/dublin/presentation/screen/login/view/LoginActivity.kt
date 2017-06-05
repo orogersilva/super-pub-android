@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.orogersilva.superpub.dublin.R
-import com.orogersilva.superpub.dublin.di.modules.FacebookSdkModule
 import com.orogersilva.superpub.dublin.di.modules.LoginPresenterModule
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.view.PubsActivity
@@ -22,8 +21,8 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     @Inject lateinit var loginPresenter: LoginContract.Presenter
 
-    private val loginComponent by lazy {
-        app().applicationComponent.newLoginComponent(LoginPresenterModule(this), FacebookSdkModule())
+    private val loginActivityComponent by lazy {
+        app().applicationComponent.newLoggedOutComponent().newLoginActivityComponent(LoginPresenterModule(this))
     }
 
     // endregion
@@ -39,7 +38,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
         setSupportActionBar(customToolbar)
 
-        loginComponent.inject(this)
+        loginActivityComponent.inject(this)
 
         loginRippleView.setOnRippleCompleteListener { loginPresenter.login() }
     }

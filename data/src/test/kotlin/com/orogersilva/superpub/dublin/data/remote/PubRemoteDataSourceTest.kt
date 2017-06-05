@@ -1,5 +1,7 @@
 package com.orogersilva.superpub.dublin.data.remote
 
+import com.nhaarman.mockito_kotlin.any
+import com.nhaarman.mockito_kotlin.eq
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
 import com.orogersilva.superpub.dublin.data.BaseTestCase
@@ -21,6 +23,8 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
     // region PROPERTIES
 
+    private val ACCESS_TOKEN = "dod9DKsjs923KDMc32sskzZISr2J"
+
     private var apiClientMock: SearchApiClient? = null
 
     private var pubRemoteDataSource: PubDataSource? = null
@@ -33,7 +37,7 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
         apiClientMock = mock<SearchApiClient>()
 
-        pubRemoteDataSource = PubRemoteDataSource(apiClientMock)
+        pubRemoteDataSource = PubRemoteDataSource(ACCESS_TOKEN, apiClientMock)
     }
 
     // endregion
@@ -53,7 +57,9 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
         val LIMIT_VALUE = 200
         val FIELDS_VALUE = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover"
 
-        whenever(apiClientMock?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)).thenReturn(Observable.empty())
+        whenever(apiClientMock?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE,
+                DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE, ACCESS_TOKEN))
+                .thenReturn(Observable.empty())
 
         val testObserver = TestObserver<PubEntity>()
 
@@ -88,8 +94,9 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
         val networkData = Observable.just(expectedPubsHttpResponse)
 
-        whenever(apiClientMock?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE, DISTANCE_VALUE,
-                LIMIT_VALUE, FIELDS_VALUE)).thenReturn(networkData)
+        whenever(apiClientMock?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE,
+                DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE, ACCESS_TOKEN))
+                .thenReturn(networkData)
 
         val testObserver = TestObserver<PubEntity>()
 

@@ -1,4 +1,4 @@
-package com.orogersilva.superpub.dublin.di.scopes;
+package com.orogersilva.superpub.dublin.domain.di.scope;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -12,5 +12,5 @@ import javax.inject.Scope;
 @Scope
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface LoginScope {
+public @interface LoggedInScope {
 }

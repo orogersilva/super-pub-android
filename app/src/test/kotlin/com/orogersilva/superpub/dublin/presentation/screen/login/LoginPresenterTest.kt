@@ -1,22 +1,11 @@
 package com.orogersilva.superpub.dublin.presentation.screen.login
 
-import android.content.Intent
-import android.hardware.camera2.params.Face
-import android.support.v7.app.AppCompatActivity
-import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.nhaarman.mockito_kotlin.*
-import com.orogersilva.superpub.dublin.di.components.ApplicationComponent
-import com.orogersilva.superpub.dublin.di.components.LoginComponent
-import com.orogersilva.superpub.dublin.di.modules.*
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
-import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
-import org.mockito.Mock
-import javax.inject.Inject
 
 /**
  * Created by orogersilva on 4/14/2017.

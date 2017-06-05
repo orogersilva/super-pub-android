@@ -10,6 +10,7 @@ import com.facebook.stetho.Stetho
 import com.orogersilva.superpub.dublin.di.components.ApplicationComponent
 import com.orogersilva.superpub.dublin.di.components.DaggerApplicationComponent
 import com.orogersilva.superpub.dublin.di.modules.ApplicationModule
+import com.orogersilva.superpub.dublin.di.modules.FacebookSdkModule
 import com.squareup.leakcanary.LeakCanary
 
 /**
@@ -59,6 +60,7 @@ class SuperPubApplication : Application() {
 
         applicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(ApplicationModule(this))
+                .facebookSdkModule(FacebookSdkModule())
                 .build()
     }
 
