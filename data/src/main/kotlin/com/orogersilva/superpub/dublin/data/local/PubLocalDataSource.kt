@@ -6,21 +6,22 @@ import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import io.reactivex.Observable
 import io.realm.Realm
+import io.realm.RealmConfiguration
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 /**
  * Created by orogersilva on 5/28/2017.
  */
 @LoggedInScope
-class PubLocalDataSource @Inject constructor(private var realm: Realm?) : PubDataSource {
+class PubLocalDataSource @Inject constructor(private var realmConfiguration: RealmConfiguration?) : PubDataSource {
 
     // region DESTRUCTOR
 
     fun destroyInstance() {
 
-        realm?.close()
-        realm = null
+        realmConfiguration = null
     }
 
     // endregion
@@ -29,12 +30,30 @@ class PubLocalDataSource @Inject constructor(private var realm: Realm?) : PubDat
 
     @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
-                         fields: String, displayedDataTimestamp: Long): Observable<PubEntity>? =
-            Observable.just(realm?.copyFromRealm(realm?.where(PubEntity::class.java)?.findAll()))
-                    .flatMap { Observable.fromIterable(it) }
+                         fields: String, displayedDataTimestamp: Long): Observable<PubEntity>? {
+
+        val realm = Realm.getInstance(realmConfiguration)
+
+        val pubEntityRealmResults = realm.copyFromRealm(realm.where(PubEntity::class.java).findAll())
+
+        realm.close()
+
+        return Observable.just(pubEntityRealmResults)
+                .flatMap { Observable.fromIterable(it) }
+    }
 
     override fun savePubs(pubs: List<PubEntity>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        val realm = Realm.getInstance(realmConfiguration)
+
+        try {
+
+            realm.executeTransaction { it.insertOrUpdate(pubs) }
+
+        } finally {
+
+            realm?.let { it.close() }
+        }
     }
 
     // endregion
@@ -43,7 +62,16 @@ class PubLocalDataSource @Inject constructor(private var realm: Realm?) : PubDat
 
     fun deletePubs() {
 
-        realm?.executeTransaction { realm?.deleteAll() }
+        val realm = Realm.getInstance(realmConfiguration)
+
+        try {
+
+            realm.executeTransaction { it.deleteAll() }
+
+        } finally {
+
+            realm.let { it.close() }
+        }
     }
 
     // endregion

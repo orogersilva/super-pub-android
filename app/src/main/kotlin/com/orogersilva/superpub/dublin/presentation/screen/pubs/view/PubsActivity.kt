@@ -3,7 +3,7 @@ package com.orogersilva.superpub.dublin.presentation.screen.pubs.view
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.orogersilva.superpub.dublin.R
-import com.orogersilva.superpub.dublin.di.modules.*
+import com.orogersilva.superpub.dublin.di.module.*
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.PubsContract
 import com.orogersilva.superpub.dublin.shared.app

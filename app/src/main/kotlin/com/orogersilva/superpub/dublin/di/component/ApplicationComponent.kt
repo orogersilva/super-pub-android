@@ -1,6 +1,6 @@
-package com.orogersilva.superpub.dublin.di.components
+package com.orogersilva.superpub.dublin.di.component
 
-import com.orogersilva.superpub.dublin.di.modules.*
+import com.orogersilva.superpub.dublin.di.module.*
 import dagger.Component
 import javax.inject.Singleton
 

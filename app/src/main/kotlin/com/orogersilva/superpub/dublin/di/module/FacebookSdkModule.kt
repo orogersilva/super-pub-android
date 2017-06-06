@@ -1,8 +1,8 @@
-package com.orogersilva.superpub.dublin.di.modules
+package com.orogersilva.superpub.dublin.di.module
 
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
-import com.orogersilva.superpub.dublin.domain.di.scope.AccessToken
+import com.orogersilva.superpub.dublin.domain.di.qualifier.AccessToken
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

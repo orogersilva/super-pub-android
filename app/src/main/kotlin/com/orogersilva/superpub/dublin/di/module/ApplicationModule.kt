@@ -1,6 +1,5 @@
-package com.orogersilva.superpub.dublin.di.modules
+package com.orogersilva.superpub.dublin.di.module
 
-import android.app.Application
 import android.content.Context
 import dagger.Module
 import dagger.Provides

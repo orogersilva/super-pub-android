@@ -1,6 +1,5 @@
 package com.orogersilva.superpub.dublin.domain.interactor.impl
 
-import com.orogersilva.superpub.dublin.domain.di.scope.AccessToken
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub

@@ -5,12 +5,11 @@ import android.content.Context
 import android.os.StrictMode
 import android.support.annotation.VisibleForTesting
 import android.support.multidex.MultiDex
-import com.facebook.FacebookSdk
 import com.facebook.stetho.Stetho
-import com.orogersilva.superpub.dublin.di.components.ApplicationComponent
-import com.orogersilva.superpub.dublin.di.components.DaggerApplicationComponent
-import com.orogersilva.superpub.dublin.di.modules.ApplicationModule
-import com.orogersilva.superpub.dublin.di.modules.FacebookSdkModule
+import com.orogersilva.superpub.dublin.di.component.ApplicationComponent
+import com.orogersilva.superpub.dublin.di.component.DaggerApplicationComponent
+import com.orogersilva.superpub.dublin.di.module.ApplicationModule
+import com.orogersilva.superpub.dublin.di.module.FacebookSdkModule
 import com.squareup.leakcanary.LeakCanary
 
 /**

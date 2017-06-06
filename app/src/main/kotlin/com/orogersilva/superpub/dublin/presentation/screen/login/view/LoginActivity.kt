@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.orogersilva.superpub.dublin.R
-import com.orogersilva.superpub.dublin.di.modules.LoginPresenterModule
+import com.orogersilva.superpub.dublin.di.module.LoginPresenterModule
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.view.PubsActivity
 import com.orogersilva.superpub.dublin.shared.app

@@ -1,16 +1,11 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs
 
-import com.orogersilva.superpub.dublin.data.PubDataSource
-import com.orogersilva.superpub.dublin.di.scopes.ActivityScope
+import com.orogersilva.superpub.dublin.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.scheduler.SchedulerProvider
 import io.reactivex.Observer
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
-import org.reactivestreams.Subscriber
-import org.reactivestreams.Subscription
 import javax.inject.Inject
 
 /**

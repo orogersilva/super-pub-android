@@ -3,11 +3,12 @@ package com.orogersilva.superpub.dublin.data.entity
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import io.realm.RealmObject
+import io.realm.annotations.PrimaryKey
 
 /**
  * Created by orogersilva on 5/28/2017.
  */
-open class PubEntity(@SerializedName("id") var id: Long = 0,
+open class PubEntity(@PrimaryKey @SerializedName("id") var id: Long = 0,
                      @SerializedName("name") var name: String = "",
                      @SerializedName("phone") var phone: String? = null,
                      @SerializedName("rating") var rating: Double = 0.0,

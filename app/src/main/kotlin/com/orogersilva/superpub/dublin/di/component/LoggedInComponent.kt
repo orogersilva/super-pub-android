@@ -1,8 +1,7 @@
-package com.orogersilva.superpub.dublin.di.components
+package com.orogersilva.superpub.dublin.di.component
 
-import com.orogersilva.superpub.dublin.di.modules.*
+import com.orogersilva.superpub.dublin.di.module.*
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
-import com.orogersilva.superpub.dublin.presentation.screen.pubs.view.PubsActivity
 import dagger.Subcomponent
 
 /**

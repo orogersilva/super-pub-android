@@ -23,6 +23,8 @@ import java.nio.charset.Charset
 @RunWith(AndroidJUnit4::class)
 class PubLocalDataSourceTest {
 
+    private val DATABASE_NAME = "superpubtest.realm"
+
     // region SETUP / TEARDOWN CLASS METHODS
 
     companion object {
@@ -40,9 +42,7 @@ class PubLocalDataSourceTest {
                     .name("superpubtest.realm")
                     .build()
 
-            val realm = Realm.getInstance(realmConfiguration)
-
-            pubLocalDataSource = PubLocalDataSource(realm)
+            pubLocalDataSource = PubLocalDataSource(realmConfiguration)
         }
 
         @AfterClass @JvmStatic fun teardownClass() {
@@ -56,7 +56,7 @@ class PubLocalDataSourceTest {
 
     // region TEST METHODS
 
-    @Test fun getPubs_whenDatabaseIsClean_returnsEmptyListOfPubs() {
+    @Test fun getPubs_whenThereAreNotPubs_thenReturnsNoPubs() {
 
         // ARRANGE
 
@@ -85,7 +85,7 @@ class PubLocalDataSourceTest {
         assertTrue(testObserver.values().isEmpty())
     }
 
-    @Test fun getPubs_whenThereArePubs_returnsPubs() {
+    @Test fun getPubs_whenThereArePubs_thenReturnsPubs() {
 
         // ARRANGE
 
@@ -101,18 +101,12 @@ class PubLocalDataSourceTest {
         val expectedPubs = createTestData()
 
         val realmConfiguration = RealmConfiguration.Builder()
-                .name("superpubtest.realm")
+                .name(DATABASE_NAME)
                 .build()
 
         val realm = Realm.getInstance(realmConfiguration)
 
-        realm.executeTransaction {
-
-            expectedPubs.forEach {
-
-                realm.insert(it)
-            }
-        }
+        realm.executeTransaction { it.insertOrUpdate(expectedPubs) }
 
         realm.close()
 
@@ -130,6 +124,56 @@ class PubLocalDataSourceTest {
         testObserver.assertValueCount(EMITTED_EVENTS_COUNT)
 
         val pubs = testObserver.values()
+
+        assertEquals(expectedPubs, pubs)
+    }
+
+    @Test fun savePubs_whenThereAreNotPubsToBeSaved_thenNoPubsIsPersisted() {
+
+        // ARRANGE
+
+        val expectedPubs = listOf<PubEntity>()
+
+        // ACT
+
+        pubLocalDataSource?.savePubs(expectedPubs)
+
+        // ASSERT
+
+        val realmConfiguration = RealmConfiguration.Builder()
+                .name(DATABASE_NAME)
+                .build()
+
+        val realm = Realm.getInstance(realmConfiguration)
+
+        val pubs = realm.copyFromRealm(realm.where(PubEntity::class.java).findAll())
+
+        realm.close()
+
+        assertEquals(expectedPubs, pubs)
+    }
+
+    @Test fun savePubs_whenThereArePubsToBeSaved_thenPubsArePersistedSuccessfully() {
+
+        // ARRANGE
+
+        val expectedPubs = createTestData()
+
+        // ACT
+
+        pubLocalDataSource?.savePubs(expectedPubs)
+
+        // ASSERT
+
+        val realmConfiguration = RealmConfiguration.Builder()
+                .name(DATABASE_NAME)
+                .build()
+
+        val realm = Realm.getInstance(realmConfiguration)
+
+        val pubs = realm.copyFromRealm(realm.where(PubEntity::class.java).findAll())
+
+        realm.close()
 
         assertEquals(expectedPubs, pubs)
     }

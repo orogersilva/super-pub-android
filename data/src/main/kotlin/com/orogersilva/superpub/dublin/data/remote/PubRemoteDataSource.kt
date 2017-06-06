@@ -5,11 +5,10 @@ import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.api.endpoint.SearchApiClient
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import com.orogersilva.superpub.dublin.data.entity.mapper.PubMapper
-import com.orogersilva.superpub.dublin.domain.di.scope.AccessToken
+import com.orogersilva.superpub.dublin.domain.di.qualifier.AccessToken
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import io.reactivex.Observable
 import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Created by orogersilva on 5/28/2017.

@@ -1,9 +1,7 @@
-package com.orogersilva.superpub.dublin.di.components
+package com.orogersilva.superpub.dublin.di.component
 
-import com.orogersilva.superpub.dublin.di.modules.GetPubsUseCaseModule
-import com.orogersilva.superpub.dublin.di.modules.PubRepositoryModule
-import com.orogersilva.superpub.dublin.di.modules.PubsPresenterModule
-import com.orogersilva.superpub.dublin.di.scopes.ActivityScope
+import com.orogersilva.superpub.dublin.di.module.PubsPresenterModule
+import com.orogersilva.superpub.dublin.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.view.PubsActivity
 import dagger.Subcomponent
 

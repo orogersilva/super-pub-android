@@ -1,8 +1,7 @@
-package com.orogersilva.superpub.dublin.di.components
+package com.orogersilva.superpub.dublin.di.component
 
-import com.orogersilva.superpub.dublin.di.modules.LoginPresenterModule
+import com.orogersilva.superpub.dublin.di.module.LoginPresenterModule
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedOutScope
-import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import dagger.Subcomponent
 
 /**

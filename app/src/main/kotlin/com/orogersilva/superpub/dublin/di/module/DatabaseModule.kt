@@ -1,9 +1,7 @@
-package com.orogersilva.superpub.dublin.di.modules
+package com.orogersilva.superpub.dublin.di.module
 
 import android.content.Context
-import com.orogersilva.superpub.dublin.data.PubDataSource
-import com.orogersilva.superpub.dublin.data.di.scope.Local
-import com.orogersilva.superpub.dublin.data.local.PubLocalDataSource
+import com.orogersilva.superpub.dublin.di.qualifier.DatabaseName
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import dagger.Module
 import dagger.Provides
@@ -19,17 +17,17 @@ open class DatabaseModule(private val provideRealmInstance: Boolean) {
 
     // region PROVIDERS
 
-    @Provides @LoggedInScope open fun provideRealm(context: Context?): Realm? {
+    @Provides @LoggedInScope @DatabaseName open fun provideDatabaseName(): String = "superpub.realm"
+
+    @Provides @LoggedInScope open fun provideRealmConfiguration(context: Context?, @DatabaseName databaseName: String): RealmConfiguration? {
 
         if (!provideRealmInstance) return null
 
         Realm.init(context)
 
-        val realmConfiguration = RealmConfiguration.Builder()
-                .name("superpub.realm")
+        return RealmConfiguration.Builder()
+                .name(databaseName)
                 .build()
-
-        return Realm.getInstance(realmConfiguration)
     }
 
     // endregion

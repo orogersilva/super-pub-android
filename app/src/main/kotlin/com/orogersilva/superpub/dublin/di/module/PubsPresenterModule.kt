@@ -1,6 +1,6 @@
-package com.orogersilva.superpub.dublin.di.modules
+package com.orogersilva.superpub.dublin.di.module
 
-import com.orogersilva.superpub.dublin.di.scopes.ActivityScope
+import com.orogersilva.superpub.dublin.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.PubsContract
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.PubsPresenter

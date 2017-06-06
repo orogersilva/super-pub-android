@@ -11,11 +11,11 @@ android {
 
         applicationId "com.orogersilva.superpub.dublin"
 
+        resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
+
         multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
     }
 
     signingConfigs {

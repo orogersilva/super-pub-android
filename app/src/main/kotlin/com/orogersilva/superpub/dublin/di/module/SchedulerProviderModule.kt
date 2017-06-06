@@ -1,4 +1,4 @@
-package com.orogersilva.superpub.dublin.di.modules
+package com.orogersilva.superpub.dublin.di.module
 
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import com.orogersilva.superpub.dublin.scheduler.SchedulerProvider

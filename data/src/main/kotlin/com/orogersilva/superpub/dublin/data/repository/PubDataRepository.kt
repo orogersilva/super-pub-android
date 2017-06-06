@@ -3,8 +3,8 @@ package com.orogersilva.superpub.dublin.data.repository
 import com.fernandocejas.frodo.annotation.RxLogObservable
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.cache.PubCache
-import com.orogersilva.superpub.dublin.data.di.scope.Local
-import com.orogersilva.superpub.dublin.data.di.scope.Remote
+import com.orogersilva.superpub.dublin.data.di.qualifier.Local
+import com.orogersilva.superpub.dublin.data.di.qualifier.Remote
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import com.orogersilva.superpub.dublin.data.entity.mapper.PubMapper
 import com.orogersilva.superpub.dublin.data.shared.date.Clock

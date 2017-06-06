@@ -1,11 +1,6 @@
-package com.orogersilva.superpub.dublin.di.modules
+package com.orogersilva.superpub.dublin.di.module
 
 import com.orogersilva.superpub.dublin.BuildConfig
-import com.orogersilva.superpub.dublin.data.PubDataSource
-import com.orogersilva.superpub.dublin.data.api.RestClient
-import com.orogersilva.superpub.dublin.data.api.endpoint.SearchApiClient
-import com.orogersilva.superpub.dublin.data.di.scope.Remote
-import com.orogersilva.superpub.dublin.data.remote.PubRemoteDataSource
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import dagger.Module
 import dagger.Provides

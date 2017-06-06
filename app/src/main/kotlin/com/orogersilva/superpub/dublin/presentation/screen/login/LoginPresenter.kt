@@ -1,12 +1,10 @@
 package com.orogersilva.superpub.dublin.presentation.screen.login
 
-import android.app.Activity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import com.orogersilva.superpub.dublin.di.scopes.ActivityScope
+import com.orogersilva.superpub.dublin.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import javax.inject.Inject
 

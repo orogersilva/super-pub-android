@@ -1,4 +1,4 @@
-package com.orogersilva.superpub.dublin.di.modules
+package com.orogersilva.superpub.dublin.di.module
 
 import com.orogersilva.superpub.dublin.data.cache.PubCache
 import com.orogersilva.superpub.dublin.data.cache.impl.PubCacheImpl
