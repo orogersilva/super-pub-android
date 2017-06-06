@@ -31,9 +31,9 @@ android {
         release {
 
             storeFile rootProject.file('keystore/release.jks')
-            storePassword System.getenv("STORE_PASSWORD")
-            keyAlias System.getenv("KEY_ALIAS")
-            keyPassword System.getenv("KEY_PASSWORD")
+            storePassword 'jSD438aQ2x'
+            keyAlias 'SuperPubAlias'
+            keyPassword 'jSD438aQ2x'
         }
     }
 
