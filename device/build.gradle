@@ -33,6 +33,8 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
+    compile project(':domain')
+
     def libs = [
             dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
             daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],

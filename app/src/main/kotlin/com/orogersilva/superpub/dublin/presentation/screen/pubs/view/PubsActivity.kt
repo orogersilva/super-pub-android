@@ -1,12 +1,16 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs.view
 
+import android.Manifest
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.di.module.*
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.PubsContract
 import com.orogersilva.superpub.dublin.shared.app
+import com.orogersilva.superpub.dublin.shared.hasPermission
+import com.orogersilva.superpub.dublin.shared.permissionsHasBeenGranted
 import kotlinx.android.synthetic.main.activity_pubs.*
 import javax.inject.Inject
 
@@ -21,12 +25,19 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
 
     private val pubsActivityComponent by lazy {
 
-        app().applicationComponent.newLoggedinComponent(SchedulerProviderModule(), CacheModule(),
-                DatabaseModule(true), NetworkModule(), ClockModule())
-                .newPubsActivityComponent(PubsPresenterModule(this))
+        app().applicationComponent
+                .newLoggedinComponent(CacheModule(), ClockModule(), DatabaseModule(true),
+                        GoogleApiModule(), LocationSensorModule(), NetworkModule(),
+                        SchedulerProviderModule())
+                .newPubsActivityComponent(GetPubsUseCaseModule(), GetLastLocationUseCaseModule(),
+                        PubRepositoryModule(), PubsPresenterModule(this))
     }
 
     private val pubs = mutableListOf<Pub>()
+
+    private val ACCESS_LOCATION_PERMISSION_REQUEST_CODE = 1
+
+    private var hasPermissionToAccessDeviceLocation = false
 
     // endregion
 
@@ -42,13 +53,34 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
         setSupportActionBar(customToolbar)
 
         pubsActivityComponent.inject(this)
+
+        if (!hasPermission(Manifest.permission.ACCESS_COARSE_LOCATION) &&
+                !hasPermission(Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION) ||
+                    ActivityCompat.shouldShowRequestPermissionRationale(this,
+                            Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+                // TODO: SHOULD BE IMPLEMENTED EXPLANATION TO THE USE ABOUT WHY TO USE LOCATION FROM DEVICE.
+
+            } else {
+
+                ActivityCompat.requestPermissions(this,
+                        arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION,
+                                Manifest.permission.ACCESS_FINE_LOCATION),
+                        ACCESS_LOCATION_PERMISSION_REQUEST_CODE)
+            }
+
+            return
+        }
     }
 
     override fun onResume() {
 
         super.onResume()
 
-        pubsPresenter.resume()
+        if (hasPermissionToAccessDeviceLocation) pubsPresenter.resume()
     }
 
     override fun onDestroy() {
@@ -77,6 +109,24 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
 
     override fun showErrorMessage() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+
+        when (requestCode) {
+
+            ACCESS_LOCATION_PERMISSION_REQUEST_CODE -> {
+
+                if (permissionsHasBeenGranted(grantResults)) {
+
+                    pubsPresenter.resume()
+
+                } else {
+
+                    // TODO: Denied permission. To implement.
+                }
+            }
+        }
     }
 
     // endregion

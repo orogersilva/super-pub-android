@@ -4,7 +4,7 @@ import android.content.Intent
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import com.orogersilva.superpub.dublin.di.scope.ActivityScope
+import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import javax.inject.Inject
 

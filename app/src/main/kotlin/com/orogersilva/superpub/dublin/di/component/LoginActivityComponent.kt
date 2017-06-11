@@ -1,7 +1,7 @@
 package com.orogersilva.superpub.dublin.di.component
 
 import com.orogersilva.superpub.dublin.di.module.LoginPresenterModule
-import com.orogersilva.superpub.dublin.di.scope.ActivityScope
+import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import dagger.Subcomponent
 
@@ -10,7 +10,7 @@ import dagger.Subcomponent
  */
 @ActivityScope
 @Subcomponent(modules = arrayOf(LoginPresenterModule::class))
-interface LoginActiivtyComponent {
+interface LoginActivityComponent {
 
     // region INJECTORS
 

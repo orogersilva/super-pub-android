@@ -8,14 +8,22 @@ import dagger.Subcomponent
  * Created by orogersilva on 4/5/2017.
  */
 @LoggedInScope
-@Subcomponent(modules = arrayOf(GetPubsUseCaseModule::class, PubRepositoryModule::class,
-        SchedulerProviderModule::class, CacheModule::class, DatabaseModule::class,
-        NetworkModule::class, ClockModule::class))
+@Subcomponent(modules = arrayOf(
+        CacheModule::class,
+        ClockModule::class,
+        DatabaseModule::class,
+        GoogleApiModule::class,
+        LocationSensorModule::class,
+        NetworkModule::class,
+        SchedulerProviderModule::class))
 interface LoggedInComponent {
 
     // region FACTORY METHODS
 
-    fun newPubsActivityComponent(pubsPresenterModule: PubsPresenterModule): PubsActivityComponent
+    fun newPubsActivityComponent(getPubsUseCaseModule: GetPubsUseCaseModule,
+                                 getLastLocationUseCaseModule: GetLastLocationUseCaseModule,
+                                 pubRepositoryModule: PubRepositoryModule,
+                                 pubsPresenterModule: PubsPresenterModule): PubsActivityComponent
 
     // endregion
 }

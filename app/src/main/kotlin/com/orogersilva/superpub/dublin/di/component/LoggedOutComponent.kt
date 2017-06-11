@@ -13,7 +13,7 @@ interface LoggedOutComponent {
 
     // region FACTORY METHODS
 
-    fun newLoginActivityComponent(loginPresenterModule: LoginPresenterModule): LoginActiivtyComponent
+    fun newLoginActivityComponent(loginPresenterModule: LoginPresenterModule): LoginActivityComponent
 
     // endregion
 }

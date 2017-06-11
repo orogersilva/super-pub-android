@@ -29,7 +29,7 @@ interface PubsContract {
 
         fun unsubscribe()
 
-        fun refreshPubs(lat: Double, lng: Double)
+        fun refreshPubs()
 
         // endregion
     }

@@ -1,6 +1,7 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs
 
-import com.orogersilva.superpub.dublin.di.scope.ActivityScope
+import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
+import com.orogersilva.superpub.dublin.domain.interactor.GetLastLocationUseCase
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.scheduler.SchedulerProvider
@@ -14,6 +15,7 @@ import javax.inject.Inject
 @ActivityScope
 class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
                                         private val getPubsUseCase: GetPubsUseCase,
+                                        private val getLastLocationUseCase: GetLastLocationUseCase,
                                         private val schedulerProvider: SchedulerProvider) : PubsContract.Presenter {
 
     // endregion
@@ -49,15 +51,24 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
     override fun resume() {
 
-        refreshPubs(-30.0262844, -51.2072853)
+        refreshPubs()
     }
 
-    override fun refreshPubs(lat: Double, lng: Double) {
+    override fun refreshPubs() {
 
-        getPubsUseCase.getPubs(lat, lng)
-                ?.subscribeOn(schedulerProvider.newThread())
-                ?.observeOn(schedulerProvider.ui(), true)
-                ?.subscribe(object : Observer<Pub> {
+        try {
+
+            getPubsUseCase.getPubs(30.0, 65.5)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        /*getLastLocationUseCase.getLastLocation()
+                .subscribeOn(schedulerProvider.io())
+                .observeOn(schedulerProvider.io())
+                .flatMap { (first, second) -> getPubsUseCase.getPubs(first, second) }
+                .observeOn(schedulerProvider.ui(), true)
+                .subscribe(object : Observer<Pub> {
 
                     override fun onNext(pub: Pub?) {
 
@@ -66,7 +77,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
                     override fun onComplete() {
 
-                        pubsView.showPubs(pubsList.toList())
+                        pubsView.showPubs(pubsList)
                     }
 
                     override fun onError(error: Throwable?) {
@@ -78,7 +89,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
                         pubsDisposable = disposable
                     }
-                })
+                })*/
     }
 
     // endregion

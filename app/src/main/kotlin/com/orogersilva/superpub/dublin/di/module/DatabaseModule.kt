@@ -19,7 +19,7 @@ open class DatabaseModule(private val provideRealmInstance: Boolean) {
 
     @Provides @LoggedInScope @DatabaseName open fun provideDatabaseName(): String = "superpub.realm"
 
-    @Provides @LoggedInScope open fun provideRealmConfiguration(context: Context?, @DatabaseName databaseName: String): RealmConfiguration? {
+    @Provides @LoggedInScope open fun provideRealmConfiguration(context: Context, @DatabaseName databaseName: String): RealmConfiguration? {
 
         if (!provideRealmInstance) return null
 

@@ -8,18 +8,22 @@ import javax.inject.Singleton
  * Created by orogersilva on 4/17/2017.
  */
 @Singleton
-@Component(modules = arrayOf(ApplicationModule::class, FacebookSdkModule::class))
+@Component(modules = arrayOf(
+        ApplicationModule::class,
+        FacebookSdkModule::class))
 interface ApplicationComponent {
 
     // region FACTORY METHODS
 
     fun newLoggedOutComponent(): LoggedOutComponent
     
-    fun newLoggedinComponent(schedulerProviderModule: SchedulerProviderModule,
-                             cacheModule: CacheModule,
+    fun newLoggedinComponent(cacheModule: CacheModule,
+                             clockModule: ClockModule,
                              databaseModule: DatabaseModule,
+                             googleApiModule: GoogleApiModule,
+                             locationSensorModule: LocationSensorModule,
                              networkModule: NetworkModule,
-                             clockModule: ClockModule): LoggedInComponent
+                             schedulerProviderModule: SchedulerProviderModule): LoggedInComponent
 
     // endregion
 }
