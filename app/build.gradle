@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 apply from: "${rootProject.getRootDir()}/tools/git/script-git-version.gradle"
 
@@ -37,9 +37,13 @@ android {
         }
     }
 
+    flavorDimensions "environment"
+
     productFlavors {
 
         dev {
+
+            dimension "environment"
 
             minSdkVersion 21
 
@@ -50,6 +54,8 @@ android {
         }
 
         prod {
+
+            dimension "environment"
 
             versionCode gitVersionCode
             versionName gitVersionName
@@ -110,14 +116,11 @@ tasks.withType(Test) {
 
 dependencies {
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    debugCompile project(path: ':data', configuration: "debug")
-    releaseCompile project(path: ':data', configuration: "release")
-    debugCompile project(path: ':device', configuration: "debug")
-    releaseCompile project(path: ':device', configuration: "release")
-
-    compile project(':domain')
+    implementation project(':data')
+    implementation project(':device')
+    implementation project(':domain')
 
     def androidLibs = [
             appCompat: [group: 'com.android.support', name: 'appcompat-v7', version: androidSDKVersion],
@@ -153,33 +156,33 @@ dependencies {
     ]
 
     def appDependencies = [
-            [configuration: 'compile', dependency: androidLibs.appCompat],
-            [configuration: 'compile', dependency: androidLibs.cardview],
-            [configuration: 'compile', dependency: androidLibs.constraintLayout],
-            [configuration: 'compile', dependency: androidLibs.multidex],
-            [configuration: 'compile', dependency: androidLibs.recyclerview],
+            [configuration: 'implementation', dependency: androidLibs.appCompat],
+            [configuration: 'implementation', dependency: androidLibs.cardview],
+            [configuration: 'implementation', dependency: androidLibs.constraintLayout],
+            [configuration: 'implementation', dependency: androidLibs.multidex],
+            [configuration: 'implementation', dependency: androidLibs.recyclerview],
 
-            [configuration: 'compile', dependency: libs.avLoadingIndicatorView],
-            [configuration: 'compile', dependency: libs.circleImageView],
-            [configuration: 'compile', dependency: libs.dagger],
+            [configuration: 'implementation', dependency: libs.avLoadingIndicatorView],
+            [configuration: 'implementation', dependency: libs.circleImageView],
+            [configuration: 'implementation', dependency: libs.dagger],
             [configuration: 'kapt', dependency: libs.daggerCompiler],
-            [configuration: 'compile', dependency: libs.facebookSdk],
-            [configuration: "compile", dependency: libs.googlePlayServicesLocation],
-            [configuration: "compile", dependency: libs.googlePlayServicesMaps],
-            [configuration: 'provided', dependency: libs.javaxAnnotation],
-            [configuration: 'compile', dependency: libs.kotlin],
-            [configuration: 'compile', dependency: libs.kotlinReflect],
-            [configuration: 'compile', dependency: libs.leakCanary],
-            [configuration: 'compile', dependency: libs.rippleEffect],
-            [configuration: 'compile', dependency: libs.rxAndroid],
-            [configuration: 'compile', dependency: libs.rxjava2],
-            [configuration: 'compile', dependency: libs.stetho],
+            [configuration: 'implementation', dependency: libs.facebookSdk],
+            [configuration: 'implementation', dependency: libs.googlePlayServicesLocation],
+            [configuration: 'implementation', dependency: libs.googlePlayServicesMaps],
+            [configuration: 'compileOnly', dependency: libs.javaxAnnotation],
+            [configuration: 'implementation', dependency: libs.kotlin],
+            [configuration: 'implementation', dependency: libs.kotlinReflect],
+            [configuration: 'implementation', dependency: libs.leakCanary],
+            [configuration: 'implementation', dependency: libs.rippleEffect],
+            [configuration: 'implementation', dependency: libs.rxAndroid],
+            [configuration: 'implementation', dependency: libs.rxjava2],
+            [configuration: 'implementation', dependency: libs.stetho],
 
-            [configuration: 'androidTestCompile', dependency: testLibs.espresso, options:
+            [configuration: 'androidTestImplementation', dependency: testLibs.espresso, options:
                     { exclude group: 'com.android.support', module: 'support-annotations' }],
-            [configuration: 'testCompile', dependency: testLibs.junit],
-            [configuration: 'testCompile', dependency: testLibs.kotlinUnitTest],
-            [configuration: 'testCompile', dependency: testLibs.mockitoKotlin, options: {
+            [configuration: 'testImplementation', dependency: testLibs.junit],
+            [configuration: 'testImplementation', dependency: testLibs.kotlinUnitTest],
+            [configuration: 'testImplementation', dependency: testLibs.mockitoKotlin, options: {
                 exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
                 exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'
             }]

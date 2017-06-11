@@ -56,14 +56,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
     override fun refreshPubs() {
 
-        try {
-
-            getPubsUseCase.getPubs(30.0, 65.5)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-
-        /*getLastLocationUseCase.getLastLocation()
+        getLastLocationUseCase.getLastLocation()
                 .subscribeOn(schedulerProvider.io())
                 .observeOn(schedulerProvider.io())
                 .flatMap { (first, second) -> getPubsUseCase.getPubs(first, second) }
@@ -89,7 +82,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
                         pubsDisposable = disposable
                     }
-                })*/
+                })
     }
 
     // endregion

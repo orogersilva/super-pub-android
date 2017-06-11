@@ -69,7 +69,7 @@ class LoginPresenterTest {
         callbackManagerMock.onActivityResult(REQUEST_CODE, RESULT_CODE, null)
     }
 
-    @Test fun `OnResult from Facebook API_passed login`() {
+    @Test fun `OnResult from Facebook API passed login`() {
 
         // ARRANGE
 

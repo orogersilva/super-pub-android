@@ -2,7 +2,7 @@ ext {
 
     // LIBRARY VERSIONS
 
-    androidGradleBuildToolsVersion = '2.3.3'
+    androidGradlePluginVersion = '3.0.0-alpha3'
     androidSDKVersion = '25.3.1'
 
     avLoadingIndicatorViewVersion = '2.1.3'
@@ -16,12 +16,12 @@ ext {
     gsonVersion = '2.8.0'
     javaxAnnotationVersion = '1.0'
     junitVersion = '4.12'
-    kotlinVersion = '1.1.2-3'
+    kotlinVersion = '1.1.2-4'
     leakCanaryVersion = '1.5'
     mockitoKotlinVersion = '1.4.0'
     mockWebServerVersion = '3.6.0'
     multidexVersion = '1.0.1'
-    realmVersion = '3.3.1'
+    realmVersion = '3.3.2'
     retrofitVersion = '2.2.0'
     rippleEffectVersion = '1.3.1'
     rxAndroidVersion = '2.0.1'
@@ -30,7 +30,7 @@ ext {
 
     // CLASSPATH's
 
-    androidBuildTools = "com.android.tools.build:gradle:$androidGradleBuildToolsVersion"
+    androidGradlePlugin = "com.android.tools.build:gradle:$androidGradlePluginVersion"
     frodoPlugin = "com.fernandocejas.frodo:frodo-plugin:$frodoVersion"
     kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     realmPlugin = "io.realm:realm-gradle-plugin:$realmVersion"

@@ -6,9 +6,6 @@ android {
 
     defaultConfig {
 
-        defaultPublishConfig 'release'
-        publishNonDefault true
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -31,9 +28,9 @@ android {
 
 dependencies {
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile project(':domain')
+    api project(':domain')
 
     def libs = [
             dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
@@ -49,14 +46,14 @@ dependencies {
     ]
 
     def appDependencies = [
-            [configuration: 'compile', dependency: libs.dagger],
+            [configuration: 'api', dependency: libs.dagger],
             [configuration: 'kapt', dependency: libs.daggerCompiler],
-            [configuration: "compile", dependency: libs.googlePlayServicesLocation],
-            [configuration: 'provided', dependency: libs.javaxAnnotation],
-            [configuration: 'compile', dependency: libs.kotlin],
-            [configuration: 'compile', dependency: libs.kotlinReflect],
+            [configuration: 'api', dependency: libs.googlePlayServicesLocation],
+            [configuration: 'compileOnly', dependency: libs.javaxAnnotation],
+            [configuration: 'api', dependency: libs.kotlin],
+            [configuration: 'api', dependency: libs.kotlinReflect],
 
-            [configuration: 'testCompile', dependency: testLibs.kotlinUnitTest]
+            [configuration: 'testImplementation', dependency: testLibs.kotlinUnitTest]
     ]
 
     appDependencies.each {
