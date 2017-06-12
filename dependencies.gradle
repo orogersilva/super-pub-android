@@ -16,7 +16,7 @@ ext {
     gsonVersion = '2.8.0'
     javaxAnnotationVersion = '1.0'
     junitVersion = '4.12'
-    kotlinVersion = '1.1.2-4'
+    kotlinVersion = '1.1.2-5'
     leakCanaryVersion = '1.5'
     mockitoKotlinVersion = '1.4.0'
     mockWebServerVersion = '3.6.0'
