@@ -12,7 +12,6 @@ import com.orogersilva.superpub.dublin.data.repository.PubDataRepository
 import com.orogersilva.superpub.dublin.data.shared.date.Clock
 import com.orogersilva.superpub.dublin.domain.di.qualifier.AccessToken
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
-import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
 import dagger.Module
 import dagger.Provides

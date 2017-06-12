@@ -1,7 +1,6 @@
 package com.orogersilva.superpub.dublin.di.module
 
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
-import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.domain.interactor.impl.GetPubsUseCaseImpl
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository

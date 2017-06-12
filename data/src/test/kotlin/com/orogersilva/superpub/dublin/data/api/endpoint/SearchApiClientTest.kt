@@ -1,13 +1,10 @@
 package com.orogersilva.superpub.dublin.data.api.endpoint
 
-import com.nhaarman.mockito_kotlin.any
-import com.nhaarman.mockito_kotlin.eq
 import com.orogersilva.superpub.dublin.data.api.BaseNetworkTestCase
 import com.orogersilva.superpub.dublin.data.api.HttpLocalResponseDispatcher
 import com.orogersilva.superpub.dublin.data.api.RestClient
 import com.orogersilva.superpub.dublin.data.entity.PubHttpResponse
 import io.reactivex.observers.TestObserver
-import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

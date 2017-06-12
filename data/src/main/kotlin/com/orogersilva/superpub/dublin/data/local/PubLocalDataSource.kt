@@ -8,8 +8,6 @@ import io.reactivex.Observable
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import javax.inject.Inject
-import javax.inject.Provider
-import javax.inject.Singleton
 
 /**
  * Created by orogersilva on 5/28/2017.

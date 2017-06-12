@@ -1,16 +1,12 @@
 package com.orogersilva.superpub.dublin.data.remote
 
-import com.nhaarman.mockito_kotlin.any
-import com.nhaarman.mockito_kotlin.eq
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
-import com.orogersilva.superpub.dublin.data.BaseTestCase
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.api.BaseNetworkTestCase
 import com.orogersilva.superpub.dublin.data.api.endpoint.SearchApiClient
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import com.orogersilva.superpub.dublin.data.entity.PubHttpResponse
-import com.orogersilva.superpub.dublin.data.entity.mapper.PubMapper
 import io.reactivex.Observable
 import io.reactivex.observers.TestObserver
 import org.junit.Before

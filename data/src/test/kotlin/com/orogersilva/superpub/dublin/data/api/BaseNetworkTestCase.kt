@@ -8,9 +8,6 @@ import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.AfterClass
 import org.junit.BeforeClass
-import java.io.IOException
-import java.io.InputStream
-import java.nio.charset.Charset
 
 /**
  * Created by orogersilva on 5/28/2017.

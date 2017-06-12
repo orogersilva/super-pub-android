@@ -9,7 +9,6 @@ import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import com.orogersilva.superpub.dublin.data.entity.mapper.PubMapper
 import com.orogersilva.superpub.dublin.data.shared.date.Clock
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
-import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
 import io.reactivex.Observable

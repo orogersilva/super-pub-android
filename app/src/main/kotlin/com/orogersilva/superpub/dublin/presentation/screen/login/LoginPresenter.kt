@@ -1,7 +1,10 @@
 package com.orogersilva.superpub.dublin.presentation.screen.login
 
 import android.content.Intent
-import com.facebook.*
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope

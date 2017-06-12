@@ -9,9 +9,12 @@ import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import io.reactivex.observers.TestObserver
 import io.realm.Realm
 import io.realm.RealmConfiguration
-import org.junit.*
+import org.junit.After
+import org.junit.AfterClass
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import org.junit.BeforeClass
+import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
 import java.io.InputStream

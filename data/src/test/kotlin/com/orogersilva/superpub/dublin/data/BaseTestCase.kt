@@ -1,7 +1,6 @@
 package com.orogersilva.superpub.dublin.data
 
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import java.io.IOException

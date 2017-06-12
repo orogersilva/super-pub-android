@@ -3,7 +3,6 @@ package com.orogersilva.superpub.dublin.presentation.screen.pubs
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.presentation.screen.BasePresenter
 import com.orogersilva.superpub.dublin.presentation.screen.BaseView
-import io.reactivex.Observable
 
 /**
  * Created by orogersilva on 4/21/2017.

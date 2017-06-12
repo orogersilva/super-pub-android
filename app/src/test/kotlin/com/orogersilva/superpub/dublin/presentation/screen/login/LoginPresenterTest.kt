@@ -2,7 +2,8 @@ package com.orogersilva.superpub.dublin.presentation.screen.login
 
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
-import com.nhaarman.mockito_kotlin.*
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.verify
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import org.junit.Before
 import org.junit.Test

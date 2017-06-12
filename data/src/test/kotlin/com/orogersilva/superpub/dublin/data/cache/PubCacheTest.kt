@@ -4,8 +4,8 @@ import com.orogersilva.superpub.dublin.data.BaseTestCase
 import com.orogersilva.superpub.dublin.data.cache.impl.PubCacheImpl
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import org.junit.After
-import org.junit.Assert
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 

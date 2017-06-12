@@ -1,12 +1,10 @@
 package com.orogersilva.superpub.dublin.shared
 
-import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import com.orogersilva.superpub.dublin.SuperPubApplication
-import java.util.*
 
 /**
  * Created by orogersilva on 4/14/2017.
