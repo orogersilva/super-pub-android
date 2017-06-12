@@ -30,9 +30,9 @@ fun <T> AppCompatActivity.intentFor(cls: Class<T>) = Intent(this, cls)
 
 // endregion
 
-// region LIST<Pub> EXTENSION METHODS
+// region MUTABLE LIST<Pub> EXTENSION METHODS
 
-fun List<Pub>.calculateSuperPubRating() {
+fun MutableList<Pub>.calculateSuperPubRating() {
 
     if (isEmpty()) return
 

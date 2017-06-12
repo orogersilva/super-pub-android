@@ -31,7 +31,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
     // region PROPERTIES
 
-    internal val pubsList = mutableListOf<Pub?>()
+    internal val pubsList = mutableListOf<Pub>()
 
     private var pubsDisposable: Disposable? = null
 
@@ -65,7 +65,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
                     override fun onNext(pub: Pub?) {
 
-                        pubsList.add(pub)
+                        pub?.let { pubsList.add(it) }
                     }
 
                     override fun onComplete() {
