@@ -22,14 +22,13 @@ data class Pub(@SerializedName("id") var id: Long = 0,
 
     // region PROPERTIES
 
-    // var superPubRating: Double = 0.0
+    var superPubRating: Double = 0.0
 
     // endregion
 
     // region OVERRIDED METHODS
 
-    // override fun compareTo(other: Pub) = other.superPubRating.compareTo(superPubRating)
-    override fun compareTo(other: Pub) = 0
+    override fun compareTo(otherPub: Pub) = otherPub.superPubRating.compareTo(superPubRating)
 
     override fun equals(other: Any?): Boolean {
 
