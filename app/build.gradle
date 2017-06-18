@@ -104,6 +104,12 @@ android {
         abortOnError false
         checkReleaseBuilds false
     }
+
+    compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 // Show test status in console.
@@ -136,12 +142,17 @@ dependencies {
             dagger: [group: 'com.google.dagger', name: 'dagger', version: daggerVersion],
             daggerCompiler: [group: 'com.google.dagger', name: 'dagger-compiler', version: daggerVersion],
             facebookSdk: [group: 'com.facebook.android', name: 'facebook-android-sdk', version: facebookSdkVersion],
+            glide: [group: 'com.github.bumptech.glide', name: 'glide', version: glideVersion],
+            glideCompiler: [group: 'com.github.bumptech.glide', name: 'compiler', version: glideVersion],
             googlePlayServicesLocation: [group: 'com.google.android.gms', name: 'play-services-location', version: googlePlayServicesVersion],
             googlePlayServicesMaps: [group: 'com.google.android.gms', name: 'play-services-maps', version: googlePlayServicesVersion],
             javaxAnnotation: [group: 'javax.annotation', name: 'jsr250-api', version: javaxAnnotationVersion],
             kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
             kotlinReflect: [group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: kotlinVersion],
             leakCanary: [group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: leakCanaryVersion],
+            paperParcel: [group: 'nz.bradcampbell', name: 'paperparcel', version: paperParcelVersion],
+            paperParcelCompiler: [group: 'nz.bradcampbell', name: 'paperparcel-compiler', version: paperParcelVersion],
+            paperParcelKotlin: [group: 'nz.bradcampbell', name: 'paperparcel-kotlin', version: paperParcelVersion],
             rippleEffect: [group: 'com.patrickpissurno', name: 'ripple-effect', version: rippleEffectVersion],
             rxAndroid: [group: 'io.reactivex.rxjava2', name: 'rxandroid', version: rxAndroidVersion],
             rxjava2: [group: 'io.reactivex.rxjava2', name: 'rxjava', version: rxjava2Version],
@@ -167,12 +178,17 @@ dependencies {
             [configuration: 'implementation', dependency: libs.dagger],
             [configuration: 'kapt', dependency: libs.daggerCompiler],
             [configuration: 'implementation', dependency: libs.facebookSdk],
+            [configuration: 'implementation', dependency: libs.glide],
+            [configuration: 'kapt', dependency: libs.glideCompiler],
             [configuration: 'implementation', dependency: libs.googlePlayServicesLocation],
             [configuration: 'implementation', dependency: libs.googlePlayServicesMaps],
             [configuration: 'compileOnly', dependency: libs.javaxAnnotation],
             [configuration: 'implementation', dependency: libs.kotlin],
             [configuration: 'implementation', dependency: libs.kotlinReflect],
             [configuration: 'implementation', dependency: libs.leakCanary],
+            [configuration: 'implementation', dependency: libs.paperParcel],
+            [configuration: 'kapt', dependency: libs.paperParcelCompiler],
+            [configuration: 'implementation', dependency:  libs.paperParcelKotlin],
             [configuration: 'implementation', dependency: libs.rippleEffect],
             [configuration: 'implementation', dependency: libs.rxAndroid],
             [configuration: 'implementation', dependency: libs.rxjava2],

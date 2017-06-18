@@ -6,7 +6,7 @@ import com.orogersilva.superpub.dublin.data.cache.PubCache
 import com.orogersilva.superpub.dublin.data.di.qualifier.Local
 import com.orogersilva.superpub.dublin.data.di.qualifier.Remote
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
-import com.orogersilva.superpub.dublin.data.entity.mapper.PubMapper
+import com.orogersilva.superpub.dublin.data.entity.mapper.PubEntityMapper
 import com.orogersilva.superpub.dublin.data.shared.date.Clock
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.model.Pub
@@ -42,7 +42,7 @@ class PubDataRepository @Inject constructor(private var pubCache: PubCache?,
     @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int, fields: String, displayedDataTimestamp: Long): Observable<Pub>?  =
             getMergedPubs(query, type, fromLocation, radius, limit, fields)
-                    ?.map { pubEntity -> PubMapper.transform(pubEntity) }
+                    ?.map { pubEntity -> PubEntityMapper.transform(pubEntity) }
                     ?.filter { it.timestamp > displayedDataTimestamp }
 
     override fun savePubs(pubs: List<Pub>) {

@@ -1,5 +1,6 @@
 package com.orogersilva.superpub.dublin.device.location
 
+import android.annotation.SuppressLint
 import android.location.Location
 import android.os.Bundle
 import com.google.android.gms.common.ConnectionResult
@@ -44,20 +45,24 @@ class DeviceLocationSensor @Inject constructor(private val googleApiClient: Goog
 
                     deviceLocationConnectionSubscriber.setListener(object : DeviceLocationConnectionSubscriber.OnConnectionListener {
 
+                        @SuppressLint("MissingPermission")
                         override fun onConnected(bundle: Bundle?) {
 
-                            val LOCATION_REQUEST_INTERVAL = 30000L
+                            /*val LOCATION_REQUEST_INTERVAL = 30000L
                             val LOCATION_REQUEST_FASTEST_INTERVAL = 10000L
-                            val LOCATION_REQUEST_PRIORITY = LocationRequest.PRIORITY_HIGH_ACCURACY
+                            val LOCATION_REQUEST_PRIORITY = LocationRequest.PRIORITY_HIGH_ACCURACY*/
 
                             val lastLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient)
 
-                            lastLocation.let { emitter?.onNext(Pair<Double, Double>(it.latitude, it.longitude)) }
+                            lastLocation.let {
+                                emitter?.onNext(Pair<Double, Double>(it.latitude, it.longitude))
+                                emitter?.onComplete()
+                            }
 
-                            val locationRequest = createLocationRequest(LOCATION_REQUEST_INTERVAL,
-                                    LOCATION_REQUEST_FASTEST_INTERVAL, LOCATION_REQUEST_PRIORITY)
+                            /*val locationRequest = createLocationRequest(LOCATION_REQUEST_INTERVAL,
+                                    LOCATION_REQUEST_FASTEST_INTERVAL, LOCATION_REQUEST_PRIORITY)*/
 
-                            startLocationUpdates(locationRequest)
+                            // startLocationUpdates(locationRequest)
                         }
 
                         override fun onConnectionFailed(connectionResult: ConnectionResult) {
@@ -71,7 +76,7 @@ class DeviceLocationSensor @Inject constructor(private val googleApiClient: Goog
 
             }).doOnDispose {
 
-                stopLocationUpdates()
+                // stopLocationUpdates()
 
                 googleApiClient.disconnect()
             }
@@ -91,6 +96,7 @@ class DeviceLocationSensor @Inject constructor(private val googleApiClient: Goog
         return locationRequest
     }
 
+    @SuppressLint("MissingPermission")
     private fun startLocationUpdates(locationRequest: LocationRequest) {
 
         LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, deviceLocationListener)

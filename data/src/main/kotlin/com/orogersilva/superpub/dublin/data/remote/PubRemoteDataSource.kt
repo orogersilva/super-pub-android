@@ -4,7 +4,7 @@ import com.fernandocejas.frodo.annotation.RxLogObservable
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.api.endpoint.SearchApiClient
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
-import com.orogersilva.superpub.dublin.data.entity.mapper.PubMapper
+import com.orogersilva.superpub.dublin.data.entity.mapper.PubEntityMapper
 import com.orogersilva.superpub.dublin.domain.di.qualifier.AccessToken
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import io.reactivex.Observable
@@ -33,7 +33,7 @@ class PubRemoteDataSource @Inject constructor(private @AccessToken val accessTok
                          fields: String, displayedDataTimestamp: Long): Observable<PubEntity>? =
             apiClient?.getPubs(query, type, fromLocation, radius, limit, fields, accessToken)
                     ?.flatMap {
-                        pubHttpResponse -> Observable.fromIterable(PubMapper.transformPubsDataList(pubHttpResponse.data))
+                        (data) -> Observable.fromIterable(PubEntityMapper.transformPubsDataList(data))
                     }
 
     override fun savePubs(pubs: List<PubEntity>?) {

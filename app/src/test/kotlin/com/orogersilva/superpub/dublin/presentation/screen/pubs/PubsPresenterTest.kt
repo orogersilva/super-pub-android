@@ -45,7 +45,7 @@ class PubsPresenterTest : BaseTestCase() {
 
         // ACT
 
-        pubsPresenter.refreshPubs(LAT, LNG)
+        pubsPresenter.updatePubs(LAT, LNG)
 
         // ASSERT
 
@@ -63,7 +63,7 @@ class PubsPresenterTest : BaseTestCase() {
 
         // ACT
 
-        pubsPresenter.refreshPubs(LAT, LNG)
+        pubsPresenter.updatePubs(LAT, LNG)
 
         // ASSERT
 
@@ -85,13 +85,13 @@ class PubsPresenterTest : BaseTestCase() {
 
         // ACT
 
-        pubsPresenter.refreshPubs(LAT, LNG)
+        pubsPresenter.updatePubs(LAT, LNG)
 
         // ASSERT
 
         assertEquals(expectedData, (pubsPresenter as PubsPresenter).pubsList)
 
-        verify(pubsViewMock).showPubs(expectedData)
+        verify(pubsViewMock).refreshPubs(expectedData)
     }*/
 
     // endregion

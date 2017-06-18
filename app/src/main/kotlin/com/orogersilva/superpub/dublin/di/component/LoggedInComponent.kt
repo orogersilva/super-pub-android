@@ -22,7 +22,9 @@ interface LoggedInComponent {
 
     fun newPubsActivityComponent(getPubsUseCaseModule: GetPubsUseCaseModule,
                                  getLastLocationUseCaseModule: GetLastLocationUseCaseModule,
+                                 calculateSuperPubRatingUseCaseModule: CalculateSuperPubRatingUseCaseModule,
                                  pubRepositoryModule: PubRepositoryModule,
+                                 pubsAdapterModule: PubsAdapterModule,
                                  pubsPresenterModule: PubsPresenterModule): PubsActivityComponent
 
     // endregion

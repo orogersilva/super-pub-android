@@ -1,6 +1,6 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs
 
-import com.orogersilva.superpub.dublin.domain.model.Pub
+import com.orogersilva.superpub.dublin.presentation.model.PubModel
 import com.orogersilva.superpub.dublin.presentation.screen.BasePresenter
 import com.orogersilva.superpub.dublin.presentation.screen.BaseView
 
@@ -15,8 +15,9 @@ interface PubsContract {
 
         // region METHODS
 
-        fun showLoadingIndicator(isActive: Boolean)
-        fun showPubs(pubs: List<Pub?>)
+        fun showLoadingIndicator()
+        fun hideLoadingIndicator()
+        fun refreshPubs(pubs: List<PubModel>)
         fun showErrorMessage()
 
         // endregion
@@ -26,9 +27,9 @@ interface PubsContract {
 
         // region METHODS
 
-        fun unsubscribe()
+        // fun unsubscribe()
 
-        fun refreshPubs()
+        fun updatePubs()
 
         // endregion
     }

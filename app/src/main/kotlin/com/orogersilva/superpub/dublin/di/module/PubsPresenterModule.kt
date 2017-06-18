@@ -1,6 +1,7 @@
 package com.orogersilva.superpub.dublin.di.module
 
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
+import com.orogersilva.superpub.dublin.domain.interactor.CalculateSuperPubRatingUseCase
 import com.orogersilva.superpub.dublin.domain.interactor.GetLastLocationUseCase
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.PubsContract
@@ -22,8 +23,9 @@ open class PubsPresenterModule(private val pubsView: PubsContract.View) {
 
     @Provides @ActivityScope open fun providePubsPresenter(getPubsUseCase: GetPubsUseCase,
                                                            getLastLocationUseCase: GetLastLocationUseCase,
+                                                           calculateSuperPubRatingUseCase: CalculateSuperPubRatingUseCase,
                                                            schedulerProvider: SchedulerProvider): PubsContract.Presenter =
-            PubsPresenter(pubsView, getPubsUseCase, getLastLocationUseCase, schedulerProvider)
+            PubsPresenter(pubsView, getPubsUseCase, getLastLocationUseCase, calculateSuperPubRatingUseCase, schedulerProvider)
 
     // endregion
 }

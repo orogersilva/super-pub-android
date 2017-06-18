@@ -4,10 +4,13 @@ import android.Manifest
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.RecyclerView
 import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.di.module.*
 import com.orogersilva.superpub.dublin.domain.model.Pub
+import com.orogersilva.superpub.dublin.presentation.model.PubModel
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.PubsContract
+import com.orogersilva.superpub.dublin.presentation.screen.pubs.adapter.PubsAdapter
 import com.orogersilva.superpub.dublin.shared.app
 import com.orogersilva.superpub.dublin.shared.hasPermission
 import com.orogersilva.superpub.dublin.shared.permissionsHasBeenGranted
@@ -23,6 +26,9 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
 
     @Inject lateinit var pubsPresenter: PubsContract.Presenter
 
+    @Inject lateinit var pubsAdapter: PubsAdapter
+    @Inject lateinit var pubsLayoutManager: RecyclerView.LayoutManager
+
     private val pubsActivityComponent by lazy {
 
         app().applicationComponent
@@ -30,10 +36,9 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
                         GoogleApiModule(), LocationSensorModule(), NetworkModule(),
                         SchedulerProviderModule())
                 .newPubsActivityComponent(GetPubsUseCaseModule(), GetLastLocationUseCaseModule(),
-                        PubRepositoryModule(), PubsPresenterModule(this))
+                        CalculateSuperPubRatingUseCaseModule(), PubRepositoryModule(),
+                        PubsAdapterModule(), PubsPresenterModule(this))
     }
-
-    private val pubs = mutableListOf<Pub>()
 
     private val ACCESS_LOCATION_PERMISSION_REQUEST_CODE = 1
 
@@ -53,6 +58,9 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
         setSupportActionBar(customToolbar)
 
         pubsActivityComponent.inject(this)
+
+        pubsRecyclerView.adapter = pubsAdapter
+        pubsRecyclerView.layoutManager = pubsLayoutManager
 
         if (!hasPermission(Manifest.permission.ACCESS_COARSE_LOCATION) &&
                 !hasPermission(Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -87,7 +95,7 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
 
         super.onDestroy()
 
-        pubsPresenter.unsubscribe()
+        // pubsPresenter.unsubscribe()
     }
 
     // endregion
@@ -99,17 +107,19 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
         pubsPresenter = presenter
     }
 
-    override fun showLoadingIndicator(isActive: Boolean) {
+    override fun showLoadingIndicator() {
 
-        if (isActive) {
-            loadingView.show()
-        } else {
-            loadingView.hide()
-        }
+        loadingView.show()
     }
 
-    override fun showPubs(pubs: List<Pub?>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun hideLoadingIndicator() {
+
+        loadingView.hide()
+    }
+
+    override fun refreshPubs(pubs: List<PubModel>) {
+
+        pubsAdapter.replaceData(pubs)
     }
 
     override fun showErrorMessage() {

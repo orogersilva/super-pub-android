@@ -7,7 +7,7 @@ import com.orogersilva.superpub.dublin.domain.model.Pub
 /**
  * Created by orogersilva on 5/28/2017.
  */
-object PubMapper {
+object PubEntityMapper {
 
     // region METHODS
 

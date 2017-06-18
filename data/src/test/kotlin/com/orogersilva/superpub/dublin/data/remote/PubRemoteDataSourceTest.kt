@@ -46,11 +46,11 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
         val EMITTED_EVENTS_COUNT = 0
 
-        val QUERY_VALUE = "pub"
+        val QUERY_VALUE = "\"pub\""
         val TYPE_VALUE = "place"
         val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
         val DISTANCE_VALUE = 5000
-        val LIMIT_VALUE = 200
+        val LIMIT_VALUE = 100
         val FIELDS_VALUE = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover"
 
         whenever(apiClientMock?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE,
@@ -79,11 +79,11 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
         val EMITTED_EVENTS_COUNT = 100
 
-        val QUERY_VALUE = "pub"
+        val QUERY_VALUE = "\"pub\""
         val TYPE_VALUE = "place"
         val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
         val DISTANCE_VALUE = 5000
-        val LIMIT_VALUE = 200
+        val LIMIT_VALUE = 100
         val FIELDS_VALUE = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover"
 
         val expectedPubsHttpResponse = createTestHttpData(loadJsonFromAsset(RESOURCES_FILE_NAME))

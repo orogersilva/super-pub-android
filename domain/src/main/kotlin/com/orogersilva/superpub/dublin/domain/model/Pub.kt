@@ -26,9 +26,15 @@ data class Pub(@SerializedName("id") var id: Long = 0,
 
     // endregion
 
+    // region PUBLIC METHODS
+
+    fun isRecommended() = superPubRating >= 3.4 && hasMinimumRequirement
+
+    // endregion
+
     // region OVERRIDED METHODS
 
-    override fun compareTo(otherPub: Pub) = otherPub.superPubRating.compareTo(superPubRating)
+    override fun compareTo(other: Pub) = other.superPubRating.compareTo(superPubRating)
 
     override fun equals(other: Any?): Boolean {
 

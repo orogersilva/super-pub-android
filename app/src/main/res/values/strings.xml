@@ -3,5 +3,6 @@
     <string name="app_name">Super Pub</string>
 
     <string name="login_with_facebook">LOG IN WITH FACEBOOK</string>
+    <string name="no_rating">No rating</string>
 
 </resources>
