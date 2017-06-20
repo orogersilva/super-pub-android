@@ -27,5 +27,7 @@ interface LoggedInComponent {
                                  pubsAdapterModule: PubsAdapterModule,
                                  pubsPresenterModule: PubsPresenterModule): PubsActivityComponent
 
+    fun newPubDetailsActivityComponent(pubDetailsPresenterModule: PubDetailsPresenterModule): PubDetailsActivityComponent
+
     // endregion
 }

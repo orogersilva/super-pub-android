@@ -9,6 +9,7 @@ import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.di.module.*
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.presentation.model.PubModel
+import com.orogersilva.superpub.dublin.presentation.screen.pubdetails.view.PubDetailsActivity
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.PubsContract
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.adapter.PubsAdapter
 import com.orogersilva.superpub.dublin.shared.app

@@ -3,7 +3,6 @@ package com.orogersilva.superpub.dublin
 import android.app.Application
 import android.content.Context
 import android.os.StrictMode
-import android.support.annotation.VisibleForTesting
 import android.support.multidex.MultiDex
 import com.facebook.stetho.Stetho
 import com.orogersilva.superpub.dublin.di.component.ApplicationComponent
@@ -67,10 +66,10 @@ class SuperPubApplication : Application() {
 
     // region PUBLIC METHODS
 
-    @VisibleForTesting fun setTestComponent(applicationComponent: ApplicationComponent) {
+    /*@VisibleForTesting fun setTestComponent(applicationComponent: ApplicationComponent) {
 
         this.applicationComponent = applicationComponent
-    }
+    }*/
 
     // endregion
 }

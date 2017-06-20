@@ -11,8 +11,6 @@ android {
 
         applicationId "com.orogersilva.superpub.dublin"
 
-        resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
-
         multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -31,9 +29,9 @@ android {
         release {
 
             storeFile rootProject.file('keystore/release.jks')
-            storePassword 'jSD438aQ2x'
-            keyAlias 'SuperPubAlias'
-            keyPassword 'jSD438aQ2x'
+            storePassword System.getenv("STORE_PASSWORD")
+            keyAlias System.getenv("KEY_ALIAS")
+            keyPassword System.getenv("KEY_PASSWORD")
         }
     }
 
@@ -69,6 +67,9 @@ android {
             buildConfigField "String", "FACEBOOK_GRAPH_API",
                 "\"https://graph.facebook.com/\""
 
+            resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
+            resValue "string", "google_maps_api_key", ""
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     rootProject.file('tools/proguard/rules-proguard-debug.pro')
@@ -82,6 +83,9 @@ android {
 
             buildConfigField "String", "FACEBOOK_GRAPH_API",
                 "\"https://graph.facebook.com/\""
+
+            resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
+            resValue "string", "google_maps_api_key", System.getenv("GOOGLE_MAPS_API_KEY") ?: ""
 
             minifyEnabled false
             // shrinkResources true
@@ -144,6 +148,7 @@ dependencies {
             facebookSdk: [group: 'com.facebook.android', name: 'facebook-android-sdk', version: facebookSdkVersion],
             glide: [group: 'com.github.bumptech.glide', name: 'glide', version: glideVersion],
             glideCompiler: [group: 'com.github.bumptech.glide', name: 'compiler', version: glideVersion],
+            googleMapsUtility: [group: 'com.google.maps.android', name: 'android-maps-utils', version: googleMapsUtilityVersion],
             googlePlayServicesLocation: [group: 'com.google.android.gms', name: 'play-services-location', version: googlePlayServicesVersion],
             googlePlayServicesMaps: [group: 'com.google.android.gms', name: 'play-services-maps', version: googlePlayServicesVersion],
             javaxAnnotation: [group: 'javax.annotation', name: 'jsr250-api', version: javaxAnnotationVersion],
@@ -180,12 +185,13 @@ dependencies {
             [configuration: 'implementation', dependency: libs.facebookSdk],
             [configuration: 'implementation', dependency: libs.glide],
             [configuration: 'kapt', dependency: libs.glideCompiler],
+            [configuration: 'implementation', dependency: libs.googleMapsUtility],
             [configuration: 'implementation', dependency: libs.googlePlayServicesLocation],
             [configuration: 'implementation', dependency: libs.googlePlayServicesMaps],
             [configuration: 'compileOnly', dependency: libs.javaxAnnotation],
             [configuration: 'implementation', dependency: libs.kotlin],
             [configuration: 'implementation', dependency: libs.kotlinReflect],
-            [configuration: 'implementation', dependency: libs.leakCanary],
+            [configuration: 'debugImplementation', dependency: libs.leakCanary],
             [configuration: 'implementation', dependency: libs.paperParcel],
             [configuration: 'kapt', dependency: libs.paperParcelCompiler],
             [configuration: 'implementation', dependency:  libs.paperParcelKotlin],

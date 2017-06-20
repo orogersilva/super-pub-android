@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.presentation.model.PubModel
+import com.orogersilva.superpub.dublin.presentation.screen.pubdetails.view.PubDetailsActivity
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.PubsContract
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.adapter.PubsAdapter
 import dagger.Module
@@ -18,7 +19,7 @@ import dagger.Provides
  */
 @ActivityScope
 @Module
-open class PubsAdapterModule {
+open class PubsAdapterModule() {
 
     // region PROVIDERS
 
@@ -31,7 +32,7 @@ open class PubsAdapterModule {
 
                 val sourceActivity = pubsView as AppCompatActivity
 
-                val pubIntent = Intent(sourceActivity, null)       // TODO: Set this.
+                val pubIntent = Intent(sourceActivity, PubDetailsActivity::class.java)
 
                 pubIntent.putExtra("pub_extra", pub)
 
@@ -39,8 +40,7 @@ open class PubsAdapterModule {
             }
         }
 
-    @Provides @ActivityScope open fun providePubsAdapter(pubs: MutableList<PubModel>,
-                                                         pubItemListener: PubsAdapter.PubItemListener) =
+    @Provides @ActivityScope open fun providePubsAdapter(pubs: MutableList<PubModel>, pubItemListener: PubsAdapter.PubItemListener) =
             PubsAdapter(pubs, pubItemListener)
 
     @Provides @ActivityScope open fun providePubsLayoutManager(context: Context): RecyclerView.LayoutManager = LinearLayoutManager(context)

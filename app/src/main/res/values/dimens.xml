@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="toolbar_main_text_size">20sp</dimen>
-
+    <dimen name="pub_cardview_corner_radius">3dp</dimen>
     <dimen name="pub_cardview_elevation">5dp</dimen>
     <dimen name="pub_cardview_height">60dp</dimen>
     <dimen name="pub_cardview_margin">8dp</dimen>
@@ -10,8 +9,12 @@
 
     <dimen name="pub_circleimageview_height">30dp</dimen>
 
+    <dimen name="pub_details_cardview_height">120dp</dimen>
+
     <dimen name="pub_name_text_size">17sp</dimen>
 
     <dimen name="pub_rating_text_size">17sp</dimen>
+
+    <dimen name="toolbar_main_text_size">20sp</dimen>
 
 </resources>
