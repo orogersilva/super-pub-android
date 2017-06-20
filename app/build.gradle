@@ -191,7 +191,7 @@ dependencies {
             [configuration: 'compileOnly', dependency: libs.javaxAnnotation],
             [configuration: 'implementation', dependency: libs.kotlin],
             [configuration: 'implementation', dependency: libs.kotlinReflect],
-            [configuration: 'debugImplementation', dependency: libs.leakCanary],
+            [configuration: 'implementation', dependency: libs.leakCanary],
             [configuration: 'implementation', dependency: libs.paperParcel],
             [configuration: 'kapt', dependency: libs.paperParcelCompiler],
             [configuration: 'implementation', dependency:  libs.paperParcelKotlin],
