@@ -6,6 +6,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import com.orogersilva.superpub.dublin.R
+import com.orogersilva.superpub.dublin.di.component.PubsActivityComponent
 import com.orogersilva.superpub.dublin.di.module.*
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.presentation.model.PubModel
@@ -30,16 +31,8 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
     @Inject lateinit var pubsAdapter: PubsAdapter
     @Inject lateinit var pubsLayoutManager: RecyclerView.LayoutManager
 
-    private val pubsActivityComponent by lazy {
+    private var pubsActivityComponent: PubsActivityComponent? = null
 
-        app().applicationComponent
-                .newLoggedinComponent(CacheModule(), ClockModule(), DatabaseModule(true),
-                        GoogleApiModule(), LocationSensorModule(), NetworkModule(),
-                        SchedulerProviderModule())
-                .newPubsActivityComponent(GetPubsUseCaseModule(), GetLastLocationUseCaseModule(),
-                        CalculateSuperPubRatingUseCaseModule(), PubRepositoryModule(),
-                        PubsAdapterModule(), PubsPresenterModule(this))
-    }
 
     private val ACCESS_LOCATION_PERMISSION_REQUEST_CODE = 1
 
@@ -58,7 +51,12 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
 
         setSupportActionBar(customToolbar)
 
-        pubsActivityComponent.inject(this)
+        pubsActivityComponent = app().createLoggedInComponent(true)
+                ?.newPubsActivityComponent(GetPubsUseCaseModule(), GetLastLocationUseCaseModule(),
+                        CalculateSuperPubRatingUseCaseModule(), PubRepositoryModule(),
+                        PubsAdapterModule(), PubsPresenterModule(this))
+
+        pubsActivityComponent?.inject(this)
 
         pubsRecyclerView.adapter = pubsAdapter
         pubsRecyclerView.layoutManager = pubsLayoutManager
@@ -95,6 +93,8 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
     override fun onDestroy() {
 
         super.onDestroy()
+
+        pubsActivityComponent = null
 
         // pubsPresenter.unsubscribe()
     }

@@ -123,14 +123,14 @@
             <com.google.android.gms.maps.MapView
                 android:id="@+id/pubDetailsMapView"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="600dp"
                 attribute:layout_editor_absoluteX="0dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/pubDetailsCardView"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="8dp" />
+                android:layout_marginEnd="0dp" />
 
         </android.support.constraint.ConstraintLayout>
 

@@ -13,7 +13,7 @@ android {
 
         multiDexEnabled true
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.orogersilva.superpub.dublin.CustomInstrumentationTestRunner"
     }
 
     signingConfigs {
@@ -68,7 +68,7 @@ android {
                 "\"https://graph.facebook.com/\""
 
             resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
-            resValue "string", "google_maps_api_key", ""
+            resValue "string", "google_maps_api_key", "AIzaSyDJvGdZBvVoVgwhGregyLAAM6Lwjm_cV7c"
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
@@ -85,7 +85,7 @@ android {
                 "\"https://graph.facebook.com/\""
 
             resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
-            resValue "string", "google_maps_api_key", System.getenv("GOOGLE_MAPS_API_KEY") ?: ""
+            resValue "string", "google_maps_api_key", System.getenv("GOOGLE_MAPS_API_KEY")
 
             minifyEnabled false
             // shrinkResources true
@@ -168,7 +168,10 @@ dependencies {
             espresso: [group: 'com.android.support.test.espresso', name: 'espresso-core', version: espressoVersion],
             junit: [group: 'junit', name: 'junit', version: junitVersion],
             kotlinUnitTest: [group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: kotlinVersion],
-            mockitoKotlin: [group: 'com.nhaarman', name: 'mockito-kotlin', version: mockitoKotlinVersion]
+            mockitoKotlin: [group: 'com.nhaarman', name: 'mockito-kotlin', version: mockitoKotlinVersion],
+            runner: [group: 'com.android.support.test', name: 'runner', version: runnerVersion],
+            testButler: [group: 'com.linkedin.testbutler', name: 'test-butler-library', version: testButlerVersion],
+            uiAutomator: [group: 'com.android.support.test.uiautomator', name: 'uiautomator-v18', version: uiAutomatorVersion]
     ]
 
     def appDependencies = [
@@ -200,8 +203,18 @@ dependencies {
             [configuration: 'implementation', dependency: libs.rxjava2],
             [configuration: 'implementation', dependency: libs.stetho],
 
+            [configuration: 'androidTestImplementation', dependency: libs.dagger],
+            [configuration: 'kaptAndroidTest', dependency: libs.daggerCompiler],
             [configuration: 'androidTestImplementation', dependency: testLibs.espresso, options:
                     { exclude group: 'com.android.support', module: 'support-annotations' }],
+            [configuration: 'androidTestImplementation', dependency: testLibs.mockitoKotlin, options: {
+                exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+                exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'
+            }],
+            [configuration: 'androidTestImplementation', dependency: testLibs.runner],
+            [configuration: 'androidTestImplementation', dependency: testLibs.testButler],
+            [configuration: 'androidTestImplementation', dependency: testLibs.uiAutomator],
+
             [configuration: 'testImplementation', dependency: testLibs.junit],
             [configuration: 'testImplementation', dependency: testLibs.kotlinUnitTest],
             [configuration: 'testImplementation', dependency: testLibs.mockitoKotlin, options: {

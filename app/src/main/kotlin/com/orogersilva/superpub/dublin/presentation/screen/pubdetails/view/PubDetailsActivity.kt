@@ -29,7 +29,8 @@ class PubDetailsActivity : AppCompatActivity(), PubDetailsContract.View, OnMapRe
 
     @Inject lateinit var pubDetailsPresenter: PubDetailsContract.Presenter
 
-    private lateinit var pubDetailsActivityComponent: PubDetailsActivityComponent
+    private var pubDetailsActivityComponent: PubDetailsActivityComponent? = null
+
 
     private lateinit var pub: PubModel
 
@@ -51,13 +52,10 @@ class PubDetailsActivity : AppCompatActivity(), PubDetailsContract.View, OnMapRe
 
         pub = intent.getParcelableExtra<PubModel>("pub_extra")
 
-        pubDetailsActivityComponent = app().applicationComponent
-                .newLoggedinComponent(CacheModule(), ClockModule(), DatabaseModule(true),
-                        GoogleApiModule(), LocationSensorModule(), NetworkModule(),
-                        SchedulerProviderModule())
-                .newPubDetailsActivityComponent(PubDetailsPresenterModule(this, pub))
+        pubDetailsActivityComponent = app().loggedInComponent
+                ?.newPubDetailsActivityComponent(PubDetailsPresenterModule(this, pub))
 
-        pubDetailsActivityComponent.inject(this)
+        pubDetailsActivityComponent?.inject(this)
 
         pubDetailsMapView?.onCreate(savedInstanceState)
         pubDetailsMapView?.getMapAsync(this)
