@@ -61,6 +61,8 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
         pubsRecyclerView.adapter = pubsAdapter
         pubsRecyclerView.layoutManager = pubsLayoutManager
 
+        pubsSwipeRefreshLayout.setOnRefreshListener { pubsPresenter.resume() }
+
         if (!hasPermission(Manifest.permission.ACCESS_COARSE_LOCATION) &&
                 !hasPermission(Manifest.permission.ACCESS_FINE_LOCATION)) {
 
@@ -118,6 +120,13 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
     override fun hideLoadingIndicator() {
 
         loadingView.hide()
+    }
+
+    override fun isRefreshManual(): Boolean = pubsSwipeRefreshLayout.isRefreshing
+
+    override fun hideRefreshManualIndicator() {
+
+        pubsSwipeRefreshLayout.isRefreshing = false
     }
 
     override fun refreshPubs(pubs: List<PubModel>) {

@@ -53,12 +53,19 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
         getLastLocationUseCase.getLastLocation()
                 .subscribeOn(schedulerProvider.io())
                 .observeOn(schedulerProvider.io())
-                .flatMap { (first, second) -> getPubsUseCase.getPubs(-30.0262844, -51.2072853) }        // TODO: Adjust this.
+                .flatMap { (first, second) -> getPubsUseCase.getPubs(first, second) }
                 .collect({ mutableListOf<Pub>() }, { list, pub -> list.add(pub) })
                 .flatMapObservable { pubs -> calculateSuperPubRatingUseCase.calculateSuperPubRating(pubs) }
                 .observeOn(schedulerProvider.ui(), true)
-                .doOnSubscribe { pubsView.showLoadingIndicator() }
-                .doOnDispose { pubsView.hideLoadingIndicator() }
+                .doOnSubscribe { if (!pubsView.isRefreshManual()) pubsView.showLoadingIndicator() }
+                .doOnDispose {
+
+                    if (pubsView.isRefreshManual()) {
+                        pubsView.hideRefreshManualIndicator()
+                    } else {
+                        pubsView.hideLoadingIndicator()
+                    }
+                }
                 .subscribe(object : Observer<Pub> {
 
                     override fun onNext(pub: Pub?) {

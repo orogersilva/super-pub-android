@@ -16,8 +16,15 @@ interface PubsContract {
         // region METHODS
 
         fun showLoadingIndicator()
+
         fun hideLoadingIndicator()
+
+        fun isRefreshManual(): Boolean
+
+        fun hideRefreshManualIndicator()
+
         fun refreshPubs(pubs: List<PubModel>)
+
         fun showErrorMessage()
 
         // endregion
