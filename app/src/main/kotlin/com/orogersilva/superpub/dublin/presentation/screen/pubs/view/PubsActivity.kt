@@ -80,6 +80,10 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
             }
 
             return
+
+        } else {
+
+            hasPermissionToAccessDeviceLocation = true
         }
     }
 

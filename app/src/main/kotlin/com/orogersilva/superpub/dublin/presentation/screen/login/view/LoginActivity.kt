@@ -32,8 +32,6 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     private val ACCESS_STORAGE_PERMISSION_REQUEST_CODE = 1
 
-    private var hasPermissionToAccessDeviceStorage = false
-
     // endregion
 
     // region ACTIVITY LIFECYCLE METHODS
@@ -81,7 +79,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
         super.onResume()
 
-        if (hasPermissionToAccessDeviceStorage) loginPresenter.resume()
+        loginPresenter.resume()
     }
 
     override fun onDestroy() {
