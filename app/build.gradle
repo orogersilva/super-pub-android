@@ -166,8 +166,10 @@ dependencies {
 
     def testLibs = [
             espresso: [group: 'com.android.support.test.espresso', name: 'espresso-core', version: espressoVersion],
+            hamcrest: [group: 'org.hamcrest', name: 'hamcrest-library', version: hamcrestVersion],
             junit: [group: 'junit', name: 'junit', version: junitVersion],
             kotlinUnitTest: [group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: kotlinVersion],
+            mockito: [group: 'org.mockito', name: 'mockito-android', version: mockitoVersion],
             mockitoKotlin: [group: 'com.nhaarman', name: 'mockito-kotlin', version: mockitoKotlinVersion],
             runner: [group: 'com.android.support.test', name: 'runner', version: runnerVersion],
             testButler: [group: 'com.linkedin.testbutler', name: 'test-butler-library', version: testButlerVersion],
@@ -207,6 +209,8 @@ dependencies {
             [configuration: 'kaptAndroidTest', dependency: libs.daggerCompiler],
             [configuration: 'androidTestImplementation', dependency: testLibs.espresso, options:
                     { exclude group: 'com.android.support', module: 'support-annotations' }],
+            [configuration: 'androidTestImplementation', dependency: testLibs.hamcrest],
+            [configuration: 'androidTestImplementation', dependency: testLibs.mockito],
             [configuration: 'androidTestImplementation', dependency: testLibs.mockitoKotlin, options: {
                 exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
                 exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'

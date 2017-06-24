@@ -20,7 +20,11 @@ open class FacebookSdkModule {
 
     @Provides @Singleton open fun provideCallbackManager(): CallbackManager = CallbackManager.Factory.create()
 
-    @Provides @Singleton @AccessToken open fun provideAccessToken(): String = com.facebook.AccessToken.getCurrentAccessToken().token
+    @Provides @Singleton open fun provideCurrentAccessToken(): com.facebook.AccessToken? =
+            com.facebook.AccessToken.getCurrentAccessToken()
+
+    @Provides @Singleton @AccessToken open fun provideAccessToken(currentAccessToken: com.facebook.AccessToken?): String? =
+            com.facebook.AccessToken.getCurrentAccessToken().token
 
     // endregion
 }

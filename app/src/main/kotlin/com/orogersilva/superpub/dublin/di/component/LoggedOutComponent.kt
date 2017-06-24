@@ -1,5 +1,6 @@
 package com.orogersilva.superpub.dublin.di.component
 
+import com.orogersilva.superpub.dublin.di.module.FacebookAdapterServiceModule
 import com.orogersilva.superpub.dublin.di.module.LoginPresenterModule
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedOutScope
 import dagger.Subcomponent
@@ -13,7 +14,8 @@ interface LoggedOutComponent {
 
     // region FACTORY METHODS
 
-    fun newLoginActivityComponent(loginPresenterModule: LoginPresenterModule): LoginActivityComponent
+    fun newLoginActivityComponent(facebookAdapterServiceModule: FacebookAdapterServiceModule,
+                                  loginPresenterModule: LoginPresenterModule): LoginActivityComponent
 
     // endregion
 }

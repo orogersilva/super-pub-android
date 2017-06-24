@@ -25,8 +25,10 @@ interface LoginContract {
         // region METHODS
 
         fun login()
+
         fun isLogged(): Boolean
-        fun onResultFromFacebookApi(requestCode: Int, resultCode: Int, data: Intent?)
+
+        fun onResultFromFacebookService(requestCode: Int, resultCode: Int, data: Intent?)
 
         // endregion
     }

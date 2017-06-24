@@ -1,14 +1,9 @@
 package com.orogersilva.superpub.dublin.presentation.screen.login
 
 import android.content.Intent
-import com.facebook.AccessToken
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
+import com.orogersilva.superpub.dublin.adapter.facebook.FacebookService
+import com.orogersilva.superpub.dublin.adapter.facebook.impl.FacebookAdapterService
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
-import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import javax.inject.Inject
 
 /**
@@ -16,8 +11,7 @@ import javax.inject.Inject
  */
 @ActivityScope
 class LoginPresenter @Inject constructor(private val loginView: LoginContract.View,
-                                         private val loginManager: LoginManager,
-                                         private val callbackManager: CallbackManager) : LoginContract.Presenter {
+                                         private val facebookAdapterService: FacebookService) : LoginContract.Presenter {
 
     // region INITIALIZER BLOCK
 
@@ -25,18 +19,18 @@ class LoginPresenter @Inject constructor(private val loginView: LoginContract.Vi
 
         loginView.setPresenter(this)
 
-        loginManager.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+        facebookAdapterService.registerCallback(object : FacebookAdapterService.AdapterCallback {
 
             override fun onCancel() {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-            override fun onSuccess(loginResult: LoginResult?) {
+            override fun onSuccess() {
 
                 loginView.goToPubsScreen()
             }
 
-            override fun onError(error: FacebookException?) {
+            override fun onError() {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         })
@@ -55,14 +49,14 @@ class LoginPresenter @Inject constructor(private val loginView: LoginContract.Vi
 
     override fun login() {
 
-        loginManager.logInWithReadPermissions(loginView as LoginActivity, listOf("public_profile"))
+        facebookAdapterService.login(listOf("public_profile"))
     }
 
-    override fun isLogged(): Boolean = AccessToken.getCurrentAccessToken() != null
+    override fun isLogged(): Boolean = facebookAdapterService.isLogged()
 
-    override fun onResultFromFacebookApi(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onResultFromFacebookService(requestCode: Int, resultCode: Int, data: Intent?) {
 
-        callbackManager.onActivityResult(requestCode, resultCode, data)
+        facebookAdapterService.onActivityResult(requestCode, resultCode, data)
     }
 
     // endregion

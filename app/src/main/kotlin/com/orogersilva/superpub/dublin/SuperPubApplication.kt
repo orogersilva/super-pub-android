@@ -21,7 +21,7 @@ open class SuperPubApplication : Application() {
 
     lateinit var applicationComponent: ApplicationComponent
 
-    var loggedOutComponent: LoggedOutComponent? = null
+    // var loggedOutComponent: LoggedOutComponent? = null
     var loggedInComponent: LoggedInComponent? = null
 
     // endregion
@@ -67,22 +67,22 @@ open class SuperPubApplication : Application() {
 
     // region PUBLIC METHODS
 
-    fun createApplicationComponent(): ApplicationComponent =
+    open fun createApplicationComponent(): ApplicationComponent =
             DaggerApplicationComponent.builder()
                     .applicationModule(ApplicationModule(this))
                     .facebookSdkModule(FacebookSdkModule())
                     .build()
 
-    fun createLoggedOutComponent(): LoggedOutComponent? {
+    /*fun createLoggedOutComponent(): LoggedOutComponent? {
 
         if (loggedOutComponent == null) {
 
             loggedOutComponent = applicationComponent
-                    .newLoggedOutComponent()
+                    .newLoggedOutComponent(FacebookAdapterServiceModule())
         }
 
         return loggedOutComponent
-    }
+    }*/
 
     fun createLoggedInComponent(provideRealmInstance: Boolean): LoggedInComponent? {
 

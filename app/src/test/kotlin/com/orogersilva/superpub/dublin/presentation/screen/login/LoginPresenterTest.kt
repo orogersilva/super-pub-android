@@ -1,9 +1,8 @@
 package com.orogersilva.superpub.dublin.presentation.screen.login
 
-import com.facebook.CallbackManager
-import com.facebook.login.LoginManager
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
+import com.orogersilva.superpub.dublin.adapter.facebook.FacebookService
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import org.junit.Before
 import org.junit.Test
@@ -16,8 +15,7 @@ class LoginPresenterTest {
     // region PROPERTIES
 
     private lateinit var loginViewMock: LoginActivity
-    private lateinit var loginManagerMock: LoginManager
-    private lateinit var callbackManagerMock: CallbackManager
+    private lateinit var facebookAdapterServiceMock: FacebookService
 
     private lateinit var loginPresenter: LoginPresenter
 
@@ -28,10 +26,9 @@ class LoginPresenterTest {
     @Before fun setup() {
 
         loginViewMock = mock()
-        loginManagerMock = mock()
-        callbackManagerMock = mock()
+        facebookAdapterServiceMock = mock()
 
-        loginPresenter = LoginPresenter(loginViewMock, loginManagerMock, callbackManagerMock)
+        loginPresenter = LoginPresenter(loginViewMock, facebookAdapterServiceMock)
     }
 
     // endregion
@@ -50,7 +47,7 @@ class LoginPresenterTest {
 
         // ASSERT
 
-        verify(loginManagerMock).logInWithReadPermissions(loginViewMock, EXPECTED_PERMISSIONS)
+        verify(facebookAdapterServiceMock).login(EXPECTED_PERMISSIONS)
     }
 
     @Test fun `OnResult from Facebook API cancelled login`() {
@@ -63,11 +60,11 @@ class LoginPresenterTest {
 
         // ACT
 
-        loginPresenter.onResultFromFacebookApi(REQUEST_CODE, RESULT_CODE, INTENT_DATA)
+        loginPresenter.onResultFromFacebookService(REQUEST_CODE, RESULT_CODE, INTENT_DATA)
 
         // ASSERT
 
-        callbackManagerMock.onActivityResult(REQUEST_CODE, RESULT_CODE, null)
+        verify(facebookAdapterServiceMock).onActivityResult(REQUEST_CODE, RESULT_CODE, INTENT_DATA)
     }
 
     @Test fun `OnResult from Facebook API passed login`() {
@@ -80,11 +77,11 @@ class LoginPresenterTest {
 
         // ACT
 
-        loginPresenter.onResultFromFacebookApi(REQUEST_CODE, RESULT_CODE, INTENT_DATA)
+        loginPresenter.onResultFromFacebookService(REQUEST_CODE, RESULT_CODE, INTENT_DATA)
 
         // ASSERT
 
-        callbackManagerMock.onActivityResult(REQUEST_CODE, RESULT_CODE, null)
+        verify(facebookAdapterServiceMock).onActivityResult(REQUEST_CODE, RESULT_CODE, INTENT_DATA)
     }
 
     // endregion

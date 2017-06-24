@@ -95,8 +95,6 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
         super.onDestroy()
 
         pubsActivityComponent = null
-
-        // pubsPresenter.unsubscribe()
     }
 
     // endregion

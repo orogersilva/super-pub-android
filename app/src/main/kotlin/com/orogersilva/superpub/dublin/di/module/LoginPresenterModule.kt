@@ -1,7 +1,6 @@
 package com.orogersilva.superpub.dublin.di.module
 
-import com.facebook.CallbackManager
-import com.facebook.login.LoginManager
+import com.orogersilva.superpub.dublin.adapter.facebook.FacebookService
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginPresenter
@@ -19,9 +18,8 @@ open class LoginPresenterModule(private val loginView: LoginContract.View) {
 
     @Provides @ActivityScope open fun provideLoginView() = loginView
 
-    @Provides @ActivityScope open fun provideLoginPresenter(loginManager: LoginManager,
-                                                            callbackManager: CallbackManager): LoginContract.Presenter =
-            LoginPresenter(loginView, loginManager, callbackManager)
+    @Provides @ActivityScope open fun provideLoginPresenter(facebookAdapterService: FacebookService): LoginContract.Presenter =
+            LoginPresenter(loginView, facebookAdapterService)
 
     // endregion
 }

@@ -14,7 +14,7 @@ import javax.inject.Inject
  * Created by orogersilva on 5/28/2017.
  */
 @LoggedInScope
-class PubRemoteDataSource @Inject constructor(private @AccessToken val accessToken: String,
+class PubRemoteDataSource @Inject constructor(private @AccessToken val accessToken: String?,
                                               private var apiClient: SearchApiClient?) : PubDataSource {
 
     // region DESTRUCTOR

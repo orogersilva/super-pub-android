@@ -2,16 +2,13 @@ package com.orogersilva.superpub.dublin.presentation.screen.login.view
 
 import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
-import android.util.Base64
-import android.util.Log
 import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.di.component.LoginActivityComponent
-import com.orogersilva.superpub.dublin.di.module.*
+import com.orogersilva.superpub.dublin.di.module.FacebookAdapterServiceModule
+import com.orogersilva.superpub.dublin.di.module.LoginPresenterModule
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
 import com.orogersilva.superpub.dublin.presentation.screen.pubs.view.PubsActivity
 import com.orogersilva.superpub.dublin.shared.app
@@ -19,8 +16,6 @@ import com.orogersilva.superpub.dublin.shared.hasPermission
 import com.orogersilva.superpub.dublin.shared.intentFor
 import com.orogersilva.superpub.dublin.shared.permissionsHasBeenGranted
 import kotlinx.android.synthetic.main.activity_login.*
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 import javax.inject.Inject
 
 /**
@@ -52,40 +47,11 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
         setSupportActionBar(customToolbar)
 
-        loginActivityComponent = app().createLoggedOutComponent()
-                ?.newLoginActivityComponent(LoginPresenterModule(this))
+        loginActivityComponent = app().applicationComponent
+                .newLoggedOutComponent()
+                .newLoginActivityComponent(FacebookAdapterServiceModule(), LoginPresenterModule(this))
 
         loginActivityComponent?.inject(this)
-
-        val info: PackageInfo
-
-        try {
-
-            info = packageManager.getPackageInfo("com.orogersilva.superpub.dublin", PackageManager.GET_SIGNATURES)
-
-            info.signatures.forEach {
-
-                val md = MessageDigest.getInstance("SHA")
-
-                md.update(it.toByteArray())
-
-                val hash = String(Base64.encode(md.digest(), 0))
-
-                Log.d("LoginActivity", hash)
-            }
-
-        } catch (e: PackageManager.NameNotFoundException) {
-
-            Log.e("LoginActivity", e.toString())
-
-        } catch (e: NoSuchAlgorithmException) {
-
-            Log.e("LoginActivity", e.toString())
-
-        } catch (e: Exception) {
-
-            Log.e("LoginActivity", e.toString())
-        }
 
         loginRippleView.setOnRippleCompleteListener { loginPresenter.login() }
 
@@ -123,7 +89,6 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         super.onDestroy()
 
         loginActivityComponent = null
-        app().loggedOutComponent = null
     }
 
     // endregion
@@ -146,7 +111,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
         super.onActivityResult(requestCode, resultCode, data)
 
-        loginPresenter.onResultFromFacebookApi(requestCode, resultCode, data)
+        loginPresenter.onResultFromFacebookService(requestCode, resultCode, data)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

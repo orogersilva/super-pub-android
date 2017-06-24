@@ -34,7 +34,7 @@ open class PubRepositoryModule {
 
     @Provides @ActivityScope @Local open fun providePubLocalDataSource(realmConfiguration: RealmConfiguration?): PubDataSource? = PubLocalDataSource(realmConfiguration)
 
-    @Provides @ActivityScope @Remote open fun providePubRemoteDataSource(@AccessToken accessToken: String,
+    @Provides @ActivityScope @Remote open fun providePubRemoteDataSource(@AccessToken accessToken: String?,
                                                                          baseEndpoint: String): PubDataSource? =
             PubRemoteDataSource(accessToken, RestClient.getApiClient(SearchApiClient::class.java, baseEndpoint))
 

@@ -1,16 +1,20 @@
 package com.orogersilva.superpub.dublin.presentation.screen.login.view
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.support.test.InstrumentationRegistry
 import android.support.test.filters.LargeTest
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
+import android.support.test.uiautomator.By
 import android.support.test.uiautomator.UiDevice
 import android.support.test.uiautomator.UiSelector
-import com.facebook.CallbackManager
-import com.facebook.login.LoginManager
-import com.nhaarman.mockito_kotlin.mock
+import android.support.test.uiautomator.Until
+import com.nhaarman.mockito_kotlin.notNull
 import com.orogersilva.superpub.dublin.CustomInstrumentationTestApplication
+import org.hamcrest.CoreMatchers.notNullValue
+import org.junit.Assert
+import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -29,9 +33,8 @@ class LoginActivityTest {
 
     private lateinit var device: UiDevice
 
-    private lateinit var loginManagerMock: LoginManager
-    private lateinit var callbackManagerMock: CallbackManager
-    private lateinit var accessTokenMock: String
+    private val APP_PACKAGE = "com.orogersilva.superpub.dublin"
+    private val LAUNCH_TIMEOUT = 5000L
 
     @Rule @JvmField val activityRule = ActivityTestRule(LoginActivity::class.java, true, false)
 
@@ -41,18 +44,24 @@ class LoginActivityTest {
 
     @Before fun setup() {
 
-        loginManagerMock = mock()
-        callbackManagerMock = mock()
-        accessTokenMock = mock()
+        application = InstrumentationRegistry.getTargetContext().applicationContext as CustomInstrumentationTestApplication
+
+        application.createApplicationComponent()
 
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         device.pressHome()
 
-        application = InstrumentationRegistry.getTargetContext().applicationContext as CustomInstrumentationTestApplication
+        // Wait for launcher...
+        val launcherPackage = getLauncherPackageName()
 
-        application.createApplicationComponent(loginManagerMock, callbackManagerMock, accessTokenMock)
+        assertThat(launcherPackage, notNullValue())
+
+        device.wait(Until.hasObject(By.pkg(launcherPackage).depth(0)), LAUNCH_TIMEOUT)
 
         activityRule.launchActivity(Intent())
+
+        // Wait for the app to appear...
+        device.wait(Until.hasObject(By.pkg(APP_PACKAGE).depth(0)), LAUNCH_TIMEOUT)
     }
 
     // endregion
@@ -61,8 +70,8 @@ class LoginActivityTest {
 
     @Test fun shouldDisplayPermissionRequestDialogAtStartup() {
 
-        assertViewWithTextIsVisible(device, "DENY")
-        assertViewWithTextIsVisible(device, "ALLOW")
+        assertViewWithTextIsVisible(device, "Deny")
+        assertViewWithTextIsVisible(device, "Allow")
 
         denyCurrentPermission(device)
     }
@@ -82,9 +91,27 @@ class LoginActivityTest {
 
     private @kotlin.jvm.Throws(android.support.test.uiautomator.UiObjectNotFoundException::class) fun denyCurrentPermission(device: UiDevice) {
 
-        val denyButton = device.findObject(UiSelector().text("DENY"))
+        val denyButton = device.findObject(UiSelector().text("Deny"))
 
         denyButton.click()
+    }
+
+    /**
+     * Uses package manager to find the package name of the device launcher. Usually this package
+     * is "com.android.launcher" but can be different at times. This is a generic solution which
+     * works on all platforms.`
+     */
+    private fun getLauncherPackageName(): String {
+
+        // Create launcher Intent...
+        val intent = Intent(Intent.ACTION_MAIN)
+        intent.addCategory(Intent.CATEGORY_HOME)
+
+        // Use PackageManager to get the launcher package name...
+        val pm = InstrumentationRegistry.getContext().packageManager
+        val resolveInfo = pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
+
+        return resolveInfo.activityInfo.packageName
     }
 
     // endregion

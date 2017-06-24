@@ -1,26 +1,22 @@
 package com.orogersilva.superpub.dublin
 
-import com.facebook.CallbackManager
-import com.facebook.login.LoginManager
 import com.orogersilva.superpub.dublin.di.component.ApplicationComponent
 import com.orogersilva.superpub.dublin.di.component.DaggerApplicationComponent
-import com.orogersilva.superpub.dublin.di.module.MockApplicationModule
-import com.orogersilva.superpub.dublin.di.module.MockFacebookSdkModule
+import com.orogersilva.superpub.dublin.di.module.ApplicationModule
+import com.orogersilva.superpub.dublin.di.module.FacebookSdkModule
 
 /**
  * Created by orogersilva on 6/20/2017.
  */
 class CustomInstrumentationTestApplication : SuperPubApplication() {
 
-    // region PUBLIC METHODS
+    // region OVERRIDED METHODS
 
-    fun createApplicationComponent(loginManagerMock: LoginManager,
-                                            callbackManagerMock: CallbackManager,
-                                            accessTokenMock: String): ApplicationComponent {
+    override fun createApplicationComponent(): ApplicationComponent {
 
         applicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(MockApplicationModule(this))
-                .facebookSdkModule(MockFacebookSdkModule(loginManagerMock, callbackManagerMock, accessTokenMock))
+                .applicationModule(ApplicationModule(this))
+                .facebookSdkModule(FacebookSdkModule())
                 .build()
 
         return applicationComponent

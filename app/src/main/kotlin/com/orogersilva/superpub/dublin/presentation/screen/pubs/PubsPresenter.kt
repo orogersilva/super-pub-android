@@ -41,16 +41,6 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
     // endregion
 
-    // region PUBLIC METHODS
-
-    /*override fun unsubscribe() {
-
-        pubsDisposable?.let { if (!it.isDisposed) it.dispose() }
-        pubsDisposable = null
-    }*/
-
-    // endregion
-
     // region OVERRIDED METHODS
 
     override fun resume() {
