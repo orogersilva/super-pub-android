@@ -13,6 +13,8 @@ android {
 
         multiDexEnabled true
 
+        resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
+
         testInstrumentationRunner "com.orogersilva.superpub.dublin.CustomInstrumentationTestRunner"
     }
 
@@ -67,7 +69,6 @@ android {
             buildConfigField "String", "FACEBOOK_GRAPH_API",
                 "\"https://graph.facebook.com/\""
 
-            resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
             resValue "string", "google_maps_api_key", "AIzaSyDJvGdZBvVoVgwhGregyLAAM6Lwjm_cV7c"
 
             minifyEnabled false
@@ -84,7 +85,6 @@ android {
             buildConfigField "String", "FACEBOOK_GRAPH_API",
                 "\"https://graph.facebook.com/\""
 
-            resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
             resValue "string", "google_maps_api_key", System.getenv("GOOGLE_MAPS_API_KEY")
 
             minifyEnabled false
