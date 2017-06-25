@@ -18,7 +18,6 @@ interface ApplicationComponent {
     fun newLoggedOutComponent(): LoggedOutComponent
     
     fun newLoggedinComponent(cacheModule: CacheModule,
-                             clockModule: ClockModule,
                              databaseModule: DatabaseModule,
                              googleApiModule: GoogleApiModule,
                              locationSensorModule: LocationSensorModule,

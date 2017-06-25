@@ -57,7 +57,7 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
                 DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE, ACCESS_TOKEN))
                 .thenReturn(Observable.empty())
 
-        val testObserver = TestObserver<PubEntity>()
+        val testObserver = TestObserver<List<PubEntity>>()
 
         // ACT
 
@@ -77,7 +77,7 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
         val RESOURCES_FILE_NAME = "pubsHttpResponse.json"
 
-        val EMITTED_EVENTS_COUNT = 100
+        val EMITTED_EVENTS_COUNT = 1
 
         val QUERY_VALUE = "\"pub\""
         val TYPE_VALUE = "place"
@@ -94,7 +94,7 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
                 DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE, ACCESS_TOKEN))
                 .thenReturn(networkData)
 
-        val testObserver = TestObserver<PubEntity>()
+        val testObserver = TestObserver<List<PubEntity>>()
 
         // ACT
 
@@ -128,8 +128,7 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
                     pubData.location.latitude,
                     pubData.location.longitude,
                     pubData.location.street,
-                    pubData.picture.picturedata.isSilhouette,
-                    0L)
+                    pubData.picture.picturedata.isSilhouette)
 
     // endregion
 }

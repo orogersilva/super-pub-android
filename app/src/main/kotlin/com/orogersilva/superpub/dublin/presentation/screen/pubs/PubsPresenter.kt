@@ -50,15 +50,19 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
     override fun updatePubs() {
 
+        var forceUpdate = pubsView.isRefreshManual()
+
         getLastLocationUseCase.getLastLocation()
                 .subscribeOn(schedulerProvider.io())
                 .observeOn(schedulerProvider.io())
-                .flatMap { (first, second) -> getPubsUseCase.getPubs(first, second) }
+                .flatMap { (first, second) -> getPubsUseCase.getPubs(first, second, forceUpdate) }
                 .collect({ mutableListOf<Pub>() }, { list, pub -> list.add(pub) })
                 .flatMapObservable { pubs -> calculateSuperPubRatingUseCase.calculateSuperPubRating(pubs) }
-                .observeOn(schedulerProvider.ui(), true)
+                .observeOn(schedulerProvider.ui())
                 .doOnSubscribe { if (!pubsView.isRefreshManual()) pubsView.showLoadingIndicator() }
                 .doOnDispose {
+
+                    pubsList.clear()
 
                     if (pubsView.isRefreshManual()) {
                         pubsView.hideRefreshManualIndicator()

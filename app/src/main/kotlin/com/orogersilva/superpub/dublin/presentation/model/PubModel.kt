@@ -20,8 +20,7 @@ data class PubModel(@SerializedName("id") var id: Long = 0,
                     @SerializedName("latitude") var latitude: Double = 0.0,
                     @SerializedName("longitude") var longitude: Double = 0.0,
                     @SerializedName("street") var street: String? = null,
-                    @SerializedName("hasMinimumRequirement") var hasMinimumRequirement: Boolean = false,
-                    var timestamp: Long = 0L) : PaperParcelable, Comparable<PubModel> {
+                    @SerializedName("hasMinimumRequirement") var hasMinimumRequirement: Boolean = false) : PaperParcelable, Comparable<PubModel> {
 
     // region COMPANION OBJECTS
 
@@ -67,8 +66,7 @@ data class PubModel(@SerializedName("id") var id: Long = 0,
                 Math.abs(latitude - pub.latitude) < 0.0000001 &&
                 Math.abs(longitude - pub.longitude) < 0.0000001 &&
                 street == pub.street &&
-                hasMinimumRequirement == pub.hasMinimumRequirement &&
-                timestamp == pub.timestamp
+                hasMinimumRequirement == pub.hasMinimumRequirement
     }
 
     // endregion

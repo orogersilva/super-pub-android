@@ -15,11 +15,11 @@ class GetPubsUseCaseImpl @Inject constructor(private val pubRepository: PubRepos
 
     // region OVERRIDED METHODS
 
-    override fun getPubs(lat: Double, lng: Double): Observable<Pub>? {
+    override fun getPubs(lat: Double, lng: Double, getNewestPubs: Boolean): Observable<Pub>? {
 
         if (!isValidLocation(lat, lng)) return Observable.error(IllegalArgumentException())
 
-        return pubRepository.getPubs(fromLocation = "$lat,$lng")
+        return pubRepository.getPubs(fromLocation = "$lat,$lng", getDataFromRemote = getNewestPubs)
     }
 
     // endregion

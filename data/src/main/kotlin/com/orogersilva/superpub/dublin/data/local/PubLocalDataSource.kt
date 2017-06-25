@@ -28,7 +28,7 @@ class PubLocalDataSource @Inject constructor(private var realmConfiguration: Rea
 
     @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
-                         fields: String, displayedDataTimestamp: Long): Observable<PubEntity>? {
+                         fields: String, displayedDataTimestamp: Long): Observable<List<PubEntity>>? {
 
         val realm = Realm.getInstance(realmConfiguration)
 
@@ -36,8 +36,9 @@ class PubLocalDataSource @Inject constructor(private var realmConfiguration: Rea
 
         realm.close()
 
+        if (pubEntityRealmResults.isEmpty()) return Observable.empty()
+
         return Observable.just(pubEntityRealmResults)
-                .flatMap { Observable.fromIterable(it) }
     }
 
     override fun savePubs(pubs: List<PubEntity>?) {
@@ -54,11 +55,7 @@ class PubLocalDataSource @Inject constructor(private var realmConfiguration: Rea
         }
     }
 
-    // endregion
-
-    // region UTILITY METHODS
-
-    fun deletePubs() {
+    override fun deletePubs() {
 
         val realm = Realm.getInstance(realmConfiguration)
 

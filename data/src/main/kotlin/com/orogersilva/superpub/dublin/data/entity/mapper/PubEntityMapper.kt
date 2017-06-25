@@ -24,8 +24,7 @@ object PubEntityMapper {
                     pubEntity.latitude,
                     pubEntity.longitude,
                     pubEntity.street,
-                    pubEntity.hasMinimumRequirement,
-                    pubEntity.timestamp)
+                    pubEntity.hasMinimumRequirement)
 
     fun transform(pubData: PubHttpResponse.PubData): PubEntity =
             PubEntity(pubData.id,
@@ -40,8 +39,7 @@ object PubEntityMapper {
                     pubData.location.latitude,
                     pubData.location.longitude,
                     pubData.location.street,
-                    !pubData.picture.picturedata.isSilhouette,
-                    0L)
+                    !pubData.picture.picturedata.isSilhouette)
 
     fun transformPubEntityList(pubsEntity: List<PubEntity>): List<Pub> {
 

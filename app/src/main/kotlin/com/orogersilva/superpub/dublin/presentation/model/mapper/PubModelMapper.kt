@@ -24,8 +24,7 @@ object PubModelMapper {
                 pub.latitude,
                 pub.longitude,
                 pub.street,
-                pub.hasMinimumRequirement,
-                pub.timestamp)
+                pub.hasMinimumRequirement)
 
         pubModel.superPubRating = pub.superPubRating
 

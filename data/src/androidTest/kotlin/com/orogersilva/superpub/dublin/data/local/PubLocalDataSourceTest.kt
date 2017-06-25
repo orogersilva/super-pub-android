@@ -26,7 +26,7 @@ import java.nio.charset.Charset
 @RunWith(AndroidJUnit4::class)
 class PubLocalDataSourceTest {
 
-    private val DATABASE_NAME = "superpubtest.realm"
+    private val DATABASE_NAME = "superpubtest.db"
 
     // region SETUP / TEARDOWN CLASS METHODS
 
@@ -42,7 +42,7 @@ class PubLocalDataSourceTest {
             Realm.init(context)
 
             val realmConfiguration = RealmConfiguration.Builder()
-                    .name("superpubtest.realm")
+                    .name("superpubtest.db")
                     .build()
 
             pubLocalDataSource = PubLocalDataSource(realmConfiguration)
@@ -72,7 +72,7 @@ class PubLocalDataSourceTest {
 
         val EMITTED_EVENTS_COUNT = 0
 
-        val testObserver = TestObserver<PubEntity>()
+        val testObserver = TestObserver<List<PubEntity>>()
 
         // ACT
 
@@ -84,8 +84,6 @@ class PubLocalDataSourceTest {
         testObserver.assertComplete()
         testObserver.assertNoErrors()
         testObserver.assertValueCount(EMITTED_EVENTS_COUNT)
-
-        assertTrue(testObserver.values().isEmpty())
     }
 
     @Test fun getPubs_whenThereArePubs_thenReturnsPubs() {
@@ -99,7 +97,7 @@ class PubLocalDataSourceTest {
         val LIMIT_VALUE = 200
         val FIELDS_VALUE = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover"
 
-        val EMITTED_EVENTS_COUNT = 3
+        val EMITTED_EVENTS_COUNT = 1
 
         val expectedPubs = createTestData()
 
@@ -113,7 +111,7 @@ class PubLocalDataSourceTest {
 
         realm.close()
 
-        val testObserver = TestObserver<PubEntity>()
+        val testObserver = TestObserver<List<PubEntity>>()
 
         // ACT
 
@@ -126,7 +124,7 @@ class PubLocalDataSourceTest {
         testObserver.assertNoErrors()
         testObserver.assertValueCount(EMITTED_EVENTS_COUNT)
 
-        val pubs = testObserver.values()
+        val pubs = testObserver.values()[0]
 
         assertEquals(expectedPubs, pubs)
     }

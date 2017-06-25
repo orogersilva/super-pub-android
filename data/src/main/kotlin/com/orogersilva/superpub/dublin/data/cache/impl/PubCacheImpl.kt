@@ -21,6 +21,15 @@ class PubCacheImpl @Inject constructor(private val cache: MutableMap<Long, PubEn
         cache.put(pub.id, pub)
     }
 
+    override fun savePubs(pubs: List<PubEntity>) {
+
+        clear()
+
+        pubs.forEach {
+            cache.put(it.id, it)
+        }
+    }
+
     override fun clear() {
 
         cache.clear()

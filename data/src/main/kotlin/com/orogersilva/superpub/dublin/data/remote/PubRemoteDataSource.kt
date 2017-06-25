@@ -30,13 +30,17 @@ class PubRemoteDataSource @Inject constructor(private @AccessToken val accessTok
 
     @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
-                         fields: String, displayedDataTimestamp: Long): Observable<PubEntity>? =
+                         fields: String, displayedDataTimestamp: Long): Observable<List<PubEntity>>? =
             apiClient?.getPubs(query, type, fromLocation, radius, limit, fields, accessToken)
                     ?.flatMap {
-                        (data) -> Observable.fromIterable(PubEntityMapper.transformPubsDataList(data))
+                        (data) -> Observable.just(PubEntityMapper.transformPubsDataList(data))
                     }
 
     override fun savePubs(pubs: List<PubEntity>?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun deletePubs() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

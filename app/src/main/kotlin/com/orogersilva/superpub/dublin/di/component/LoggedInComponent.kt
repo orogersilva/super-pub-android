@@ -10,7 +10,6 @@ import dagger.Subcomponent
 @LoggedInScope
 @Subcomponent(modules = arrayOf(
         CacheModule::class,
-        ClockModule::class,
         DatabaseModule::class,
         GoogleApiModule::class,
         LocationSensorModule::class,

@@ -13,6 +13,8 @@ interface PubCache {
 
     fun savePub(pub: PubEntity)
 
+    fun savePubs(pubs: List<PubEntity>)
+
     fun clear()
 
     // endregion

@@ -5,7 +5,6 @@ import com.orogersilva.superpub.dublin.data.BaseTestCase
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.cache.PubCache
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
-import com.orogersilva.superpub.dublin.data.shared.date.Clock
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import io.reactivex.Observable
 import io.reactivex.observers.TestObserver
@@ -22,10 +21,10 @@ class PubDataRepositoryTest : BaseTestCase() {
 
     private val RESOURCES_FILE_NAME = "pubs.json"
 
-    private var pubCacheMock: PubCache? = null
+    private lateinit var pubCacheMock: PubCache
+
     private var pubLocalDataSourceMock: PubDataSource? = null
     private var pubRemoteDataSourceMock: PubDataSource? = null
-    private lateinit var clockMock: Clock
 
     private var pubDataRepository: PubDataRepository? = null
 
@@ -38,16 +37,15 @@ class PubDataRepositoryTest : BaseTestCase() {
         pubCacheMock = mock<PubCache>()
         pubLocalDataSourceMock = mock<PubDataSource>()
         pubRemoteDataSourceMock = mock<PubDataSource>()
-        clockMock = mock<Clock>()
 
-        pubDataRepository = PubDataRepository(pubCacheMock, pubLocalDataSourceMock, pubRemoteDataSourceMock, clockMock)
+        pubDataRepository = PubDataRepository(pubCacheMock, pubLocalDataSourceMock, pubRemoteDataSourceMock)
     }
 
     // endregion
 
     // region TEST METHODS
 
-    @Test fun `Get pubs, when there is no data from any sources, thenr returns no pub`() {
+    @Test fun `Get pubs, when there is no data from any sources, then returns no pub`() {
 
         // ARRANGE
 
@@ -55,10 +53,10 @@ class PubDataRepositoryTest : BaseTestCase() {
         val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
 
         val cachedData = listOf<PubEntity>()
-        val diskData = Observable.empty<PubEntity>()
-        val networkData = Observable.empty<PubEntity>()
+        val diskData = Observable.empty<List<PubEntity>>()
+        val networkData = Observable.empty<List<PubEntity>>()
 
-        whenever(pubCacheMock?.getPubs()).thenReturn(cachedData)
+        whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
         whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
         whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
@@ -70,6 +68,9 @@ class PubDataRepositoryTest : BaseTestCase() {
                 ?.subscribe(testObserver)
 
         // ASSERT
+
+        verify(pubCacheMock, times(1)).clear()
+        verify(pubLocalDataSourceMock, times(1))?.deletePubs()
 
         testObserver.awaitTerminalEvent()
 
@@ -84,20 +85,16 @@ class PubDataRepositoryTest : BaseTestCase() {
 
         val EMITTED_EVENTS_COUNT = 3
         val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
-        val EXPECTED_CURRENT_TIME_MILLIS = 1496014380458L
 
         val expectedPubsList = mutableListOf<PubEntity>()
 
         expectedPubsList.addAll(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
-        expectedPubsList.forEach { it.timestamp = EXPECTED_CURRENT_TIME_MILLIS }
 
         val cachedData = expectedPubsList
-        val diskData = Observable.empty<PubEntity>()
-        val networkData = Observable.empty<PubEntity>()
+        val diskData = Observable.empty<List<PubEntity>>()
+        val networkData = Observable.empty<List<PubEntity>>()
 
-        whenever(clockMock.getCurrentTimeMillis()).thenReturn(EXPECTED_CURRENT_TIME_MILLIS)
-
-        whenever(pubCacheMock?.getPubs()).thenReturn(cachedData)
+        whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
         whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
         whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
@@ -105,7 +102,7 @@ class PubDataRepositoryTest : BaseTestCase() {
 
         // ACT
 
-        pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE)
+        pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE, getDataFromRemote = false)
                 ?.subscribe(testObserver)
 
         // ASSERT
@@ -126,20 +123,16 @@ class PubDataRepositoryTest : BaseTestCase() {
 
         val EMITTED_EVENTS_COUNT = 3
         val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
-        val EXPECTED_CURRENT_TIME_MILLIS = 1496014380458L
 
         val expectedPubsList = mutableListOf<PubEntity>()
 
         expectedPubsList.addAll(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
-        expectedPubsList.forEach { it.timestamp = EXPECTED_CURRENT_TIME_MILLIS }
 
         val cachedData = listOf<PubEntity>()
-        val diskData = Observable.fromIterable(expectedPubsList)
-        val networkData = Observable.empty<PubEntity>()
+        val diskData = Observable.just(expectedPubsList.toList())
+        val networkData = Observable.empty<List<PubEntity>>()
 
-        whenever(clockMock.getCurrentTimeMillis()).thenReturn(EXPECTED_CURRENT_TIME_MILLIS)
-
-        whenever(pubCacheMock?.getPubs()).thenReturn(cachedData)
+        whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
         whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
         whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
@@ -147,16 +140,14 @@ class PubDataRepositoryTest : BaseTestCase() {
 
         // ACT
 
-        pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE)
+        pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE, getDataFromRemote = false)
                 ?.subscribe(testObserver)
 
         // ASSERT
 
         testObserver.awaitTerminalEvent()
 
-        expectedPubsList.forEach {
-            verify(pubCacheMock, times(1))?.savePub(it)
-        }
+        verify(pubCacheMock, times(1)).savePubs(expectedPubsList)
 
         testObserver.assertComplete()
                 .assertNoErrors()
@@ -172,20 +163,16 @@ class PubDataRepositoryTest : BaseTestCase() {
 
         val EMITTED_EVENTS_COUNT = 3
         val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
-        val EXPECTED_CURRENT_TIME_MILLIS = 1496014380458L
 
         val expectedPubsList = mutableListOf<PubEntity>()
 
         expectedPubsList.addAll(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
-        expectedPubsList.forEach { it.timestamp = EXPECTED_CURRENT_TIME_MILLIS }
 
         val cachedData = listOf<PubEntity>()
-        val diskData = Observable.empty<PubEntity>()
-        val networkData = Observable.fromIterable(expectedPubsList)
+        val diskData = Observable.empty<List<PubEntity>>()
+        val networkData = Observable.just(expectedPubsList.toList())
 
-        whenever(clockMock.getCurrentTimeMillis()).thenReturn(EXPECTED_CURRENT_TIME_MILLIS)
-
-        whenever(pubCacheMock?.getPubs()).thenReturn(cachedData)
+        whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
         whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
         whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
@@ -198,16 +185,15 @@ class PubDataRepositoryTest : BaseTestCase() {
 
         // ASSERT
 
+        verify(pubCacheMock, times(1)).clear()
+        verify(pubLocalDataSourceMock, times(1))?.deletePubs()
+
         testObserver.awaitTerminalEvent()
 
-        verify(clockMock, times(expectedPubsList.size)).getCurrentTimeMillis()
+        verify(pubCacheMock, times(1)).savePubs(expectedPubsList)
 
-        expectedPubsList.forEach {
-            verify(pubCacheMock, times(1))?.savePub(it)
-        }
-
-        verify(pubCacheMock, times(2))?.getPubs()
-        verify(pubLocalDataSourceMock, times(1))?.savePubs(any())   // TODO: Review this code snippet.
+        verify(pubCacheMock, times(2)).getPubs()
+        verify(pubLocalDataSourceMock, times(1))?.savePubs(any())   // TODO: Review this.
 
         testObserver.assertComplete()
                 .assertNoErrors()
