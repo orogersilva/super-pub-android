@@ -7,7 +7,7 @@ import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import com.orogersilva.superpub.dublin.data.entity.mapper.PubEntityMapper
 import com.orogersilva.superpub.dublin.domain.di.qualifier.AccessToken
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
-import io.reactivex.Observable
+import io.reactivex.Flowable
 import javax.inject.Inject
 
 /**
@@ -30,10 +30,10 @@ class PubRemoteDataSource @Inject constructor(private @AccessToken val accessTok
 
     @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
-                         fields: String, displayedDataTimestamp: Long): Observable<List<PubEntity>>? =
+                         fields: String, displayedDataTimestamp: Long): Flowable<List<PubEntity>>? =
             apiClient?.getPubs(query, type, fromLocation, radius, limit, fields, accessToken)
                     ?.flatMap {
-                        (data) -> Observable.just(PubEntityMapper.transformPubsDataList(data))
+                        (data) -> Flowable.just(PubEntityMapper.transformPubsDataList(data))
                     }
 
     override fun savePubs(pubs: List<PubEntity>?) {

@@ -3,7 +3,7 @@ package com.orogersilva.superpub.dublin.domain.interactor.impl
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.interactor.CalculateSuperPubRatingUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub
-import io.reactivex.Observable
+import io.reactivex.Flowable
 import java.util.*
 
 /**
@@ -14,9 +14,9 @@ class CalculateSuperPubRatingUseCaseImpl : CalculateSuperPubRatingUseCase {
 
     // region OVERRIDED METHODS
 
-    override fun calculateSuperPubRating(pubs: List<Pub>): Observable<Pub> {
+    override fun calculateSuperPubRating(pubs: List<Pub>): Flowable<Pub> {
 
-        if (pubs.isEmpty()) return Observable.empty()
+        if (pubs.isEmpty()) return Flowable.empty()
 
         val MINIMUM_RATING_COUNT_ALLOWED = 15
         val MINIMUM_SUPER_PUB_RATING_ALLOWED = 1
@@ -108,7 +108,7 @@ class CalculateSuperPubRatingUseCaseImpl : CalculateSuperPubRatingUseCase {
 
         // endregion
 
-        return Observable.fromIterable(pubs)
+        return Flowable.fromIterable(pubs)
     }
 
     // endregion

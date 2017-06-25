@@ -8,8 +8,8 @@ import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.presentation.model.PubModel
 import com.orogersilva.superpub.dublin.presentation.model.mapper.PubModelMapper
 import com.orogersilva.superpub.dublin.scheduler.SchedulerProvider
-import io.reactivex.Observer
-import io.reactivex.disposables.Disposable
+import org.reactivestreams.Subscriber
+import org.reactivestreams.Subscription
 import javax.inject.Inject
 
 /**
@@ -37,7 +37,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
     internal val pubsList = mutableListOf<PubModel>()
 
-    private var pubsDisposable: Disposable? = null
+    private var pubsSubscription: Subscription? = null
 
     // endregion
 
@@ -57,10 +57,10 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
                 .observeOn(schedulerProvider.io())
                 .flatMap { (first, second) -> getPubsUseCase.getPubs(first, second, forceUpdate) }
                 .collect({ mutableListOf<Pub>() }, { list, pub -> list.add(pub) })
-                .flatMapObservable { pubs -> calculateSuperPubRatingUseCase.calculateSuperPubRating(pubs) }
+                .flatMapPublisher { pubs -> calculateSuperPubRatingUseCase.calculateSuperPubRating(pubs) }
                 .observeOn(schedulerProvider.ui())
                 .doOnSubscribe { if (!pubsView.isRefreshManual()) pubsView.showLoadingIndicator() }
-                .doOnDispose {
+                .doOnCancel {
 
                     pubsList.clear()
 
@@ -70,7 +70,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
                         pubsView.hideLoadingIndicator()
                     }
                 }
-                .subscribe(object : Observer<Pub> {
+                .subscribe(object : Subscriber<Pub> {
 
                     override fun onNext(pub: Pub?) {
 
@@ -81,19 +81,19 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
                         pubsView.refreshPubs(pubsList)
 
-                        pubsDisposable?.dispose()
+                        pubsSubscription?.cancel()
                     }
 
                     override fun onError(error: Throwable?) {
 
                         pubsView.showErrorMessage()
 
-                        pubsDisposable?.dispose()
+                        pubsSubscription?.cancel()
                     }
 
-                    override fun onSubscribe(disposable: Disposable?) {
+                    override fun onSubscribe(subscription: Subscription?) {
 
-                        pubsDisposable = disposable
+                        pubsSubscription = subscription
                     }
                 })
     }

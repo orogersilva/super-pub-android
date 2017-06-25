@@ -1,7 +1,7 @@
 package com.orogersilva.superpub.dublin.data.api.endpoint
 
 import com.orogersilva.superpub.dublin.data.entity.PubHttpResponse
-import io.reactivex.Observable
+import io.reactivex.Flowable
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -19,7 +19,7 @@ interface SearchApiClient {
                 @Query("distance") distance: Int,
                 @Query("limit") radius: Int,
                 @Query("fields") fields: String,
-                @Query("access_token") accessToken: String?) : Observable<PubHttpResponse>
+                @Query("access_token") accessToken: String?) : Flowable<PubHttpResponse>
 
     // endregion
 }

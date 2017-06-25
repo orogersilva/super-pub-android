@@ -4,7 +4,7 @@ import com.fernandocejas.frodo.annotation.RxLogObservable
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
-import io.reactivex.Observable
+import io.reactivex.Flowable
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import javax.inject.Inject
@@ -28,7 +28,7 @@ class PubLocalDataSource @Inject constructor(private var realmConfiguration: Rea
 
     @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
-                         fields: String, displayedDataTimestamp: Long): Observable<List<PubEntity>>? {
+                         fields: String, displayedDataTimestamp: Long): Flowable<List<PubEntity>>? {
 
         val realm = Realm.getInstance(realmConfiguration)
 
@@ -36,9 +36,9 @@ class PubLocalDataSource @Inject constructor(private var realmConfiguration: Rea
 
         realm.close()
 
-        if (pubEntityRealmResults.isEmpty()) return Observable.empty()
+        if (pubEntityRealmResults.isEmpty()) return Flowable.empty()
 
-        return Observable.just(pubEntityRealmResults)
+        return Flowable.just(pubEntityRealmResults)
     }
 
     override fun savePubs(pubs: List<PubEntity>?) {

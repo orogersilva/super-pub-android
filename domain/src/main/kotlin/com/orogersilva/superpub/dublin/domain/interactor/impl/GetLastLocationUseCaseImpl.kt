@@ -3,7 +3,7 @@ package com.orogersilva.superpub.dublin.domain.interactor.impl
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.interactor.GetLastLocationUseCase
 import com.orogersilva.superpub.dublin.domain.manager.LocationSensor
-import io.reactivex.Observable
+import io.reactivex.Flowable
 import javax.inject.Inject
 
 /**
@@ -15,7 +15,7 @@ class GetLastLocationUseCaseImpl @Inject constructor(
 
     // region OVERRIDED METHODS
 
-    override fun getLastLocation(): Observable<Pair<Double, Double>> {
+    override fun getLastLocation(): Flowable<Pair<Double, Double>> {
 
         return deviceLocationSensor.getLastLocation()
     }

@@ -9,7 +9,7 @@ import com.orogersilva.superpub.dublin.data.entity.mapper.PubEntityMapper
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
-import io.reactivex.Observable
+import io.reactivex.Flowable
 import javax.inject.Inject
 
 /**
@@ -36,7 +36,7 @@ class PubDataRepository @Inject constructor(private var pubCache: PubCache,
 
     @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int,
-                         limit: Int, fields: String, getDataFromRemote: Boolean): Observable<Pub>? {
+                         limit: Int, fields: String, getDataFromRemote: Boolean): Flowable<Pub>? {
 
         if (getDataFromRemote) {
 
@@ -44,7 +44,7 @@ class PubDataRepository @Inject constructor(private var pubCache: PubCache,
             pubLocalDataSource?.deletePubs()
         }
 
-        return Observable.concat(Observable.just(pubCache.getPubs()),
+        return Flowable.concat(Flowable.just(pubCache.getPubs()),
                 pubLocalDataSource?.getPubs(query, type, fromLocation, radius, limit, fields)
                         ?.doOnNext {
                             pubCache.savePubs(it)
@@ -56,7 +56,7 @@ class PubDataRepository @Inject constructor(private var pubCache: PubCache,
                         })
                 ?.filter { pubs -> pubs != null && !pubs.isEmpty() }
                 ?.take(1)
-                ?.flatMap { pubsEntityList -> Observable.fromIterable(PubEntityMapper.transformPubEntityList(pubsEntityList)) }
+                ?.flatMap { pubsEntityList -> Flowable.fromIterable(PubEntityMapper.transformPubEntityList(pubsEntityList)) }
     }
 
     override fun savePubs(pubs: List<Pub>) {

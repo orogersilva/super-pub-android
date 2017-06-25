@@ -6,8 +6,8 @@ import com.orogersilva.superpub.dublin.domain.BaseTestCase
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
-import io.reactivex.Observable
-import io.reactivex.observers.TestObserver
+import io.reactivex.Flowable
+import io.reactivex.subscribers.TestSubscriber
 import org.junit.Before
 import org.junit.Test
 
@@ -44,17 +44,17 @@ class GetPubsUseCaseImplTest : BaseTestCase() {
         val LAT = -90.01
         val LNG = 180.01
 
-        val testObserver = TestObserver<Pub>()
+        val testSubscriber = TestSubscriber<Pub>()
 
         // ACT
 
         getPubsUseCase.getPubs(LAT, LNG)
-                ?.subscribe(testObserver)
+                ?.subscribe(testSubscriber)
 
         // ASSERT
 
-        testObserver.assertNotComplete()
-        testObserver.assertError(IllegalArgumentException::class.java)
+        testSubscriber.assertNotComplete()
+        testSubscriber.assertError(IllegalArgumentException::class.java)
     }
 
     @Test fun `Get pubs, when location is valid, then returns pubs`() {
@@ -68,20 +68,20 @@ class GetPubsUseCaseImplTest : BaseTestCase() {
 
         val EMITTED_EVENTS_COUNT = 3
 
-        val pubsObservable = Observable.fromIterable(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
+        val pubsObservable = Flowable.fromIterable(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
 
         whenever(pubRepositoryMock.getPubs(fromLocation = "$LAT,$LNG")).thenReturn(pubsObservable)
 
-        val testObserver = TestObserver<Pub>()
+        val testSubscriber = TestSubscriber<Pub>()
 
         // ACT
 
         getPubsUseCase.getPubs(LAT, LNG)
-                ?.subscribe(testObserver)
+                ?.subscribe(testSubscriber)
 
         // ASSERT
 
-        testObserver.assertComplete()
+        testSubscriber.assertComplete()
                 .assertNoErrors()
                 .assertValueCount(EMITTED_EVENTS_COUNT)
                 .assertOf { p1 ->

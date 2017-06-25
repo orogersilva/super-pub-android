@@ -1,7 +1,7 @@
 package com.orogersilva.superpub.dublin.domain.repository
 
 import com.orogersilva.superpub.dublin.domain.model.Pub
-import io.reactivex.Observable
+import io.reactivex.Flowable
 
 /**
  * Created by orogersilva on 5/26/2017.
@@ -16,7 +16,7 @@ interface PubRepository {
                 radius: Int = 5000,
                 limit: Int = 100,
                 fields: String = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover",
-                getDataFromRemote: Boolean = true): Observable<Pub>?
+                getDataFromRemote: Boolean = true): Flowable<Pub>?
 
     fun savePubs(pubs: List<Pub>)
 

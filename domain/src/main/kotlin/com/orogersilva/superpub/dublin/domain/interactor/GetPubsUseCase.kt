@@ -1,7 +1,7 @@
 package com.orogersilva.superpub.dublin.domain.interactor
 
 import com.orogersilva.superpub.dublin.domain.model.Pub
-import io.reactivex.Observable
+import io.reactivex.Flowable
 
 /**
  * Created by orogersilva on 5/26/2017.
@@ -10,7 +10,7 @@ interface GetPubsUseCase {
 
     // region METHODS
 
-    fun getPubs(lat: Double, lng: Double, getNewestPubs: Boolean = true): Observable<Pub>?
+    fun getPubs(lat: Double, lng: Double, getNewestPubs: Boolean = true): Flowable<Pub>?
 
     // endregion
 }

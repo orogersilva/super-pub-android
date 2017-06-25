@@ -4,7 +4,7 @@ import com.orogersilva.superpub.dublin.data.api.BaseNetworkTestCase
 import com.orogersilva.superpub.dublin.data.api.HttpLocalResponseDispatcher
 import com.orogersilva.superpub.dublin.data.api.RestClient
 import com.orogersilva.superpub.dublin.data.entity.PubHttpResponse
-import io.reactivex.observers.TestObserver
+import io.reactivex.subscribers.TestSubscriber
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -32,14 +32,14 @@ class SearchApiClientTest : BaseNetworkTestCase() {
         server?.setDispatcher(HttpLocalResponseDispatcher(loadJsonFromAsset("pubsHttpResponse.json")))
         server?.start()
 
-        val testObserver = TestObserver<PubHttpResponse>()
+        val testSubscriber = TestSubscriber<PubHttpResponse>()
 
         // ACT
 
         getSearchingApiClient()
                 .getPubs(QUERY_VALUE, TYPE_VALUE, CENTER_VALUE, DISTANCE_VALUE,
                         LIMIT_VALUE, FIELDS_VALUE, ACCESS_TOKEN)
-                .subscribe(testObserver)
+                .subscribe(testSubscriber)
 
         // ASSERT
 
@@ -47,8 +47,8 @@ class SearchApiClientTest : BaseNetworkTestCase() {
 
         assertEquals(EXPECTED_PATH, recordedRequest?.path)
 
-        testObserver.assertNoErrors()
-        testObserver.assertComplete()
+        testSubscriber.assertNoErrors()
+        testSubscriber.assertComplete()
     }
 
     // endregion

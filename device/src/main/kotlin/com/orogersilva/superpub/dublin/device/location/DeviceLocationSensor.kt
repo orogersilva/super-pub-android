@@ -10,9 +10,7 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import com.orogersilva.superpub.dublin.domain.manager.LocationSensor
-import io.reactivex.Observable
-import io.reactivex.ObservableEmitter
-import io.reactivex.ObservableOnSubscribe
+import io.reactivex.*
 import javax.inject.Inject
 
 /**
@@ -36,10 +34,10 @@ class DeviceLocationSensor @Inject constructor(private val googleApiClient: Goog
 
     // region OVERRIDED METHODS
 
-    override fun getLastLocation(): Observable<Pair<Double, Double>> =
-            Observable.create(object : ObservableOnSubscribe<Pair<Double, Double>> {
+    override fun getLastLocation(): Flowable<Pair<Double, Double>> =
+            Flowable.create(object : FlowableOnSubscribe<Pair<Double, Double>> {
 
-                override fun subscribe(emitter: ObservableEmitter<Pair<Double, Double>>?) {
+                override fun subscribe(emitter: FlowableEmitter<Pair<Double, Double>>?) {
 
                     deviceLocationListener.setListener(emitter)
 
@@ -74,7 +72,7 @@ class DeviceLocationSensor @Inject constructor(private val googleApiClient: Goog
                     googleApiClient.connect()
                 }
 
-            }).doOnDispose {
+            }, BackpressureStrategy.BUFFER).doOnCancel {
 
                 // stopLocationUpdates()
 
@@ -166,7 +164,7 @@ class DeviceLocationSensor @Inject constructor(private val googleApiClient: Goog
 
         // region PROPERTIES
 
-        private var locationEmitter: ObservableEmitter<Pair<Double, Double>>? = null
+        private var locationEmitter: FlowableEmitter<Pair<Double, Double>>? = null
 
         // endregion
 
@@ -183,7 +181,7 @@ class DeviceLocationSensor @Inject constructor(private val googleApiClient: Goog
 
         // region METHODS
 
-        fun setListener(locationEmitter: ObservableEmitter<Pair<Double, Double>>?) {
+        fun setListener(locationEmitter: FlowableEmitter<Pair<Double, Double>>?) {
 
             this.locationEmitter = locationEmitter
         }

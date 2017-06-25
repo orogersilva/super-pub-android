@@ -7,8 +7,8 @@ import com.orogersilva.superpub.dublin.data.api.BaseNetworkTestCase
 import com.orogersilva.superpub.dublin.data.api.endpoint.SearchApiClient
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import com.orogersilva.superpub.dublin.data.entity.PubHttpResponse
-import io.reactivex.Observable
-import io.reactivex.observers.TestObserver
+import io.reactivex.Flowable
+import io.reactivex.subscribers.TestSubscriber
 import org.junit.Before
 import org.junit.Test
 
@@ -55,18 +55,18 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
         whenever(apiClientMock?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE,
                 DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE, ACCESS_TOKEN))
-                .thenReturn(Observable.empty())
+                .thenReturn(Flowable.empty())
 
-        val testObserver = TestObserver<List<PubEntity>>()
+        val testSubscriber = TestSubscriber<List<PubEntity>>()
 
         // ACT
 
         pubRemoteDataSource?.getPubs(fromLocation = FROM_LOCATION_VALUE)
-                ?.subscribe(testObserver)
+                ?.subscribe(testSubscriber)
 
         // ASSERT
 
-        testObserver.assertComplete()
+        testSubscriber.assertComplete()
                 .assertNoErrors()
                 .assertValueCount(EMITTED_EVENTS_COUNT)
     }
@@ -88,22 +88,22 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
         val expectedPubsHttpResponse = createTestHttpData(loadJsonFromAsset(RESOURCES_FILE_NAME))
 
-        val networkData = Observable.just(expectedPubsHttpResponse)
+        val networkData = Flowable.just(expectedPubsHttpResponse)
 
         whenever(apiClientMock?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE,
                 DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE, ACCESS_TOKEN))
                 .thenReturn(networkData)
 
-        val testObserver = TestObserver<List<PubEntity>>()
+        val testSubscriber = TestSubscriber<List<PubEntity>>()
 
         // ACT
 
         pubRemoteDataSource?.getPubs(fromLocation = FROM_LOCATION_VALUE)
-                ?.subscribe(testObserver)
+                ?.subscribe(testSubscriber)
 
         // ASSERT
 
-        testObserver.assertComplete()
+        testSubscriber.assertComplete()
                 .assertNoErrors()
                 .assertValueCount(EMITTED_EVENTS_COUNT)
                 .assertOf { pub1 ->

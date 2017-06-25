@@ -7,6 +7,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import io.reactivex.observers.TestObserver
+import io.reactivex.subscribers.TestSubscriber
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import org.junit.After
@@ -72,18 +73,18 @@ class PubLocalDataSourceTest {
 
         val EMITTED_EVENTS_COUNT = 0
 
-        val testObserver = TestObserver<List<PubEntity>>()
+        val testSubscriber = TestSubscriber<List<PubEntity>>()
 
         // ACT
 
         pubLocalDataSource?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
-                ?.subscribe(testObserver)
+                ?.subscribe(testSubscriber)
 
         // ASSERT
 
-        testObserver.assertComplete()
-        testObserver.assertNoErrors()
-        testObserver.assertValueCount(EMITTED_EVENTS_COUNT)
+        testSubscriber.assertComplete()
+        testSubscriber.assertNoErrors()
+        testSubscriber.assertValueCount(EMITTED_EVENTS_COUNT)
     }
 
     @Test fun getPubs_whenThereArePubs_thenReturnsPubs() {
@@ -111,20 +112,20 @@ class PubLocalDataSourceTest {
 
         realm.close()
 
-        val testObserver = TestObserver<List<PubEntity>>()
+        val testSubscriber = TestSubscriber<List<PubEntity>>()
 
         // ACT
 
         pubLocalDataSource?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
-                ?.subscribe(testObserver)
+                ?.subscribe(testSubscriber)
 
         // ASSERT
 
-        testObserver.assertComplete()
-        testObserver.assertNoErrors()
-        testObserver.assertValueCount(EMITTED_EVENTS_COUNT)
+        testSubscriber.assertComplete()
+        testSubscriber.assertNoErrors()
+        testSubscriber.assertValueCount(EMITTED_EVENTS_COUNT)
 
-        val pubs = testObserver.values()[0]
+        val pubs = testSubscriber.values()[0]
 
         assertEquals(expectedPubs, pubs)
     }

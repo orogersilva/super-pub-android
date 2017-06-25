@@ -4,7 +4,7 @@ import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
-import io.reactivex.Observable
+import io.reactivex.Flowable
 import javax.inject.Inject
 
 /**
@@ -15,9 +15,9 @@ class GetPubsUseCaseImpl @Inject constructor(private val pubRepository: PubRepos
 
     // region OVERRIDED METHODS
 
-    override fun getPubs(lat: Double, lng: Double, getNewestPubs: Boolean): Observable<Pub>? {
+    override fun getPubs(lat: Double, lng: Double, getNewestPubs: Boolean): Flowable<Pub>? {
 
-        if (!isValidLocation(lat, lng)) return Observable.error(IllegalArgumentException())
+        if (!isValidLocation(lat, lng)) return Flowable.error(IllegalArgumentException())
 
         return pubRepository.getPubs(fromLocation = "$lat,$lng", getDataFromRemote = getNewestPubs)
     }

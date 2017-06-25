@@ -6,8 +6,8 @@ import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.cache.PubCache
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import com.orogersilva.superpub.dublin.domain.model.Pub
-import io.reactivex.Observable
-import io.reactivex.observers.TestObserver
+import io.reactivex.Flowable
+import io.reactivex.subscribers.TestSubscriber
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -53,28 +53,28 @@ class PubDataRepositoryTest : BaseTestCase() {
         val FROM_LOCATION_VALUE = "-30.0262844,-51.2072853"
 
         val cachedData = listOf<PubEntity>()
-        val diskData = Observable.empty<List<PubEntity>>()
-        val networkData = Observable.empty<List<PubEntity>>()
+        val diskData = Flowable.empty<List<PubEntity>>()
+        val networkData = Flowable.empty<List<PubEntity>>()
 
         whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
         whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
         whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
-        val testObserver = TestObserver<Pub>()
+        val testSubscriber = TestSubscriber<Pub>()
 
         // ACT
 
         pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE)
-                ?.subscribe(testObserver)
+                ?.subscribe(testSubscriber)
 
         // ASSERT
 
         verify(pubCacheMock, times(1)).clear()
         verify(pubLocalDataSourceMock, times(1))?.deletePubs()
 
-        testObserver.awaitTerminalEvent()
+        testSubscriber.awaitTerminalEvent()
 
-        testObserver.assertComplete()
+        testSubscriber.assertComplete()
                 .assertNoErrors()
                 .assertValueCount(EMITTED_EVENTS_COUNT)
     }
@@ -91,29 +91,29 @@ class PubDataRepositoryTest : BaseTestCase() {
         expectedPubsList.addAll(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
 
         val cachedData = expectedPubsList
-        val diskData = Observable.empty<List<PubEntity>>()
-        val networkData = Observable.empty<List<PubEntity>>()
+        val diskData = Flowable.empty<List<PubEntity>>()
+        val networkData = Flowable.empty<List<PubEntity>>()
 
         whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
         whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
         whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
-        val testObserver = TestObserver<Pub>()
+        val testSubscriber = TestSubscriber<Pub>()
 
         // ACT
 
         pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE, getDataFromRemote = false)
-                ?.subscribe(testObserver)
+                ?.subscribe(testSubscriber)
 
         // ASSERT
 
-        testObserver.awaitTerminalEvent()
+        testSubscriber.awaitTerminalEvent()
 
-        testObserver.assertComplete()
+        testSubscriber.assertComplete()
                 .assertNoErrors()
                 .assertValueCount(EMITTED_EVENTS_COUNT)
                 .assertOf { pub1 ->
-                    Observable.fromIterable(cachedData).blockingForEach { pub2 -> (pub1 == pub2) }
+                    Flowable.fromIterable(cachedData).blockingForEach { pub2 -> (pub1 == pub2) }
                 }
     }
 
@@ -129,27 +129,27 @@ class PubDataRepositoryTest : BaseTestCase() {
         expectedPubsList.addAll(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
 
         val cachedData = listOf<PubEntity>()
-        val diskData = Observable.just(expectedPubsList.toList())
-        val networkData = Observable.empty<List<PubEntity>>()
+        val diskData = Flowable.just(expectedPubsList.toList())
+        val networkData = Flowable.empty<List<PubEntity>>()
 
         whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
         whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
         whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
-        val testObserver = TestObserver<Pub>()
+        val testSubscriber = TestSubscriber<Pub>()
 
         // ACT
 
         pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE, getDataFromRemote = false)
-                ?.subscribe(testObserver)
+                ?.subscribe(testSubscriber)
 
         // ASSERT
 
-        testObserver.awaitTerminalEvent()
+        testSubscriber.awaitTerminalEvent()
 
         verify(pubCacheMock, times(1)).savePubs(expectedPubsList)
 
-        testObserver.assertComplete()
+        testSubscriber.assertComplete()
                 .assertNoErrors()
                 .assertValueCount(EMITTED_EVENTS_COUNT)
                 .assertOf { pub1 ->
@@ -169,33 +169,33 @@ class PubDataRepositoryTest : BaseTestCase() {
         expectedPubsList.addAll(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
 
         val cachedData = listOf<PubEntity>()
-        val diskData = Observable.empty<List<PubEntity>>()
-        val networkData = Observable.just(expectedPubsList.toList())
+        val diskData = Flowable.empty<List<PubEntity>>()
+        val networkData = Flowable.just(expectedPubsList.toList())
 
         whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
         whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
         whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
-        val testObserver = TestObserver<Pub>()
+        val testSubscriber = TestSubscriber<Pub>()
 
         // ACT
 
         pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE)
-                ?.subscribe(testObserver)
+                ?.subscribe(testSubscriber)
 
         // ASSERT
 
         verify(pubCacheMock, times(1)).clear()
         verify(pubLocalDataSourceMock, times(1))?.deletePubs()
 
-        testObserver.awaitTerminalEvent()
+        testSubscriber.awaitTerminalEvent()
 
         verify(pubCacheMock, times(1)).savePubs(expectedPubsList)
 
         verify(pubCacheMock, times(2)).getPubs()
         verify(pubLocalDataSourceMock, times(1))?.savePubs(any())   // TODO: Review this.
 
-        testObserver.assertComplete()
+        testSubscriber.assertComplete()
                 .assertNoErrors()
                 .assertValueCount(EMITTED_EVENTS_COUNT)
                 .assertOf { pub1 ->
