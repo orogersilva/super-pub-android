@@ -18,15 +18,29 @@
         android:name=".SuperPubApplication"
         >
 
-        <activity android:name=".presentation.screen.login.view.LoginActivity">
+        <!-- ACTIVITIES - BEGIN -->
+
+        <activity
+            android:name=".presentation.screen.login.view.LoginActivity"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".presentation.screen.pubs.view.PubsActivity"/>
-        <activity android:name=".presentation.screen.pubdetails.view.PubDetailsActivity"/>
+        <activity
+            android:name=".presentation.screen.pubs.view.PubsActivity"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".presentation.screen.pubdetails.view.PubDetailsActivity"
+            android:screenOrientation="portrait"
+            />
+
+        <!-- ACTIVITIES - END -->
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
