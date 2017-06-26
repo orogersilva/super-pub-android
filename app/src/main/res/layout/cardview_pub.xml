@@ -39,6 +39,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="@dimen/pub_name_text_size"
+            android:textStyle="bold"
             />
 
         <TextView
@@ -50,6 +51,7 @@
             android:gravity="center"
             android:textSize="@dimen/pub_rating_text_size"
             android:textColor="@color/black"
+            android:textStyle="bold"
             />
 
     </LinearLayout>
