@@ -8,8 +8,7 @@ import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.presentation.model.PubModel
 import com.orogersilva.superpub.dublin.presentation.model.mapper.PubModelMapper
 import com.orogersilva.superpub.dublin.scheduler.SchedulerProvider
-import org.reactivestreams.Subscriber
-import org.reactivestreams.Subscription
+import io.reactivex.subscribers.ResourceSubscriber
 import javax.inject.Inject
 
 /**
@@ -36,8 +35,6 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
     // region PROPERTIES
 
     internal val pubsList = mutableListOf<PubModel>()
-
-    private var pubsSubscription: Subscription? = null
 
     // endregion
 
@@ -70,7 +67,7 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
                         pubsView.hideLoadingIndicator()
                     }
                 }
-                .subscribe(object : Subscriber<Pub> {
+                .subscribe(object : ResourceSubscriber<Pub>() {
 
                     override fun onNext(pub: Pub?) {
 
@@ -81,19 +78,14 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
 
                         pubsView.refreshPubs(pubsList)
 
-                        pubsSubscription?.cancel()
+                        dispose()
                     }
 
-                    override fun onError(error: Throwable?) {
+                    override fun onError(t: Throwable?) {
 
                         pubsView.showErrorMessage()
 
-                        pubsSubscription?.cancel()
-                    }
-
-                    override fun onSubscribe(subscription: Subscription?) {
-
-                        pubsSubscription = subscription
+                        dispose()
                     }
                 })
     }
