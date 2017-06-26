@@ -62,6 +62,9 @@ class PubsActivity : AppCompatActivity(), PubsContract.View {
         pubsRecyclerView.layoutManager = pubsLayoutManager
 
         pubsSwipeRefreshLayout.setOnRefreshListener { pubsPresenter.resume() }
+        pubsSwipeRefreshLayout.setColorSchemeColors(
+                resources.getColor(R.color.gold), resources.getColor(R.color.black)
+        )
 
         if (!hasPermission(Manifest.permission.ACCESS_COARSE_LOCATION) &&
                 !hasPermission(Manifest.permission.ACCESS_FINE_LOCATION)) {
