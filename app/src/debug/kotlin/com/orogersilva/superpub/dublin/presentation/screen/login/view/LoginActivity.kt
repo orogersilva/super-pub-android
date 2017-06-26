@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
 /**
- * Created by orogersilva on 4/8/2017.
+ * Created by orogersilva on 6/26/2017.
  */
 class LoginActivity : AppCompatActivity(), LoginContract.View {
 
