@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.bumptech.glide.Glide
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.maps.android.ui.IconGenerator
 import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.di.component.PubDetailsActivityComponent
 import com.orogersilva.superpub.dublin.di.module.*
@@ -94,6 +93,10 @@ class PubDetailsActivity : AppCompatActivity(), PubDetailsContract.View, OnMapRe
 
     override fun showPubDetails(pub: PubModel) {
 
+        Glide.with(this)
+                .load(pub.coverImageUrl)
+                .into(pubDetailsBackgroundImageView)
+
         pubNameTextView.text = pub.name
 
         if (pub.phone.isNullOrEmpty()) {
@@ -112,30 +115,22 @@ class PubDetailsActivity : AppCompatActivity(), PubDetailsContract.View, OnMapRe
         map.uiSettings.isCompassEnabled = true
         map.uiSettings.setAllGesturesEnabled(true)
 
-        val iconGenerator = IconGenerator(this)
-        iconGenerator.setStyle(IconGenerator.STYLE_RED)
-
         if (pub.street != null) {
-            addMarker(map, iconGenerator, pub.street, latLng)
+
+            map.addMarker(MarkerOptions()
+                    .position(latLng)
+                    .title(pub.street)
+            ).showInfoWindow()
+
         } else {
-            addMarker(map, iconGenerator, "", latLng)
+
+            map.addMarker(MarkerOptions()
+                    .position(latLng)
+                    .title(null)
+            )
         }
 
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, ZOOM_LEVEL))
-    }
-
-    // endregion
-
-    // region UTILITY METHODS
-
-    private fun addMarker(map: GoogleMap, iconGenerator: IconGenerator, text: String?, latLng: LatLng) {
-
-        val markerOptions = MarkerOptions()
-                .icon(BitmapDescriptorFactory.fromBitmap(iconGenerator.makeIcon(text)))
-                .position(latLng)
-                .anchor(iconGenerator.anchorU, iconGenerator.anchorV)
-
-        map.addMarker(markerOptions)
     }
 
     // endregion
