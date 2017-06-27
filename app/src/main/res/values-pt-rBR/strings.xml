@@ -2,7 +2,14 @@
 
     <string name="app_name">Super Pub</string>
 
+    <string name="cancel">Cancelar</string>
+    <string name="location_enabling_label">Acionar serviços de localização.</string>
+    <string name="location_denied_permission_dialog_message">Ative os serviços de localização nas configurações do seu aparelho para obter informações sobre pubs.</string>
+    <string name="location_denied_permission_dialog_title">Serviços de localização desligados.</string>
+    <string name="location_permission_rationale_dialog_message">Isso permite ao Super Pub obter informações sobre a localização de pubs próximos a você.</string>
+    <string name="location_permission_rationale_dialog_title">Permitir ao Super Pub usar a localização de seu dispositivo?</string>
     <string name="login_with_facebook">ENTRAR COM O FACEBOOK</string>
     <string name="no_rating">Sem nota</string>
+    <string name="yes">SIM</string>
 
 </resources>

@@ -2,7 +2,14 @@
 
     <string name="app_name">Super Pub</string>
 
+    <string name="cancel">CANCEL</string>
+    <string name="location_enabling_label">Turn on location services.</string>
+    <string name="location_denied_permission_dialog_message">Turn on location services in your device settings to get pubs information.</string>
+    <string name="location_denied_permission_dialog_title">Location services turned off.</string>
+    <string name="location_permission_rationale_dialog_message">This lets Super Pub to get location information of pubs near you.</string>
+    <string name="location_permission_rationale_dialog_title">Allow Super Pub to use your device location?</string>
     <string name="login_with_facebook">LOG IN WITH FACEBOOK</string>
     <string name="no_rating">No rating</string>
+    <string name="yes">YES</string>
 
 </resources>
