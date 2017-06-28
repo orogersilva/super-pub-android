@@ -3,6 +3,7 @@ package com.orogersilva.superpub.dublin.shared
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.DialogFragment
@@ -45,23 +46,11 @@ object PermissionUtils {
         ActivityCompat.requestPermissions(activity, permissions.toTypedArray(), requestCode)
     }
 
-    fun isPermissionsGranted(permissions: List<String>, grantResults: List<Int>): Boolean {
+    fun isPermissionsGranted(grantResults: List<Int>): Boolean {
 
-        permissions.forEach {
+        grantResults.forEach {
 
-            var permissionGranted = false
-
-            for (i in permissions.indices) {
-
-                if (it.equals(grantResults[i])) {
-
-                    permissionGranted = true
-
-                    break
-                }
-            }
-
-            if (!permissionGranted) return false
+            if (it != PackageManager.PERMISSION_GRANTED) return false
         }
 
         return true

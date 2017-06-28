@@ -171,7 +171,7 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
 
         if (requestCode != ACCESS_LOCATION_PERMISSION_REQUEST_CODE) return
 
-        if (PermissionUtils.isPermissionsGranted(permissions.toList(), grantResults.toList())) {
+        if (PermissionUtils.isPermissionsGranted(grantResults.toList())) {
 
             pubsPresenter.resume()
 
