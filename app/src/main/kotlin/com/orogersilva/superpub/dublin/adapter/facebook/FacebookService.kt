@@ -1,7 +1,7 @@
 package com.orogersilva.superpub.dublin.adapter.facebook
 
 import android.content.Intent
-import com.orogersilva.superpub.dublin.adapter.SocialNetworkingService
+import com.orogersilva.superpub.dublin.domain.service.SocialNetworkingService
 import com.orogersilva.superpub.dublin.adapter.facebook.impl.FacebookAdapterService
 
 /**

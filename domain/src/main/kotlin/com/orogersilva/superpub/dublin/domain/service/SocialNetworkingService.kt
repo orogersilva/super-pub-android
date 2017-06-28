@@ -1,4 +1,4 @@
-package com.orogersilva.superpub.dublin.adapter
+package com.orogersilva.superpub.dublin.domain.service
 
 /**
  * Created by orogersilva on 6/23/2017.
