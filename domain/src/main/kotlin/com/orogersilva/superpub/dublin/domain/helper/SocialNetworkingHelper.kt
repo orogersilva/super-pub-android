@@ -1,9 +1,9 @@
-package com.orogersilva.superpub.dublin.domain.service
+package com.orogersilva.superpub.dublin.domain.helper
 
 /**
  * Created by orogersilva on 6/23/2017.
  */
-interface SocialNetworkingService {
+interface SocialNetworkingHelper {
 
     // region METHODS
 

@@ -8,7 +8,7 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
-import com.orogersilva.superpub.dublin.adapter.facebook.FacebookService
+import com.orogersilva.superpub.dublin.adapter.facebook.FacebookHelper
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedOutScope
 import javax.inject.Inject
 
@@ -16,10 +16,10 @@ import javax.inject.Inject
  * Created by orogersilva on 6/23/2017.
  */
 @LoggedOutScope
-class FacebookAdapterService @Inject constructor(private val loginView: LoginContract.View,
-                                                 private val loginManager: LoginManager,
-                                                 private val callbackManager: CallbackManager,
-                                                 private val currentAccessToken: com.facebook.AccessToken?) : FacebookService {
+class FacebookAdapterHelper @Inject constructor(private val loginView: LoginContract.View,
+                                                private val loginManager: LoginManager,
+                                                private val callbackManager: CallbackManager,
+                                                private val currentAccessToken: com.facebook.AccessToken?) : FacebookHelper {
 
     // region OVERRIDED METHODS
 

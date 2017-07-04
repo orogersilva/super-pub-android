@@ -1,6 +1,6 @@
 package com.orogersilva.superpub.dublin.di.module
 
-import com.orogersilva.superpub.dublin.adapter.facebook.FacebookService
+import com.orogersilva.superpub.dublin.adapter.facebook.FacebookHelper
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginPresenter
@@ -18,7 +18,7 @@ open class LoginPresenterModule(private val loginView: LoginContract.View) {
 
     @Provides @ActivityScope open fun provideLoginView() = loginView
 
-    @Provides @ActivityScope open fun provideLoginPresenter(facebookAdapterService: FacebookService): LoginContract.Presenter =
+    @Provides @ActivityScope open fun provideLoginPresenter(facebookAdapterService: FacebookHelper): LoginContract.Presenter =
             LoginPresenter(loginView, facebookAdapterService)
 
     // endregion

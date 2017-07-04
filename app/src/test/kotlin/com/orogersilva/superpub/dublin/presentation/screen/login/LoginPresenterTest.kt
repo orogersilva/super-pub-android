@@ -2,7 +2,7 @@ package com.orogersilva.superpub.dublin.presentation.screen.login
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
-import com.orogersilva.superpub.dublin.adapter.facebook.FacebookService
+import com.orogersilva.superpub.dublin.adapter.facebook.FacebookHelper
 import com.orogersilva.superpub.dublin.presentation.screen.login.view.LoginActivity
 import org.junit.Before
 import org.junit.Test
@@ -15,7 +15,7 @@ class LoginPresenterTest {
     // region PROPERTIES
 
     private lateinit var loginViewMock: LoginActivity
-    private lateinit var facebookAdapterServiceMock: FacebookService
+    private lateinit var facebookAdapterServiceMock: FacebookHelper
 
     private lateinit var loginPresenter: LoginPresenter
 

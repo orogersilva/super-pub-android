@@ -1,8 +1,8 @@
 package com.orogersilva.superpub.dublin.presentation.screen.login
 
 import android.content.Intent
-import com.orogersilva.superpub.dublin.adapter.facebook.FacebookService
-import com.orogersilva.superpub.dublin.adapter.facebook.impl.FacebookAdapterService
+import com.orogersilva.superpub.dublin.adapter.facebook.FacebookHelper
+import com.orogersilva.superpub.dublin.adapter.facebook.impl.FacebookAdapterHelper
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import javax.inject.Inject
 
@@ -11,7 +11,7 @@ import javax.inject.Inject
  */
 @ActivityScope
 class LoginPresenter @Inject constructor(private val loginView: LoginContract.View,
-                                         private val facebookAdapterService: FacebookService) : LoginContract.Presenter {
+                                         private val facebookAdapterService: FacebookHelper) : LoginContract.Presenter {
 
     // region INITIALIZER BLOCK
 
@@ -19,7 +19,7 @@ class LoginPresenter @Inject constructor(private val loginView: LoginContract.Vi
 
         loginView.setPresenter(this)
 
-        facebookAdapterService.registerCallback(object : FacebookAdapterService.AdapterCallback {
+        facebookAdapterService.registerCallback(object : FacebookAdapterHelper.AdapterCallback {
 
             override fun onCancel() {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
