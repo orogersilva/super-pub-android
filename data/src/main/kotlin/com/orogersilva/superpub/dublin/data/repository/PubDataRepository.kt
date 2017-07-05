@@ -6,7 +6,9 @@ import com.orogersilva.superpub.dublin.data.cache.PubCache
 import com.orogersilva.superpub.dublin.data.di.qualifier.Local
 import com.orogersilva.superpub.dublin.data.di.qualifier.Remote
 import com.orogersilva.superpub.dublin.data.entity.mapper.PubEntityMapper
+import com.orogersilva.superpub.dublin.data.local.UserPreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
+import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
 import io.reactivex.Flowable
@@ -17,6 +19,7 @@ import javax.inject.Inject
  */
 @ActivityScope
 class PubDataRepository @Inject constructor(private var pubCache: PubCache,
+                                            private var userPreferencesDataSource: PreferencesDataSource,
                                             private @Local var pubLocalDataSource: PubDataSource?,
                                             private @Remote var pubRemoteDataSource: PubDataSource?) : PubRepository {
 
@@ -25,6 +28,7 @@ class PubDataRepository @Inject constructor(private var pubCache: PubCache,
     fun destroyInstance() {
 
         pubCache.clear()
+        userPreferencesDataSource.clear()
 
         pubLocalDataSource = null
         pubRemoteDataSource = null
@@ -62,6 +66,8 @@ class PubDataRepository @Inject constructor(private var pubCache: PubCache,
     override fun savePubs(pubs: List<Pub>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    override fun getLastLocation(): Flowable<Pair<Double, Double>> = Flowable.just(userPreferencesDataSource.getLastLocation())
 
     // endregion
 }

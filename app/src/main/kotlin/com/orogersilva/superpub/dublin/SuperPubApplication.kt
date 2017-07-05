@@ -90,7 +90,7 @@ open class SuperPubApplication : Application() {
 
             loggedInComponent = applicationComponent
                     .newLoggedinComponent(CacheModule(), DatabaseModule(provideRealmInstance),
-                            GoogleApiModule(), LocationSensorModule(), NetworkModule(),
+                            GoogleApiModule(), LocationSensorModule(), NetworkModule(), PreferencesModule(),
                             SchedulerProviderModule())
         }
 

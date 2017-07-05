@@ -14,6 +14,7 @@ import dagger.Subcomponent
         GoogleApiModule::class,
         LocationSensorModule::class,
         NetworkModule::class,
+        PreferencesModule::class,
         SchedulerProviderModule::class))
 interface LoggedInComponent {
 
@@ -24,6 +25,7 @@ interface LoggedInComponent {
                                  calculateSuperPubRatingUseCaseModule: CalculateSuperPubRatingUseCaseModule,
                                  pubRepositoryModule: PubRepositoryModule,
                                  pubsAdapterModule: PubsAdapterModule,
+                                 pubsLocationBroadcastReceiverModule: PubsLocationBroadcastReceiverModule,
                                  pubsPresenterModule: PubsPresenterModule): PubsActivityComponent
 
     fun newPubDetailsActivityComponent(pubDetailsPresenterModule: PubDetailsPresenterModule): PubDetailsActivityComponent

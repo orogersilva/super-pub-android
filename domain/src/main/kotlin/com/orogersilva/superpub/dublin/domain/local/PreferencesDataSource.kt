@@ -1,5 +1,7 @@
 package com.orogersilva.superpub.dublin.domain.local
 
+import io.reactivex.Flowable
+
 /**
  * Created by orogersilva on 7/4/2017.
  */
@@ -10,6 +12,8 @@ interface PreferencesDataSource {
     fun getLastLocation(): Pair<Double, Double>
 
     fun saveLocation(lat: Double, lng: Double)
+
+    fun clear()
 
     // endregion
 }

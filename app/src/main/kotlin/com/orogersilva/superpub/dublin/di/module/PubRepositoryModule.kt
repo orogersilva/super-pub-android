@@ -7,10 +7,12 @@ import com.orogersilva.superpub.dublin.data.cache.PubCache
 import com.orogersilva.superpub.dublin.data.di.qualifier.Local
 import com.orogersilva.superpub.dublin.data.di.qualifier.Remote
 import com.orogersilva.superpub.dublin.data.local.PubLocalDataSource
+import com.orogersilva.superpub.dublin.data.local.UserPreferencesDataSource
 import com.orogersilva.superpub.dublin.data.remote.PubRemoteDataSource
 import com.orogersilva.superpub.dublin.data.repository.PubDataRepository
 import com.orogersilva.superpub.dublin.domain.di.qualifier.AccessToken
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
+import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
 import dagger.Module
 import dagger.Provides
@@ -26,9 +28,10 @@ open class PubRepositoryModule {
     // region PROVIDERS
 
     @Provides @ActivityScope open fun providePubDataRepository(pubCache: PubCache,
+                                                               userPreferencesDataSource: PreferencesDataSource,
                                                                @Local pubLocalDataSource: PubDataSource?,
                                                                @Remote pubRemoteDataSource: PubDataSource?): PubRepository =
-            PubDataRepository(pubCache, pubLocalDataSource, pubRemoteDataSource)
+            PubDataRepository(pubCache, userPreferencesDataSource, pubLocalDataSource, pubRemoteDataSource)
 
     @Provides @ActivityScope @Local open fun providePubLocalDataSource(realmConfiguration: RealmConfiguration?): PubDataSource? = PubLocalDataSource(realmConfiguration)
 

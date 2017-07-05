@@ -5,6 +5,7 @@ import com.orogersilva.superpub.dublin.data.BaseTestCase
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.cache.PubCache
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
+import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import io.reactivex.Flowable
 import io.reactivex.subscribers.TestSubscriber
@@ -22,6 +23,7 @@ class PubDataRepositoryTest : BaseTestCase() {
     private val RESOURCES_FILE_NAME = "pubs.json"
 
     private lateinit var pubCacheMock: PubCache
+    private lateinit var userPreferencesDataSource: PreferencesDataSource
 
     private var pubLocalDataSourceMock: PubDataSource? = null
     private var pubRemoteDataSourceMock: PubDataSource? = null
@@ -35,10 +37,12 @@ class PubDataRepositoryTest : BaseTestCase() {
     @Before fun setup() {
 
         pubCacheMock = mock<PubCache>()
+        userPreferencesDataSource = mock<PreferencesDataSource>()
         pubLocalDataSourceMock = mock<PubDataSource>()
         pubRemoteDataSourceMock = mock<PubDataSource>()
 
-        pubDataRepository = PubDataRepository(pubCacheMock, pubLocalDataSourceMock, pubRemoteDataSourceMock)
+        pubDataRepository = PubDataRepository(pubCacheMock, userPreferencesDataSource,
+                pubLocalDataSourceMock, pubRemoteDataSourceMock)
     }
 
     // endregion

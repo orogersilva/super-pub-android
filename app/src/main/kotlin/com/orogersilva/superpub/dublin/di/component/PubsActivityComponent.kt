@@ -15,6 +15,7 @@ import dagger.Subcomponent
         CalculateSuperPubRatingUseCaseModule::class,
         PubRepositoryModule::class,
         PubsAdapterModule::class,
+        PubsLocationBroadcastReceiverModule::class,
         PubsPresenterModule::class))
 interface PubsActivityComponent {
 

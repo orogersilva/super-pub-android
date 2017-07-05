@@ -2,6 +2,7 @@ package com.orogersilva.superpub.dublin.presentation.screen.pubs.view
 
 import android.Manifest
 import android.content.Intent
+import android.content.IntentFilter
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -11,6 +12,8 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import com.orogersilva.superpub.dublin.R
+import com.orogersilva.superpub.dublin.device.location.LocationBroadcastReceiver
+import com.orogersilva.superpub.dublin.device.location.LocationService
 import com.orogersilva.superpub.dublin.di.component.PubsActivityComponent
 import com.orogersilva.superpub.dublin.di.module.*
 import com.orogersilva.superpub.dublin.presentation.model.PubModel
@@ -36,8 +39,11 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
     @Inject lateinit var pubsAdapter: PubsAdapter
     @Inject lateinit var pubsLayoutManager: RecyclerView.LayoutManager
 
-    private var pubsActivityComponent: PubsActivityComponent? = null
+    @Inject lateinit var locationBroadcastReceiver: LocationBroadcastReceiver
 
+    private lateinit var locationServiceIntent: Intent
+
+    private var pubsActivityComponent: PubsActivityComponent? = null
 
     private val ACCESS_LOCATION_PERMISSION_REQUEST_CODE = 1
     private val APPLICATION_DETAILS_SETTINGS_REQUEST_CODE = 2
@@ -63,7 +69,7 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
         pubsActivityComponent = app().createLoggedInComponent(true)
                 ?.newPubsActivityComponent(GetPubsUseCaseModule(), GetLastLocationUseCaseModule(),
                         CalculateSuperPubRatingUseCaseModule(), PubRepositoryModule(),
-                        PubsAdapterModule(), PubsPresenterModule(this))
+                        PubsAdapterModule(), PubsLocationBroadcastReceiverModule(), PubsPresenterModule(this))
 
         pubsActivityComponent?.inject(this)
 
@@ -74,6 +80,8 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
         pubsSwipeRefreshLayout.setColorSchemeColors(
                 ContextCompat.getColor(this, R.color.gold), ContextCompat.getColor(this, R.color.black)
         )
+
+        locationServiceIntent = Intent(this, LocationService::class.java)
     }
 
     override fun onStart() {
@@ -101,6 +109,12 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
 
             hasPermissionToAccessDeviceLocation = true
         }
+
+        val locationIntentFilter = IntentFilter("com.orogersilva.superpub.dublin.device.location.LocationBroadcastReceiver")
+
+        registerReceiver(locationBroadcastReceiver, locationIntentFilter)
+
+        if (hasPermissionToAccessDeviceLocation) startService(locationServiceIntent)
     }
 
     override fun onResume() {
@@ -108,6 +122,20 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
         super.onResume()
 
         if (hasPermissionToAccessDeviceLocation) pubsPresenter.resume()
+    }
+
+    override fun onPause() {
+
+        super.onPause()
+    }
+
+    override fun onStop() {
+
+        super.onStop()
+
+        stopService(locationServiceIntent)
+
+        unregisterReceiver(locationBroadcastReceiver)
     }
 
     override fun onDestroy() {
@@ -172,6 +200,8 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
         if (requestCode != ACCESS_LOCATION_PERMISSION_REQUEST_CODE) return
 
         if (PermissionUtils.isPermissionsGranted(grantResults.toList())) {
+
+            startService(locationServiceIntent)
 
             pubsPresenter.resume()
 

@@ -20,5 +20,7 @@ interface PubRepository {
 
     fun savePubs(pubs: List<Pub>)
 
+    fun getLastLocation(): Flowable<Pair<Double, Double>>
+
     // endregion
 }

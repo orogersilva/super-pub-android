@@ -1,6 +1,7 @@
 package com.orogersilva.superpub.dublin.data.local
 
 import android.content.SharedPreferences
+import android.util.Log
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
 import javax.inject.Inject
@@ -21,16 +22,26 @@ class UserPreferencesDataSource @Inject constructor(private val sharedPreference
         val lat = java.lang.Double.longBitsToDouble(sharedPreferences.getLong(latPrefKey, 0L))
         val lng = java.lang.Double.longBitsToDouble(sharedPreferences.getLong(lngPrefKey, 0L))
 
+        Log.d("UsPreferencesDataSource", "getLastLocation -> Lat: $lat; Lng: $lng")
+
         return Pair(lat, lng)
     }
 
     override fun saveLocation(lat: Double, lng: Double) {
 
-        if (isValidLocation(lat, lng)) throw IllegalArgumentException()
+        Log.d("UsPreferencesDataSource", "saveLocation -> Lat: $lat; Lng: $lng")
+
+        if (!isValidLocation(lat, lng)) throw IllegalArgumentException()
 
         sharedPreferencesEditor.putLong(latPrefKey, java.lang.Double.doubleToRawLongBits(lat))
         sharedPreferencesEditor.putLong(lngPrefKey, java.lang.Double.doubleToRawLongBits(lng))
 
+        sharedPreferencesEditor.commit()
+    }
+
+    override fun clear() {
+
+        sharedPreferencesEditor.clear()
         sharedPreferencesEditor.commit()
     }
 

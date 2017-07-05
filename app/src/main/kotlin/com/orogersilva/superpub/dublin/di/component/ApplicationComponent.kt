@@ -22,6 +22,7 @@ interface ApplicationComponent {
                              googleApiModule: GoogleApiModule,
                              locationSensorModule: LocationSensorModule,
                              networkModule: NetworkModule,
+                             preferencesModule: PreferencesModule,
                              schedulerProviderModule: SchedulerProviderModule): LoggedInComponent
 
     // endregion
