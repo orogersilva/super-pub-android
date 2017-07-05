@@ -69,7 +69,7 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
         pubsActivityComponent = app().createLoggedInComponent(true)
                 ?.newPubsActivityComponent(GetPubsUseCaseModule(), GetLastLocationUseCaseModule(),
                         CalculateSuperPubRatingUseCaseModule(), PubRepositoryModule(),
-                        PubsAdapterModule(), PubsLocationBroadcastReceiverModule(), PubsPresenterModule(this))
+                        PubsAdapterModule(), PubsLocationBroadcastReceiverModule(), PubsPresenterModule(this), UserRepositoryModule())
 
         pubsActivityComponent?.inject(this)
 
@@ -110,7 +110,7 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
             hasPermissionToAccessDeviceLocation = true
         }
 
-        val locationIntentFilter = IntentFilter("com.orogersilva.superpub.dublin.device.location.LocationBroadcastReceiver")
+        val locationIntentFilter = IntentFilter(getString(R.string.get_location_action))
 
         registerReceiver(locationBroadcastReceiver, locationIntentFilter)
 

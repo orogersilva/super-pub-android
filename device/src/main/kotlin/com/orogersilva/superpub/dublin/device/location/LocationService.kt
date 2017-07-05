@@ -5,10 +5,10 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import android.util.Log
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
+import com.orogersilva.superpub.dublin.device.R
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 
 /**
@@ -49,12 +49,10 @@ class LocationService : Service() {
     @SuppressLint("MissingPermission")
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
 
-        val locationIntent = Intent("com.orogersilva.superpub.dublin.device.location.LocationBroadcastReceiver")
+        val locationIntent = Intent(getString(R.string.get_location_action))
 
         locationPendingIntent = PendingIntent.getBroadcast(this, LOCATION_SEND_BROADCAST_REQUEST_CODE,
                 locationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-
-        Log.d("LocationService", "Ready for requestLocationUpdates...")
 
         fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationPendingIntent)
 

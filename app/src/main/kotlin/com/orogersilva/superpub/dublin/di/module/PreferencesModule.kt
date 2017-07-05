@@ -15,16 +15,30 @@ import dagger.Provides
 @Module
 open class PreferencesModule {
 
+    // region PROPERTIES
+
+    private val LOCATION_PREF_FILE_KEY = "com.orogersilva.superpub.dublin.LOCATION_PREF_FILE_KEY"
+
+    private val LAT_PREF_KEY = "LAT_PREF_KEY"
+    private val LNG_PREF_KEY = "LNG_PREF_KEY"
+
+    // endregion
+
     // region PROVIDERS
 
     @Provides @LoggedInScope open fun provideSharedPreferences(context: Context): SharedPreferences =
-            context.getSharedPreferences("com.orogersilva.superpub.dublin.LOCATION_PREF_FILE_KEY", Context.MODE_PRIVATE)
+            context.getSharedPreferences(LOCATION_PREF_FILE_KEY, Context.MODE_PRIVATE)
 
-    @Provides @LoggedInScope open fun provideSharedPreferencesEditor(sharedPreferences: SharedPreferences) = sharedPreferences.edit()
+    @Provides @LoggedInScope open fun provideSharedPreferencesEditor(sharedPreferences: SharedPreferences): SharedPreferences.Editor =
+            sharedPreferences.edit()
+
+    @Provides @LoggedInScope open fun provideUserLocationCallback(): UserPreferencesDataSource.UserLocationCallback =
+            UserPreferencesDataSource.UserLocationCallback(LAT_PREF_KEY, LNG_PREF_KEY)
 
     @Provides @LoggedInScope open fun provideUserPreferencesDataSource(sharedPreferences: SharedPreferences,
-                                                                       sharedPreferencesEditor: SharedPreferences.Editor): PreferencesDataSource =
-            UserPreferencesDataSource(sharedPreferences, sharedPreferencesEditor, "LAT_PREF_KEY", "LNG_PREF_KEY")
+                                                                       sharedPreferencesEditor: SharedPreferences.Editor,
+                                                                       userLocationCallback: UserPreferencesDataSource.UserLocationCallback): PreferencesDataSource =
+            UserPreferencesDataSource(sharedPreferences, sharedPreferencesEditor, LAT_PREF_KEY, LNG_PREF_KEY, userLocationCallback)
 
     // endregion
 }

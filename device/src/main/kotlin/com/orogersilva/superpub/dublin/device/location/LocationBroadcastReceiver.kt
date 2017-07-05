@@ -19,8 +19,6 @@ class LocationBroadcastReceiver @Inject constructor(private val preferencesDataS
 
     override fun onReceive(context: Context?, intent: Intent?) {
 
-        Log.d("LocBroadcastReceiver", "onReceive called!")
-
         if (LocationResult.hasResult(intent)) {
 
             val location = LocationResult.extractResult(intent).lastLocation

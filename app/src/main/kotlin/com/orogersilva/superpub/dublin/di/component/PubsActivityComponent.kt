@@ -16,7 +16,8 @@ import dagger.Subcomponent
         PubRepositoryModule::class,
         PubsAdapterModule::class,
         PubsLocationBroadcastReceiverModule::class,
-        PubsPresenterModule::class))
+        PubsPresenterModule::class,
+        UserRepositoryModule::class))
 interface PubsActivityComponent {
 
     // region INJECTORS

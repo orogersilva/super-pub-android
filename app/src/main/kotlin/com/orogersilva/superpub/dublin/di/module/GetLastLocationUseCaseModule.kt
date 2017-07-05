@@ -7,6 +7,7 @@ import com.orogersilva.superpub.dublin.domain.interactor.impl.GetLastLocationUse
 import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.manager.LocationSensor
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
+import com.orogersilva.superpub.dublin.domain.repository.UserRepository
 import dagger.Module
 import dagger.Provides
 
@@ -19,8 +20,8 @@ open class GetLastLocationUseCaseModule {
 
     // region PROVIDERS
 
-    @Provides @ActivityScope open fun provideGetLastLocationUseCase(pubRepository: PubRepository): GetLastLocationUseCase =
-            GetLastLocationUseCaseImpl(pubRepository)
+    @Provides @ActivityScope open fun provideGetLastLocationUseCase(userRepository: UserRepository): GetLastLocationUseCase =
+            GetLastLocationUseCaseImpl(userRepository)
 
     // endregion
 }

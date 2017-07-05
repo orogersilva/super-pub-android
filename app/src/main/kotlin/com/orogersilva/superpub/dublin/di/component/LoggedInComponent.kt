@@ -26,7 +26,8 @@ interface LoggedInComponent {
                                  pubRepositoryModule: PubRepositoryModule,
                                  pubsAdapterModule: PubsAdapterModule,
                                  pubsLocationBroadcastReceiverModule: PubsLocationBroadcastReceiverModule,
-                                 pubsPresenterModule: PubsPresenterModule): PubsActivityComponent
+                                 pubsPresenterModule: PubsPresenterModule,
+                                 userRepositoryModule: UserRepositoryModule): PubsActivityComponent
 
     fun newPubDetailsActivityComponent(pubDetailsPresenterModule: PubDetailsPresenterModule): PubDetailsActivityComponent
 

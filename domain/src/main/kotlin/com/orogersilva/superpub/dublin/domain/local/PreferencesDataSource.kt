@@ -9,7 +9,7 @@ interface PreferencesDataSource {
 
     // region METHODS
 
-    fun getLastLocation(): Pair<Double, Double>
+    fun getLastLocation(): Flowable<Pair<Double, Double>>
 
     fun saveLocation(lat: Double, lng: Double)
 
