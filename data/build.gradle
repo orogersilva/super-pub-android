@@ -17,12 +17,12 @@ android {
 
         debug {
 
-            buildConfigField "Long", "DATABASE_SCHEMA_VERSION", "0"
+            buildConfigField "Long", "DATABASE_SCHEMA_VERSION", "0L"
         }
 
         release {
 
-            buildConfigField "Long", "DATABASE_SCHEMA_VERSION", "0"
+            buildConfigField "Long", "DATABASE_SCHEMA_VERSION", "0L"
 
             minifyEnabled false
             // shrinkResources true
