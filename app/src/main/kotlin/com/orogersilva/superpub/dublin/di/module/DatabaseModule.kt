@@ -1,6 +1,7 @@
 package com.orogersilva.superpub.dublin.di.module
 
 import android.content.Context
+import com.orogersilva.superpub.dublin.BuildConfig
 import com.orogersilva.superpub.dublin.di.qualifier.DatabaseName
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import dagger.Module
@@ -25,8 +26,17 @@ open class DatabaseModule(private val provideRealmInstance: Boolean) {
 
         Realm.init(context)
 
+        if (BuildConfig.DEBUG) {
+
+            return RealmConfiguration.Builder()
+                    .name(databaseName)
+                    .deleteRealmIfMigrationNeeded()
+                    .build()
+        }
+
         return RealmConfiguration.Builder()
                 .name(databaseName)
+                .schemaVersion(com.orogersilva.superpub.dublin.data.BuildConfig.DATABASE_SCHEMA_VERSION)
                 .build()
     }
 

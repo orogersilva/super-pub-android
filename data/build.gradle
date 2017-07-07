@@ -15,7 +15,14 @@ android {
 
     buildTypes {
 
+        debug {
+
+            buildConfigField "Long", "DATABASE_SCHEMA_VERSION", "0"
+        }
+
         release {
+
+            buildConfigField "Long", "DATABASE_SCHEMA_VERSION", "0"
 
             minifyEnabled false
             // shrinkResources true
