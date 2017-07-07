@@ -20,7 +20,6 @@ interface ApplicationComponent {
     fun newLoggedinComponent(cacheModule: CacheModule,
                              databaseModule: DatabaseModule,
                              googleApiModule: GoogleApiModule,
-                             locationSensorModule: LocationSensorModule,
                              networkModule: NetworkModule,
                              preferencesModule: PreferencesModule,
                              schedulerProviderModule: SchedulerProviderModule): LoggedInComponent

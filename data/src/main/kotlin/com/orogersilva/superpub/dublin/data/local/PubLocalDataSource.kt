@@ -15,20 +15,11 @@ import javax.inject.Inject
 @LoggedInScope
 class PubLocalDataSource @Inject constructor(private var realmConfiguration: RealmConfiguration?) : PubDataSource {
 
-    // region DESTRUCTOR
-
-    fun destroyInstance() {
-
-        realmConfiguration = null
-    }
-
-    // endregion
-
     // region OVERRIDED METHODS
 
     @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
-                         fields: String, displayedDataTimestamp: Long): Flowable<List<PubEntity>>? {
+                         fields: String, displayedDataTimestamp: Long): Flowable<List<PubEntity>> {
 
         val realm = Realm.getInstance(realmConfiguration)
 
@@ -51,7 +42,7 @@ class PubLocalDataSource @Inject constructor(private var realmConfiguration: Rea
 
         } finally {
 
-            realm?.let { it.close() }
+            realm.let { it.close() }
         }
     }
 

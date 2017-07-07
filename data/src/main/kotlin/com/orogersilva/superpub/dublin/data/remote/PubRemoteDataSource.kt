@@ -15,24 +15,15 @@ import javax.inject.Inject
  */
 @LoggedInScope
 class PubRemoteDataSource @Inject constructor(private @AccessToken val accessToken: String?,
-                                              private var apiClient: SearchApiClient?) : PubDataSource {
-
-    // region DESTRUCTOR
-
-    fun destroyInstance() {
-
-        apiClient = null
-    }
-
-    // endregion
+                                              private var apiClient: SearchApiClient) : PubDataSource {
 
     // region OVERRIDED METHODS
 
     @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
-                         fields: String, displayedDataTimestamp: Long): Flowable<List<PubEntity>>? =
-            apiClient?.getPubs(query, type, fromLocation, radius, limit, fields, accessToken)
-                    ?.flatMap {
+                         fields: String, displayedDataTimestamp: Long): Flowable<List<PubEntity>> =
+            apiClient.getPubs(query, type, fromLocation, radius, limit, fields, accessToken)
+                    .flatMap {
                         (data) -> Flowable.just(PubEntityMapper.transformPubsDataList(data))
                     }
 

@@ -5,6 +5,7 @@ import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
 import io.reactivex.Flowable
+import org.reactivestreams.Publisher
 import javax.inject.Inject
 
 /**
@@ -15,7 +16,7 @@ class GetPubsUseCaseImpl @Inject constructor(private val pubRepository: PubRepos
 
     // region OVERRIDED METHODS
 
-    override fun getPubs(lat: Double, lng: Double, getNewestPubs: Boolean): Flowable<Pub>? {
+    override fun getPubs(lat: Double, lng: Double, getNewestPubs: Boolean): Flowable<Pub> {
 
         if (!isValidLocation(lat, lng)) return Flowable.error(IllegalArgumentException())
 

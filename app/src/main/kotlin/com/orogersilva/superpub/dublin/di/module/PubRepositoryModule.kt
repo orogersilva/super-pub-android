@@ -27,15 +27,15 @@ open class PubRepositoryModule {
 
     // region PROVIDERS
 
-    @Provides @ActivityScope @Local open fun providePubLocalDataSource(realmConfiguration: RealmConfiguration?): PubDataSource? = PubLocalDataSource(realmConfiguration)
+    @Provides @ActivityScope @Local open fun providePubLocalDataSource(realmConfiguration: RealmConfiguration?): PubDataSource = PubLocalDataSource(realmConfiguration)
 
     @Provides @ActivityScope @Remote open fun providePubRemoteDataSource(@AccessToken accessToken: String?,
-                                                                         baseEndpoint: String): PubDataSource? =
+                                                                         baseEndpoint: String): PubDataSource =
             PubRemoteDataSource(accessToken, RestClient.getApiClient(SearchApiClient::class.java, baseEndpoint))
 
     @Provides @ActivityScope open fun providePubDataRepository(pubCache: PubCache,
-                                                               @Local pubLocalDataSource: PubDataSource?,
-                                                               @Remote pubRemoteDataSource: PubDataSource?): PubRepository =
+                                                               @Local pubLocalDataSource: PubDataSource,
+                                                               @Remote pubRemoteDataSource: PubDataSource): PubRepository =
             PubDataRepository(pubCache, pubLocalDataSource, pubRemoteDataSource)
 
     // endregion

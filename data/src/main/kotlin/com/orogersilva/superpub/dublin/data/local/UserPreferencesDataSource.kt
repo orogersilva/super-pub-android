@@ -34,7 +34,7 @@ class UserPreferencesDataSource @Inject constructor(private val sharedPreference
 
         return Flowable.create(object : FlowableOnSubscribe<Pair<Double, Double>> {
 
-            override fun subscribe(emitter: FlowableEmitter<Pair<Double, Double>>?) {
+            override fun subscribe(emitter: FlowableEmitter<Pair<Double, Double>>) {
 
                 userLocationCallback.setListener(emitter)
 

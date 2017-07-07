@@ -34,7 +34,8 @@ class PubLocalDataSourceTest {
     companion object {
 
         private lateinit var context: Context
-        private var pubLocalDataSource: PubLocalDataSource? = null
+
+        private lateinit var pubLocalDataSource: PubLocalDataSource
 
         @BeforeClass @JvmStatic fun setupClass() {
 
@@ -51,8 +52,7 @@ class PubLocalDataSourceTest {
 
         @AfterClass @JvmStatic fun teardownClass() {
 
-            pubLocalDataSource?.destroyInstance()
-            pubLocalDataSource = null
+            pubLocalDataSource.deletePubs()
         }
     }
 
@@ -77,8 +77,8 @@ class PubLocalDataSourceTest {
 
         // ACT
 
-        pubLocalDataSource?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
-                ?.subscribe(testSubscriber)
+        pubLocalDataSource.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
+                .subscribe(testSubscriber)
 
         // ASSERT
 
@@ -116,8 +116,8 @@ class PubLocalDataSourceTest {
 
         // ACT
 
-        pubLocalDataSource?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
-                ?.subscribe(testSubscriber)
+        pubLocalDataSource.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE, DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE)
+                .subscribe(testSubscriber)
 
         // ASSERT
 
@@ -138,7 +138,7 @@ class PubLocalDataSourceTest {
 
         // ACT
 
-        pubLocalDataSource?.savePubs(expectedPubs)
+        pubLocalDataSource.savePubs(expectedPubs)
 
         // ASSERT
 
@@ -163,7 +163,7 @@ class PubLocalDataSourceTest {
 
         // ACT
 
-        pubLocalDataSource?.savePubs(expectedPubs)
+        pubLocalDataSource.savePubs(expectedPubs)
 
         // ASSERT
 
@@ -186,7 +186,7 @@ class PubLocalDataSourceTest {
 
     @After fun teardown() {
 
-        pubLocalDataSource?.deletePubs()
+        pubLocalDataSource.deletePubs()
     }
 
     // endregion

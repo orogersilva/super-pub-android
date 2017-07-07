@@ -12,7 +12,6 @@ import dagger.Subcomponent
         CacheModule::class,
         DatabaseModule::class,
         GoogleApiModule::class,
-        LocationSensorModule::class,
         NetworkModule::class,
         PreferencesModule::class,
         SchedulerProviderModule::class))

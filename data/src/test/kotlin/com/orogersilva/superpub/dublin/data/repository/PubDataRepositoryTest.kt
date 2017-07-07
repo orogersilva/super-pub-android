@@ -25,10 +25,10 @@ class PubDataRepositoryTest : BaseTestCase() {
     private lateinit var pubCacheMock: PubCache
     private lateinit var userPreferencesDataSource: PreferencesDataSource
 
-    private var pubLocalDataSourceMock: PubDataSource? = null
-    private var pubRemoteDataSourceMock: PubDataSource? = null
+    private lateinit var pubLocalDataSourceMock: PubDataSource
+    private lateinit var pubRemoteDataSourceMock: PubDataSource
 
-    private var pubDataRepository: PubDataRepository? = null
+    private lateinit var pubDataRepository: PubDataRepository
 
     // endregion
 
@@ -41,8 +41,7 @@ class PubDataRepositoryTest : BaseTestCase() {
         pubLocalDataSourceMock = mock<PubDataSource>()
         pubRemoteDataSourceMock = mock<PubDataSource>()
 
-        pubDataRepository = PubDataRepository(pubCacheMock, userPreferencesDataSource,
-                pubLocalDataSourceMock, pubRemoteDataSourceMock)
+        pubDataRepository = PubDataRepository(pubCacheMock, pubLocalDataSourceMock, pubRemoteDataSourceMock)
     }
 
     // endregion
@@ -61,20 +60,20 @@ class PubDataRepositoryTest : BaseTestCase() {
         val networkData = Flowable.empty<List<PubEntity>>()
 
         whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
-        whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
-        whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
+        whenever(pubLocalDataSourceMock.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
+        whenever(pubRemoteDataSourceMock.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
         val testSubscriber = TestSubscriber<Pub>()
 
         // ACT
 
-        pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE)
-                ?.subscribe(testSubscriber)
+        pubDataRepository.getPubs(fromLocation = FROM_LOCATION_VALUE)
+                .subscribe(testSubscriber)
 
         // ASSERT
 
         verify(pubCacheMock, times(1)).clear()
-        verify(pubLocalDataSourceMock, times(1))?.deletePubs()
+        verify(pubLocalDataSourceMock, times(1)).deletePubs()
 
         testSubscriber.awaitTerminalEvent()
 
@@ -99,15 +98,15 @@ class PubDataRepositoryTest : BaseTestCase() {
         val networkData = Flowable.empty<List<PubEntity>>()
 
         whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
-        whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
-        whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
+        whenever(pubLocalDataSourceMock.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
+        whenever(pubRemoteDataSourceMock.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
         val testSubscriber = TestSubscriber<Pub>()
 
         // ACT
 
-        pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE, getDataFromRemote = false)
-                ?.subscribe(testSubscriber)
+        pubDataRepository.getPubs(fromLocation = FROM_LOCATION_VALUE, getDataFromRemote = false)
+                .subscribe(testSubscriber)
 
         // ASSERT
 
@@ -137,15 +136,15 @@ class PubDataRepositoryTest : BaseTestCase() {
         val networkData = Flowable.empty<List<PubEntity>>()
 
         whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
-        whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
-        whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
+        whenever(pubLocalDataSourceMock.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
+        whenever(pubRemoteDataSourceMock.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
         val testSubscriber = TestSubscriber<Pub>()
 
         // ACT
 
-        pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE, getDataFromRemote = false)
-                ?.subscribe(testSubscriber)
+        pubDataRepository.getPubs(fromLocation = FROM_LOCATION_VALUE, getDataFromRemote = false)
+                .subscribe(testSubscriber)
 
         // ASSERT
 
@@ -177,27 +176,27 @@ class PubDataRepositoryTest : BaseTestCase() {
         val networkData = Flowable.just(expectedPubsList.toList())
 
         whenever(pubCacheMock.getPubs()).thenReturn(cachedData)
-        whenever(pubLocalDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
-        whenever(pubRemoteDataSourceMock?.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
+        whenever(pubLocalDataSourceMock.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(diskData)
+        whenever(pubRemoteDataSourceMock.getPubs(fromLocation = FROM_LOCATION_VALUE)).thenReturn(networkData)
 
         val testSubscriber = TestSubscriber<Pub>()
 
         // ACT
 
-        pubDataRepository?.getPubs(fromLocation = FROM_LOCATION_VALUE)
-                ?.subscribe(testSubscriber)
+        pubDataRepository.getPubs(fromLocation = FROM_LOCATION_VALUE)
+                .subscribe(testSubscriber)
 
         // ASSERT
 
         verify(pubCacheMock, times(1)).clear()
-        verify(pubLocalDataSourceMock, times(1))?.deletePubs()
+        verify(pubLocalDataSourceMock, times(1)).deletePubs()
 
         testSubscriber.awaitTerminalEvent()
 
         verify(pubCacheMock, times(1)).savePubs(expectedPubsList)
 
         verify(pubCacheMock, times(2)).getPubs()
-        verify(pubLocalDataSourceMock, times(1))?.savePubs(any())   // TODO: Review this.
+        verify(pubLocalDataSourceMock, times(1)).savePubs(any())   // TODO: Review this.
 
         testSubscriber.assertComplete()
                 .assertNoErrors()
@@ -213,8 +212,7 @@ class PubDataRepositoryTest : BaseTestCase() {
 
     @After fun teardown() {
 
-        pubDataRepository?.destroyInstance()
-        pubDataRepository = null
+        pubDataRepository.destroyInstance()
     }
 
     // endregion

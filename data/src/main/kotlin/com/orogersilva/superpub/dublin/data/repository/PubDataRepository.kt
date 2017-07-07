@@ -19,17 +19,15 @@ import javax.inject.Inject
  */
 @ActivityScope
 class PubDataRepository @Inject constructor(private var pubCache: PubCache,
-                                            private @Local var pubLocalDataSource: PubDataSource?,
-                                            private @Remote var pubRemoteDataSource: PubDataSource?) : PubRepository {
+                                            private @Local var pubLocalDataSource: PubDataSource,
+                                            private @Remote var pubRemoteDataSource: PubDataSource) : PubRepository {
 
     // region DESTRUCTOR
 
     fun destroyInstance() {
 
         pubCache.clear()
-
-        pubLocalDataSource = null
-        pubRemoteDataSource = null
+        pubLocalDataSource.deletePubs()
     }
 
     // endregion
@@ -38,27 +36,27 @@ class PubDataRepository @Inject constructor(private var pubCache: PubCache,
 
     @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int,
-                         limit: Int, fields: String, getDataFromRemote: Boolean): Flowable<Pub>? {
+                         limit: Int, fields: String, getDataFromRemote: Boolean): Flowable<Pub> {
 
         if (getDataFromRemote) {
 
             pubCache.clear()
-            pubLocalDataSource?.deletePubs()
+            pubLocalDataSource.deletePubs()
         }
 
         return Flowable.concat(Flowable.just(pubCache.getPubs()),
-                pubLocalDataSource?.getPubs(query, type, fromLocation, radius, limit, fields)
-                        ?.doOnNext {
+                pubLocalDataSource.getPubs(query, type, fromLocation, radius, limit, fields)
+                        .doOnNext {
                             pubCache.savePubs(it)
                         },
-                pubRemoteDataSource?.getPubs(query, type, fromLocation, radius, limit, fields)
-                        ?.doOnNext {
+                pubRemoteDataSource.getPubs(query, type, fromLocation, radius, limit, fields)
+                        .doOnNext {
                             pubCache.savePubs(it)
-                            pubLocalDataSource?.savePubs(pubCache.getPubs())
+                            pubLocalDataSource.savePubs(pubCache.getPubs())
                         })
-                ?.filter { pubs -> pubs != null && !pubs.isEmpty() }
-                ?.take(1)
-                ?.flatMap { pubsEntityList -> Flowable.fromIterable(PubEntityMapper.transformPubEntityList(pubsEntityList)) }
+                .filter { pubs -> !pubs.isEmpty() }
+                .take(1)
+                .flatMap { pubsEntityList -> Flowable.fromIterable(PubEntityMapper.transformPubEntityList(pubsEntityList)) }
     }
 
     override fun savePubs(pubs: List<Pub>) {

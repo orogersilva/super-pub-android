@@ -21,9 +21,9 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
     private val ACCESS_TOKEN = "dod9DKsjs923KDMc32sskzZISr2J"
 
-    private var apiClientMock: SearchApiClient? = null
+    private lateinit var apiClientMock: SearchApiClient
 
-    private var pubRemoteDataSource: PubDataSource? = null
+    private lateinit var pubRemoteDataSource: PubDataSource
 
     // endregion
 
@@ -53,7 +53,7 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
         val LIMIT_VALUE = 100
         val FIELDS_VALUE = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover"
 
-        whenever(apiClientMock?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE,
+        whenever(apiClientMock.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE,
                 DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE, ACCESS_TOKEN))
                 .thenReturn(Flowable.empty())
 
@@ -61,8 +61,8 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
         // ACT
 
-        pubRemoteDataSource?.getPubs(fromLocation = FROM_LOCATION_VALUE)
-                ?.subscribe(testSubscriber)
+        pubRemoteDataSource.getPubs(fromLocation = FROM_LOCATION_VALUE)
+                .subscribe(testSubscriber)
 
         // ASSERT
 
@@ -90,7 +90,7 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
         val networkData = Flowable.just(expectedPubsHttpResponse)
 
-        whenever(apiClientMock?.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE,
+        whenever(apiClientMock.getPubs(QUERY_VALUE, TYPE_VALUE, FROM_LOCATION_VALUE,
                 DISTANCE_VALUE, LIMIT_VALUE, FIELDS_VALUE, ACCESS_TOKEN))
                 .thenReturn(networkData)
 
@@ -98,8 +98,8 @@ class PubRemoteDataSourceTest : BaseNetworkTestCase() {
 
         // ACT
 
-        pubRemoteDataSource?.getPubs(fromLocation = FROM_LOCATION_VALUE)
-                ?.subscribe(testSubscriber)
+        pubRemoteDataSource.getPubs(fromLocation = FROM_LOCATION_VALUE)
+                .subscribe(testSubscriber)
 
         // ASSERT
 

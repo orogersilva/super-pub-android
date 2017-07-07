@@ -16,7 +16,7 @@ interface PubDataSource {
                 radius: Int = 5000,
                 limit: Int = 100,
                 fields: String = "location,name,overall_star_rating,rating_count,checkins,phone,fan_count,picture,cover",
-                displayedDataTimestamp: Long = 0L): Flowable<List<PubEntity>>?
+                displayedDataTimestamp: Long = 0L): Flowable<List<PubEntity>>
 
     fun savePubs(pubs: List<PubEntity>?)
 

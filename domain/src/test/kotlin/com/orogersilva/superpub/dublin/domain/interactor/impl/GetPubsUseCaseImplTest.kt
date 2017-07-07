@@ -49,7 +49,7 @@ class GetPubsUseCaseImplTest : BaseTestCase() {
         // ACT
 
         getPubsUseCase.getPubs(LAT, LNG)
-                ?.subscribe(testSubscriber)
+                .subscribe(testSubscriber)
 
         // ASSERT
 
@@ -77,7 +77,7 @@ class GetPubsUseCaseImplTest : BaseTestCase() {
         // ACT
 
         getPubsUseCase.getPubs(LAT, LNG)
-                ?.subscribe(testSubscriber)
+                .subscribe(testSubscriber)
 
         // ASSERT
 
