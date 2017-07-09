@@ -1,6 +1,5 @@
 package com.orogersilva.superpub.dublin.data.local
 
-import com.fernandocejas.frodo.annotation.RxLogObservable
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
@@ -17,7 +16,6 @@ class PubLocalDataSource @Inject constructor(private var realmConfiguration: Rea
 
     // region OVERRIDED METHODS
 
-    @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
                          fields: String, displayedDataTimestamp: Long): Flowable<List<PubEntity>> {
 

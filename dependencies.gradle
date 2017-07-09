@@ -11,7 +11,6 @@ ext {
     daggerVersion = '2.9'
     espressoVersion = '2.2.2'
     facebookSdkVersion = '4.23.0'
-    frodoVersion = '0.8.3'
     glideVersion = '4.0.0-RC0'
     googlePlayServicesVersion = '11.0.0'
     gsonVersion = '2.8.0'
@@ -38,7 +37,6 @@ ext {
     // CLASSPATH's
 
     androidGradlePlugin = "com.android.tools.build:gradle:$androidGradlePluginVersion"
-    frodoPlugin = "com.fernandocejas.frodo:frodo-plugin:$frodoVersion"
     kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     realmPlugin = "io.realm:realm-gradle-plugin:$realmVersion"
 }

@@ -59,6 +59,12 @@
 
 ########### GSON END ###########
 
+########### KOTLIN BEGIN ###########
+
+-dontwarn kotlin.**
+
+########### KOTLIN END ###########
+
 ########### LEAKCANARY BEGIN ###########
 
 -dontwarn com.squareup.haha.guava.**

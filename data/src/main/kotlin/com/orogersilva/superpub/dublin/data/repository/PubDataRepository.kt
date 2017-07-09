@@ -1,6 +1,5 @@
 package com.orogersilva.superpub.dublin.data.repository
 
-import com.fernandocejas.frodo.annotation.RxLogObservable
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.cache.PubCache
 import com.orogersilva.superpub.dublin.data.di.qualifier.Local
@@ -34,7 +33,6 @@ class PubDataRepository @Inject constructor(private var pubCache: PubCache,
 
     // region OVERRIDED METHODS
 
-    @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int,
                          limit: Int, fields: String, getDataFromRemote: Boolean): Flowable<Pub> {
 

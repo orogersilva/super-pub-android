@@ -1,6 +1,5 @@
 package com.orogersilva.superpub.dublin.data.remote
 
-import com.fernandocejas.frodo.annotation.RxLogObservable
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.api.endpoint.SearchApiClient
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
@@ -19,7 +18,6 @@ class PubRemoteDataSource @Inject constructor(private @AccessToken val accessTok
 
     // region OVERRIDED METHODS
 
-    @RxLogObservable
     override fun getPubs(query: String, type: String, fromLocation: String, radius: Int, limit: Int,
                          fields: String, displayedDataTimestamp: Long): Flowable<List<PubEntity>> =
             apiClient.getPubs(query, type, fromLocation, radius, limit, fields, accessToken)
