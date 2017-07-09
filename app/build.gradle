@@ -11,8 +11,6 @@ android {
 
         applicationId "com.orogersilva.superpub.dublin"
 
-        multiDexEnabled false
-
         resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
 
         testInstrumentationRunner "com.orogersilva.superpub.dublin.CustomInstrumentationTestRunner"
@@ -70,6 +68,8 @@ android {
                 "\"https://graph.facebook.com/\""
 
             resValue "string", "google_maps_api_key", "AIzaSyDJvGdZBvVoVgwhGregyLAAM6Lwjm_cV7c"
+
+            multiDexEnabled false
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
