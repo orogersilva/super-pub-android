@@ -69,7 +69,7 @@ android {
 
             resValue "string", "google_maps_api_key", "AIzaSyDJvGdZBvVoVgwhGregyLAAM6Lwjm_cV7c"
 
-            multiDexEnabled false
+            multiDexEnabled true
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
