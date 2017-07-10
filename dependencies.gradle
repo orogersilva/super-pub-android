@@ -10,6 +10,7 @@ ext {
     constraintLayoutVersion = '1.0.2'
     daggerVersion = '2.9'
     espressoVersion = '2.2.2'
+    fabricVersion = '1.3.13'
     facebookSdkVersion = '4.23.0'
     glideVersion = '4.0.0-RC0'
     googlePlayServicesVersion = '11.0.0'
@@ -37,6 +38,7 @@ ext {
     // CLASSPATH's
 
     androidGradlePlugin = "com.android.tools.build:gradle:$androidGradlePluginVersion"
+    fabricPlugin = "io.fabric.tools:gradle:$fabricVersion"
     kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     realmPlugin = "io.realm:realm-gradle-plugin:$realmVersion"
 }

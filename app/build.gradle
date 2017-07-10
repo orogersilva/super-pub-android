@@ -11,6 +11,7 @@ android {
 
         applicationId "com.orogersilva.superpub.dublin"
 
+        resValue "string", "fabric_api_key", System.getenv("FABRIC_API_KEY")
         resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
 
         testInstrumentationRunner "com.orogersilva.superpub.dublin.CustomInstrumentationTestRunner"
@@ -68,6 +69,8 @@ android {
                 "\"https://graph.facebook.com/\""
 
             resValue "string", "google_maps_api_key", "AIzaSyDJvGdZBvVoVgwhGregyLAAM6Lwjm_cV7c"
+
+            ext.enableCrashlytics = false
 
             multiDexEnabled true
 
@@ -227,8 +230,9 @@ dependencies {
 
             [configuration: 'androidTestImplementation', dependency: libs.dagger],
             [configuration: 'kaptAndroidTest', dependency: libs.daggerCompiler],
-            [configuration: 'androidTestImplementation', dependency: testLibs.espresso, options:
-                    { exclude group: 'com.android.support', module: 'support-annotations' }],
+            [configuration: 'androidTestImplementation', dependency: testLibs.espresso, options: {
+                exclude group: 'com.android.support', module: 'support-annotations'
+            }],
             [configuration: 'androidTestImplementation', dependency: testLibs.hamcrest],
             [configuration: 'androidTestImplementation', dependency: testLibs.mockito],
             [configuration: 'androidTestImplementation', dependency: testLibs.mockitoKotlin, options: {
@@ -249,6 +253,10 @@ dependencies {
 
     appDependencies.each {
         add(it.configuration, it.dependency, it.options)
+    }
+
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
     }
 }
 

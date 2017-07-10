@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.Context
 import android.os.StrictMode
 import android.support.multidex.MultiDex
+import com.crashlytics.android.Crashlytics
+import com.crashlytics.android.core.CrashlyticsCore
 import com.facebook.stetho.Stetho
 import com.orogersilva.superpub.dublin.di.component.ApplicationComponent
 import com.orogersilva.superpub.dublin.di.component.DaggerApplicationComponent
@@ -11,6 +13,7 @@ import com.orogersilva.superpub.dublin.di.component.LoggedInComponent
 import com.orogersilva.superpub.dublin.di.component.LoggedOutComponent
 import com.orogersilva.superpub.dublin.di.module.*
 import com.squareup.leakcanary.LeakCanary
+import io.fabric.sdk.android.Fabric
 
 /**
  * Created by orogersilva on 3/31/2017.
@@ -21,7 +24,6 @@ open class SuperPubApplication : Application() {
 
     lateinit var applicationComponent: ApplicationComponent
 
-    // var loggedOutComponent: LoggedOutComponent? = null
     var loggedInComponent: LoggedInComponent? = null
 
     // endregion
@@ -60,6 +62,13 @@ open class SuperPubApplication : Application() {
             Stetho.initializeWithDefaults(this)
         }
 
+        val crashlyticsKit = Crashlytics.Builder()
+                .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
+                .build()
+
+        // Initialize Crashlytics...
+        Fabric.with(this, crashlyticsKit)
+
         applicationComponent = createApplicationComponent()
     }
 
@@ -72,17 +81,6 @@ open class SuperPubApplication : Application() {
                     .applicationModule(ApplicationModule(this))
                     .facebookSdkModule(FacebookSdkModule())
                     .build()
-
-    /*fun createLoggedOutComponent(): LoggedOutComponent? {
-
-        if (loggedOutComponent == null) {
-
-            loggedOutComponent = applicationComponent
-                    .newLoggedOutComponent(FacebookAdapterServiceModule())
-        }
-
-        return loggedOutComponent
-    }*/
 
     fun createLoggedInComponent(provideRealmInstance: Boolean): LoggedInComponent? {
 

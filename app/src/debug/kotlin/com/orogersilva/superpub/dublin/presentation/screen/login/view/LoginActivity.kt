@@ -8,6 +8,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
+import com.crashlytics.android.Crashlytics
 import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.di.component.LoginActivityComponent
 import com.orogersilva.superpub.dublin.di.module.FacebookAdapterServiceModule
@@ -18,6 +19,7 @@ import com.orogersilva.superpub.dublin.shared.app
 import com.orogersilva.superpub.dublin.shared.hasPermission
 import com.orogersilva.superpub.dublin.shared.intentFor
 import com.orogersilva.superpub.dublin.shared.permissionsHasBeenGranted
+import io.fabric.sdk.android.Fabric
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 

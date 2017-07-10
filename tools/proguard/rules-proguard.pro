@@ -31,6 +31,15 @@
 # Proguard configurations for common Android libraries:
 # https://github.com/krschultz/android-proguard-snippets
 
+########### CRASHLYTICS BEGIN ###########
+
+-keepattributes *Annotation*
+-keepattributes SourceFile,LineNumberTable
+-keep class com.crashlytics.** { *; }
+-dontwarn com.crashlytics.**
+
+########### CRASHLYTICS END ###########
+
 ########### FACEBOOK BEGIN ###########
 
 # Facebook 3.2
