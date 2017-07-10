@@ -8,9 +8,10 @@
     <string name="location_denied_permission_dialog_title">Location services turned off.</string>
     <string name="location_permission_rationale_dialog_message">This lets Super Pub to get location information of pubs near you.</string>
     <string name="location_permission_rationale_dialog_title">Allow Super Pub to use your device location?</string>
+    <string name="login_error_message">Authentication failed. Try again later.</string>
     <string name="login_with_facebook">LOG IN WITH FACEBOOK</string>
     <string name="no_rating">No rating</string>
-    <string name="slogan_label">Where is a pub near you? Ask the Super Pub!</string>
+    <string name="slogan_title">Where is a pub near you? Ask the Super Pub!</string>
     <string name="yes">YES</string>
 
 </resources>

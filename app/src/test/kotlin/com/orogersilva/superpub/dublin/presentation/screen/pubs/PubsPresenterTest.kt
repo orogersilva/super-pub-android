@@ -49,7 +49,7 @@ class PubsPresenterTest : BaseTestCase() {
 
         // ASSERT
 
-        verify(pubsViewMock).showErrorMessage()
+        verify(pubsViewMock).showLoginErrorMessage()
     }*/
 
     /*@Test fun `Refresh pubs, when pubs are emmited with errors, then show error message`() {
@@ -67,7 +67,7 @@ class PubsPresenterTest : BaseTestCase() {
 
         // ASSERT
 
-        verify(pubsViewMock).showErrorMessage()
+        verify(pubsViewMock).showLoginErrorMessage()
     }*/
 
     /*@Test fun `Refresh pubs, when pubs are emmited with success, then show pubs`() {

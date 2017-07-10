@@ -17,6 +17,8 @@ interface LoginContract {
 
         fun goToPubsScreen()
 
+        fun showLoginErrorMessage()
+
         // endregion
     }
 

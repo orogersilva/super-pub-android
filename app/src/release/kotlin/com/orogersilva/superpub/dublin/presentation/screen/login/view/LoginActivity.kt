@@ -77,6 +77,20 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         finish()
     }
 
+    override fun showLoginErrorMessage() {
+
+        val snackBar = Snackbar.make(loginCoordinatorLayout,
+                getString(R.string.login_error_message),
+                Snackbar.LENGTH_LONG)
+
+        val snackbarTextView = snackBar.view.findViewById(android.support.design.R.id.snackbar_text) as TextView
+        snackbarTextView.setTextColor(ContextCompat.getColor(this, R.color.black))
+
+        snackBar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.gold))
+
+        snackBar.show()
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         super.onActivityResult(requestCode, resultCode, data)

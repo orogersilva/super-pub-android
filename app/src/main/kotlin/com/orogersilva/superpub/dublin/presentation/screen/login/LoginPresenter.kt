@@ -22,7 +22,6 @@ class LoginPresenter @Inject constructor(private val loginView: LoginContract.Vi
         facebookAdapterService.registerCallback(object : FacebookAdapterHelper.AdapterCallback {
 
             override fun onCancel() {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onSuccess() {
@@ -31,7 +30,8 @@ class LoginPresenter @Inject constructor(private val loginView: LoginContract.Vi
             }
 
             override fun onError() {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+                loginView.showLoginErrorMessage()
             }
         })
     }

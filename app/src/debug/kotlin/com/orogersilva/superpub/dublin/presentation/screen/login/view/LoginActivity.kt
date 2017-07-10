@@ -3,8 +3,11 @@ package com.orogersilva.superpub.dublin.presentation.screen.login.view
 import android.Manifest
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.widget.TextView
 import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.di.component.LoginActivityComponent
 import com.orogersilva.superpub.dublin.di.module.FacebookAdapterServiceModule
@@ -103,6 +106,20 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         startActivity(intentFor(PubsActivity::class.java))
 
         finish()
+    }
+
+    override fun showLoginErrorMessage() {
+
+        val snackBar = Snackbar.make(loginCoordinatorLayout,
+                getString(R.string.login_error_message),
+                Snackbar.LENGTH_LONG)
+
+        val snackbarTextView = snackBar.view.findViewById(android.support.design.R.id.snackbar_text) as TextView
+        snackbarTextView.setTextColor(ContextCompat.getColor(this, R.color.black))
+
+        snackBar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.gold))
+
+        snackBar.show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

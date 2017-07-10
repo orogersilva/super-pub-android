@@ -156,6 +156,7 @@ dependencies {
             appCompat: [group: 'com.android.support', name: 'appcompat-v7', version: androidSDKVersion],
             cardview: [group: 'com.android.support', name: 'cardview-v7', version: androidSDKVersion],
             constraintLayout: [group: 'com.android.support.constraint', name: 'constraint-layout', version: constraintLayoutVersion],
+            design: [group: 'com.android.support', name: 'design', version: androidSDKVersion],
             multidex: [group: 'com.android.support', name: 'multidex', version: multidexVersion],
             recyclerview: [group: 'com.android.support', name: 'recyclerview-v7', version: androidSDKVersion]
     ]
@@ -199,6 +200,7 @@ dependencies {
             [configuration: 'implementation', dependency: androidLibs.appCompat],
             [configuration: 'implementation', dependency: androidLibs.cardview],
             [configuration: 'implementation', dependency: androidLibs.constraintLayout],
+            [configuration: 'implementation', dependency: androidLibs.design],
             [configuration: 'implementation', dependency: androidLibs.multidex],
             [configuration: 'implementation', dependency: androidLibs.recyclerview],
 
