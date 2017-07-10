@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
                     ActivityCompat.shouldShowRequestPermissionRationale(this,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
-                // TODO: SHOULD BE IMPLEMENTED EXPLANATION TO THE USE ABOUT WHY TO USE LOCATION FROM DEVICE.
+                // TODO: SHOULD BE IMPLEMENTED EXPLANATION TO THE USE ABOUT WHY TO USE EXTERNAL STORAGE FROM DEVICE.
 
             } else {
 
