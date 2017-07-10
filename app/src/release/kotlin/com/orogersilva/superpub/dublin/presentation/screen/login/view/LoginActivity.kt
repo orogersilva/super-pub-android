@@ -2,7 +2,10 @@ package com.orogersilva.superpub.dublin.presentation.screen.login.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.Snackbar
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.widget.TextView
 import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.di.component.LoginActivityComponent
 import com.orogersilva.superpub.dublin.di.module.FacebookAdapterServiceModule
