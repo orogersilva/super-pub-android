@@ -10,6 +10,7 @@
     <string name="location_permission_rationale_dialog_title">Permitir ao Super Pub usar a localização de seu dispositivo?</string>
     <string name="login_with_facebook">ENTRAR COM O FACEBOOK</string>
     <string name="no_rating">Sem nota</string>
+    <string name="slogan_label">Onde há um pub perto de você? Pergunte ao Super Pub!</string>
     <string name="yes">SIM</string>
 
 </resources>
