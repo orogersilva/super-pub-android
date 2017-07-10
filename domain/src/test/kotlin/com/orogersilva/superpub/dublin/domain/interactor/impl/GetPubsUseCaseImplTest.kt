@@ -68,9 +68,9 @@ class GetPubsUseCaseImplTest : BaseTestCase() {
 
         val EMITTED_EVENTS_COUNT = 3
 
-        val pubsObservable = Flowable.fromIterable(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
+        val pubsFlowable = Flowable.fromIterable(createTestData(loadJsonFromAsset(RESOURCES_FILE_NAME)))
 
-        whenever(pubRepositoryMock.getPubs(fromLocation = "$LAT,$LNG")).thenReturn(pubsObservable)
+        whenever(pubRepositoryMock.getPubs(fromLocation = "$LAT,$LNG")).thenReturn(pubsFlowable)
 
         val testSubscriber = TestSubscriber<Pub>()
 
@@ -85,7 +85,7 @@ class GetPubsUseCaseImplTest : BaseTestCase() {
                 .assertNoErrors()
                 .assertValueCount(EMITTED_EVENTS_COUNT)
                 .assertOf { p1 ->
-                    pubsObservable.blockingForEach { p2 -> p2.equals(p1) }
+                    pubsFlowable.blockingForEach { p2 -> p2.equals(p1) }
                 }
     }
 

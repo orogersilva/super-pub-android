@@ -1,8 +1,17 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs
 
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockito_kotlin.whenever
 import com.orogersilva.superpub.dublin.BaseTestCase
+import com.orogersilva.superpub.dublin.TestSchedulerProvider
+import com.orogersilva.superpub.dublin.domain.interactor.CalculateSuperPubRatingUseCase
 import com.orogersilva.superpub.dublin.domain.interactor.GetLastLocationUseCase
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
+import com.orogersilva.superpub.dublin.scheduler.SchedulerProvider
+import io.reactivex.Observable
+import org.junit.Before
+import org.junit.Test
 
 /**
  * Created by orogersilva on 5/21/2017.
@@ -14,6 +23,8 @@ class PubsPresenterTest : BaseTestCase() {
     private lateinit var pubsViewMock: PubsContract.View
     private lateinit var getPubsUseCaseMock: GetPubsUseCase
     private lateinit var getLastLocationUseCaseMock: GetLastLocationUseCase
+    private lateinit var calculateSuperPubRatingUseCase: CalculateSuperPubRatingUseCase
+    private lateinit var schedulerProvider: SchedulerProvider
 
     private lateinit var pubsPresenter: PubsContract.Presenter
 
@@ -21,20 +32,51 @@ class PubsPresenterTest : BaseTestCase() {
 
     // region SETUP METHODS
 
-    /*@Before fun setup() {
+    @Before fun setup() {
 
         pubsViewMock = mock<PubsContract.View>()
         getPubsUseCaseMock = mock<GetPubsUseCase>()
         getLastLocationUseCaseMock = mock<GetLastLocationUseCase>()
+        calculateSuperPubRatingUseCase = mock<CalculateSuperPubRatingUseCase>()
+        schedulerProvider = TestSchedulerProvider()
 
-        pubsPresenter = PubsPresenter(pubsViewMock, getPubsUseCaseMock, getLastLocationUseCaseMock, TestSchedulerProvider())
-    }*/
+        pubsPresenter = PubsPresenter(pubsViewMock, getPubsUseCaseMock, getLastLocationUseCaseMock,
+                calculateSuperPubRatingUseCase, schedulerProvider)
+    }
 
     // endregion
 
     // region TEST METHODS
 
-    /*@Test fun `Refresh pubs, when location is not valid, then show error message`() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*@Test fun `Update pubs, when location is not valid, then show error message`() {
 
         // ARRANGE
 
