@@ -14,7 +14,7 @@ android {
         defaultAccountConfig {
 
             serviceAccountEmail = System.getenv("SERVICE_ACCOUNT_EMAIL")
-            jsonFile = file('play.json')
+            jsonFile = rootProject.file('play.json')
         }
     }
 
