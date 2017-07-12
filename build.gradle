@@ -15,7 +15,9 @@ buildscript {
     dependencies {
 
         classpath androidGradlePlugin
+        classpath fabricPlugin
         classpath kotlinGradlePlugin
+        classpath playPublisherPlugin
         classpath realmPlugin
 
         // NOTE: Do not place your application dependencies here; they belong

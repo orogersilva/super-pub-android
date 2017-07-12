@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.github.triplet.play'
+apply plugin: 'io.fabric'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
@@ -7,14 +9,27 @@ apply from: "${rootProject.getRootDir()}/tools/git/script-git-version.gradle"
 
 android {
 
+    playAccountConfigs {
+
+        defaultAccountConfig {
+
+            serviceAccountEmail = System.getenv("SERVICE_ACCOUNT_EMAIL")
+            jsonFile = rootProject.file('play.json')
+        }
+    }
+
     defaultConfig {
 
         applicationId "com.orogersilva.superpub.dublin"
 
         multiDexEnabled true
 
-        resValue "string", "fabric_api_key", System.getenv("FABRIC_API_KEY")
-        resValue "string", "facebook_app_id", System.getenv("FACEBOOK_ID")
+        manifestPlaceholders = [
+                fabric_api_key: System.getenv("FABRIC_API_KEY"),
+                facebook_app_id: System.getenv("FACEBOOK_ID")
+        ]
+
+        playAccountConfig = playAccountConfigs.defaultAccountConfig
 
         testInstrumentationRunner "com.orogersilva.superpub.dublin.CustomInstrumentationTestRunner"
     }
@@ -70,7 +85,9 @@ android {
             buildConfigField "String", "FACEBOOK_GRAPH_API",
                 "\"https://graph.facebook.com/\""
 
-            resValue "string", "google_maps_api_key", "AIzaSyDJvGdZBvVoVgwhGregyLAAM6Lwjm_cV7c"
+            manifestPlaceholders = [
+                    google_maps_api_key: "AIzaSyDJvGdZBvVoVgwhGregyLAAM6Lwjm_cV7c"
+            ]
 
             ext.enableCrashlytics = false
 
@@ -88,7 +105,9 @@ android {
             buildConfigField "String", "FACEBOOK_GRAPH_API",
                 "\"https://graph.facebook.com/\""
 
-            resValue "string", "google_maps_api_key", System.getenv("GOOGLE_MAPS_API_KEY")
+            manifestPlaceholders = [
+                    google_maps_api_key: System.getenv("GOOGLE_MAPS_API_KEY")
+            ]
 
             minifyEnabled false
             // shrinkResources true
@@ -99,6 +118,13 @@ android {
         }
     }
 
+    play {
+
+        track = 'alpha'
+        untrackOld = true
+        uploadImages = true
+    }
+
     splits {
 
         abi {
@@ -106,7 +132,7 @@ android {
             enable true
             reset()
             include 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'mips', 'x86', 'x86_64'
-            universalApk true
+            universalApk false
         }
 
         density {
