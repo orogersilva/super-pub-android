@@ -1,8 +1,12 @@
+Super Pub
+========
+
 [![Build Status](https://www.bitrise.io/app/f816684d1cbc96e7/status.svg?token=eefyKZDgLvCrbXIPG4FbBg&branch=master)](https://www.bitrise.io/app/f816684d1cbc96e7)
 
 Android app for recommendation of pubs.
 
-## License
+License
+========
 
 Copyright Roger Silva 2017 ([@orogersilva](https://www.linkedin.com/in/orogersilva))
 
