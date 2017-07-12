@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+0.2.3 *(2017-07-12)*
+
+* Internal:
+    - Updated "What's new" messages.
+
 0.2.2 *(2017-07-12)*
 
 * Internal:
