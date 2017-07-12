@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+0.2.2 *(2017-07-12)*
+
+* Internal:
+    - Updated RELEASING.md.
+
 0.2.1 *(2017-07-12)*
 
 * Internal:
