@@ -24,10 +24,8 @@ android {
 
         multiDexEnabled true
 
-        manifestPlaceholders = [
-                fabric_api_key: System.getenv("FABRIC_API_KEY"),
-                facebook_app_id: System.getenv("FACEBOOK_ID")
-        ]
+        resValue "string", "fabric_api_key", System.getenv("FABRIC_API_KEY")
+        resValue "string", "facebook_id", System.getenv("FACEBOOK_ID")
 
         playAccountConfig = playAccountConfigs.defaultAccountConfig
 
@@ -83,11 +81,9 @@ android {
         debug {
 
             buildConfigField "String", "FACEBOOK_GRAPH_API",
-                "\"https://graph.facebook.com/\""
+                    "\"https://graph.facebook.com/\""
 
-            manifestPlaceholders = [
-                    google_maps_api_key: "AIzaSyDJvGdZBvVoVgwhGregyLAAM6Lwjm_cV7c"
-            ]
+            resValue "string", "google_maps_api_key", "AIzaSyDJvGdZBvVoVgwhGregyLAAM6Lwjm_cV7c"
 
             ext.enableCrashlytics = false
 
@@ -103,11 +99,9 @@ android {
         release {
 
             buildConfigField "String", "FACEBOOK_GRAPH_API",
-                "\"https://graph.facebook.com/\""
+                    "\"https://graph.facebook.com/\""
 
-            manifestPlaceholders = [
-                    google_maps_api_key: System.getenv("GOOGLE_MAPS_API_KEY")
-            ]
+            resValue "string", "google_maps_api_key", System.getenv("GOOGLE_MAPS_API_KEY")
 
             minifyEnabled false
             // shrinkResources true
