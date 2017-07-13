@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+0.2.5 *(2017-07-13)*
+
+* Internal:
+    - Changing value indexing method on AndroidManifest.
+
 0.2.4 *(2017-07-12)*
 
 * Internal:
