@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+0.2.6 *(2017-07-13)*
+
+* Internal:
+    - Applying manifestPlaceholders for injecting Fabric's key on manifest.
+
 0.2.5 *(2017-07-13)*
 
 * Internal:
