@@ -1,7 +1,6 @@
 package com.orogersilva.superpub.dublin.data.local
 
 import android.content.SharedPreferences
-import android.util.Log
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
 import io.reactivex.BackpressureStrategy

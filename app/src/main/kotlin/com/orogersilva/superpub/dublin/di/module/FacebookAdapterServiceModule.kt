@@ -1,6 +1,5 @@
 package com.orogersilva.superpub.dublin.di.module
 
-import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.orogersilva.superpub.dublin.adapter.facebook.FacebookHelper
@@ -21,9 +20,8 @@ open class FacebookAdapterServiceModule {
 
     @Provides @ActivityScope open fun provideFacebookAdapterService(loginView: LoginContract.View,
                                                                         loginManager: LoginManager,
-                                                                        callbackManager: CallbackManager,
-                                                                        currentAccessToken: AccessToken?) : FacebookHelper =
-            FacebookAdapterHelper(loginView, loginManager, callbackManager, currentAccessToken)
+                                                                        callbackManager: CallbackManager) : FacebookHelper =
+            FacebookAdapterHelper(loginView, loginManager, callbackManager)
 
     // endregion
 }

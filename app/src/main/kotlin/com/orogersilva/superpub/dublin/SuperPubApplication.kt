@@ -10,7 +10,6 @@ import com.facebook.stetho.Stetho
 import com.orogersilva.superpub.dublin.di.component.ApplicationComponent
 import com.orogersilva.superpub.dublin.di.component.DaggerApplicationComponent
 import com.orogersilva.superpub.dublin.di.component.LoggedInComponent
-import com.orogersilva.superpub.dublin.di.component.LoggedOutComponent
 import com.orogersilva.superpub.dublin.di.module.*
 import com.squareup.leakcanary.LeakCanary
 import io.fabric.sdk.android.Fabric

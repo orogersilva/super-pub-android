@@ -1,17 +1,13 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs
 
 import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.verify
-import com.nhaarman.mockito_kotlin.whenever
 import com.orogersilva.superpub.dublin.BaseTestCase
 import com.orogersilva.superpub.dublin.TestSchedulerProvider
 import com.orogersilva.superpub.dublin.domain.interactor.CalculateSuperPubRatingUseCase
 import com.orogersilva.superpub.dublin.domain.interactor.GetLastLocationUseCase
 import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.scheduler.SchedulerProvider
-import io.reactivex.Observable
 import org.junit.Before
-import org.junit.Test
 
 /**
  * Created by orogersilva on 5/21/2017.

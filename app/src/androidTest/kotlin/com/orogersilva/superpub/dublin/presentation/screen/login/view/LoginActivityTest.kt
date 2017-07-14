@@ -10,10 +10,8 @@ import android.support.test.uiautomator.By
 import android.support.test.uiautomator.UiDevice
 import android.support.test.uiautomator.UiSelector
 import android.support.test.uiautomator.Until
-import com.nhaarman.mockito_kotlin.notNull
 import com.orogersilva.superpub.dublin.CustomInstrumentationTestApplication
 import org.hamcrest.CoreMatchers.notNullValue
-import org.junit.Assert
 import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Rule

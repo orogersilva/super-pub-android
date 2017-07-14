@@ -9,5 +9,7 @@ interface BasePresenter {
 
     fun resume()
 
+    fun destroy()
+
     // endregion
 }

@@ -1,6 +1,5 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs
 
-import com.orogersilva.superpub.dublin.device.location.LocationBroadcastReceiver
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.interactor.CalculateSuperPubRatingUseCase
 import com.orogersilva.superpub.dublin.domain.interactor.GetLastLocationUseCase
@@ -44,6 +43,10 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
     override fun resume() {
 
         updatePubs()
+    }
+
+    override fun destroy() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun updatePubs() {

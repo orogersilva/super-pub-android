@@ -2,13 +2,9 @@ package com.orogersilva.superpub.dublin.data.local
 
 import android.content.SharedPreferences
 import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.whenever
 import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
-import io.reactivex.subscribers.TestSubscriber
 import org.junit.After
-import org.junit.Assert.assertEquals
 import org.junit.Before
-import org.junit.Test
 
 /**
  * Created by orogersilva on 7/4/2017.

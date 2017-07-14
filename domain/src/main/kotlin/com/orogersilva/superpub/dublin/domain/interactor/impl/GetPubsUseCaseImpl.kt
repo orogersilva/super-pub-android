@@ -5,7 +5,6 @@ import com.orogersilva.superpub.dublin.domain.interactor.GetPubsUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
 import io.reactivex.Flowable
-import org.reactivestreams.Publisher
 import javax.inject.Inject
 
 /**
