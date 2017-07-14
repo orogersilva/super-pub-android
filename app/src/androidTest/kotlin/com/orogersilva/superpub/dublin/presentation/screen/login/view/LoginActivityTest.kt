@@ -10,6 +10,7 @@ import android.support.test.uiautomator.By
 import android.support.test.uiautomator.UiDevice
 import android.support.test.uiautomator.UiSelector
 import android.support.test.uiautomator.Until
+import com.orogersilva.superpub.dublin.BuildConfig
 import com.orogersilva.superpub.dublin.CustomInstrumentationTestApplication
 import org.hamcrest.CoreMatchers.notNullValue
 import org.junit.Assert.assertThat
@@ -31,7 +32,7 @@ class LoginActivityTest {
 
     private lateinit var device: UiDevice
 
-    private val APP_PACKAGE = "com.orogersilva.superpub.dublin"
+    private val APP_PACKAGE = BuildConfig.APPLICATION_ID
     private val LAUNCH_TIMEOUT = 5000L
 
     @Rule @JvmField val activityRule = ActivityTestRule(LoginActivity::class.java, true, false)
