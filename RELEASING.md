@@ -10,14 +10,16 @@ Release
 
 3. Update the `CHANGELOG.md` file describing the internal and/or public changes.
 
-4. Commit the changes with `git commit -m "Preparing version X.Y.Z"`, replacing 'X.Y.Z' with the
+4. Update the `whatsnew` file for describing news on app.
+
+5. Commit the changes with `git commit -m "Preparing version X.Y.Z"`, replacing 'X.Y.Z' with the
     name of the new version.
 
-5. Create a annotated tag with `git tag -a X.Y.Z -m "Version X.Y.Z"`, replacing 'X.Y.Z' with the
+6. Create a annotated tag with `git tag -a X.Y.Z -m "Version X.Y.Z"`, replacing 'X.Y.Z' with the
     name of the new version.
 
-6. Push commits and tags (`git push origin alpha --follow-tags`).
+7. Push commits and tags (`git push origin alpha --follow-tags`).
 
-7. :shipit:
+8. :shipit:
 
-8. After, merge `alpha` branch into `master` branch.
+9. After, merge `alpha` branch into `master` branch.
