@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+0.2.7 *(2017-07-14)*
+
+* Internal:
+    - Fix on login mechanism.
+    - Optimizations on app.
+
 0.2.6 *(2017-07-13)*
 
 * Internal:
