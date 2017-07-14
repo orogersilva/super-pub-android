@@ -93,9 +93,18 @@ class PubDetailsActivity : AppCompatActivity(), PubDetailsContract.View, OnMapRe
 
     override fun showPubDetails(pub: PubModel) {
 
-        Glide.with(this)
-                .load(pub.coverImageUrl)
-                .into(pubDetailsBackgroundImageView)
+        if (pub.coverImageUrl != null) {
+
+            Glide.with(this)
+                    .load(pub.coverImageUrl)
+                    .into(pubDetailsBackgroundImageView)
+
+        } else {
+
+            Glide.with(this)
+                    .load(R.drawable.no_background_photo)
+                    .into(pubDetailsBackgroundImageView)
+        }
 
         pubNameTextView.text = pub.name
 
