@@ -6,14 +6,12 @@ import android.support.test.runner.AndroidJUnit4
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
-import io.reactivex.observers.TestObserver
 import io.reactivex.subscribers.TestSubscriber
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import org.junit.After
 import org.junit.AfterClass
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.BeforeClass
 import org.junit.Test
 import org.junit.runner.RunWith

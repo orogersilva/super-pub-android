@@ -12,7 +12,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.di.component.PubDetailsActivityComponent
-import com.orogersilva.superpub.dublin.di.module.*
+import com.orogersilva.superpub.dublin.di.module.PubDetailsPresenterModule
 import com.orogersilva.superpub.dublin.presentation.model.PubModel
 import com.orogersilva.superpub.dublin.presentation.screen.pubdetails.PubDetailsContract
 import com.orogersilva.superpub.dublin.shared.app

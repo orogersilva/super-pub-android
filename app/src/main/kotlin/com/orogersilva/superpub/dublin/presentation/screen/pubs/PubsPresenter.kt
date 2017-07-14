@@ -1,6 +1,5 @@
 package com.orogersilva.superpub.dublin.presentation.screen.pubs
 
-import com.orogersilva.superpub.dublin.device.location.LocationBroadcastReceiver
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.interactor.CalculateSuperPubRatingUseCase
 import com.orogersilva.superpub.dublin.domain.interactor.GetLastLocationUseCase

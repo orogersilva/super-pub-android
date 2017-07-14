@@ -5,9 +5,7 @@ import com.orogersilva.superpub.dublin.data.cache.PubCache
 import com.orogersilva.superpub.dublin.data.di.qualifier.Local
 import com.orogersilva.superpub.dublin.data.di.qualifier.Remote
 import com.orogersilva.superpub.dublin.data.entity.mapper.PubEntityMapper
-import com.orogersilva.superpub.dublin.data.local.UserPreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
-import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import com.orogersilva.superpub.dublin.domain.repository.PubRepository
 import io.reactivex.Flowable

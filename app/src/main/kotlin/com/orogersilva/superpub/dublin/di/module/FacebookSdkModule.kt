@@ -1,6 +1,5 @@
 package com.orogersilva.superpub.dublin.di.module
 
-import com.facebook.AccessTokenTracker
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.orogersilva.superpub.dublin.domain.di.qualifier.AccessToken

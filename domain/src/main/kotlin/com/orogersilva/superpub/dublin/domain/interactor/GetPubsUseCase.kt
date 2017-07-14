@@ -2,7 +2,6 @@ package com.orogersilva.superpub.dublin.domain.interactor
 
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import io.reactivex.Flowable
-import org.reactivestreams.Publisher
 
 /**
  * Created by orogersilva on 5/26/2017.
