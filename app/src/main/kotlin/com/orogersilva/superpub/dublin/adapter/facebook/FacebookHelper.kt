@@ -15,6 +15,8 @@ interface FacebookHelper : SocialNetworkingHelper {
 
     fun registerCallback(callbackAdapterService: FacebookAdapterHelper.AdapterCallback)
 
+    fun unregisterCallback()
+
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
 
     // endregion

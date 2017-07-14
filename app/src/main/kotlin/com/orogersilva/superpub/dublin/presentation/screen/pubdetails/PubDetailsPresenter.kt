@@ -27,6 +27,10 @@ class PubDetailsPresenter @Inject constructor(private val pubDetailsView: PubDet
         setPubDetailsOnScreen()
     }
 
+    override fun destroy() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     // endregion
 
     // region UTILITY METHODS

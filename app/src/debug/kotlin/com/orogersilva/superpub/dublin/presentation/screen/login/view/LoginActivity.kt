@@ -3,6 +3,7 @@ package com.orogersilva.superpub.dublin.presentation.screen.login.view
 import android.Manifest
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
@@ -90,6 +91,8 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     override fun onDestroy() {
 
         super.onDestroy()
+
+        loginPresenter.destroy()
 
         loginActivityComponent = null
     }

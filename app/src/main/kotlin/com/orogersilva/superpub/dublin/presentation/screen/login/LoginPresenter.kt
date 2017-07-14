@@ -47,6 +47,11 @@ class LoginPresenter @Inject constructor(private val loginView: LoginContract.Vi
         }
     }
 
+    override fun destroy() {
+
+        facebookAdapterService.unregisterCallback()
+    }
+
     override fun login() {
 
         facebookAdapterService.login(listOf("public_profile"))

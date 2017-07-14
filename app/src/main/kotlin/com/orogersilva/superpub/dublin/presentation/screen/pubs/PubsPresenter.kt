@@ -46,6 +46,10 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
         updatePubs()
     }
 
+    override fun destroy() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun updatePubs() {
 
         var forceUpdate = pubsView.isRefreshManual()

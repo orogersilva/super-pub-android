@@ -1,9 +1,7 @@
 package com.orogersilva.superpub.dublin.adapter.facebook.impl
 
 import android.content.Intent
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
+import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.orogersilva.superpub.dublin.presentation.screen.login.LoginContract
@@ -18,8 +16,7 @@ import javax.inject.Inject
 @LoggedOutScope
 class FacebookAdapterHelper @Inject constructor(private val loginView: LoginContract.View,
                                                 private val loginManager: LoginManager,
-                                                private val callbackManager: CallbackManager,
-                                                private val currentAccessToken: com.facebook.AccessToken?) : FacebookHelper {
+                                                private val callbackManager: CallbackManager) : FacebookHelper {
 
     // region OVERRIDED METHODS
 
@@ -28,7 +25,7 @@ class FacebookAdapterHelper @Inject constructor(private val loginView: LoginCont
         loginManager.logInWithReadPermissions(loginView as LoginActivity, permissions)
     }
 
-    override fun isLogged(): Boolean = currentAccessToken != null
+    override fun isLogged(): Boolean = AccessToken.getCurrentAccessToken() != null
 
     override fun registerCallback(callbackAdapterService: AdapterCallback) {
 
@@ -49,6 +46,11 @@ class FacebookAdapterHelper @Inject constructor(private val loginView: LoginCont
                 callbackAdapterService.onError()
             }
         })
+    }
+
+    override fun unregisterCallback() {
+
+        loginManager.unregisterCallback(callbackManager)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

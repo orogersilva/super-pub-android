@@ -1,5 +1,6 @@
 package com.orogersilva.superpub.dublin.di.module
 
+import com.facebook.AccessTokenTracker
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.orogersilva.superpub.dublin.domain.di.qualifier.AccessToken
@@ -20,10 +21,10 @@ open class FacebookSdkModule {
 
     @Provides @Singleton open fun provideCallbackManager(): CallbackManager = CallbackManager.Factory.create()
 
-    @Provides @Singleton open fun provideCurrentAccessToken(): com.facebook.AccessToken? =
-            com.facebook.AccessToken.getCurrentAccessToken()
+    /*@Provides @Singleton open fun provideCurrentAccessToken(): com.facebook.AccessToken? =
+            com.facebook.AccessToken.getCurrentAccessToken()*/
 
-    @Provides @Singleton @AccessToken open fun provideAccessToken(currentAccessToken: com.facebook.AccessToken?): String? =
+    @Provides @Singleton @AccessToken open fun provideAccessToken(): String? =
             com.facebook.AccessToken.getCurrentAccessToken().token
 
     // endregion
