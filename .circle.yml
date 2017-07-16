@@ -1,0 +1,18 @@
+machine:
+  java:
+    version: openjdk8
+
+dependencies:
+    override:
+        - chmod +x gradlew
+
+test:
+    override:
+        # Adding permission for run gradlew.
+        - chmod +x gradlew
+        # Run tests and generate artifacts.
+        - ./gradlew clean testDebugUnitTest assembleDevDebug
+        # Copy the build artifacts to the output folder.
+        - cp -r app/build/outputs $CIRCLE_ARTIFACTS
+        # Copy the test results to the tests output folder.
+        - cp -r app/build/test-results/* $CIRCLE_TEST_REPORTS
