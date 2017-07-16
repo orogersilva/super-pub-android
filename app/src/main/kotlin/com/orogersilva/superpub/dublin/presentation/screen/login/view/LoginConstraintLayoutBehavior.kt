@@ -14,7 +14,8 @@ class LoginConstraintLayoutBehavior : CoordinatorLayout.Behavior<ConstraintLayou
 
     // region CONSTRUCTORS
 
-    constructor(@SuppressWarnings("unused") context: Context, @SuppressWarnings("unused") attributeSet: AttributeSet) {}
+    @Suppress("UNUSED_PARAMETER")
+    constructor(context: Context, attributeSet: AttributeSet) {}
 
     // endregion
 
