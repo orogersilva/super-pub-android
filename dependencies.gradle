@@ -9,6 +9,7 @@ ext {
     circleImageViewVersion = '2.1.0'
     constraintLayoutVersion = '1.0.2'
     daggerVersion = '2.9'
+    dexcountVersion = '0.7.3'
     espressoVersion = '2.2.2'
     fabricVersion = '1.+'
     facebookSdkVersion = '4.23.0'
@@ -39,6 +40,7 @@ ext {
     // CLASSPATH's
 
     androidGradlePlugin = "com.android.tools.build:gradle:$androidGradlePluginVersion"
+    dexcountGradlePlugin = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:$dexcountVersion"
     fabricPlugin = "io.fabric.tools:gradle:$fabricVersion"
     kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     playPublisherPlugin = "com.github.triplet.gradle:play-publisher:$playPublisherVersion"

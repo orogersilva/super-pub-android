@@ -69,7 +69,7 @@ open class SuperPubApplication : Application() {
         // Initialize Crashlytics...
         Fabric.with(this, crashlyticsKit)
 
-        RxJavaPlugins.setErrorHandler { {} }
+        RxJavaPlugins.setErrorHandler {}
 
         applicationComponent = createApplicationComponent()
     }
