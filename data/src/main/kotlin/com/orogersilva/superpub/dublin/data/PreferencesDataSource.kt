@@ -1,5 +1,7 @@
-package com.orogersilva.superpub.dublin.domain.local
+package com.orogersilva.superpub.dublin.data
 
+import android.app.PendingIntent
+import com.google.android.gms.common.api.Status
 import io.reactivex.Flowable
 
 /**
@@ -12,6 +14,8 @@ interface PreferencesDataSource {
     fun getLastLocation(): Flowable<Pair<Double, Double>>
 
     fun saveLocation(lat: Double, lng: Double)
+
+    fun setLocationSettingsFailureStatus(status: Status)
 
     fun clear()
 

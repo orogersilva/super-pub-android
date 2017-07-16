@@ -1,7 +1,7 @@
 package com.orogersilva.superpub.dublin.data.repository
 
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
-import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
+import com.orogersilva.superpub.dublin.data.PreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.repository.UserRepository
 import io.reactivex.Flowable
 import javax.inject.Inject

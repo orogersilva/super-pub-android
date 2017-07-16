@@ -85,9 +85,16 @@ class PubsPresenter @Inject constructor(private val pubsView: PubsContract.View,
                         dispose()
                     }
 
-                    override fun onError(t: Throwable?) {
+                    override fun onError(throwable: Throwable?) {
 
-                        pubsView.showErrorMessage()
+                        val exceptionMessage = throwable?.message
+
+                        // TODO: To Eliminate hardcoded constant.
+                        if (exceptionMessage.equals("RESOLUTION_REQUIRED")) {
+                            pubsView.goToLocationSettingsScreen(throwable)
+                        } else {
+                            pubsView.showErrorMessage()
+                        }
 
                         dispose()
                     }

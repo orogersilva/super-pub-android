@@ -3,6 +3,7 @@ package com.orogersilva.superpub.dublin.presentation.screen.pubs.view
 import android.Manifest
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.IntentSender
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.support.v4.app.DialogFragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
+import com.google.android.gms.common.api.ResolvableApiException
 import com.orogersilva.superpub.dublin.R
 import com.orogersilva.superpub.dublin.device.location.LocationBroadcastReceiver
 import com.orogersilva.superpub.dublin.device.location.LocationService
@@ -47,6 +49,7 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
 
     private val ACCESS_LOCATION_PERMISSION_REQUEST_CODE = 1
     private val APPLICATION_DETAILS_SETTINGS_REQUEST_CODE = 2
+    private val CHECK_SETTINGS_REQUEST_CODE = 3
 
     private lateinit var permissionDeniedDialog: DialogFragment
     private lateinit var rationaleDialog: DialogFragment
@@ -110,7 +113,10 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
             hasPermissionToAccessDeviceLocation = true
         }
 
-        val locationIntentFilter = IntentFilter(getString(R.string.get_location_action))
+        val locationIntentFilter = IntentFilter()
+
+        locationIntentFilter.addAction(getString(R.string.get_location_action))
+        locationIntentFilter.addAction(getString(R.string.set_location_settings_action))
 
         registerReceiver(locationBroadcastReceiver, locationIntentFilter)
 
@@ -149,6 +155,30 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
 
     // region OVERRIDED METHODS
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        when (requestCode) {
+
+            CHECK_SETTINGS_REQUEST_CODE -> {
+
+                when (resultCode) {
+
+                    AppCompatActivity.RESULT_OK -> {
+
+                        startService(locationServiceIntent)
+
+                        pubsPresenter.resume()
+                    }
+
+                    AppCompatActivity.RESULT_CANCELED -> {
+
+                        // TODO: To implement.
+                    }
+                }
+            }
+        }
+    }
+
     override fun setPresenter(presenter: PubsContract.Presenter) {
 
         pubsPresenter = presenter
@@ -178,6 +208,20 @@ class PubsActivity : AppCompatActivity(), PubsContract.View,
 
     override fun showErrorMessage() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun goToLocationSettingsScreen(throwable: Throwable?) {
+
+        try {
+
+            val locationSettingsResolvableApiException = throwable as ResolvableApiException
+
+            locationSettingsResolvableApiException.startResolutionForResult(this, CHECK_SETTINGS_REQUEST_CODE)
+
+        } catch (sendIntentException: IntentSender.SendIntentException) {
+
+            // TODO: To implement.
+        }
     }
 
     override fun onPermissionDeniedDialogEnablingButtonClicked() {

@@ -2,7 +2,7 @@ package com.orogersilva.superpub.dublin.data.local
 
 import android.content.SharedPreferences
 import com.nhaarman.mockito_kotlin.mock
-import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
+import com.orogersilva.superpub.dublin.data.PreferencesDataSource
 import org.junit.After
 import org.junit.Before
 

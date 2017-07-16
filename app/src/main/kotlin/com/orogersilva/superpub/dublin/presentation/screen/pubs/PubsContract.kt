@@ -27,6 +27,8 @@ interface PubsContract {
 
         fun showErrorMessage()
 
+        fun goToLocationSettingsScreen(throwable: Throwable?)
+
         // endregion
     }
 
