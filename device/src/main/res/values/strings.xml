@@ -3,5 +3,6 @@
     <string name="app_name">Device</string>
 
     <string name="get_location_action">com.orogersilva.superpub.dublin.GET_LOCATION_ACTION</string>
+    <string name="set_location_settings_action">com.orogersilva.superpub.dublin.SET_LOCATION_SETTINGS</string>
 
 </resources>

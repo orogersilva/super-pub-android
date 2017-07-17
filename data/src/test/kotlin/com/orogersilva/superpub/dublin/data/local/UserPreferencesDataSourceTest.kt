@@ -2,7 +2,7 @@ package com.orogersilva.superpub.dublin.data.local
 
 import android.content.SharedPreferences
 import com.nhaarman.mockito_kotlin.mock
-import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
+import com.orogersilva.superpub.dublin.data.PreferencesDataSource
 import org.junit.After
 import org.junit.Before
 
@@ -19,6 +19,9 @@ class UserPreferencesDataSourceTest {
 
     private val LAT_PREF_KEY = "LAT_PREF_KEY"
     private val LNG_PREF_KEY = "LNG_PREF_KEY"
+    private val LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY = "LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY"
+    private val LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY = "LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY"
+
 
     private var userPreferencesDataSource: PreferencesDataSource? = null
 
@@ -33,7 +36,9 @@ class UserPreferencesDataSourceTest {
         userLocationCallback = mock<UserPreferencesDataSource.UserLocationCallback>()
 
         userPreferencesDataSource = UserPreferencesDataSource(sharedPreferencesMock,
-                sharedPreferencesEditorMock, LAT_PREF_KEY, LNG_PREF_KEY, userLocationCallback)
+                sharedPreferencesEditorMock, LAT_PREF_KEY, LNG_PREF_KEY,
+                LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY, LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY,
+                userLocationCallback)
     }
 
     // endregion

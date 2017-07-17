@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.orogersilva.superpub.dublin.data.local.UserPreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
-import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
+import com.orogersilva.superpub.dublin.data.PreferencesDataSource
 import dagger.Module
 import dagger.Provides
 
@@ -21,6 +21,8 @@ open class PreferencesModule {
 
     private val LAT_PREF_KEY = "LAT_PREF_KEY"
     private val LNG_PREF_KEY = "LNG_PREF_KEY"
+    private val LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY = "LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY"
+    private val LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY = "LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY"
 
     // endregion
 
@@ -33,12 +35,15 @@ open class PreferencesModule {
             sharedPreferences.edit()
 
     @Provides @LoggedInScope open fun provideUserLocationCallback(): UserPreferencesDataSource.UserLocationCallback =
-            UserPreferencesDataSource.UserLocationCallback(LAT_PREF_KEY, LNG_PREF_KEY)
+            UserPreferencesDataSource.UserLocationCallback(LAT_PREF_KEY, LNG_PREF_KEY,
+                    LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY, LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY)
 
     @Provides @LoggedInScope open fun provideUserPreferencesDataSource(sharedPreferences: SharedPreferences,
                                                                        sharedPreferencesEditor: SharedPreferences.Editor,
                                                                        userLocationCallback: UserPreferencesDataSource.UserLocationCallback): PreferencesDataSource =
-            UserPreferencesDataSource(sharedPreferences, sharedPreferencesEditor, LAT_PREF_KEY, LNG_PREF_KEY, userLocationCallback)
+            UserPreferencesDataSource(sharedPreferences, sharedPreferencesEditor, LAT_PREF_KEY,
+                    LNG_PREF_KEY, LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY,
+                    LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY, userLocationCallback)
 
     // endregion
 }

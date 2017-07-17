@@ -8,6 +8,10 @@ sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
     test.java.srcDirs += 'src/test/kotlin'
     test.resources.srcDirs += 'src/test/resources'
+
+    // For Gradle 4.0
+    main.output.classesDir = new File(buildDir, "classes/main")
+    test.output.classesDir = new File(buildDir, "classes/test")
 }
 
 // Necessary to load resource files from theirs test folders.

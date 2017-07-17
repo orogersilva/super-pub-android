@@ -4,12 +4,19 @@ import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.os.Bundle
 import android.os.IBinder
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationServices
+import android.os.Parcelable
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.common.api.Status
+import com.google.android.gms.location.*
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.orogersilva.superpub.dublin.device.R
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
+import java.io.Serializable
+import java.lang.Exception
 
 /**
  * Created by orogersilva on 7/4/2017.
@@ -49,12 +56,58 @@ class LocationService : Service() {
     @SuppressLint("MissingPermission")
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
 
-        val locationIntent = Intent(getString(R.string.get_location_action))
+        val locationSettingsRequestBuilder = LocationSettingsRequest.Builder()
+                .addLocationRequest(locationRequest)
 
-        locationPendingIntent = PendingIntent.getBroadcast(this, LOCATION_SEND_BROADCAST_REQUEST_CODE,
-                locationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val settingsClient = LocationServices.getSettingsClient(this)
 
-        fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationPendingIntent)
+        val locationSettingsTask = settingsClient.checkLocationSettings(locationSettingsRequestBuilder.build())
+
+        locationSettingsTask.addOnSuccessListener(object : OnSuccessListener<LocationSettingsResponse> {
+
+            override fun onSuccess(locationSettingsResponse: LocationSettingsResponse?) {
+
+                val locationIntent = Intent(getString(R.string.get_location_action))
+
+                locationPendingIntent = PendingIntent.getBroadcast(baseContext, LOCATION_SEND_BROADCAST_REQUEST_CODE,
+                        locationIntent, PendingIntent.FLAG_CANCEL_CURRENT)
+
+                fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationPendingIntent)
+            }
+        })
+
+        locationSettingsTask.addOnFailureListener(object : OnFailureListener {
+
+            override fun onFailure(exception: Exception) {
+
+                val statusCode = (exception as ApiException).statusCode
+
+                when (statusCode) {
+
+                    LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
+
+                        val locationSettingsIntent = Intent(getString(R.string.set_location_settings_action))
+
+                        val resolvableApiException = exception as ResolvableApiException
+
+                        val locationSettingsExtras = Bundle()
+
+                        locationSettingsExtras.putInt("locationSettingsFailureStatusCode", resolvableApiException.statusCode)
+                        locationSettingsExtras.putString("locationSettingsFailureStatusMessage", resolvableApiException.statusMessage)
+                        locationSettingsExtras.putParcelable("locationSettingsFailureResolution", resolvableApiException.resolution)
+
+                        locationSettingsIntent.putExtras(locationSettingsExtras)
+
+                        sendBroadcast(locationSettingsIntent)
+                    }
+
+                    LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
+
+                        // TODO: To implement.
+                    }
+                }
+            }
+        })
 
         return START_STICKY
     }

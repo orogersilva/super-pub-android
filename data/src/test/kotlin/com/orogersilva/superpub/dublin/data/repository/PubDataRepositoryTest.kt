@@ -5,7 +5,7 @@ import com.orogersilva.superpub.dublin.data.BaseTestCase
 import com.orogersilva.superpub.dublin.data.PubDataSource
 import com.orogersilva.superpub.dublin.data.cache.PubCache
 import com.orogersilva.superpub.dublin.data.entity.PubEntity
-import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
+import com.orogersilva.superpub.dublin.data.PreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.model.Pub
 import io.reactivex.Flowable
 import io.reactivex.subscribers.TestSubscriber

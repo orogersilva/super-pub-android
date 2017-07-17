@@ -15,6 +15,7 @@ buildscript {
     dependencies {
 
         classpath androidGradlePlugin
+        classpath dexcountGradlePlugin
         classpath fabricPlugin
         classpath kotlinGradlePlugin
         classpath playPublisherPlugin

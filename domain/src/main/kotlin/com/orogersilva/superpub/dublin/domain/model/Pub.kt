@@ -1,6 +1,7 @@
 package com.orogersilva.superpub.dublin.domain.model
 
 import com.google.gson.annotations.SerializedName
+import com.orogersilva.superpub.dublin.domain.Rank
 
 /**
  * Created by orogersilva on 5/26/2017.
@@ -22,6 +23,8 @@ data class Pub(@SerializedName("id") var id: Long = 0,
     // region PROPERTIES
 
     var superPubRating: Double = 0.0
+
+    var rank = Rank.NONE
 
     // endregion
 

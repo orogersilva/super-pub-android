@@ -1,12 +1,12 @@
 package com.orogersilva.superpub.dublin.data.local
 
+import android.app.PendingIntent
 import android.content.SharedPreferences
+import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.common.api.Status
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
-import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
-import io.reactivex.BackpressureStrategy
-import io.reactivex.Flowable
-import io.reactivex.FlowableEmitter
-import io.reactivex.FlowableOnSubscribe
+import com.orogersilva.superpub.dublin.data.PreferencesDataSource
+import io.reactivex.*
 import javax.inject.Inject
 
 /**
@@ -17,6 +17,8 @@ class UserPreferencesDataSource @Inject constructor(private val sharedPreference
                                                     private val sharedPreferencesEditor: SharedPreferences.Editor,
                                                     private val latPrefKey: String,
                                                     private val lngPrefKey: String,
+                                                    private val locationSettingsFailureStatusCodePrefKey: String,
+                                                    private val locationSettingsFailureStatusMessagePrefKey: String,
                                                     private val userLocationCallback: UserLocationCallback) : PreferencesDataSource {
 
     // region OVERRIDED METHODS
@@ -58,6 +60,16 @@ class UserPreferencesDataSource @Inject constructor(private val sharedPreference
         sharedPreferencesEditor.commit()
     }
 
+    override fun setLocationSettingsFailureStatus(status: Status) {
+
+        sharedPreferencesEditor.putInt(locationSettingsFailureStatusCodePrefKey, status.statusCode)
+        sharedPreferencesEditor.putString(locationSettingsFailureStatusMessagePrefKey, status.statusMessage)
+
+        userLocationCallback.setLocationFailureResolution(status.resolution)
+
+        sharedPreferencesEditor.commit()
+    }
+
     override fun clear() {
 
         sharedPreferencesEditor.clear()
@@ -83,11 +95,14 @@ class UserPreferencesDataSource @Inject constructor(private val sharedPreference
     // region UTILITY CLASSES
 
     class UserLocationCallback @Inject constructor(private val latPrefKey: String,
-                                                   private val lngPrefKey: String) : SharedPreferences.OnSharedPreferenceChangeListener {
+                                                   private val lngPrefKey: String,
+                                                   private val locationSettingsFailureStatusCodeKey: String,
+                                                   private val locationSettingsFailureStatusMessageKey: String) : SharedPreferences.OnSharedPreferenceChangeListener {
 
         // region PROPERTIES
 
         private var userLocationEmitter: FlowableEmitter<Pair<Double, Double>>? = null
+        private var locationFailureResolution: PendingIntent? = null
 
         // endregion
 
@@ -96,6 +111,11 @@ class UserPreferencesDataSource @Inject constructor(private val sharedPreference
         fun setListener(emitter: FlowableEmitter<Pair<Double, Double>>?) {
 
             userLocationEmitter = emitter
+        }
+
+        fun setLocationFailureResolution(resolution: PendingIntent) {
+
+            locationFailureResolution = resolution
         }
 
         fun removeListener() {
@@ -109,11 +129,28 @@ class UserPreferencesDataSource @Inject constructor(private val sharedPreference
 
         override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
 
-            val lat = java.lang.Double.longBitsToDouble(sharedPreferences.getLong(latPrefKey, 0L))
-            val lng = java.lang.Double.longBitsToDouble(sharedPreferences.getLong(lngPrefKey, 0L))
+            when (key) {
 
-            userLocationEmitter?.onNext(Pair(lat, lng))
-            userLocationEmitter?.onComplete()
+                latPrefKey, lngPrefKey -> {
+
+                    val lat = java.lang.Double.longBitsToDouble(sharedPreferences.getLong(latPrefKey, 0L))
+                    val lng = java.lang.Double.longBitsToDouble(sharedPreferences.getLong(lngPrefKey, 0L))
+
+                    userLocationEmitter?.onNext(Pair(lat, lng))
+                    userLocationEmitter?.onComplete()
+                }
+
+                locationSettingsFailureStatusCodeKey, locationSettingsFailureStatusMessageKey -> {
+
+                    val statusCode = sharedPreferences.getInt(locationSettingsFailureStatusCodeKey, 0)
+                    val statusMessage = sharedPreferences.getString(locationSettingsFailureStatusMessageKey, null)
+
+                    val locationSettingsResolvableApiException = ResolvableApiException(
+                            Status(statusCode, statusMessage, locationFailureResolution))
+
+                    userLocationEmitter?.onError(locationSettingsResolvableApiException)
+                }
+            }
         }
 
         // endregion

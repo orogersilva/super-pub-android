@@ -57,6 +57,30 @@ class GetPubsUseCaseImplTest : BaseTestCase() {
         testSubscriber.assertError(IllegalArgumentException::class.java)
     }
 
+    @Test fun `Get pubs, when there is an unexpected operation, then returns error`() {
+
+        // ARRANGE
+
+        val pubsFlowableError = Flowable.error<Pub>(Exception())
+
+        val LAT = -90.0
+        val LNG = 180.0
+
+        whenever(pubRepositoryMock.getPubs(fromLocation = "$LAT,$LNG")).thenReturn(pubsFlowableError)
+
+        val testSubscriber = TestSubscriber<Pub>()
+
+        // ACT
+
+        getPubsUseCase.getPubs(LAT, LNG)
+                .subscribe(testSubscriber)
+
+        // ASSERT
+
+        testSubscriber.assertNotComplete()
+        testSubscriber.assertError(Exception::class.java)
+    }
+
     @Test fun `Get pubs, when location is valid, then returns pubs`() {
 
         // ARRANGE

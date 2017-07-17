@@ -27,6 +27,7 @@ object PubModelMapper {
                 pub.hasMinimumRequirement)
 
         pubModel.superPubRating = pub.superPubRating
+        pubModel.rank = pub.rank
 
         return pubModel
     }

@@ -13,6 +13,7 @@ import com.orogersilva.superpub.dublin.di.component.LoggedInComponent
 import com.orogersilva.superpub.dublin.di.module.*
 import com.squareup.leakcanary.LeakCanary
 import io.fabric.sdk.android.Fabric
+import io.reactivex.plugins.RxJavaPlugins
 
 /**
  * Created by orogersilva on 3/31/2017.
@@ -67,6 +68,8 @@ open class SuperPubApplication : Application() {
 
         // Initialize Crashlytics...
         Fabric.with(this, crashlyticsKit)
+
+        RxJavaPlugins.setErrorHandler {}
 
         applicationComponent = createApplicationComponent()
     }

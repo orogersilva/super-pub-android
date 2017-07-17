@@ -2,7 +2,7 @@ package com.orogersilva.superpub.dublin.di.module
 
 import com.orogersilva.superpub.dublin.device.location.LocationBroadcastReceiver
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
-import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
+import com.orogersilva.superpub.dublin.data.PreferencesDataSource
 import dagger.Module
 import dagger.Provides
 

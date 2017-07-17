@@ -2,7 +2,7 @@ package com.orogersilva.superpub.dublin.di.module
 
 import com.orogersilva.superpub.dublin.data.repository.UserDataRepository
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
-import com.orogersilva.superpub.dublin.domain.local.PreferencesDataSource
+import com.orogersilva.superpub.dublin.data.PreferencesDataSource
 import com.orogersilva.superpub.dublin.domain.repository.UserRepository
 import dagger.Module
 import dagger.Provides

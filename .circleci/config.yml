@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-25-alpha
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - run:
+          name: Apply Permission for ./gradlew
+          command: chmod +x gradlew
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - run:
+          name: Run Unit Tests
+          command: ./gradlew testDevDebugUnitTest
+      - run:
+          name: Package App
+          command: ./gradlew assembleDevDebug
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+      - store_test_results:
+          path: app/build/test-results
