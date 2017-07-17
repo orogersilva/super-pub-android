@@ -1,5 +1,6 @@
 package com.orogersilva.superpub.dublin.domain.interactor.impl
 
+import com.nhaarman.mockito_kotlin.doThrow
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
 import com.orogersilva.superpub.dublin.domain.interactor.GetLastLocationUseCase
@@ -35,11 +36,11 @@ class GetLastLocationUseCaseImplTest {
 
     // region TEST METHODS
 
-    /*@Test fun `Get last location, when there is not a location, then returns error`() {
+    @Test fun `Get last location, when there is not a location, then returns error`() {
 
         // ARRANGE
 
-        val lastLocationFlowableError = Flowable.error<Exception>(Exception())
+        val lastLocationFlowableError = Flowable.error<Pair<Double, Double>>(Exception())
 
         whenever(userRepositoryMock.getLastLocation()).thenReturn(lastLocationFlowableError)
 
@@ -54,7 +55,7 @@ class GetLastLocationUseCaseImplTest {
 
         testSubscriber.assertNotComplete()
         testSubscriber.assertError(Exception::class.java)
-    }*/
+    }
 
     @Test fun `Get last location, when there is a location, then returns itself`() {
 
@@ -85,12 +86,6 @@ class GetLastLocationUseCaseImplTest {
                     lastLocationFlowable.blockingForEach { l2 -> l2.equals(l1) }
                 }
     }
-
-    // endregion
-
-    // region TEARDOWN METHOD
-
-
 
     // endregion
 }

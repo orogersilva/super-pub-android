@@ -13,7 +13,7 @@ sourceSets {
 // Necessary to load resource files from theirs test folders.
 task copyTestResources(type: Copy) {
     from sourceSets.test.resources
-    into sourceSets.test.output.classesDir
+    into sourceSets.test.output.classesDirs
 }
 
 processTestResources.dependsOn copyTestResources
