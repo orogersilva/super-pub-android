@@ -1,5 +1,6 @@
 package com.orogersilva.superpub.dublin.domain.interactor.impl
 
+import com.orogersilva.superpub.dublin.domain.Rank
 import com.orogersilva.superpub.dublin.domain.di.scope.ActivityScope
 import com.orogersilva.superpub.dublin.domain.interactor.CalculateSuperPubRatingUseCase
 import com.orogersilva.superpub.dublin.domain.model.Pub
@@ -17,16 +18,6 @@ class CalculateSuperPubRatingUseCaseImpl : CalculateSuperPubRatingUseCase {
     override fun calculateSuperPubRating(pubs: List<Pub>): Flowable<Pub> {
 
         if (pubs.isEmpty()) return Flowable.empty()
-
-        val MINIMUM_RATING_COUNT_ALLOWED = 15
-        val MINIMUM_SUPER_PUB_RATING_ALLOWED = 1
-
-        val RATING_PARAMETER_WEIGHT: Double = 4.0
-        val RATING_COUNT_PARAMETER_WEIGHT: Double = 0.2
-        val CHECKINS_PARAMETER_WEIGHT: Double = 0.5
-        val LIKES_PARAMETER_WEIGHT = 0.3
-
-        val MAX_RATING = 5
 
         // region 1. FIND PUBS WITH HIGHEST NUMBER OF CHECKINS AND LIKES.
 
@@ -50,6 +41,17 @@ class CalculateSuperPubRatingUseCaseImpl : CalculateSuperPubRatingUseCase {
         if (maxLikes == 0) maxLikes = 1
 
         pubs.forEach {
+
+            val MINIMUM_RATING_COUNT_ALLOWED = 15
+            val MINIMUM_SUPER_PUB_RATING_ALLOWED = 1
+
+            val RATING_PARAMETER_WEIGHT: Double = 4.0
+            val RATING_COUNT_PARAMETER_WEIGHT: Double = 0.2
+            val CHECKINS_PARAMETER_WEIGHT: Double = 0.5
+            val LIKES_PARAMETER_WEIGHT = 0.3
+
+            val MAX_RATING = 5
+
 
             var superPubRating = RATING_PARAMETER_WEIGHT * (it.rating / MAX_RATING) +
                     RATING_COUNT_PARAMETER_WEIGHT * (it.ratingCount.toDouble() / maxRatingCount) +
@@ -77,7 +79,9 @@ class CalculateSuperPubRatingUseCaseImpl : CalculateSuperPubRatingUseCase {
 
         // endregion
 
-        // region 3. THE SUPER PUB RATING OF THE BEST EVALUATED PUB WILL BE ADJUSTED SO THAT IT IS NOT OVERRATED.
+        // region 3:
+        //  * THE SUPER PUB RATING OF THE BEST EVALUATED PUB WILL BE ADJUSTED SO THAT IT IS NOT OVERRATED.
+        //  * THE BEST RANKED PUBS WILL BE LABELED.
 
         if (pubs.size > 1) {
 
@@ -85,6 +89,12 @@ class CalculateSuperPubRatingUseCaseImpl : CalculateSuperPubRatingUseCase {
 
             val highestSuperPubRatingPub = pubs[0]
             val secondHighestSuperPubRatingPub = pubs[1]
+
+            // The first three pubs will be labeled with gold seal.
+            if (highestSuperPubRatingPub.isRecommended()) highestSuperPubRatingPub.rank = Rank.GOLD
+            if (secondHighestSuperPubRatingPub.isRecommended()) secondHighestSuperPubRatingPub.rank = Rank.GOLD
+
+            if (pubs.size > 2 && pubs[2].isRecommended()) pubs[2].rank = Rank.GOLD
 
             // There should be more than one pub to adjust the "Super Pub Rating" highest pub.
             if (highestSuperPubRatingPub.ratingCount < 5000 ||
@@ -104,6 +114,11 @@ class CalculateSuperPubRatingUseCaseImpl : CalculateSuperPubRatingUseCase {
 
                 highestSuperPubRatingPub.superPubRating = NEWEST_SUPER_PUB_RATING
             }
+
+            // The remaining recommended pubs will be labeled with silver seal.
+            (3..pubs.size)
+                    .takeWhile { pubs[it].isRecommended() }
+                    .forEach { pubs[it].rank = Rank.SILVER }
         }
 
         // endregion

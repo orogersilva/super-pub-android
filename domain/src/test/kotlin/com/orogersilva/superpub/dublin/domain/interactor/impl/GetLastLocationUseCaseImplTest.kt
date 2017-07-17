@@ -36,7 +36,7 @@ class GetLastLocationUseCaseImplTest {
 
     // region TEST METHODS
 
-    @Test fun `Get last location, when there is not a location, then returns error`() {
+    @Test fun `Get last location, when there is an unexpected operation, then returns error`() {
 
         // ARRANGE
 
@@ -55,6 +55,36 @@ class GetLastLocationUseCaseImplTest {
 
         testSubscriber.assertNotComplete()
         testSubscriber.assertError(Exception::class.java)
+    }
+
+    @Test fun `Get last location, when there is not a coordinate, then returns default location`() {
+
+        // ARRANGE
+
+        val EMITTED_EVENTS_COUNT = 1
+
+        val DEFAULT_LAT = 0.0
+        val DEFAULT_LNG = 0.0
+
+        val defaultLocationFlowable = Flowable.just(Pair(DEFAULT_LAT, DEFAULT_LNG))
+
+        whenever(userRepositoryMock.getLastLocation()).thenReturn(defaultLocationFlowable)
+
+        val testSubscriber = TestSubscriber<Pair<Double, Double>>()
+
+        // ACT
+
+        getLastLocationUseCase.getLastLocation()
+                .subscribe(testSubscriber)
+
+        // ASSERT
+
+        testSubscriber.assertComplete()
+                .assertNoErrors()
+                .assertValueCount(EMITTED_EVENTS_COUNT)
+                .assertOf { l1 ->
+                    defaultLocationFlowable.blockingForEach { l2 -> l2.equals(l1) }
+                }
     }
 
     @Test fun `Get last location, when there is a location, then returns itself`() {

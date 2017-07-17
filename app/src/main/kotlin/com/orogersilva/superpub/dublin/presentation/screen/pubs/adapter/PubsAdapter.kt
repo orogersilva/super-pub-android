@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.orogersilva.superpub.dublin.R
+import com.orogersilva.superpub.dublin.domain.Rank
 import com.orogersilva.superpub.dublin.presentation.model.PubModel
 import com.orogersilva.superpub.dublin.presentation.screen.ItemView
 import kotlinx.android.synthetic.main.cardview_pub.view.*
@@ -107,10 +108,11 @@ class PubsAdapter(private val pubs: MutableList<PubModel>,
 
             itemView.nameTextView.text = item.name
 
-            if (item.isRecommended()) {
-                itemView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.gold))
-            } else {
-                itemView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.white))
+            when (item.rank) {
+
+                Rank.GOLD -> itemView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.gold))
+                Rank.SILVER -> itemView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.silver))
+                else -> itemView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.white))
             }
 
             val decimalFormatter = DecimalFormat("#.00")
