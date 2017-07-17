@@ -10,6 +10,9 @@ apply from: "${rootProject.getRootDir()}/tools/git/script-git-version.gradle"
 
 android {
 
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+
     playAccountConfigs {
 
         defaultAccountConfig {
@@ -22,6 +25,9 @@ android {
     defaultConfig {
 
         applicationId "com.orogersilva.superpub.dublin"
+
+        minSdkVersion 15
+        targetSdkVersion 25
 
         multiDexEnabled true
 
@@ -150,6 +156,15 @@ android {
 
         abortOnError false
         checkReleaseBuilds false
+    }
+
+    sourceSets {
+
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
+        main.java.srcDirs += 'src/main/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
     }
 
     compileOptions {
@@ -307,5 +322,3 @@ android.applicationVariants.all { variant ->
         }
     }
 }
-
-apply from: "${rootProject.getRootDir()}/android.gradle"

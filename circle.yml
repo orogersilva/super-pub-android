@@ -8,8 +8,6 @@ dependencies:
 
 test:
     override:
-        # Adding permission for run gradlew.
-        - chmod +x gradlew
         # Run tests and generate artifacts.
         - ./gradlew clean testDebugUnitTest assembleDevDebug
         # Copy the build artifacts to the output folder.
