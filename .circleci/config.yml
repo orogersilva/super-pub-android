@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Apply permission for .gradlew
+          name: Apply Permission for ./gradlew
           command: chmod +x gradlew
       - run:
           name: Download Dependencies
