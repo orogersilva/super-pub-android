@@ -1,6 +1,18 @@
 Change Log
 ==========
 
+0.3.0 *(2017-07-17)*
+
+* Public:
+    - Improved mechanism to rank pubs
+    - Setting "no background photo" (when required) on pub details screen
+    - Show location settings dialog for user, when necessary
+
+* Internal
+    - Monitoring method count
+    - Started migration to Circle CI
+    - Refactorings
+
 0.2.7 *(2017-07-14)*
 
 * Internal:

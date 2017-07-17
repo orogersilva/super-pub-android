@@ -1,1 +1,4 @@
-* Improvements.
+* Improved mechanism to rank pubs
+* Setting "no background photo" (when required) on pub details screen
+* Show location settings dialog for user, when necessary
+* Another secondary improvements

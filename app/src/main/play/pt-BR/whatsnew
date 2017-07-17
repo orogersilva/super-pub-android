@@ -1,1 +1,4 @@
-* Melhorias.
+* Aprimorado mecanismo para ranquear pubs
+* Exibindo mensagem de foto de fundo indisponível (quando necessário) na tela de detalhes de um pub
+* Exibe diálogo de configurações de localização para o usuário, quando necessário
+* Outras melhorias secundárias
