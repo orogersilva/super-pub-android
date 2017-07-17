@@ -21,8 +21,8 @@ open class PreferencesModule {
 
     private val LAT_PREF_KEY = "LAT_PREF_KEY"
     private val LNG_PREF_KEY = "LNG_PREF_KEY"
-    private val LOCATION_SETTINGS_FAILURE_STATUS_CODE_KEY = "LOCATION_SETTINGS_FAILURE_STATUS_CODE_KEY"
-    private val LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_KEY = "LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_KEY"
+    private val LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY = "LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY"
+    private val LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY = "LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY"
 
     // endregion
 
@@ -36,14 +36,14 @@ open class PreferencesModule {
 
     @Provides @LoggedInScope open fun provideUserLocationCallback(): UserPreferencesDataSource.UserLocationCallback =
             UserPreferencesDataSource.UserLocationCallback(LAT_PREF_KEY, LNG_PREF_KEY,
-                    LOCATION_SETTINGS_FAILURE_STATUS_CODE_KEY, LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_KEY)
+                    LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY, LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY)
 
     @Provides @LoggedInScope open fun provideUserPreferencesDataSource(sharedPreferences: SharedPreferences,
                                                                        sharedPreferencesEditor: SharedPreferences.Editor,
                                                                        userLocationCallback: UserPreferencesDataSource.UserLocationCallback): PreferencesDataSource =
             UserPreferencesDataSource(sharedPreferences, sharedPreferencesEditor, LAT_PREF_KEY,
-                    LNG_PREF_KEY, LOCATION_SETTINGS_FAILURE_STATUS_CODE_KEY,
-                    LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_KEY, userLocationCallback)
+                    LNG_PREF_KEY, LOCATION_SETTINGS_FAILURE_STATUS_CODE_PREF_KEY,
+                    LOCATION_SETTINGS_FAILURE_STATUS_MESSAGE_PREF_KEY, userLocationCallback)
 
     // endregion
 }

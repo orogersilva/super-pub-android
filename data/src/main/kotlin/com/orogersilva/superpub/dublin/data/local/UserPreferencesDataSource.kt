@@ -7,7 +7,6 @@ import com.google.android.gms.common.api.Status
 import com.orogersilva.superpub.dublin.domain.di.scope.LoggedInScope
 import com.orogersilva.superpub.dublin.data.PreferencesDataSource
 import io.reactivex.*
-import io.reactivex.exceptions.Exceptions
 import javax.inject.Inject
 
 /**
@@ -18,8 +17,8 @@ class UserPreferencesDataSource @Inject constructor(private val sharedPreference
                                                     private val sharedPreferencesEditor: SharedPreferences.Editor,
                                                     private val latPrefKey: String,
                                                     private val lngPrefKey: String,
-                                                    private val locationSettingsFailureStatusCodeKey: String,
-                                                    private val locationSettingsFailureStatusMessageKey: String,
+                                                    private val locationSettingsFailureStatusCodePrefKey: String,
+                                                    private val locationSettingsFailureStatusMessagePrefKey: String,
                                                     private val userLocationCallback: UserLocationCallback) : PreferencesDataSource {
 
     // region OVERRIDED METHODS
@@ -63,8 +62,8 @@ class UserPreferencesDataSource @Inject constructor(private val sharedPreference
 
     override fun setLocationSettingsFailureStatus(status: Status) {
 
-        sharedPreferencesEditor.putInt(locationSettingsFailureStatusCodeKey, status.statusCode)
-        sharedPreferencesEditor.putString(locationSettingsFailureStatusMessageKey, status.statusMessage)
+        sharedPreferencesEditor.putInt(locationSettingsFailureStatusCodePrefKey, status.statusCode)
+        sharedPreferencesEditor.putString(locationSettingsFailureStatusMessagePrefKey, status.statusMessage)
 
         userLocationCallback.setLocationFailureResolution(status.resolution)
 
